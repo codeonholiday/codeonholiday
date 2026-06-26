@@ -8,6 +8,7 @@
     <link rel="canonical" href="https://codeonholiday.com/hoverboard/">
     <meta name="robots" content="index, follow">
     <meta name="author" content="codeonholiday">
+    <meta name="theme-color" content="#0A0A12">
 
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website">
@@ -70,6 +71,26 @@
             color: white;
             background: var(--dark);
             overflow-x: hidden;
+        }
+
+        section[id] {
+            scroll-margin-top: 90px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0.8rem;
+            z-index: 2000;
+            padding: 0.5rem 0.9rem;
+            background: #111827;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            top: 0.8rem;
         }
 
         /* Animated gradient background */
@@ -158,6 +179,12 @@
         .btn-download:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(255, 107, 53, 0.35);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--cyan);
+            outline-offset: 2px;
         }
 
         /* Hero Section */
@@ -250,6 +277,75 @@
 
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.12);
+        }
+
+        /* App showcase */
+        .showcase {
+            padding: 1rem 2rem 6rem;
+        }
+
+        .showcase-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .showcase-head {
+            margin-bottom: 1.4rem;
+        }
+
+        .showcase-head h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.7rem;
+        }
+
+        .showcase-head p {
+            color: rgba(255, 255, 255, 0.62);
+            max-width: 760px;
+        }
+
+        .showcase-main {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 20px 45px rgba(2, 6, 23, 0.45);
+        }
+
+        .showcase-main img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .showcase-grid {
+            margin-top: 1rem;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.9rem;
+        }
+
+        .shot-card {
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.11);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .shot-card img {
+            width: 100%;
+            height: 185px;
+            display: block;
+            object-fit: cover;
+            background: #0f172a;
+        }
+
+        .shot-card figcaption {
+            padding: 0.7rem 0.85rem 0.9rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.78);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         /* Features Grid */
@@ -359,6 +455,8 @@
         .feature-detail {
             padding: 6rem 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.06);
+            content-visibility: auto;
+            contain-intrinsic-size: 700px;
         }
 
         .feature-detail:nth-child(even) {
@@ -413,6 +511,13 @@
             position: absolute;
             inset: 0;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent);
+        }
+
+        .feature-detail-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
         }
 
         /* Hotkeys */
@@ -501,30 +606,43 @@
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.8rem; }
+            .showcase-grid { grid-template-columns: 1fr; }
+            .shot-card img { height: auto; }
             .feature-grid { grid-template-columns: 1fr; }
             .feature-detail-content { grid-template-columns: 1fr; gap: 2rem; }
             .feature-detail-content.reverse { direction: ltr; }
             .nav-links { display: none; }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+        }
     </style>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="bg-gradient"></div>
 
     <!-- Navigation -->
-    <nav>
+    <nav aria-label="Primary">
         <div class="logo">
             <div class="logo-icon"><img src="icon.png" alt="HoverBoard logo"></div>
             HoverBoard
         </div>
         <div class="nav-links">
             <a href="/" class="back-link">← codeonholiday</a>
+            <a href="#screenshots">Screenshots</a>
             <a href="#features">Features</a>
             <a href="#hotkeys">Hotkeys</a>
         </div>
-        <a href="#download" class="btn-download">Download</a>
+        <a href="#download" class="btn-download" aria-label="Jump to download section">Download</a>
     </nav>
 
+    <main id="main-content">
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-badge">
@@ -539,6 +657,45 @@
         <div class="hero-actions">
             <a href="#download" class="btn-primary">Download Free</a>
             <a href="#features" class="btn-secondary">Learn More</a>
+        </div>
+    </section>
+
+    <!-- App Showcase -->
+    <section id="screenshots" class="showcase">
+        <div class="showcase-wrap">
+            <div class="showcase-head">
+                <h2>See HoverBoard in action</h2>
+                <p>Realistic previews of each workflow so you understand exactly what appears on screen during presentations.</p>
+            </div>
+            <div class="showcase-main">
+                <img src="showcase-draw.webp" alt="HoverBoard Draw mode with live annotations over a presentation slide" loading="eager" decoding="async">
+            </div>
+            <div class="showcase-grid">
+                <figure class="shot-card">
+                    <img src="showcase-freeze.webp" alt="HoverBoard Freeze and Explain mode with numbered annotations" loading="lazy" decoding="async">
+                    <figcaption>Freeze &amp; Explain mode</figcaption>
+                </figure>
+                <figure class="shot-card">
+                    <img src="showcase-whiteboard.webp" alt="HoverBoard Whiteboard mode with diagram tools and properties panel" loading="lazy" decoding="async">
+                    <figcaption>Infinite whiteboard mode</figcaption>
+                </figure>
+                <figure class="shot-card">
+                    <img src="showcase-break-timer.webp" alt="HoverBoard Break Timer countdown overlay with pause and add minute actions" loading="lazy" decoding="async">
+                    <figcaption>Break timer overlay</figcaption>
+                </figure>
+                <figure class="shot-card">
+                    <img src="showcase-cursor-halo.webp" alt="HoverBoard Cursor Halo highlighting cursor interaction during a demo" loading="lazy" decoding="async">
+                    <figcaption>Cursor halo visibility</figcaption>
+                </figure>
+                <figure class="shot-card">
+                    <img src="showcase-settings.webp" alt="HoverBoard settings window with hotkeys and general controls" loading="lazy" decoding="async">
+                    <figcaption>Settings and hotkey control</figcaption>
+                </figure>
+                <figure class="shot-card">
+                    <img src="showcase-draw.webp" alt="HoverBoard drawing toolbar and live annotation interface" loading="lazy" decoding="async">
+                    <figcaption>Live teaching flow</figcaption>
+                </figure>
+            </div>
         </div>
     </section>
 
@@ -584,7 +741,9 @@
                 <h3>✏️ Draw — Annotate in the moment</h3>
                 <p>Press a hotkey and your cursor becomes a pen. Draw freely, add arrows, create rectangles. Choose colors, adjust stroke width. Set drawings to auto-fade or keep them until you dismiss. Perfect for highlighting key points during live presentations without breaking flow.</p>
             </div>
-            <div class="feature-detail-visual">✏️</div>
+            <div class="feature-detail-visual">
+                <img src="showcase-draw.webp" alt="Detailed preview of Draw mode annotations" loading="lazy" decoding="async">
+            </div>
         </div>
     </section>
 
@@ -594,7 +753,9 @@
                 <h3>❄️ Freeze & Explain — Pause time</h3>
                 <p>Capture the current screen as a frozen image, then draw on top. Your audience sees the snapshot while you annotate and explain at your own pace. No more rushing while content changes underneath you.</p>
             </div>
-            <div class="feature-detail-visual">❄️</div>
+            <div class="feature-detail-visual">
+                <img src="showcase-freeze.webp" alt="Detailed preview of Freeze and Explain mode" loading="lazy" decoding="async">
+            </div>
         </div>
     </section>
 
@@ -604,7 +765,9 @@
                 <h3>🎨 Whiteboard — Your private canvas</h3>
                 <p>Open an infinite whiteboard without leaving your presentation. Add shapes, lines, text, freehand drawings. Select, move, resize, rotate. Full undo/redo history. Export to PNG, SVG, or Excalidraw format. All data stays local — no account required.</p>
             </div>
-            <div class="feature-detail-visual">🎨</div>
+            <div class="feature-detail-visual">
+                <img src="showcase-whiteboard.webp" alt="Detailed preview of Whiteboard mode with shape tools and properties panel" loading="lazy" decoding="async">
+            </div>
         </div>
     </section>
 
@@ -614,7 +777,9 @@
                 <h3>⏱️ Break Timer — Keep everyone on schedule</h3>
                 <p>Set a countdown timer overlay for breaks. Choose fullscreen or minimal corner display. Customize the message. Optional chime when time's up. Perfect for workshops, training sessions, and long presentations.</p>
             </div>
-            <div class="feature-detail-visual">⏱️</div>
+            <div class="feature-detail-visual">
+                <img src="showcase-break-timer.webp" alt="Detailed preview of Break Timer overlay" loading="lazy" decoding="async">
+            </div>
         </div>
     </section>
 
@@ -624,7 +789,9 @@
                 <h3>🎯 Cursor Highlight — Be seen</h3>
                 <p>Add an animated halo around your cursor. Customize color, size, and animation style. Click effects show where you're interacting. Essential for screen recordings, demos, and helping others follow along.</p>
             </div>
-            <div class="feature-detail-visual">🎯</div>
+            <div class="feature-detail-visual">
+                <img src="showcase-cursor-halo.webp" alt="Detailed preview of cursor halo and click highlight" loading="lazy" decoding="async">
+            </div>
         </div>
     </section>
 
@@ -660,7 +827,7 @@
     </section>
 
     <!-- CTA -->
-    <section class="cta">
+    <section id="download" class="cta">
         <h2>Ready to present better?</h2>
         <p>Download HoverBoard and level up your next presentation.</p>
         <a href="#download" class="btn-primary">Download for macOS</a>
@@ -670,12 +837,17 @@
     <footer>
         <p>© 2026 HoverBoard. Made for presenters, by presenters.</p>
     </footer>
+    </main>
 
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
+                const targetSelector = this.getAttribute('href');
+                if (!targetSelector || targetSelector === '#') return;
+                const target = document.querySelector(targetSelector);
+                if (!target) return;
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+                target.scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>
