@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<!--
+    Meetly Landing Page — redesigned
+    ═════════════════════════════════════════════════════════════
+    SETUP:
+      1. Replace YOUR_USERNAME in GitHub release URLs with your real GitHub username.
+      2. Update Plausible analytics domain (data-domain="meetly.app") if needed.
+      3. Update version badge (v0.1.0) on release.
+      4. Replace the CSS product mockups with real screenshots where you find:
+      5. Fill in real testimonials.
+      6. Add og-image.png and set OG image URL.
+      7. Update footer links (Privacy Policy, Terms, Support).
+    ═════════════════════════════════════════════════════════════
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meetly — Never Miss a Client Meeting Again</title>
+    <meta name="description" content="Meetly is a native macOS menu bar app that fires a fullscreen reminder right before your meetings. Built for freelancers juggling multiple calendars. Free forever, one-time Pro, no subscription.">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Meetly — Never Miss a Client Meeting Again">
+    <meta property="og:description" content="A native macOS menu bar app that fires a fullscreen reminder before your meetings start. Free forever.">
+    <meta property="og:image" content="https://meetly.app/og-image.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Meetly — Never Miss a Client Meeting Again">
+    <meta name="twitter:description" content="A native macOS menu bar app that fires a fullscreen reminder before your meetings start.">
+
+    <!-- Plausible Analytics (Privacy-Friendly) -->
+    <script defer data-domain="meetly.app" src="https://plausible.io/js/script.js"></script>
+    <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================================
+           DESIGN TOKENS — colors synced with meetly-logo.svg (the app's real icon)
+           ============================================================ */
+        :root {
+            --bg:           #0A0D13;
+            --bg-2:         #101722;
+            --bg-3:         #1A2332;
+            --card:         #161F2E;
+            --card-2:       #1E293B;
+            --border:       rgba(120, 140, 170, 0.14);
+            --border-strong:rgba(120, 140, 170, 0.28);
+
+            --teal:         #4EE6D5;
+            --teal-2:       #1787FF;
+            --coral:        #FF6F6F;
+            --coral-2:      #FF3E62;
+            --amber:        #F5B544;
+
+            --text:         #F8FBFF;
+            --text-muted:   #93A1B5;
+            --text-dim:     #64748B;
+
+            --grad-teal:    linear-gradient(135deg, var(--teal) 0%, var(--teal-2) 100%);
+            --grad-coral:   linear-gradient(135deg, var(--coral) 0%, var(--coral-2) 100%);
+            --grad-text:    linear-gradient(120deg, #FFFFFF 0%, var(--teal) 55%, var(--teal-2) 100%);
+
+            --radius:       16px;
+            --radius-sm:    12px;
+            --radius-lg:    24px;
+            --radius-pill:  999px;
+
+            --shadow-glow-teal:  0 10px 40px -8px rgba(78, 230, 213, 0.35);
+            --shadow-glow-coral: 0 10px 40px -8px rgba(255, 111, 111, 0.35);
+
+            --container:    1180px;
+            --ease:         cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        *::selection { background: var(--teal); color: var(--bg); }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        /* Ambient background glows */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(60% 50% at 15% 0%, rgba(78, 230, 213, 0.12) 0%, transparent 60%),
+                radial-gradient(55% 45% at 95% 10%, rgba(255, 111, 111, 0.10) 0%, transparent 60%),
+                radial-gradient(50% 50% at 50% 100%, rgba(23, 135, 255, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+        a { color: inherit; }
+        img { max-width: 100%; display: block; }
+        section { position: relative; z-index: 1; }
+
+        /* ============================================================
+           BUTTONS
+           ============================================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 13px 22px;
+            border-radius: var(--radius-pill);
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 1;
+            text-decoration: none;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.25s var(--ease);
+            white-space: nowrap;
+        }
+        .btn svg { width: 18px; height: 18px; }
+
+        .btn-primary {
+            background: var(--grad-teal);
+            color: #051018;
+            box-shadow: var(--shadow-glow-teal);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 46px -8px rgba(78, 230, 213, 0.55); }
+
+        .btn-coral {
+            background: var(--grad-coral);
+            color: #fff;
+            box-shadow: var(--shadow-glow-coral);
+        }
+        .btn-coral:hover { transform: translateY(-2px); box-shadow: 0 14px 46px -8px rgba(255, 111, 111, 0.55); }
+
+        .btn-ghost {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text);
+            border-color: var(--border-strong);
+            backdrop-filter: blur(8px);
+        }
+        .btn-ghost:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--teal); transform: translateY(-2px); }
+
+        .btn-lg { padding: 17px 30px; font-size: 16px; }
+        .btn-block { width: 100%; }
+
+        /* ============================================================
+           BADGE / PILL
+           ============================================================ */
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 15px;
+            background: rgba(78, 230, 213, 0.08);
+            border: 1px solid rgba(78, 230, 213, 0.28);
+            border-radius: var(--radius-pill);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--teal);
+            letter-spacing: 0.01em;
+        }
+        .pill .dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: var(--teal);
+            box-shadow: 0 0 0 4px rgba(78, 230, 213, 0.2);
+            animation: pulseDot 2s ease-in-out infinite;
+        }
+        @keyframes pulseDot { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+        /* ============================================================
+           SECTION HEADER
+           ============================================================ */
+        .sec-head { max-width: 640px; margin: 0 auto 56px; text-align: center; }
+        .sec-eyebrow {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--teal);
+            margin-bottom: 14px;
+        }
+        .sec-head h2 {
+            font-size: clamp(1.9rem, 4vw, 2.85rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+        .sec-head p { font-size: 1.08rem; color: var(--text-muted); }
+
+        /* ============================================================
+           HEADER / NAV
+           ============================================================ */
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            transition: background 0.3s var(--ease), border-color 0.3s var(--ease);
+            border-bottom: 1px solid transparent;
+        }
+        header.scrolled {
+            background: rgba(10, 13, 19, 0.78);
+            backdrop-filter: blur(16px) saturate(160%);
+            border-bottom-color: var(--border);
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            text-decoration: none;
+            color: var(--text);
+        }
+        .logo-mark { width: 34px; height: 34px; border-radius: 9px; }
+        .logo-text { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; }
+        .nav-links { display: flex; gap: 34px; align-items: center; }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14.5px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text); }
+        .nav-links .back-link { color: var(--teal); opacity: 0.8; font-weight: 600; }
+        .nav-links .back-link:hover { opacity: 1; }
+        .nav-cta { display: flex; gap: 10px; align-items: center; }
+
+        .mobile-toggle { display: none; background: none; border: 1px solid var(--border-strong); border-radius: 10px; padding: 9px; cursor: pointer; }
+        .mobile-toggle svg { width: 20px; height: 20px; stroke: var(--text); }
+
+        /* ============================================================
+           HERO
+           ============================================================ */
+        .hero { padding: 150px 0 90px; }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 1fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .hero-copy h1 {
+            font-size: clamp(2.4rem, 5.6vw, 4.2rem);
+            font-weight: 900;
+            line-height: 1.03;
+            letter-spacing: -0.025em;
+            margin: 22px 0;
+        }
+        .hero-copy h1 .grad {
+            background: var(--grad-text);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-copy .lede {
+            font-size: 1.18rem;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin-bottom: 32px;
+        }
+        .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 26px; }
+        .trust-line {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            color: var(--text-dim);
+            font-size: 13.5px;
+        }
+        .trust-line .sep { width: 4px; height: 4px; border-radius: 50%; background: var(--text-dim); }
+        .trust-line strong { color: var(--text-muted); font-weight: 600; }
+
+        /* Hero social proof */
+        .hero-social {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 34px;
+            padding-top: 26px;
+            border-top: 1px solid var(--border);
+        }
+        .avatars { display: flex; }
+        .avatars span {
+            width: 36px; height: 36px; border-radius: 50%;
+            border: 2px solid var(--bg);
+            margin-left: -10px;
+            display: grid; place-items: center;
+            font-size: 13px; font-weight: 700; color: #051018;
+        }
+        .avatars span:first-child { margin-left: 0; }
+        .stars { color: var(--amber); letter-spacing: 1px; }
+        .hero-social-text { font-size: 13.5px; color: var(--text-muted); }
+        .hero-social-text strong { color: var(--text); }
+
+        /* ============================================================
+           HERO PRODUCT MOCKUP — Fullscreen Reminder
+           ============================================================ */
+        .hero-visual { position: relative; }
+        .device-frame {
+            position: relative;
+            border-radius: 22px;
+            background: linear-gradient(180deg, #1A2332 0%, #0E151F 100%);
+            border: 1px solid var(--border-strong);
+            padding: 12px;
+            box-shadow: 0 40px 90px -30px rgba(0,0,0,0.7), 0 0 0 1px rgba(78,230,213,0.06);
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+        .device-screen {
+            border-radius: 14px;
+            overflow: hidden;
+            background: radial-gradient(120% 100% at 50% 0%, #1C2235 0%, #0B0F17 70%);
+            aspect-ratio: 16 / 11;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 26px 22px;
+        }
+        .mock-menubar {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 22px;
+            background: rgba(0,0,0,0.35);
+            backdrop-filter: blur(4px);
+            display: flex; align-items: center;
+            padding: 0 10px; gap: 12px;
+            font-size: 11px; color: var(--text-muted);
+        }
+        .mock-menubar .mb-logo { width: 11px; height: 11px; }
+        .mock-menubar .mb-pulse {
+            margin-left: auto;
+            color: var(--coral); font-weight: 600;
+            display: flex; align-items: center; gap: 5px;
+        }
+        .mock-menubar .mb-pulse::before { content:''; width:6px;height:6px;border-radius:50%;background:var(--coral); animation: pulseDot 1.4s infinite; }
+
+        .mock-soon {
+            font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+            text-transform: uppercase; color: var(--coral);
+            margin-top: 6px;
+        }
+        .mock-countdown {
+            font-size: clamp(2.6rem, 7vw, 4rem);
+            font-weight: 900;
+            font-variant-numeric: tabular-nums;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            margin: 6px 0 4px;
+            background: var(--grad-text);
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .mock-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+        .mock-sub { font-size: 12px; color: var(--text-muted); margin-bottom: 18px; }
+        .mock-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+        .mock-btn {
+            font-size: 12px; font-weight: 600; padding: 9px 14px;
+            border-radius: 9px; border: 1px solid var(--border-strong);
+            background: rgba(255,255,255,0.04); color: var(--text);
+        }
+        .mock-btn.join { background: var(--grad-teal); color: #051018; border: none; box-shadow: 0 6px 18px -4px rgba(78,230,213,0.5); }
+
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            inset: -10% 5%;
+            background: radial-gradient(circle, rgba(78,230,213,0.22) 0%, transparent 65%);
+            z-index: -1;
+            filter: blur(20px);
+        }
+
+        /* ============================================================
+           TRUST BAR
+           ============================================================ */
+        .trustbar { padding: 24px 0 40px; }
+        .trustbar-label {
+            text-align: center;
+            font-size: 12.5px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 26px;
+        }
+        .logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 18px 44px;
+        }
+        .logos .brand {
+            display: flex; align-items: center; gap: 9px;
+            color: var(--text-muted);
+            font-weight: 600; font-size: 15px;
+            opacity: 0.7;
+            transition: opacity 0.2s, color 0.2s;
+        }
+        .logos .brand:hover { opacity: 1; color: var(--text); }
+        .logos .brand svg { width: 22px; height: 22px; }
+
+        /* ============================================================
+           GENERIC CARD
+           ============================================================ */
+        .card {
+            background: linear-gradient(180deg, var(--card) 0%, var(--bg-2) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px;
+            transition: transform 0.3s var(--ease), border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-strong);
+            box-shadow: 0 18px 50px -20px rgba(0,0,0,0.6);
+        }
+        .icon-tile {
+            width: 46px; height: 46px;
+            border-radius: 12px;
+            display: grid; place-items: center;
+            margin-bottom: 18px;
+            border: 1px solid;
+        }
+        .icon-tile svg { width: 22px; height: 22px; }
+        .icon-tile.teal  { background: rgba(78,230,213,0.10); border-color: rgba(78,230,213,0.30); color: var(--teal); }
+        .icon-tile.coral { background: rgba(255,111,111,0.10); border-color: rgba(255,111,111,0.30); color: var(--coral); }
+        .icon-tile.blue  { background: rgba(23,135,255,0.10); border-color: rgba(23,135,255,0.30); color: var(--teal-2); }
+        .icon-tile.amber { background: rgba(245,181,68,0.10); border-color: rgba(245,181,68,0.30); color: var(--amber); }
+        .card h3 { font-size: 1.12rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
+        .card p { color: var(--text-muted); font-size: 0.96rem; }
+
+        /* ============================================================
+           PROBLEM SECTION
+           ============================================================ */
+        .problem { padding: 90px 0; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+        .problem .card { border-color: rgba(255,111,111,0.18); }
+        .problem .card:hover { border-color: rgba(255,111,111,0.4); box-shadow: 0 18px 50px -20px rgba(255,111,111,0.25); }
+
+        .problem-punch {
+            margin-top: 40px;
+            text-align: center;
+            font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+        .problem-punch .hl {
+            background: var(--grad-coral);
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ============================================================
+           SOLUTION SECTION
+           ============================================================ */
+        .solution { padding: 90px 0; }
+        .solution-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .solution-content h2 {
+            font-size: clamp(1.9rem, 4vw, 2.85rem);
+            font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 18px;
+        }
+        .solution-content > p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 28px; }
+        .benefit-list { list-style: none; display: grid; gap: 18px; }
+        .benefit-list li {
+            display: flex; gap: 16px; align-items: flex-start;
+            padding: 18px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            transition: border-color 0.25s, background 0.25s;
+        }
+        .benefit-list li:hover { border-color: rgba(78,230,213,0.35); background: rgba(78,230,213,0.04); }
+        .benefit-list .b-icon {
+            flex-shrink: 0;
+            width: 40px; height: 40px; border-radius: 10px;
+            background: rgba(78,230,213,0.10);
+            border: 1px solid rgba(78,230,213,0.28);
+            color: var(--teal);
+            display: grid; place-items: center;
+        }
+        .benefit-list .b-icon svg { width: 20px; height: 20px; }
+        .benefit-list strong { display: block; font-size: 1.02rem; margin-bottom: 3px; }
+        .benefit-list span { color: var(--text-muted); font-size: 0.92rem; }
+
+        /* Solution visual — menu bar dropdown mock */
+        .menubar-mock {
+            background: linear-gradient(180deg, var(--card) 0%, var(--bg-2) 100%);
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius);
+            padding: 22px;
+            box-shadow: 0 30px 70px -30px rgba(0,0,0,0.6);
+        }
+        .mb-mock-title { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-dim); margin-bottom: 14px; font-weight: 700; }
+        .mb-now {
+            background: rgba(78,230,213,0.06);
+            border: 1px solid rgba(78,230,213,0.3);
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 14px;
+        }
+        .mb-now .lbl { font-size: 11px; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: 0.1em; }
+        .mb-now .ttl { font-weight: 700; font-size: 15px; margin: 4px 0; }
+        .mb-now .meta { font-size: 12px; color: var(--text-muted); }
+        .mb-now .join { margin-top: 10px; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--teal); }
+        .mb-list { display: grid; gap: 8px; }
+        .mb-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 12px; border-radius: 10px;
+            background: rgba(255,255,255,0.02); border: 1px solid var(--border);
+            font-size: 13px;
+        }
+        .mb-item .time { color: var(--text-dim); font-size: 12px; }
+
+        /* ============================================================
+           PRODUCT SHOWCASE — tabbed
+           ============================================================ */
+        .showcase { padding: 90px 0; }
+        .showcase-tabs {
+            display: flex; justify-content: center; gap: 8px;
+            flex-wrap: wrap; margin-bottom: 36px;
+        }
+        .tab {
+            font-family: inherit;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 11px 20px;
+            border-radius: var(--radius-pill);
+            font-size: 14px; font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s var(--ease);
+            display: inline-flex; align-items: center; gap: 8px;
+        }
+        .tab svg { width: 16px; height: 16px; }
+        .tab:hover { color: var(--text); border-color: var(--border-strong); }
+        .tab.active {
+            background: rgba(78,230,213,0.10);
+            border-color: rgba(78,230,213,0.45);
+            color: var(--teal);
+        }
+
+        .showcase-stage {
+            position: relative;
+            background: linear-gradient(180deg, var(--card) 0%, var(--bg-2) 100%);
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: 0 40px 90px -35px rgba(0,0,0,0.7);
+            min-height: 420px;
+        }
+        .panel { display: none; }
+        .panel.active { display: block; animation: fadeIn 0.4s var(--ease); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+        .panel-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px; align-items: center; }
+        .panel-copy h3 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; margin-bottom: 12px; letter-spacing: -0.02em; }
+        .panel-copy p { color: var(--text-muted); margin-bottom: 18px; }
+        .panel-copy ul { list-style: none; display: grid; gap: 10px; }
+        .panel-copy li { display: flex; gap: 10px; align-items: center; font-size: 0.96rem; color: var(--text-muted); }
+        .panel-copy li svg { width: 18px; height: 18px; color: var(--teal); flex-shrink: 0; }
+
+        .shot {
+            border-radius: 14px;
+            border: 1px solid var(--border-strong);
+            background: radial-gradient(120% 100% at 50% 0%, #1C2235 0%, #0B0F17 75%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Quick Join mock */
+        .quickjoin-mock {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            aspect-ratio: 4/3; padding: 24px; text-align: center; gap: 10px;
+        }
+        .qj-icon {
+            width: 64px; height: 64px; border-radius: 18px;
+            background: var(--grad-teal);
+            display: grid; place-items: center;
+            box-shadow: var(--shadow-glow-teal);
+        }
+        .qj-icon svg { width: 30px; height: 30px; color: #051018; }
+        .qj-title { font-weight: 700; font-size: 16px; }
+        .qj-link { font-size: 12px; color: var(--text-dim); font-family: ui-monospace, monospace; }
+        .qj-launch {
+            margin-top: 6px; font-size: 12px; font-weight: 600; padding: 9px 16px; border-radius: 9px;
+            background: var(--grad-teal); color: #051018;
+        }
+
+        /* ============================================================
+           FEATURES BENTO
+           ============================================================ */
+        .features { padding: 90px 0; }
+        .bento {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 1fr;
+            gap: 18px;
+        }
+        .bento .card { padding: 24px; display: flex; flex-direction: column; }
+        .bento .b-wide { grid-column: span 2; }
+        .bento .card.featured-tile {
+            background: linear-gradient(135deg, rgba(78,230,213,0.10), rgba(23,135,255,0.04));
+            border-color: rgba(78,230,213,0.30);
+        }
+        .bento .card h3 { font-size: 1.05rem; }
+        .bento .b-wide h3 { font-size: 1.2rem; }
+
+        /* ============================================================
+           COMPARISON TABLE
+           ============================================================ */
+        .compare { padding: 90px 0; }
+        .compare-wrap {
+            max-width: 860px; margin: 0 auto;
+            background: linear-gradient(180deg, var(--card) 0%, var(--bg-2) 100%);
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        .compare table { width: 100%; border-collapse: collapse; }
+        .compare th, .compare td {
+            padding: 18px 22px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .compare thead th {
+            background: rgba(255,255,255,0.02);
+            font-size: 14px; font-weight: 700;
+        }
+        .compare th:first-child { width: 46%; color: var(--text-muted); }
+        .compare .col-meetly { text-align: center; width: 27%; color: var(--teal); }
+        .compare .col-other  { text-align: center; width: 27%; color: var(--text-muted); }
+        .compare tbody td:first-child { font-weight: 600; font-size: 0.98rem; }
+        .compare tbody tr:last-child td { border-bottom: none; }
+        .compare .yes { color: var(--teal); }
+        .compare .no  { color: var(--text-dim); }
+        .compare .yes svg, .compare .no svg { width: 20px; height: 20px; }
+        .compare-badge {
+            display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+            background: var(--grad-teal); color: #051018; padding: 3px 8px; border-radius: 6px; margin-bottom: 6px;
+        }
+
+        /* ============================================================
+           TESTIMONIALS
+           ============================================================ */
+        .testimonials { padding: 90px 0; }
+        .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+        .t-card {
+            background: linear-gradient(180deg, var(--card) 0%, var(--bg-2) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px;
+            display: flex; flex-direction: column; gap: 18px;
+            transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+        }
+        .t-card:hover { transform: translateY(-4px); border-color: var(--border-strong); }
+        .t-stars { color: var(--amber); letter-spacing: 2px; font-size: 15px; }
+        .t-body { color: var(--text); font-size: 1rem; line-height: 1.6; }
+        .t-author { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+        .t-avatar { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; color: #051018; font-size: 15px; }
+        .t-name { font-weight: 700; font-size: 14px; }
+        .t-role { font-size: 12.5px; color: var(--text-muted); }
+
+        /* ============================================================
+           PRICING
+           ============================================================ */
+        .pricing { padding: 90px 0; }
+        .price-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 820px; margin: 0 auto; }
+        .price-card {
+            position: relative;
+            background: linear-gradient(180deg, var(--card) 0%, var(--bg-2) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 36px 32px;
+            display: flex; flex-direction: column;
+            transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+        }
+        .price-card:hover { transform: translateY(-4px); }
+        .price-card.pro {
+            border-color: rgba(78,230,213,0.4);
+            background: linear-gradient(180deg, rgba(78,230,213,0.07) 0%, var(--bg-2) 100%);
+            box-shadow: 0 30px 70px -30px rgba(78,230,213,0.3);
+        }
+        .price-tag {
+            position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+            background: var(--grad-teal); color: #051018;
+            font-size: 12px; font-weight: 700; padding: 6px 16px; border-radius: var(--radius-pill);
+            white-space: nowrap; letter-spacing: 0.02em;
+        }
+        .price-tier { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: 14px; }
+        .price-amt { display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; }
+        .price-amt .num { font-size: 3.4rem; font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
+        .price-amt .cur { font-size: 1.4rem; font-weight: 700; color: var(--text-muted); }
+        .price-amt .strike { font-size: 1.1rem; color: var(--text-dim); text-decoration: line-through; }
+        .price-amt .per { font-size: 0.95rem; color: var(--text-muted); }
+        .price-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px; }
+        .price-features { list-style: none; display: grid; gap: 12px; margin-bottom: 28px; }
+        .price-features li { display: flex; gap: 11px; align-items: flex-start; font-size: 0.95rem; }
+        .price-features li svg { width: 18px; height: 18px; color: var(--teal); flex-shrink: 0; margin-top: 2px; }
+        .price-features li.muted { color: var(--text-dim); }
+        .price-features li.muted svg { color: var(--text-dim); }
+        .price-card .btn { margin-top: auto; }
+        .price-note { text-align: center; margin-top: 26px; font-size: 13.5px; color: var(--text-muted); }
+        .price-note strong { color: var(--text); }
+
+        /* ============================================================
+           FAQ
+           ============================================================ */
+        .faq { padding: 90px 0; }
+        .faq-list { max-width: 760px; margin: 0 auto; display: grid; gap: 12px; }
+        .faq-item {
+            background: linear-gradient(180deg, var(--card) 0%, var(--bg-2) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: border-color 0.25s;
+        }
+        .faq-item[open] { border-color: rgba(78,230,213,0.35); }
+        .faq-item summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 20px 22px;
+            font-weight: 600; font-size: 1.02rem;
+            display: flex; justify-content: space-between; align-items: center; gap: 16px;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item .chev { flex-shrink: 0; width: 20px; height: 20px; color: var(--teal); transition: transform 0.25s var(--ease); }
+        .faq-item[open] .chev { transform: rotate(180deg); }
+        .faq-item .ans { padding: 0 22px 22px; color: var(--text-muted); font-size: 0.97rem; }
+
+        /* ============================================================
+           FINAL CTA
+           ============================================================ */
+        .final-cta { padding: 60px 0 100px; }
+        .cta-box {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            padding: 64px 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #0E1A2B 0%, #0A1828 100%);
+            border: 1px solid rgba(78,230,213,0.25);
+        }
+        .cta-box::before {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(50% 80% at 20% 0%, rgba(78,230,213,0.22) 0%, transparent 60%),
+                radial-gradient(50% 80% at 80% 100%, rgba(255,111,111,0.16) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .cta-box > * { position: relative; z-index: 1; }
+        .cta-box h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px; }
+        .cta-box p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; }
+        .cta-box .hero-cta { justify-content: center; }
+        .cta-box .trust-line { justify-content: center; }
+
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        footer { border-top: 1px solid var(--border); padding: 50px 0 40px; background: var(--bg-2); position: relative; z-index: 1; }
+        .foot-grid {
+            display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap;
+        }
+        .foot-brand { display: flex; flex-direction: column; gap: 14px; max-width: 300px; }
+        .foot-brand .logo { font-size: 18px; }
+        .foot-brand p { font-size: 13.5px; color: var(--text-muted); }
+        .foot-cat { width: 38px; height: 38px; border-radius: 10px; }
+        .foot-cols { display: flex; gap: 60px; flex-wrap: wrap; }
+        .foot-col h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-dim); margin-bottom: 14px; font-weight: 700; }
+        .foot-col a { display: block; color: var(--text-muted); text-decoration: none; font-size: 14px; padding: 5px 0; transition: color 0.2s; }
+        .foot-col a:hover { color: var(--teal); }
+        .foot-bottom {
+            margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+            font-size: 13px; color: var(--text-dim);
+        }
+
+        /* ============================================================
+           SCROLL REVEAL
+           ============================================================ */
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+        .reveal.in { opacity: 1; transform: none; }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 50px; }
+            .hero-visual { max-width: 560px; margin: 0 auto; }
+            .solution-grid { grid-template-columns: 1fr; gap: 40px; }
+            .panel-grid { grid-template-columns: 1fr; gap: 28px; }
+            .bento { grid-template-columns: repeat(2, 1fr); }
+            .bento .b-wide { grid-column: span 2; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: inline-flex; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .test-grid { grid-template-columns: 1fr; }
+            .price-grid { grid-template-columns: 1fr; }
+            .bento { grid-template-columns: 1fr; }
+            .bento .b-wide { grid-column: auto; }
+            .hero { padding: 120px 0 70px; }
+            .cta-box { padding: 44px 24px; }
+            .compare-wrap { font-size: 0.9rem; }
+            .compare th, .compare td { padding: 14px 12px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+            .reveal { opacity: 1; transform: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+         SVG ICON SPRITE
+         ============================================================ -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+            </symbol>
+            <symbol id="i-alarm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="13" r="8"/><path d="M5 3 2 6M19 3l3 3M12 9v4l2 2"/>
+            </symbol>
+            <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/>
+            </symbol>
+            <symbol id="i-merge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M6 9v6M9 18a9 9 0 0 0 9-9V6"/><circle cx="18" cy="6" r="3"/>
+            </symbol>
+            <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+            </symbol>
+            <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/>
+            </symbol>
+            <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/>
+            </symbol>
+            <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m5 12 5 5L20 7"/>
+            </symbol>
+            <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 6l12 12M18 6 6 18"/>
+            </symbol>
+            <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
+            </symbol>
+            <symbol id="i-apple" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.05 12.04c-.03-2.6 2.12-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.81 0-2.06-.92-3.39-.89-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.78 1.31 10.33.86 1.25 1.89 2.65 3.23 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.28-1.27 3.13-2.53.98-1.45 1.39-2.85 1.41-2.92-.03-.01-2.71-1.04-2.74-4.13zM14.63 4.6c.72-.87 1.2-2.08 1.07-3.29-1.03.04-2.28.69-3.02 1.56-.66.77-1.24 2-1.08 3.18 1.15.09 2.32-.58 3.03-1.45z"/>
+            </symbol>
+            <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+            </symbol>
+            <symbol id="i-devices" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="14" height="12" rx="2"/><path d="M2 20h14"/><rect x="16" y="9" width="6" height="11" rx="1.5"/>
+            </symbol>
+            <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m12 2 10 6-10 6L2 8l10-6z"/><path d="m2 16 10 6 10-6M2 12l10 6 10-6"/>
+            </symbol>
+            <symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 5h18l-7 8v5l-4 2v-7L3 5z"/>
+            </symbol>
+            <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"/>
+            </symbol>
+            <symbol id="i-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="6" width="14" height="12" rx="2"/><path d="m16 10 6-3v10l-6-3"/>
+            </symbol>
+
+            <!-- Trust bar brand glyphs (simplified marks) -->
+            <symbol id="b-gcal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4M8 15h7"/>
+            </symbol>
+            <symbol id="b-outlook" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="6" width="13" height="12" rx="1"/><path d="m15 9 7-3v12l-7-3"/><circle cx="8.5" cy="12" r="2"/>
+            </symbol>
+            <symbol id="b-icloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 18a4 4 0 0 1 0-8 5 5 0 0 1 9.6-1.3A3.5 3.5 0 0 1 17.5 18H7z"/>
+            </symbol>
+            <symbol id="b-zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="6" width="13" height="12" rx="3"/><path d="m15 10 7-3v10l-7-3z"/>
+            </symbol>
+            <symbol id="b-teams" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 7h12v10a3 3 0 0 1-3 3H3zM15 10h3v5a2 2 0 0 1-2 2"/><circle cx="20" cy="9" r="2"/><circle cx="9" cy="4" r="2"/>
+            </symbol>
+            <symbol id="b-meet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="6" width="11" height="12" rx="2"/><path d="m13 10 9-4v12l-9-4z"/>
+            </symbol>
+        </defs>
+    </svg>
+
+    <!-- ============================================================
+         HEADER
+         ============================================================ -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo" aria-label="Meetly home">
+                    <svg class="logo-mark" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="hbg" x1="168" y1="96" x2="856" y2="928" gradientUnits="userSpaceOnUse">
+                                <stop offset="0" stop-color="#202735"/><stop offset="1" stop-color="#0A0D13"/>
+                            </linearGradient>
+                            <linearGradient id="hteal" x1="320" y1="278" x2="704" y2="736" gradientUnits="userSpaceOnUse">
+                                <stop offset="0" stop-color="#4EE6D5"/><stop offset="1" stop-color="#1787FF"/>
+                            </linearGradient>
+                            <linearGradient id="hcoral" x1="622" y1="246" x2="812" y2="468" gradientUnits="userSpaceOnUse">
+                                <stop offset="0" stop-color="#FF8B6E"/><stop offset="1" stop-color="#FF3E62"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="1024" height="1024" rx="228" fill="url(#hbg)"/>
+                        <circle cx="760" cy="294" r="78" stroke="url(#hcoral)" stroke-width="22"/>
+                        <rect x="236" y="230" width="552" height="586" rx="92" fill="#F8FBFF"/>
+                        <rect x="236" y="230" width="552" height="160" rx="92" fill="url(#hteal)"/>
+                        <rect x="326" y="480" width="372" height="236" rx="58" fill="#111927"/>
+                        <path d="M594 584L664 542C679.998 532.401 700 543.925 700 562.582V633.418C700 652.075 679.998 663.599 664 654L594 612V584Z" fill="#4EE6D5"/>
+                    </svg>
+                    <span class="logo-text">Meetly</span>
+                </a>
+                <div class="nav-links">
+                    <a href="/" class="back-link">← codeonholiday</a>
+                    <a href="#features">Features</a>
+                    <a href="#showcase">See it in action</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+                <div class="nav-cta">
+                    <a href="https://github.com/YOUR_USERNAME/meetly/releases/latest" class="btn btn-primary">
+                        <svg><use href="#i-download"/></svg>
+                        Download Free
+                    </a>
+                    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                        <svg><use href="#i-chev"/></svg>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <span class="pill reveal"><span class="dot"></span> Free forever · macOS native · v0.1.0</span>
+                    <h1 class="reveal">Never miss a<br><span class="grad">client meeting</span> again.</h1>
+                    <p class="lede reveal">Meetly is a native macOS menu bar app that fires a <strong>fullscreen reminder</strong> right before your meetings start. Perfect for freelancers juggling multiple calendars across multiple Macs.</p>
+                    <div class="hero-cta reveal">
+                        <a href="https://github.com/YOUR_USERNAME/meetly/releases/latest" class="btn btn-primary btn-lg">
+                            <svg><use href="#i-download"/></svg>
+                            Download Free
+                        </a>
+                        <a href="#showcase" class="btn btn-ghost btn-lg">
+                            <svg><use href="#i-video"/></svg>
+                            See it in action
+                        </a>
+                    </div>
+                    <div class="trust-line reveal">
+                        <svg style="width:16px;height:16px;color:var(--teal)"><use href="#i-apple"/></svg>
+                        <strong>macOS 12+</strong>
+                        <span class="sep"></span>
+                        <strong>~8 MB</strong>
+                        <span class="sep"></span>
+                        No credit card
+                        <span class="sep"></span>
+                        No subscription
+                    </div>
+
+                    <div class="hero-social reveal">
+                        <div class="avatars">
+                            <span style="background:#4EE6D5">A</span>
+                            <span style="background:#FF6F6F">M</span>
+                            <span style="background:#1787FF">J</span>
+                            <span style="background:#F5B544">S</span>
+                        </div>
+                        <div>
+                            <div class="stars">★★★★★</div>
+                            <div class="hero-social-text"><strong>Loved by freelancers</strong> who can't afford to miss client calls.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero product mockup: fullscreen reminder -->
+                <div class="hero-visual reveal">
+                    <div class="device-frame">
+                        <div class="device-screen">
+                            <div class="mock-menubar">
+                                <svg class="mb-logo" viewBox="0 0 1024 1024"><rect width="1024" height="1024" rx="228" fill="url(#hteal)"/></svg>
+                                <span>Meetly</span>
+                                <span class="mb-pulse">Meeting in 1 min</span>
+                            </div>
+                            <div class="mock-soon">Starting in</div>
+                            <div class="mock-countdown">00:58</div>
+                            <div class="mock-title">Q3 Strategy — Acme Studio</div>
+                            <div class="mock-sub">Zoom · starts at 10:00 AM</div>
+                            <div class="mock-actions">
+                                <button class="mock-btn join">Join now</button>
+                                <button class="mock-btn">Snooze 5m</button>
+                                <button class="mock-btn">Dismiss</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         TRUST BAR
+         ============================================================ -->
+    <section class="trustbar">
+        <div class="container">
+            <p class="trustbar-label reveal">Works with the calendars & meeting links you already use</p>
+            <div class="logos reveal">
+                <span class="brand"><svg><use href="#b-gcal"/></svg> Google Calendar</span>
+                <span class="brand"><svg><use href="#b-outlook"/></svg> Outlook</span>
+                <span class="brand"><svg><use href="#b-icloud"/></svg> iCloud</span>
+                <span class="brand"><svg><use href="#b-zoom"/></svg> Zoom</span>
+                <span class="brand"><svg><use href="#b-teams"/></svg> Teams</span>
+                <span class="brand"><svg><use href="#b-meet"/></svg> Meet</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         PROBLEM
+         ============================================================ -->
+    <section class="problem" id="problem">
+        <div class="container">
+            <div class="sec-head reveal">
+                <span class="sec-eyebrow">The real cost</span>
+                <h2>One missed meeting<br>costs more than Meetly.</h2>
+                <p>Calendar apps were built to organize your day — not to grab your attention when it matters. If you work across clients, you know the pain.</p>
+            </div>
+            <div class="grid-3">
+                <div class="card reveal">
+                    <div class="icon-tile coral"><svg><use href="#i-bell"/></svg></div>
+                    <h3>Notifications you swipe away</h3>
+                    <p>That little banner? Gone while you're in deep work. By the time you notice, the client's been waiting ten minutes.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="icon-tile coral"><svg><use href="#i-layers"/></svg></div>
+                    <h3>Calendars scattered everywhere</h3>
+                    <p>Google for client A, Outlook for client B, iCloud for yourself. No single place watches them all for what's next.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="icon-tile coral"><svg><use href="#i-devices"/></svg></div>
+                    <h3>Dismissed on one Mac, gone everywhere</h3>
+                    <p>You handled the reminder on your laptop — then your desktop pings you again five minutes later. Chaos.</p>
+                </div>
+            </div>
+            <p class="problem-punch reveal">One missed client call can cost a <span class="hl">whole contract</span>. Meetly exists so that never happens.</p>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SOLUTION
+         ============================================================ -->
+    <section class="solution">
+        <div class="container">
+            <div class="solution-grid">
+                <div class="solution-content">
+                    <span class="sec-eyebrow reveal">Your safety net</span>
+                    <h2 class="reveal">Not another calendar.<br>A reminder that's impossible to miss.</h2>
+                    <p class="reveal">Meetly isn't a calendar replacement. It's a focused companion that watches the calendars you choose and interrupts you — gently but firmly — right before a meeting starts.</p>
+                    <ul class="benefit-list">
+                        <li class="reveal">
+                            <span class="b-icon"><svg><use href="#i-alarm"/></svg></span>
+                            <div><strong>Fullscreen reminders</strong><span>Impossible-to-ignore overlays that appear before your meetings — with a live countdown.</span></div>
+                        </li>
+                        <li class="reveal">
+                            <span class="b-icon"><svg><use href="#i-layers"/></svg></span>
+                            <div><strong>All your calendars, one watchlist</strong><span>Pick exactly which calendars Meetly monitors. Client, personal, side-project — your call.</span></div>
+                        </li>
+                        <li class="reveal">
+                            <span class="b-icon"><svg><use href="#i-refresh"/></svg></span>
+                            <div><strong>Sync across your Macs</strong><span>Dismiss or join on one device and every other Mac stays in sync via iCloud. (Pro)</span></div>
+                        </li>
+                        <li class="reveal">
+                            <span class="b-icon"><svg><use href="#i-shield"/></svg></span>
+                            <div><strong>Privacy-first by design</strong><span>No backend server. Your calendar data stays on your Mac or in your iCloud. Nothing is sold or shared.</span></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Menu bar dropdown mock -->
+                <div class="reveal">
+                    <div class="menubar-mock">
+                        <div class="mb-mock-title">Meetly · Menu Bar</div>
+                        <div class="mb-now">
+                            <div class="lbl">● Now</div>
+                            <div class="ttl">Q3 Strategy — Acme Studio</div>
+                            <div class="meta">Zoom · 10:00 – 10:30 AM</div>
+                            <a href="#" class="join" onclick="return false">
+                                <svg style="width:13px;height:13px"><use href="#i-video"/></svg>
+                                Join meeting
+                            </a>
+                        </div>
+                        <div class="mb-list">
+                            <div class="mb-item"><span>Standup — Internal</span><span class="time">in 1h</span></div>
+                            <div class="mb-item"><span>Design review — Northwind</span><span class="time">in 2h</span></div>
+                            <div class="mb-item"><span>1:1 — Client C</span><span class="time">3:30 PM</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SHOWCASE (tabbed)
+         ============================================================ -->
+    <section class="showcase" id="showcase">
+        <div class="container">
+            <div class="sec-head reveal">
+                <span class="sec-eyebrow">See it in action</span>
+                <h2>Three ways Meetly has your back</h2>
+                <p>Click through the moments that matter — from the fullscreen alert to the quick join.</p>
+            </div>
+
+            <div class="showcase-tabs reveal">
+                <button class="tab active" data-panel="p1"><svg><use href="#i-alarm"/></svg> Fullscreen reminder</button>
+                <button class="tab" data-panel="p2"><svg><use href="#i-layers"/></svg> Menu bar</button>
+                <button class="tab" data-panel="p3"><svg><use href="#i-bolt"/></svg> Quick join</button>
+            </div>
+
+            <div class="showcase-stage reveal">
+                <!-- Panel 1: Fullscreen reminder -->
+                <div class="panel active" id="p1">
+                    <div class="panel-grid">
+                        <div class="panel-copy">
+                            <h3>An overlay you can't ignore</h3>
+                            <p>Right before your meeting, Meetly takes over your screen with a clean, calm countdown — the meeting title, the link, and the buttons you need. No more "I didn't see the notification."</p>
+                            <ul>
+                                <li><svg><use href="#i-check"/></svg> Live countdown with big, scannable numbers</li>
+                                <li><svg><use href="#i-check"/></svg> Snooze 1m / 5m or dismiss in one click</li>
+                                <li><svg><use href="#i-check"/></svg> Detects overlapping meetings and groups them</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <!-- TODO: replace with real screenshot of the fullscreen reminder -->
+                            <div class="device-frame">
+                                <div class="device-screen">
+                                    <div class="mock-menubar">
+                                        <svg class="mb-logo" viewBox="0 0 1024 1024"><rect width="1024" height="1024" rx="228" fill="url(#hteal)"/></svg>
+                                        <span>Meetly</span>
+                                        <span class="mb-pulse">Meeting in 1 min</span>
+                                    </div>
+                                    <div class="mock-soon">Starting in</div>
+                                    <div class="mock-countdown">00:58</div>
+                                    <div class="mock-title">Q3 Strategy — Acme Studio</div>
+                                    <div class="mock-sub">Zoom · starts at 10:00 AM</div>
+                                    <div class="mock-actions">
+                                        <button class="mock-btn join">Join now</button>
+                                        <button class="mock-btn">Snooze 5m</button>
+                                        <button class="mock-btn">Dismiss</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 2: Menu bar -->
+                <div class="panel" id="p2">
+                    <div class="panel-grid">
+                        <div class="panel-copy">
+                            <h3>Your meetings, one click away</h3>
+                            <p>Click the menu bar icon to see what's happening now and what's coming up. The current meeting is always joinable in one click — no digging through calendar apps.</p>
+                            <ul>
+                                <li><svg><use href="#i-check"/></svg> "Now" meeting always shown and joinable</li>
+                                <li><svg><use href="#i-check"/></svg> Upcoming meetings across all watched calendars</li>
+                                <li><svg><use href="#i-check"/></svg> Icon shows soon / current state at a glance</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <!-- TODO: replace with real screenshot of menu bar dropdown -->
+                            <div class="menubar-mock">
+                                <div class="mb-mock-title">Meetly · Menu Bar</div>
+                                <div class="mb-now">
+                                    <div class="lbl">● Now</div>
+                                    <div class="ttl">Q3 Strategy — Acme Studio</div>
+                                    <div class="meta">Zoom · 10:00 – 10:30 AM</div>
+                                    <a href="#" class="join" onclick="return false"><svg style="width:13px;height:13px"><use href="#i-video"/></svg> Join meeting</a>
+                                </div>
+                                <div class="mb-list">
+                                    <div class="mb-item"><span>Standup — Internal</span><span class="time">in 1h</span></div>
+                                    <div class="mb-item"><span>Design review — Northwind</span><span class="time">in 2h</span></div>
+                                    <div class="mb-item"><span>1:1 — Client C</span><span class="time">3:30 PM</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 3: Quick join -->
+                <div class="panel" id="p3">
+                    <div class="panel-grid">
+                        <div class="panel-copy">
+                            <h3>One click to join anything</h3>
+                            <p>Meetly reads your event notes and finds the Zoom, Google Meet, or Teams link for you. No more hunting through invites while the client waits.</p>
+                            <ul>
+                                <li><svg><use href="#i-check"/></svg> Auto-extracts Zoom / Meet / Teams links</li>
+                                <li><svg><use href="#i-check"/></svg> Join straight from the reminder or menu bar</li>
+                                <li><svg><use href="#i-check"/></svg> Marks the meeting handled everywhere</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <!-- TODO: replace with real screenshot of quick join -->
+                            <div class="shot quickjoin-mock">
+                                <div class="qj-icon"><svg><use href="#i-bolt"/></svg></div>
+                                <div class="qj-title">Join Q3 Strategy?</div>
+                                <div class="qj-link">zoom.us/j/884•••••••</div>
+                                <button class="qj-launch">Launch meeting</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FEATURES BENTO
+         ============================================================ -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="sec-head reveal">
+                <span class="sec-eyebrow">Built for reliability</span>
+                <h2>Every detail tuned so you don't miss a beat</h2>
+                <p>Small features that save you from the awkward "sorry I'm late" message.</p>
+            </div>
+            <div class="bento">
+                <div class="card featured-tile b-wide reveal">
+                    <div class="icon-tile teal"><svg><use href="#i-alarm"/></svg></div>
+                    <h3>Snooze without losing it</h3>
+                    <p>Need five more minutes? Snooze 1 or 5 minutes and Meetly re-alerts you — it never just disappears. Snooze state syncs across your Macs too.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="icon-tile blue"><svg><use href="#i-bolt"/></svg></div>
+                    <h3>Quick Join</h3>
+                    <p>One click to launch Zoom, Meet, or Teams from any reminder.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="icon-tile amber"><svg><use href="#i-moon"/></svg></div>
+                    <h3>Quiet hours</h3>
+                    <p>No fullscreen blasts at 11 PM. You set the boundaries.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="icon-tile coral"><svg><use href="#i-merge"/></svg></div>
+                    <h3>Conflict detection</h3>
+                    <p>Overlapping meetings grouped into one clear reminder.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="icon-tile teal"><svg><use href="#i-layers"/></svg></div>
+                    <h3>Duplicate merging</h3>
+                    <p>Same meeting on three calendars? Meetly shows it once.</p>
+                </div>
+                <div class="card b-wide reveal">
+                    <div class="icon-tile blue"><svg><use href="#i-filter"/></svg></div>
+                    <h3>Per-calendar rules</h3>
+                    <p>Mute the noisy shared calendar, keep client calendars loud. Decide per calendar whether it triggers fullscreen, sound, or both. Low-priority calendars stay visible in the menu but never hijack your screen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         COMPARISON
+         ============================================================ -->
+    <section class="compare">
+        <div class="container">
+            <div class="sec-head reveal">
+                <span class="sec-eyebrow">Why Meetly</span>
+                <h2>vs. native calendar notifications</h2>
+                <p>Your calendar app organizes your day. Meetly makes sure you actually show up.</p>
+            </div>
+            <div class="compare-wrap reveal">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="col-meetly"><span class="compare-badge">Meetly</span></th>
+                            <th class="col-other">Native calendar apps</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fullscreen reminder before meetings</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Watch multiple calendars together</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Dismiss / join syncs across Macs</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>One-click join (Zoom / Meet / Teams)</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Privacy-first, no backend server</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>One-time price, no subscription</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         TESTIMONIALS
+         ============================================================ -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="sec-head reveal">
+                <span class="sec-eyebrow">Loved by freelancers</span>
+                <h2>People who can't afford to miss calls</h2>
+                <!-- TODO: replace with real reviews once you have them -->
+            </div>
+            <div class="test-grid">
+                <div class="t-card reveal">
+                    <div class="t-stars">★★★★★</div>
+                    <p class="t-body">"I missed a client kickoff because the calendar notification came in while I was in flow mode. Meetly's fullscreen alert is exactly the safety net I needed. Paid for Pro the day it launched."</p>
+                    <div class="t-author">
+                        <div class="t-avatar" style="background:var(--grad-teal)">A</div>
+                        <div>
+                            <div class="t-name">Alex Rivera</div>
+                            <div class="t-role">Freelance designer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="t-card reveal">
+                    <div class="t-stars">★★★★★</div>
+                    <p class="t-body">"I juggle four client calendars across two Macs. Before Meetly, double-notifications were a daily nightmare. Now I dismiss on my laptop and it's handled on the desktop too. Worth every cent."</p>
+                    <div class="t-author">
+                        <div class="t-avatar" style="background:var(--grad-coral)">M</div>
+                        <div>
+                            <div class="t-name">Maya Chen</div>
+                            <div class="t-role">Contract consultant</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="t-card reveal">
+                    <div class="t-stars">★★★★★</div>
+                    <p class="t-body">"The quick-join alone saves me the awkward 30 seconds of hunting for the Zoom link every meeting. Privacy-first was the clincher — my client data never leaves my Mac."</p>
+                    <div class="t-author">
+                        <div class="t-avatar" style="background:linear-gradient(135deg,#1787FF,#4EE6D5)">J</div>
+                        <div>
+                            <div class="t-name">Jordan Park</div>
+                            <div class="t-role">Indie developer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         PRICING
+         ============================================================ -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="sec-head reveal">
+                <span class="sec-eyebrow">Simple pricing</span>
+                <h2>Free forever. Pro once.</h2>
+                <p>No subscription, ever. Use the Free plan as long as you want — upgrade only when you need sync across Macs.</p>
+            </div>
+            <div class="price-grid">
+                <!-- Free -->
+                <div class="price-card reveal">
+                    <div class="price-tier">Free</div>
+                    <div class="price-amt">
+                        <span class="cur">$</span>
+                        <span class="num">0</span>
+                        <span class="per">/ forever</span>
+                    </div>
+                    <p class="price-desc">Everything you need to never miss a meeting on a single Mac.</p>
+                    <ul class="price-features">
+                        <li><svg><use href="#i-check"/></svg> Fullscreen meeting reminders</li>
+                        <li><svg><use href="#i-check"/></svg> Menu bar now & upcoming</li>
+                        <li><svg><use href="#i-check"/></svg> Watch multiple calendars</li>
+                        <li><svg><use href="#i-check"/></svg> Snooze, quick join, quiet hours</li>
+                        <li class="muted"><svg><use href="#i-x"/></svg> iCloud sync across Macs</li>
+                    </ul>
+                    <a href="https://github.com/YOUR_USERNAME/meetly/releases/latest" class="btn btn-ghost btn-block">
+                        <svg><use href="#i-download"/></svg>
+                        Download Free
+                    </a>
+                </div>
+
+                <!-- Pro -->
+                <div class="price-card pro reveal">
+                    <span class="price-tag">★ Launch price — save 26%</span>
+                    <div class="price-tier">Pro</div>
+                    <div class="price-amt">
+                        <span class="cur">$</span>
+                        <span class="num">14</span>
+                        <span class="strike">$19</span>
+                        <span class="per">/ one-time</span>
+                    </div>
+                    <p class="price-desc">For freelancers working across multiple Macs. Pay once, own it.</p>
+                    <ul class="price-features">
+                        <li><svg><use href="#i-check"/></svg> Everything in Free</li>
+                        <li><svg><use href="#i-check"/></svg> iCloud sync across all your Macs</li>
+                        <li><svg><use href="#i-check"/></svg> Cross-device dismiss / join / snooze state</li>
+                        <li><svg><use href="#i-check"/></svg> Advanced per-calendar rules</li>
+                        <li><svg><use href="#i-check"/></svg> Priority support</li>
+                    </ul>
+                    <a href="https://github.com/YOUR_USERNAME/meetly/releases/latest" class="btn btn-primary btn-block">
+                        <svg><use href="#i-bolt"/></svg>
+                        Get Pro — $14 once
+                    </a>
+                </div>
+            </div>
+            <p class="price-note reveal">
+                <svg style="width:15px;height:15px;vertical-align:-2px;color:var(--teal)"><use href="#i-lock"/></svg>
+                <strong>One-time payment, not a subscription.</strong> 14-day money-back, no questions asked.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FAQ
+         ============================================================ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="sec-head reveal">
+                <span class="sec-eyebrow">Questions</span>
+                <h2>Before you ask</h2>
+            </div>
+            <div class="faq-list reveal">
+                <details class="faq-item" open>
+                    <summary>Does Meetly work with my calendar?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">If it shows up in macOS Calendar — Google, Outlook, iCloud, Exchange, and more — Meetly can watch it. You pick exactly which calendars to monitor during onboarding. It reads events to remind you; it never modifies your calendars.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Is my calendar data safe?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">Yes. Meetly has no backend server. Your calendar data stays on your Mac, and sync state (dismiss/join/snooze) travels only through your own iCloud when you enable Pro. Nothing is sold, shared, or sent to us.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Do I have to pay every month?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">Never. The Free plan is free forever and covers single-Mac use completely. Pro is a one-time $14 payment (launch pricing, normally $19) that unlocks iCloud sync across your Macs. No subscription, no recurring charge.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>What if I work on multiple Macs?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">That's exactly what Pro is for. With iCloud sync, dismissing or joining a meeting on one Mac marks it handled on all your Macs — no more double reminders for the same meeting. Single-Mac use stays fully free.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Is Meetly a replacement for my calendar app?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">No, and that's intentional. Meetly does one thing exceptionally well: making sure you never miss an important meeting. It works alongside your calendar app, not instead of it. Keep using Google Calendar, Fantastical, or whatever you love.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>What macOS version do I need?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">Meetly runs on macOS 12 (Monterey) or later. It's a tiny native app (~8 MB), lives in your menu bar, and uses minimal resources.</div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FINAL CTA
+         ============================================================ -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-box reveal">
+                <h2>Your next client meeting<br>deserves a safety net.</h2>
+                <p>Install Meetly once. Never send another "sorry I missed this" email.</p>
+                <div class="hero-cta">
+                    <a href="https://github.com/YOUR_USERNAME/meetly/releases/latest" class="btn btn-primary btn-lg">
+                        <svg><use href="#i-download"/></svg>
+                        Download Free
+                    </a>
+                    <a href="#pricing" class="btn btn-ghost btn-lg">See pricing</a>
+                </div>
+                <div class="trust-line" style="margin-top:24px;justify-content:center">
+                    <svg style="width:16px;height:16px;color:var(--teal)"><use href="#i-apple"/></svg>
+                    <strong>macOS 12+</strong>
+                    <span class="sep"></span>
+                    Free forever
+                    <span class="sep"></span>
+                    No subscription
+                    <span class="sep"></span>
+                    No credit card
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer>
+        <div class="container">
+            <div class="foot-grid">
+                <div class="foot-brand">
+                    <a href="#" class="logo">
+                        <svg class="logo-mark" viewBox="0 0 1024 1024" aria-hidden="true">
+                            <rect width="1024" height="1024" rx="228" fill="url(#hbg)"/>
+                            <circle cx="760" cy="294" r="78" stroke="url(#hcoral)" stroke-width="22"/>
+                            <rect x="236" y="230" width="552" height="586" rx="92" fill="#F8FBFF"/>
+                            <rect x="236" y="230" width="552" height="160" rx="92" fill="url(#hteal)"/>
+                            <rect x="326" y="480" width="372" height="236" rx="58" fill="#111927"/>
+                            <path d="M594 584L664 542C679.998 532.401 700 543.925 700 562.582V633.418C700 652.075 679.998 663.599 664 654L594 612V584Z" fill="#4EE6D5"/>
+                        </svg>
+                        <span class="logo-text">Meetly</span>
+                    </a>
+                    <p>The macOS menu bar app that makes sure you never miss a client meeting again.</p>
+                    <!-- Mascot, demoted: small, footer-only -->
+                    <img src="cat.png" alt="Meetly mascot" class="foot-cat" style="opacity:0.85">
+                </div>
+                <div class="foot-cols">
+                    <div class="foot-col">
+                        <h4>Product</h4>
+                        <a href="#features">Features</a>
+                        <a href="#showcase">See it in action</a>
+                        <a href="#pricing">Pricing</a>
+                        <a href="#faq">FAQ</a>
+                    </div>
+                    <div class="foot-col">
+                        <h4>Resources</h4>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Support</a>
+                        <a href="https://github.com/YOUR_USERNAME/meetly">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="foot-bottom">
+                <span>© 2026 Meetly. All rights reserved.</span>
+                <span>Built for freelancers who can't afford to miss a call.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+         SCRIPTS
+         ============================================================ -->
+    <script>
+        // Sticky header state on scroll
+        const header = document.getElementById('header');
+        const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 20);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        // Scroll reveal
+        const reveals = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((e, i) => {
+                    if (e.isIntersecting) {
+                        setTimeout(() => e.target.classList.add('in'), (i % 4) * 60);
+                        io.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+            reveals.forEach(el => io.observe(el));
+        } else {
+            reveals.forEach(el => el.classList.add('in'));
+        }
+
+        // Showcase tabs
+        const tabs = document.querySelectorAll('.tab');
+        const panels = document.querySelectorAll('.panel');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.dataset.panel;
+                tabs.forEach(t => t.classList.toggle('active', t === tab));
+                panels.forEach(p => p.classList.toggle('active', p.id === target));
+            });
+        });
+
+        // FAQ: keep only one open
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.addEventListener('toggle', () => {
+                if (item.open) faqItems.forEach(o => { if (o !== item) o.open = false; });
+            });
+        });
+    </script>
+</body>
+</html>

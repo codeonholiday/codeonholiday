@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HoverBoard - Draw, Freeze, Whiteboard on macOS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF6B35;
+            --secondary: #7B2CBF;
+            --dark: #0A0A12;
+            --purple: #9D4EDD;
+            --pink: #E01E5A;
+            --cyan: #00D4FF;
+            --green: #4ADE80;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: white;
+            background: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Animated gradient background */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background:
+                radial-gradient(ellipse at 20% 20%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(123, 44, 191, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
+                linear-gradient(180deg, #0A0A12 0%, #121220 100%);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.2rem 3rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 18, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 11px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.65);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+        .nav-links .back-link { color: var(--primary); opacity: 0.85; font-weight: 600; }
+        .nav-links .back-link:hover { opacity: 1; }
+
+        .btn-download {
+            padding: 0.6rem 1.4rem;
+            background: linear-gradient(135deg, var(--primary), var(--pink));
+            border-radius: 24px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.35);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10rem 2rem 6rem;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-badge-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--green);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 580px;
+            margin-bottom: 3rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--pink));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.35);
+        }
+
+        .btn-secondary {
+            padding: 1rem 2.5rem;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 6rem 2rem;
+        }
+
+        .features-intro {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .features-intro h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+        }
+
+        .features-intro p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.1rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            padding: 2.5rem;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.08), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 107, 53, 0.25);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Feature colors */
+        .feature-draw { --f-color: var(--primary); }
+        .feature-freeze { --f-color: var(--cyan); }
+        .feature-whiteboard { --f-color: var(--purple); }
+        .feature-break { --f-color: var(--green); }
+        .feature-cursor { --f-color: var(--pink); }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-draw .feature-icon { background: linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(255, 107, 53, 0.08)); }
+        .feature-freeze .feature-icon { background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(0, 212, 255, 0.08)); }
+        .feature-whiteboard .feature-icon { background: linear-gradient(135deg, rgba(157, 78, 221, 0.2), rgba(157, 78, 221, 0.08)); }
+        .feature-break .feature-icon { background: linear-gradient(135deg, rgba(74, 222, 128, 0.2), rgba(74, 222, 128, 0.08)); }
+        .feature-cursor .feature-icon { background: linear-gradient(135deg, rgba(224, 30, 90, 0.2), rgba(224, 30, 90, 0.08)); }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card p {
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Feature Detail Sections */
+        .feature-detail {
+            padding: 6rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .feature-detail:nth-child(even) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .feature-detail-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .feature-detail-content.reverse {
+            direction: rtl;
+        }
+
+        .feature-detail-content.reverse > * {
+            direction: ltr;
+        }
+
+        .feature-detail-text h3 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+        }
+
+        .feature-detail-text p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .feature-detail-visual {
+            aspect-ratio: 16/10;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-detail-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent);
+        }
+
+        /* Hotkeys */
+        .hotkeys {
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hotkeys h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+        }
+
+        .hotkey-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hotkey-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+        }
+
+        .hotkey-item .keys {
+            display: flex;
+            gap: 0.3rem;
+        }
+
+        .key {
+            padding: 0.4rem 0.8rem;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 6px;
+            font-family: 'SF Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 600;
+            min-width: 36px;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        .hotkey-item span:last-child {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 8rem 2rem;
+            text-align: center;
+            background: linear-gradient(180deg, transparent, rgba(255, 107, 53, 0.08));
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .feature-detail-content { grid-template-columns: 1fr; gap: 2rem; }
+            .feature-detail-content.reverse { direction: ltr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <div class="logo-icon"><img src="icon.png" alt="HoverBoard logo"></div>
+            HoverBoard
+        </div>
+        <div class="nav-links">
+            <a href="/" class="back-link">← codeonholiday</a>
+            <a href="#features">Features</a>
+            <a href="#hotkeys">Hotkeys</a>
+        </div>
+        <a href="#download" class="btn-download">Download</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            macOS 14+ • Menu Bar App
+        </div>
+        <h1>
+            Present like a pro.<br>
+            <span class="highlight">Without the fuss.</span>
+        </h1>
+        <p>Draw, Freeze, Whiteboard, Break Timer, Cursor Highlight — all a hotkey away. Works seamlessly with Zoom, Meet, Teams.</p>
+        <div class="hero-actions">
+            <a href="#download" class="btn-primary">Download Free</a>
+            <a href="#features" class="btn-secondary">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section id="features" class="features">
+        <div class="features-intro">
+            <h2>Five tools, zero friction</h2>
+            <p>Everything you need to present effectively, nothing you don't.</p>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card feature-draw">
+                <div class="feature-icon">✏️</div>
+                <h3>Draw</h3>
+                <p>Annotate freely on screen with pen, arrows, and shapes. Auto-fade or keep your drawings.</p>
+            </div>
+            <div class="feature-card feature-freeze">
+                <div class="feature-icon">❄️</div>
+                <h3>Freeze & Explain</h3>
+                <p>Snapshot your screen and draw on the frozen image. Perfect for explaining complex visuals.</p>
+            </div>
+            <div class="feature-card feature-whiteboard">
+                <div class="feature-icon">🎨</div>
+                <h3>Whiteboard</h3>
+                <p>Private infinite canvas. Shapes, text, diagrams. Export to PNG/SVG. No cloud, no signup.</p>
+            </div>
+            <div class="feature-card feature-break">
+                <div class="feature-icon">⏱️</div>
+                <h3>Break Timer</h3>
+                <p>Countdown timer overlay for breaks. Fullscreen or minimal mode with custom messages.</p>
+            </div>
+            <div class="feature-card feature-cursor">
+                <div class="feature-icon">🎯</div>
+                <h3>Cursor Highlight</h3>
+                <p>Make your cursor visible with animated halo effects. Great for demos and tutorials.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Details -->
+    <section class="feature-detail">
+        <div class="feature-detail-content">
+            <div class="feature-detail-text">
+                <h3>✏️ Draw — Annotate in the moment</h3>
+                <p>Press a hotkey and your cursor becomes a pen. Draw freely, add arrows, create rectangles. Choose colors, adjust stroke width. Set drawings to auto-fade or keep them until you dismiss. Perfect for highlighting key points during live presentations without breaking flow.</p>
+            </div>
+            <div class="feature-detail-visual">✏️</div>
+        </div>
+    </section>
+
+    <section class="feature-detail">
+        <div class="feature-detail-content reverse">
+            <div class="feature-detail-text">
+                <h3>❄️ Freeze & Explain — Pause time</h3>
+                <p>Capture the current screen as a frozen image, then draw on top. Your audience sees the snapshot while you annotate and explain at your own pace. No more rushing while content changes underneath you.</p>
+            </div>
+            <div class="feature-detail-visual">❄️</div>
+        </div>
+    </section>
+
+    <section class="feature-detail">
+        <div class="feature-detail-content">
+            <div class="feature-detail-text">
+                <h3>🎨 Whiteboard — Your private canvas</h3>
+                <p>Open an infinite whiteboard without leaving your presentation. Add shapes, lines, text, freehand drawings. Select, move, resize, rotate. Full undo/redo history. Export to PNG, SVG, or Excalidraw format. All data stays local — no account required.</p>
+            </div>
+            <div class="feature-detail-visual">🎨</div>
+        </div>
+    </section>
+
+    <section class="feature-detail">
+        <div class="feature-detail-content reverse">
+            <div class="feature-detail-text">
+                <h3>⏱️ Break Timer — Keep everyone on schedule</h3>
+                <p>Set a countdown timer overlay for breaks. Choose fullscreen or minimal corner display. Customize the message. Optional chime when time's up. Perfect for workshops, training sessions, and long presentations.</p>
+            </div>
+            <div class="feature-detail-visual">⏱️</div>
+        </div>
+    </section>
+
+    <section class="feature-detail">
+        <div class="feature-detail-content">
+            <div class="feature-detail-text">
+                <h3>🎯 Cursor Highlight — Be seen</h3>
+                <p>Add an animated halo around your cursor. Customize color, size, and animation style. Click effects show where you're interacting. Essential for screen recordings, demos, and helping others follow along.</p>
+            </div>
+            <div class="feature-detail-visual">🎯</div>
+        </div>
+    </section>
+
+    <!-- Hotkeys -->
+    <section id="hotkeys" class="hotkeys">
+        <h3>Default Hotkeys</h3>
+        <div class="hotkey-list">
+            <div class="hotkey-item">
+                <div class="keys"><span class="key">⌘</span><span class="key">⇧</span><span class="key">D</span></div>
+                <span>Draw</span>
+            </div>
+            <div class="hotkey-item">
+                <div class="keys"><span class="key">⌘</span><span class="key">⇧</span><span class="key">F</span></div>
+                <span>Freeze</span>
+            </div>
+            <div class="hotkey-item">
+                <div class="keys"><span class="key">⌘</span><span class="key">⇧</span><span class="key">W</span></div>
+                <span>Whiteboard</span>
+            </div>
+            <div class="hotkey-item">
+                <div class="keys"><span class="key">⌘</span><span class="key">⇧</span><span class="key">B</span></div>
+                <span>Break Timer</span>
+            </div>
+            <div class="hotkey-item">
+                <div class="keys"><span class="key">⌘</span><span class="key">⇧</span><span class="key">C</span></div>
+                <span>Cursor</span>
+            </div>
+            <div class="hotkey-item">
+                <div class="keys"><span class="key">Esc</span></div>
+                <span>Exit</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <h2>Ready to present better?</h2>
+        <p>Download HoverBoard and level up your next presentation.</p>
+        <a href="#download" class="btn-primary">Download for macOS</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 HoverBoard. Made for presenters, by presenters.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
