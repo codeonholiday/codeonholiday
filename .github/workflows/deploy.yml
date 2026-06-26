@@ -26,8 +26,11 @@ jobs:
 
       # Site lives at repo root (index.html, meetly/, hoverboard/).
       # .nojekyll is committed so GitHub Pages serves files as-is.
+      # `enablement: true` creates the Pages site on first run if missing.
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
