@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>HoverBoard</title>
+        <item>
+            <title>1.0</title>
+            <pubDate>Sat, 27 Jun 2026 10:35:12 +0700</pubDate>
+            <sparkle:version>202606271031</sparkle:version>
+            <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:releaseNotesLink>https://codeonholiday.com/hoverboard/releases/hoverboard-1.0-202606271031.md</sparkle:releaseNotesLink>
+            <enclosure url="https://codeonholiday.com/hoverboard/releases/hoverboard-1.0-202606271031.zip" length="4928649" type="application/octet-stream" sparkle:edSignature="/9mZGZ4n10Tk9KpmQyG1sTTMo47QowhZBH081XPdTcPtBIHQPDXhok1TaSw1rLncOS9RLKVYkWmjjD/KBaawCg=="/>
+        </item>
+    </channel>
+</rss>
