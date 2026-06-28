@@ -57,7 +57,7 @@
         "@type": "SoftwareApplication",
         "name": "Meetly",
         "applicationCategory": "BusinessApplication",
-        "operatingSystem": "macOS 12+",
+        "operatingSystem": "macOS 14+",
         "url": "https://codeonholiday.com/meetly/",
         "description": "A native macOS menu bar app that fires a fullscreen reminder before your meetings start. Built for freelancers juggling multiple calendars.",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -824,7 +824,6 @@
         .foot-brand { display: flex; flex-direction: column; gap: 14px; max-width: 300px; }
         .foot-brand .logo { font-size: 18px; }
         .foot-brand p { font-size: 13.5px; color: var(--text-muted); }
-        .foot-cat { width: 38px; height: 38px; border-radius: 10px; }
         .foot-cols { display: flex; gap: 60px; flex-wrap: wrap; }
         .foot-col h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-dim); margin-bottom: 14px; font-weight: 700; }
         .foot-col a { display: block; color: var(--text-muted); text-decoration: none; font-size: 14px; padding: 5px 0; transition: color 0.2s; }
@@ -923,6 +922,9 @@
             </symbol>
             <symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M3 5h18l-7 8v5l-4 2v-7L3 5z"/>
+            </symbol>
+            <symbol id="i-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9.88 9.88a3 3 0 0 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" y1="2" x2="22" y2="22"/>
             </symbol>
             <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="m6 9 6 6 6-6"/>
@@ -1023,7 +1025,7 @@
                     </div>
                     <div class="trust-line reveal">
                         <svg style="width:16px;height:16px;color:var(--teal)"><use href="#i-apple"/></svg>
-                        <strong>macOS 12+</strong>
+                        <strong>macOS 14+</strong>
                         <span class="sep"></span>
                         <strong>~8 MB</strong>
                         <span class="sep"></span>
@@ -1323,9 +1325,9 @@
                     <p>Same meeting on three calendars? Meetly shows it once.</p>
                 </div>
                 <div class="card b-wide reveal">
-                    <div class="icon-tile blue"><svg><use href="#i-filter"/></svg></div>
-                    <h3>Per-calendar rules</h3>
-                    <p>Mute the noisy shared calendar, keep client calendars loud. Decide per calendar whether it triggers fullscreen, sound, or both. Low-priority calendars stay visible in the menu but never hijack your screen.</p>
+                    <div class="icon-tile blue"><svg><use href="#i-eye-off"/></svg></div>
+                    <h3>Private while screen sharing</h3>
+                    <p>Presenting in a meeting? Pro auto-hides your overlay reminder from everyone else on the call — they see your screen as normal, you still see the alert. No more accidental exposure.</p>
                 </div>
             </div>
         </div>
@@ -1357,7 +1359,7 @@
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
                         </tr>
                         <tr>
-                            <td>Watch multiple calendars together</td>
+                            <td>Watch multiple calendars together (Pro)</td>
                             <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
                         </tr>
@@ -1368,6 +1370,11 @@
                         </tr>
                         <tr>
                             <td>One-click join (Zoom / Meet / Teams)</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Reminders hidden from screen-share viewers</td>
                             <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
                         </tr>
@@ -1458,7 +1465,7 @@
                     <ul class="price-features">
                         <li><svg><use href="#i-check"/></svg> Fullscreen meeting reminders</li>
                         <li><svg><use href="#i-check"/></svg> Menu bar now & upcoming</li>
-                        <li><svg><use href="#i-check"/></svg> Watch multiple calendars</li>
+                        <li><svg><use href="#i-check"/></svg> Monitor 1 calendar</li>
                         <li><svg><use href="#i-check"/></svg> Snooze, quick join, quiet hours</li>
                         <li class="muted"><svg><use href="#i-x"/></svg> iCloud sync across Macs</li>
                     </ul>
@@ -1470,25 +1477,26 @@
 
                 <!-- Pro -->
                 <div class="price-card pro reveal">
-                    <span class="price-tag">★ Launch price — save 26%</span>
+                    <span class="price-tag">★ Launch price — save 60%</span>
                     <div class="price-tier">Pro</div>
                     <div class="price-amt">
                         <span class="cur">$</span>
-                        <span class="num">14</span>
-                        <span class="strike">$19</span>
+                        <span class="num">3.99</span>
+                        <span class="strike">$9.99</span>
                         <span class="per">/ one-time</span>
                     </div>
                     <p class="price-desc">For freelancers working across multiple Macs. Pay once, own it.</p>
                     <ul class="price-features">
                         <li><svg><use href="#i-check"/></svg> Everything in Free</li>
+                        <li><svg><use href="#i-check"/></svg> Monitor unlimited calendars</li>
                         <li><svg><use href="#i-check"/></svg> iCloud sync across all your Macs</li>
                         <li><svg><use href="#i-check"/></svg> Cross-device dismiss / join / snooze state</li>
-                        <li><svg><use href="#i-check"/></svg> Advanced per-calendar rules</li>
+                        <li><svg><use href="#i-check"/></svg> Private overlay while screen sharing</li>
                         <li><svg><use href="#i-check"/></svg> Priority support</li>
                     </ul>
                     <a href="https://codeonholiday.lemonsqueezy.com/checkout/buy/d546beb5-d054-48a0-8d9f-f26c70324207" class="btn btn-primary btn-block" target="_blank" rel="noopener">
                         <svg><use href="#i-bolt"/></svg>
-                        Get Pro — $14 once
+                        Get Pro — $3.99 once
                     </a>
                 </div>
             </div>
@@ -1511,7 +1519,7 @@
             <div class="faq-list reveal">
                 <details class="faq-item" open>
                     <summary>Does Meetly work with my calendar?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">If it shows up in macOS Calendar — Google, Outlook, iCloud, Exchange, and more — Meetly can watch it. You pick exactly which calendars to monitor during onboarding. It reads events to remind you; it never modifies your calendars.</div>
+                    <div class="ans">If it shows up in macOS Calendar — Google, Outlook, iCloud, Exchange, and more — Meetly can watch it. The Free plan monitors one calendar, perfect for a single work or personal calendar. Pro unlocks unlimited calendars so you can track work and personal side by side. Meetly reads events to remind you; it never modifies your calendars.</div>
                 </details>
                 <details class="faq-item">
                     <summary>Is my calendar data safe?<svg class="chev"><use href="#i-chev"/></svg></summary>
@@ -1519,11 +1527,11 @@
                 </details>
                 <details class="faq-item">
                     <summary>Do I have to pay every month?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">Never. The Free plan is free forever and covers single-Mac use completely. Pro is a one-time $14 payment (launch pricing, normally $19) that unlocks iCloud sync across your Macs. No subscription, no recurring charge.</div>
+                    <div class="ans">Never. The Free plan is free forever and covers single-Mac use completely. Pro is a one-time $3.99 payment (launch pricing, normally $9.99) that unlocks iCloud sync across your Macs. No subscription, no recurring charge.</div>
                 </details>
                 <details class="faq-item">
                     <summary>What if I work on multiple Macs?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">That's exactly what Pro is for. With iCloud sync, dismissing or joining a meeting on one Mac marks it handled on all your Macs — no more double reminders for the same meeting. Single-Mac use stays fully free.</div>
+                    <div class="ans">That's exactly what Pro is for. With iCloud sync, dismissing or joining a meeting on one Mac marks it handled on all your Macs — no more double reminders for the same meeting. Pro also keeps your reminders private while you're screen sharing. Single-Mac use stays fully free.</div>
                 </details>
                 <details class="faq-item">
                     <summary>Is Meetly a replacement for my calendar app?<svg class="chev"><use href="#i-chev"/></svg></summary>
@@ -1531,7 +1539,7 @@
                 </details>
                 <details class="faq-item">
                     <summary>What macOS version do I need?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">Meetly runs on macOS 12 (Monterey) or later. It's a tiny native app (~8 MB), lives in your menu bar, and uses minimal resources.</div>
+                    <div class="ans">Meetly runs on macOS 14 (Sonoma) or later. It's a tiny native app (~8 MB), lives in your menu bar, and uses minimal resources.</div>
                 </details>
             </div>
         </div>
@@ -1554,7 +1562,7 @@
                 </div>
                 <div class="trust-line" style="margin-top:24px;justify-content:center">
                     <svg style="width:16px;height:16px;color:var(--teal)"><use href="#i-apple"/></svg>
-                    <strong>macOS 12+</strong>
+                    <strong>macOS 14+</strong>
                     <span class="sep"></span>
                     Free forever
                     <span class="sep"></span>
@@ -1585,8 +1593,6 @@
                         <span class="logo-text">Meetly</span>
                     </a>
                     <p>The macOS menu bar app that makes sure you never miss a client meeting again.</p>
-                    <!-- Mascot, demoted: small, footer-only -->
-                    <img src="cat.png" alt="Meetly mascot" class="foot-cat" style="opacity:0.85">
                 </div>
                 <div class="foot-cols">
                     <div class="foot-col">
