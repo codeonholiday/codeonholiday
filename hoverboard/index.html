@@ -1,4 +1,26 @@
 <!DOCTYPE html>
+<!--
+    HoverBoard Landing Page — refactored to the conversion-focused structure
+    used on the Meetly landing (hero + social proof, trust bar, problem → solution,
+    tabbed showcase, bento features, comparison, testimonials, pricing, FAQ, CTA).
+    ═════════════════════════════════════════════════════════════
+    NOTE on analytics:
+      events.js classifies CTA clicks by CSS class. To keep GA4 + Plausible
+      tracking working, this page MUST keep these classes on its links:
+        .btn-primary  / .btn-download  / .btn-secondary  / .btn-ghost  / .product
+      Do not rename them.
+    ═════════════════════════════════════════════════════════════
+    Pricing model: download the app free, then unlock with a $9.99
+    one-time license (no subscription). Conversion flows: Download
+    (primary, on nav/hero/pricing/final-cta) → Buy license (checkout
+    link, only in the Pricing section) → paste key from email.
+    TODO before shipping:
+      1. Paste the real purchase link into the "Buy a license" button
+         in the Pricing section (search "TODO: paste purchase link").
+      2. Replace testimonial placeholders with real reviews.
+      3. Add og-image.png and set OG image URL.
+    ═════════════════════════════════════════════════════════════
+-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +30,6 @@
     <link rel="canonical" href="https://codeonholiday.com/hoverboard/">
     <meta name="robots" content="index, follow">
     <meta name="author" content="codeonholiday">
-    <meta name="theme-color" content="#0A0A12">
 
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website">
@@ -24,6 +45,10 @@
     <meta name="twitter:title" content="HoverBoard — Present Like a Pro on macOS">
     <meta name="twitter:description" content="Draw, freeze, whiteboard, spotlight, and run break timers on macOS — all a hotkey away.">
     <meta name="twitter:image" content="https://codeonholiday.com/hoverboard/og-image.png">
+
+    <!-- Plausible Analytics (Privacy-Friendly) -->
+    <script defer data-domain="codeonholiday.com" src="https://plausible.io/js/script.js"></script>
+    <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 
     <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSL5Z5MEBZ"></script>
@@ -44,810 +69,1447 @@
         "operatingSystem": "macOS 14+",
         "url": "https://codeonholiday.com/hoverboard/",
         "description": "A macOS menu bar app to draw, freeze, whiteboard, spotlight, and run break timers over your screen — all a hotkey away. Works seamlessly with Zoom, Meet, and Teams.",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "offers": { "@type": "Offer", "price": "9.99", "priceCurrency": "USD" },
         "publisher": { "@type": "Organization", "name": "codeonholiday", "url": "https://codeonholiday.com/" }
     }
     </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* ============================================================
+           DESIGN TOKENS — dark canvas (Meetly system) with the
+           HoverBoard orange→pink brand accent.
+           ============================================================ */
+        :root {
+            --bg:           #0A0A12;
+            --bg-2:         #10101C;
+            --bg-3:         #1A1426;
+            --card:         #15151F;
+            --card-2:       #1E1A2B;
+            --border:       rgba(160, 140, 200, 0.12);
+            --border-strong:rgba(160, 140, 200, 0.26);
+
+            /* HoverBoard brand accent */
+            --orange:       #FF6B35;
+            --orange-2:     #FF8B5C;
+            --pink:         #E01E5A;
+            --pink-2:       #FF3E7A;
+            --amber:        #F5B544;
+
+            --text:         #FBF8FF;
+            --text-muted:   #A097B5;
+            --text-dim:     #6B6478;
+
+            --grad-brand:   linear-gradient(135deg, var(--orange) 0%, var(--pink) 100%);
+            --grad-pink:    linear-gradient(135deg, var(--pink) 0%, var(--pink-2) 100%);
+            --grad-text:    linear-gradient(120deg, #FFFFFF 0%, var(--orange-2) 55%, var(--pink) 100%);
+
+            --radius:       16px;
+            --radius-sm:    12px;
+            --radius-lg:    24px;
+            --radius-pill:  999px;
+
+            --shadow-glow-brand: 0 10px 40px -8px rgba(255, 107, 53, 0.38);
+            --shadow-glow-pink:  0 10px 40px -8px rgba(224, 30, 90, 0.38);
+
+            --container:    1180px;
+            --ease:         cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        :root {
-            --primary: #FF6B35;
-            --secondary: #7B2CBF;
-            --dark: #0A0A12;
-            --purple: #9D4EDD;
-            --pink: #E01E5A;
-            --cyan: #00D4FF;
-            --green: #4ADE80;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        *::selection { background: var(--orange); color: var(--bg); }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
-            color: white;
-            background: var(--dark);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
         }
 
-        section[id] {
-            scroll-margin-top: 90px;
-        }
-
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0.8rem;
-            z-index: 2000;
-            padding: 0.5rem 0.9rem;
-            background: #111827;
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-        }
-
-        .skip-link:focus {
-            top: 0.8rem;
-        }
-
-        /* Animated gradient background */
-        .bg-gradient {
+        /* Ambient background glows */
+        body::before {
+            content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+            inset: 0;
             background:
-                radial-gradient(ellipse at 20% 20%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(123, 44, 191, 0.12) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
-                linear-gradient(180deg, #0A0A12 0%, #121220 100%);
+                radial-gradient(60% 50% at 12% 0%, rgba(255, 107, 53, 0.14) 0%, transparent 60%),
+                radial-gradient(55% 45% at 95% 12%, rgba(224, 30, 90, 0.12) 0%, transparent 60%),
+                radial-gradient(50% 50% at 50% 100%, rgba(255, 139, 92, 0.07) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
         }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.2rem 3rem;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
+        .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+        a { color: inherit; }
+        img { max-width: 100%; display: block; }
+        section { position: relative; z-index: 1; }
+        section[id] { scroll-margin-top: 90px; }
+
+        /* ============================================================
+           BUTTONS
+           ============================================================ */
+        .btn {
+            display: inline-flex;
             align-items: center;
-            background: rgba(10, 10, 18, 0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            justify-content: center;
+            gap: 9px;
+            padding: 13px 22px;
+            border-radius: var(--radius-pill);
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 1;
+            text-decoration: none;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.25s var(--ease);
+            white-space: nowrap;
         }
+        .btn svg { width: 18px; height: 18px; }
 
+        .btn-primary {
+            background: var(--grad-brand);
+            color: #fff;
+            box-shadow: var(--shadow-glow-brand);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 46px -8px rgba(255, 107, 53, 0.58); }
+
+        .btn-ghost {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text);
+            border-color: var(--border-strong);
+            backdrop-filter: blur(8px);
+        }
+        .btn-ghost:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--orange); transform: translateY(-2px); }
+
+        /* Legacy aliases kept so events.js keeps classifying these buttons correctly. */
+        .btn-download { /* same look as primary */ }
+        .btn-secondary { /* same look as ghost */ }
+        .btn-lg { padding: 17px 30px; font-size: 16px; }
+        .btn-block { width: 100%; }
+
+        /* ============================================================
+           BADGE / PILL
+           ============================================================ */
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 15px;
+            background: rgba(255, 107, 53, 0.08);
+            border: 1px solid rgba(255, 107, 53, 0.28);
+            border-radius: var(--radius-pill);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--orange-2);
+            letter-spacing: 0.01em;
+        }
+        .pill .dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: var(--orange);
+            box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.2);
+            animation: pulseDot 2s ease-in-out infinite;
+        }
+        @keyframes pulseDot { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+        /* ============================================================
+           SECTION HEADER
+           ============================================================ */
+        .sec-head { max-width: 660px; margin: 0 auto 56px; text-align: center; }
+        .sec-eyebrow {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--orange-2);
+            margin-bottom: 14px;
+        }
+        .sec-head h2 {
+            font-size: clamp(1.9rem, 4vw, 2.85rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+        .sec-head p { font-size: 1.08rem; color: var(--text-muted); }
+
+        /* ============================================================
+           HEADER / NAV
+           ============================================================ */
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            transition: background 0.3s var(--ease), border-color 0.3s var(--ease);
+            border-bottom: 1px solid transparent;
+        }
+        header.scrolled {
+            background: rgba(10, 10, 18, 0.78);
+            backdrop-filter: blur(16px) saturate(160%);
+            border-bottom-color: var(--border);
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.6rem;
-            font-size: 1.4rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
+            gap: 11px;
+            text-decoration: none;
+            color: var(--text);
         }
-
-        .logo-icon {
-            width: 38px;
-            height: 38px;
-            border-radius: 11px;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-        .logo-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
+        .logo-mark { width: 34px; height: 34px; border-radius: 9px; overflow: hidden; flex-shrink: 0; }
+        .logo-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .logo-text { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; }
+        .nav-links { display: flex; gap: 34px; align-items: center; }
         .nav-links a {
+            color: var(--text-muted);
             text-decoration: none;
-            color: rgba(255, 255, 255, 0.65);
+            font-size: 14.5px;
             font-weight: 500;
-            font-size: 0.9rem;
-            transition: color 0.3s;
+            transition: color 0.2s;
         }
-
-        .nav-links a:hover {
-            color: white;
-        }
-        .nav-links .back-link { color: var(--primary); opacity: 0.85; font-weight: 600; }
+        .nav-links a:hover { color: var(--text); }
+        .nav-links .back-link { color: var(--orange-2); opacity: 0.85; font-weight: 600; }
         .nav-links .back-link:hover { opacity: 1; }
+        .nav-cta { display: flex; gap: 10px; align-items: center; }
 
-        .btn-download {
-            padding: 0.6rem 1.4rem;
-            background: linear-gradient(135deg, var(--primary), var(--pink));
-            border-radius: 24px;
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+        .mobile-toggle { display: none; background: none; border: 1px solid var(--border-strong); border-radius: 10px; padding: 9px; cursor: pointer; }
+        .mobile-toggle svg { width: 20px; height: 20px; stroke: var(--text); }
 
-        .btn-download:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.35);
-        }
-
-        a:focus-visible,
-        button:focus-visible {
-            outline: 2px solid var(--cyan);
-            outline-offset: 2px;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+        /* ============================================================
+           HERO
+           ============================================================ */
+        .hero { padding: 150px 0 90px; }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 1fr;
+            gap: 56px;
             align-items: center;
-            justify-content: center;
-            padding: 10rem 2rem 6rem;
-            text-align: center;
         }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 2.5rem;
+        .hero-copy h1 {
+            font-size: clamp(2.4rem, 5.6vw, 4.2rem);
+            font-weight: 900;
+            line-height: 1.03;
+            letter-spacing: -0.025em;
+            margin: 22px 0;
         }
-
-        .hero-badge-dot {
-            width: 6px;
-            height: 6px;
-            background: var(--green);
-            border-radius: 50%;
-        }
-
-        .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 800;
-            line-height: 1.05;
-            letter-spacing: -2px;
-            margin-bottom: 1.5rem;
-            max-width: 900px;
-        }
-
-        .hero h1 .highlight {
-            background: linear-gradient(135deg, var(--primary), var(--pink));
+        .hero-copy h1 .grad {
+            background: var(--grad-text);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-
-        .hero p {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.6);
-            max-width: 580px;
-            margin-bottom: 3rem;
+        .hero-copy .lede {
+            font-size: 1.18rem;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin-bottom: 32px;
         }
-
-        .hero-actions {
+        .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 26px; }
+        .trust-line {
             display: flex;
-            gap: 1rem;
-            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            color: var(--text-dim);
+            font-size: 13.5px;
+        }
+        .trust-line .sep { width: 4px; height: 4px; border-radius: 50%; background: var(--text-dim); }
+        .trust-line strong { color: var(--text-muted); font-weight: 600; }
+
+        /* Hero social proof */
+        .hero-social {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 34px;
+            padding-top: 26px;
+            border-top: 1px solid var(--border);
+        }
+        .avatars { display: flex; }
+        .avatars span {
+            width: 36px; height: 36px; border-radius: 50%;
+            border: 2px solid var(--bg);
+            margin-left: -10px;
+            display: grid; place-items: center;
+            font-size: 13px; font-weight: 700; color: #1a0f08;
+        }
+        .avatars span:first-child { margin-left: 0; }
+        .stars { color: var(--amber); letter-spacing: 1px; }
+        .hero-social-text { font-size: 13.5px; color: var(--text-muted); }
+        .hero-social-text strong { color: var(--text); }
+
+        /* ============================================================
+           HERO PRODUCT VISUAL — device frame with a real screenshot
+           ============================================================ */
+        .hero-visual { position: relative; }
+        .device-frame {
+            position: relative;
+            border-radius: 22px;
+            background: linear-gradient(180deg, #1A1326 0%, #0E0A17 100%);
+            border: 1px solid var(--border-strong);
+            padding: 12px;
+            box-shadow: 0 40px 90px -30px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,107,53,0.06);
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+        .device-screen {
+            border-radius: 14px;
+            overflow: hidden;
+            background: #0B0710;
+            position: relative;
+        }
+        .device-screen img { width: 100%; height: auto; display: block; }
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            inset: -10% 5%;
+            background: radial-gradient(circle, rgba(255,107,53,0.22) 0%, transparent 65%);
+            z-index: -1;
+            filter: blur(20px);
         }
 
-        .btn-primary {
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--pink));
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.35);
-        }
-
-        .btn-secondary {
-            padding: 1rem 2.5rem;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
+        /* ============================================================
+           TRUST BAR
+           ============================================================ */
+        .trustbar { padding: 24px 0 40px; }
+        .trustbar-label {
+            text-align: center;
+            font-size: 12.5px;
             font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 26px;
         }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.12);
-        }
-
-        /* App showcase */
-        .showcase {
-            padding: 1rem 2rem 6rem;
-        }
-
-        .showcase-wrap {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .showcase-head {
-            margin-bottom: 1.4rem;
-        }
-
-        .showcase-head h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 0.7rem;
-        }
-
-        .showcase-head p {
-            color: rgba(255, 255, 255, 0.62);
-            max-width: 760px;
-        }
-
-        .showcase-main {
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            background: rgba(255, 255, 255, 0.04);
-            box-shadow: 0 20px 45px rgba(2, 6, 23, 0.45);
-        }
-
-        .showcase-main img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .showcase-grid {
-            margin-top: 1rem;
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 0.9rem;
-        }
-
-        .shot-card {
-            border-radius: 14px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.11);
-            background: rgba(255, 255, 255, 0.03);
-        }
-
-        .shot-card img {
-            width: 100%;
-            height: 185px;
-            display: block;
-            object-fit: cover;
-            background: #0f172a;
-        }
-
-        .shot-card figcaption {
-            padding: 0.7rem 0.85rem 0.9rem;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.78);
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        /* Features Grid */
-        .features {
-            padding: 6rem 2rem;
-        }
-
-        .features-intro {
-            text-align: center;
-            margin-bottom: 5rem;
-        }
-
-        .features-intro h2 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 1rem;
-        }
-
-        .features-intro p {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 1.1rem;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .feature-card {
-            padding: 2.5rem;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.08), transparent);
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255, 107, 53, 0.25);
-            background: rgba(255, 255, 255, 0.04);
-        }
-
-        .feature-card:hover::before {
-            opacity: 1;
-        }
-
-        /* Feature colors */
-        .feature-draw { --f-color: var(--primary); }
-        .feature-freeze { --f-color: var(--cyan); }
-        .feature-whiteboard { --f-color: var(--purple); }
-        .feature-break { --f-color: var(--green); }
-        .feature-cursor { --f-color: var(--pink); }
-
-        .feature-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 1.2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .feature-draw .feature-icon { background: linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(255, 107, 53, 0.08)); }
-        .feature-freeze .feature-icon { background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(0, 212, 255, 0.08)); }
-        .feature-whiteboard .feature-icon { background: linear-gradient(135deg, rgba(157, 78, 221, 0.2), rgba(157, 78, 221, 0.08)); }
-        .feature-break .feature-icon { background: linear-gradient(135deg, rgba(74, 222, 128, 0.2), rgba(74, 222, 128, 0.08)); }
-        .feature-cursor .feature-icon { background: linear-gradient(135deg, rgba(224, 30, 90, 0.2), rgba(224, 30, 90, 0.08)); }
-
-        .feature-card h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.6rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .feature-card p {
-            color: rgba(255, 255, 255, 0.55);
-            line-height: 1.6;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Feature Detail Sections */
-        .feature-detail {
-            padding: 6rem 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-            content-visibility: auto;
-            contain-intrinsic-size: 700px;
-        }
-
-        .feature-detail:nth-child(even) {
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .feature-detail-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .feature-detail-content.reverse {
-            direction: rtl;
-        }
-
-        .feature-detail-content.reverse > * {
-            direction: ltr;
-        }
-
-        .feature-detail-text h3 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 1rem;
-        }
-
-        .feature-detail-text p {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-
-        .feature-detail-visual {
-            aspect-ratio: 16/10;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-detail-visual::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent);
-        }
-
-        .feature-detail-visual img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-        }
-
-        /* Hotkeys */
-        .hotkeys {
-            padding: 6rem 2rem;
-            text-align: center;
-        }
-
-        .hotkeys h3 {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 3rem;
-        }
-
-        .hotkey-list {
+        .logos {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1.5rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hotkey-item {
-            display: flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 1.5rem;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 18px 44px;
+        }
+        .logos .brand {
+            display: flex; align-items: center; gap: 9px;
+            color: var(--text-muted);
+            font-weight: 600; font-size: 15px;
+            opacity: 0.7;
+            transition: opacity 0.2s, color 0.2s;
+        }
+        .logos .brand:hover { opacity: 1; color: var(--text); }
+        .logos .brand svg { width: 22px; height: 22px; }
+
+        /* ============================================================
+           GENERIC CARD
+           ============================================================ */
+        .card {
+            background: linear-gradient(180deg, var(--card) 0%, var(--bg-2) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px;
+            transition: transform 0.3s var(--ease), border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-strong);
+            box-shadow: 0 18px 50px -20px rgba(0,0,0,0.6);
+        }
+        .icon-tile {
+            width: 46px; height: 46px;
             border-radius: 12px;
+            display: grid; place-items: center;
+            margin-bottom: 18px;
+            border: 1px solid;
         }
+        .icon-tile svg { width: 22px; height: 22px; }
+        .icon-tile.orange { background: rgba(255,107,53,0.10); border-color: rgba(255,107,53,0.30); color: var(--orange); }
+        .icon-tile.pink   { background: rgba(224,30,90,0.10); border-color: rgba(224,30,90,0.30); color: var(--pink-2); }
+        .icon-tile.amber  { background: rgba(245,181,68,0.10); border-color: rgba(245,181,68,0.30); color: var(--amber); }
+        .icon-tile.coral  { background: rgba(255,111,111,0.10); border-color: rgba(255,111,111,0.30); color: #FF6F6F; }
+        .card h3 { font-size: 1.12rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
+        .card p { color: var(--text-muted); font-size: 0.96rem; }
 
-        .hotkey-item .keys {
-            display: flex;
-            gap: 0.3rem;
-        }
+        /* ============================================================
+           PROBLEM SECTION
+           ============================================================ */
+        .problem { padding: 90px 0; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+        .problem .card { border-color: rgba(224,30,90,0.18); }
+        .problem .card:hover { border-color: rgba(224,30,90,0.4); box-shadow: 0 18px 50px -20px rgba(224,30,90,0.25); }
 
-        .key {
-            padding: 0.4rem 0.8rem;
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 6px;
-            font-family: 'SF Mono', monospace;
-            font-size: 0.85rem;
-            font-weight: 600;
-            min-width: 36px;
+        .problem-punch {
+            margin-top: 40px;
             text-align: center;
-            color: var(--primary);
+            font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+        .problem-punch .hl {
+            background: var(--grad-pink);
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .hotkey-item span:last-child {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-            margin-left: 0.5rem;
+        /* ============================================================
+           SOLUTION SECTION
+           ============================================================ */
+        .solution { padding: 90px 0; }
+        .solution-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .solution-content h2 {
+            font-size: clamp(1.9rem, 4vw, 2.85rem);
+            font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 18px;
+        }
+        .solution-content > p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 28px; }
+        .benefit-list { list-style: none; display: grid; gap: 18px; }
+        .benefit-list li {
+            display: flex; gap: 16px; align-items: flex-start;
+            padding: 18px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            transition: border-color 0.25s, background 0.25s;
+        }
+        .benefit-list li:hover { border-color: rgba(255,107,53,0.35); background: rgba(255,107,53,0.04); }
+        .benefit-list .b-icon {
+            flex-shrink: 0;
+            width: 40px; height: 40px; border-radius: 10px;
+            background: rgba(255,107,53,0.10);
+            border: 1px solid rgba(255,107,53,0.28);
+            color: var(--orange);
+            display: grid; place-items: center;
+        }
+        .benefit-list .b-icon svg { width: 20px; height: 20px; }
+        .benefit-list strong { display: block; font-size: 1.02rem; margin-bottom: 3px; }
+        .benefit-list span { color: var(--text-muted); font-size: 0.92rem; }
+
+        /* ============================================================
+           PRODUCT SHOWCASE — tabbed
+           ============================================================ */
+        .showcase { padding: 90px 0; }
+        .showcase-tabs {
+            display: flex; justify-content: center; gap: 8px;
+            flex-wrap: wrap; margin-bottom: 36px;
+        }
+        .tab {
+            font-family: inherit;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 11px 20px;
+            border-radius: var(--radius-pill);
+            font-size: 14px; font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s var(--ease);
+            display: inline-flex; align-items: center; gap: 8px;
+        }
+        .tab svg { width: 16px; height: 16px; }
+        .tab:hover { color: var(--text); border-color: var(--border-strong); }
+        .tab.active {
+            background: rgba(255,107,53,0.10);
+            border-color: rgba(255,107,53,0.45);
+            color: var(--orange-2);
         }
 
-        /* CTA */
-        .cta {
-            padding: 8rem 2rem;
+        .showcase-stage {
+            position: relative;
+            background: linear-gradient(180deg, var(--card) 0%, var(--bg-2) 100%);
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: 0 40px 90px -35px rgba(0,0,0,0.7);
+            min-height: 420px;
+        }
+        .panel { display: none; }
+        .panel.active { display: block; animation: fadeIn 0.4s var(--ease); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+        .panel-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px; align-items: center; }
+        .panel-copy h3 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; margin-bottom: 12px; letter-spacing: -0.02em; }
+        .panel-copy p { color: var(--text-muted); margin-bottom: 18px; }
+        .panel-copy ul { list-style: none; display: grid; gap: 10px; }
+        .panel-copy li { display: flex; gap: 10px; align-items: center; font-size: 0.96rem; color: var(--text-muted); }
+        .panel-copy li svg { width: 18px; height: 18px; color: var(--orange-2); flex-shrink: 0; }
+
+        .shot {
+            border-radius: 14px;
+            border: 1px solid var(--border-strong);
+            background: #0B0710;
+            overflow: hidden;
+            position: relative;
+        }
+        .shot img { width: 100%; height: auto; display: block; }
+
+        /* ============================================================
+           FEATURES BENTO
+           ============================================================ */
+        .features { padding: 90px 0; }
+        .bento {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 1fr;
+            gap: 18px;
+        }
+        .bento .card { padding: 24px; display: flex; flex-direction: column; }
+        .bento .b-wide { grid-column: span 2; }
+        .bento .card.featured-tile {
+            background: linear-gradient(135deg, rgba(255,107,53,0.10), rgba(224,30,90,0.04));
+            border-color: rgba(255,107,53,0.30);
+        }
+        .bento .card h3 { font-size: 1.05rem; }
+        .bento .b-wide h3 { font-size: 1.2rem; }
+
+        /* ============================================================
+           COMPARISON TABLE
+           ============================================================ */
+        .compare { padding: 90px 0; }
+        .compare-wrap {
+            max-width: 860px; margin: 0 auto;
+            background: linear-gradient(180deg, var(--card) 0%, var(--bg-2) 100%);
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        .compare table { width: 100%; border-collapse: collapse; }
+        .compare th, .compare td {
+            padding: 18px 22px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .compare thead th {
+            background: rgba(255,255,255,0.02);
+            font-size: 14px; font-weight: 700;
+        }
+        .compare th:first-child { width: 46%; color: var(--text-muted); }
+        .compare .col-hb     { text-align: center; width: 27%; color: var(--orange-2); }
+        .compare .col-other  { text-align: center; width: 27%; color: var(--text-muted); }
+        .compare tbody td:first-child { font-weight: 600; font-size: 0.98rem; }
+        .compare tbody tr:last-child td { border-bottom: none; }
+        .compare .yes { color: var(--orange-2); }
+        .compare .no  { color: var(--text-dim); }
+        .compare .yes svg, .compare .no svg { width: 20px; height: 20px; }
+        .compare-badge {
+            display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+            background: var(--grad-brand); color: #fff; padding: 3px 8px; border-radius: 6px; margin-bottom: 6px;
+        }
+
+        /* ============================================================
+           TESTIMONIALS
+           ============================================================ */
+        .testimonials { padding: 90px 0; }
+        .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+        .t-card {
+            background: linear-gradient(180deg, var(--card) 0%, var(--bg-2) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px;
+            display: flex; flex-direction: column; gap: 18px;
+            transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+        }
+        .t-card:hover { transform: translateY(-4px); border-color: var(--border-strong); }
+        .t-stars { color: var(--amber); letter-spacing: 2px; font-size: 15px; }
+        .t-body { color: var(--text); font-size: 1rem; line-height: 1.6; }
+        .t-author { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+        .t-avatar { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; color: #1a0f08; font-size: 15px; }
+        .t-name { font-weight: 700; font-size: 14px; }
+        .t-role { font-size: 12.5px; color: var(--text-muted); }
+
+        /* ============================================================
+           PRICING
+           ============================================================ */
+        .pricing { padding: 90px 0; }
+        .price-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 820px; margin: 0 auto; }
+        .price-grid--single { grid-template-columns: minmax(0, 480px); justify-content: center; max-width: 540px; }
+        .price-card {
+            position: relative;
+            background: linear-gradient(180deg, var(--card) 0%, var(--bg-2) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 36px 32px;
+            display: flex; flex-direction: column;
+            transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+        }
+        .price-card:hover { transform: translateY(-4px); }
+        .price-card.pro {
+            border-color: rgba(255,107,53,0.4);
+            background: linear-gradient(180deg, rgba(255,107,53,0.07) 0%, var(--bg-2) 100%);
+            box-shadow: 0 30px 70px -30px rgba(255,107,53,0.3);
+        }
+        .price-tag {
+            position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+            background: var(--grad-brand); color: #fff;
+            font-size: 12px; font-weight: 700; padding: 6px 16px; border-radius: var(--radius-pill);
+            white-space: nowrap; letter-spacing: 0.02em;
+        }
+        .price-tier { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); margin-bottom: 14px; }
+        .price-amt { display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
+        .price-amt .num { font-size: 3.4rem; font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
+        .price-amt .cur { font-size: 1.4rem; font-weight: 700; color: var(--text-muted); }
+        .price-amt .strike { font-size: 1.1rem; color: var(--text-dim); text-decoration: line-through; }
+        .price-amt .per { font-size: 0.95rem; color: var(--text-muted); }
+        .price-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px; }
+        .price-features { list-style: none; display: grid; gap: 12px; margin-bottom: 28px; }
+        .price-features li { display: flex; gap: 11px; align-items: flex-start; font-size: 0.95rem; }
+        .price-features li svg { width: 18px; height: 18px; color: var(--orange-2); flex-shrink: 0; margin-top: 2px; }
+        .price-features li.muted { color: var(--text-dim); }
+        .price-features li.muted svg { color: var(--text-dim); }
+        .price-card .btn { margin-top: auto; }
+        .price-actions { margin-top: auto; display: flex; flex-direction: column; gap: 12px; align-items: stretch; }
+        .price-actions .btn { width: 100%; }
+        .price-note { text-align: center; margin-top: 26px; font-size: 13.5px; color: var(--text-muted); }
+        .price-note strong { color: var(--text); }
+
+        /* ============================================================
+           FAQ
+           ============================================================ */
+        .faq { padding: 90px 0; }
+        .faq-list { max-width: 760px; margin: 0 auto; display: grid; gap: 12px; }
+        .faq-item {
+            background: linear-gradient(180deg, var(--card) 0%, var(--bg-2) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: border-color 0.25s;
+        }
+        .faq-item[open] { border-color: rgba(255,107,53,0.35); }
+        .faq-item summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 20px 22px;
+            font-weight: 600; font-size: 1.02rem;
+            display: flex; justify-content: space-between; align-items: center; gap: 16px;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item .chev { flex-shrink: 0; width: 20px; height: 20px; color: var(--orange-2); transition: transform 0.25s var(--ease); }
+        .faq-item[open] .chev { transform: rotate(180deg); }
+        .faq-item .ans { padding: 0 22px 22px; color: var(--text-muted); font-size: 0.97rem; }
+
+        /* ============================================================
+           FINAL CTA
+           ============================================================ */
+        .final-cta { padding: 60px 0 100px; }
+        .cta-box {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            padding: 64px 40px;
             text-align: center;
-            background: linear-gradient(180deg, transparent, rgba(255, 107, 53, 0.08));
+            background: linear-gradient(135deg, #2A1018 0%, #1A0E22 100%);
+            border: 1px solid rgba(255,107,53,0.25);
+        }
+        .cta-box::before {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(50% 80% at 20% 0%, rgba(255,107,53,0.22) 0%, transparent 60%),
+                radial-gradient(50% 80% at 80% 100%, rgba(224,30,90,0.18) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .cta-box > * { position: relative; z-index: 1; }
+        .cta-box h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px; }
+        .cta-box p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; }
+        .cta-box .hero-cta { justify-content: center; }
+        .cta-box .trust-line { justify-content: center; }
+
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        footer { border-top: 1px solid var(--border); padding: 50px 0 40px; background: var(--bg-2); position: relative; z-index: 1; }
+        .foot-grid {
+            display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap;
+        }
+        .foot-brand { display: flex; flex-direction: column; gap: 14px; max-width: 320px; }
+        .foot-brand .logo { font-size: 18px; }
+        .foot-brand p { font-size: 13.5px; color: var(--text-muted); }
+        .foot-cols { display: flex; gap: 60px; flex-wrap: wrap; }
+        .foot-col h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-dim); margin-bottom: 14px; font-weight: 700; }
+        .foot-col a { display: block; color: var(--text-muted); text-decoration: none; font-size: 14px; padding: 5px 0; transition: color 0.2s; }
+        .foot-col a:hover { color: var(--orange-2); }
+        .foot-bottom {
+            margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+            font-size: 13px; color: var(--text-dim);
         }
 
-        .cta h2 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
+        /* ============================================================
+           SCROLL REVEAL
+           ============================================================ */
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+        .reveal.in { opacity: 1; transform: none; }
 
-        .cta p {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 50px; }
+            .hero-visual { max-width: 560px; margin: 0 auto; }
+            .solution-grid { grid-template-columns: 1fr; gap: 40px; }
+            .panel-grid { grid-template-columns: 1fr; gap: 28px; }
+            .bento { grid-template-columns: repeat(2, 1fr); }
+            .bento .b-wide { grid-column: span 2; }
         }
-
-        /* Footer */
-        footer {
-            padding: 3rem 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-            text-align: center;
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.85rem;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .showcase-grid { grid-template-columns: 1fr; }
-            .shot-card img { height: auto; }
-            .feature-grid { grid-template-columns: 1fr; }
-            .feature-detail-content { grid-template-columns: 1fr; gap: 2rem; }
-            .feature-detail-content.reverse { direction: ltr; }
             .nav-links { display: none; }
+            .mobile-toggle { display: inline-flex; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .test-grid { grid-template-columns: 1fr; }
+            .price-grid { grid-template-columns: 1fr; }
+            .price-grid--single { grid-template-columns: 1fr; }
+            .bento { grid-template-columns: 1fr; }
+            .bento .b-wide { grid-column: auto; }
+            .hero { padding: 120px 0 70px; }
+            .cta-box { padding: 44px 24px; }
+            .compare-wrap { font-size: 0.9rem; }
+            .compare th, .compare td { padding: 14px 12px; }
         }
 
         @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation: none !important;
-                transition: none !important;
-                scroll-behavior: auto !important;
-            }
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+            .reveal { opacity: 1; transform: none; }
         }
     </style>
 </head>
 <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
-    <div class="bg-gradient"></div>
 
-    <!-- Navigation -->
-    <nav aria-label="Primary">
-        <div class="logo">
-            <div class="logo-icon"><img src="icon.png" alt="HoverBoard logo"></div>
-            HoverBoard
-        </div>
-        <div class="nav-links">
-            <a href="/" class="back-link">← codeonholiday</a>
-            <a href="#screenshots">Screenshots</a>
-            <a href="#features">Features</a>
-            <a href="#hotkeys">Hotkeys</a>
-        </div>
-        <a href="/hoverboard/releases/hoverboard-1.0-202606271055.zip" class="btn-download" aria-label="Download HoverBoard">Download</a>
-    </nav>
+    <!-- ============================================================
+         SVG ICON SPRITE
+         ============================================================ -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <symbol id="i-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/>
+            </symbol>
+            <symbol id="i-snow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93 4.93 19.07"/>
+            </symbol>
+            <symbol id="i-board" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+            </symbol>
+            <symbol id="i-timer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M5 3 2 6M19 3l3 3"/>
+            </symbol>
+            <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>
+            </symbol>
+            <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h0M10 10h0M14 10h0M18 10h0M7 14h10"/>
+            </symbol>
+            <symbol id="i-export" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
+            </symbol>
+            <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+            </symbol>
+            <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m12 2 10 6-10 6L2 8l10-6z"/><path d="m2 16 10 6 10-6M2 12l10 6 10-6"/>
+            </symbol>
+            <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/>
+            </symbol>
+            <symbol id="i-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9.88 9.88a3 3 0 0 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" y1="2" x2="22" y2="22"/>
+            </symbol>
+            <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m5 12 5 5L20 7"/>
+            </symbol>
+            <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 6l12 12M18 6 6 18"/>
+            </symbol>
+            <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
+            </symbol>
+            <symbol id="i-apple" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.05 12.04c-.03-2.6 2.12-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.81 0-2.06-.92-3.39-.89-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.78 1.31 10.33.86 1.25 1.89 2.65 3.23 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.28-1.27 3.13-2.53.98-1.45 1.39-2.85 1.41-2.92-.03-.01-2.71-1.04-2.74-4.13zM14.63 4.6c.72-.87 1.2-2.08 1.07-3.29-1.03.04-2.28.69-3.02 1.56-.66.77-1.24 2-1.08 3.18 1.15.09 2.32-.58 3.03-1.45z"/>
+            </symbol>
+            <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+            </symbol>
+            <symbol id="i-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="6" width="14" height="12" rx="2"/><path d="m16 10 6-3v10l-6-3"/>
+            </symbol>
+            <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"/>
+            </symbol>
 
-    <main id="main-content">
-    <!-- Hero Section -->
+            <!-- Trust bar brand glyphs -->
+            <symbol id="b-zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="6" width="13" height="12" rx="3"/><path d="m15 10 7-3v10l-7-3z"/>
+            </symbol>
+            <symbol id="b-meet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="6" width="11" height="12" rx="2"/><path d="m13 10 9-4v12l-9-4z"/>
+            </symbol>
+            <symbol id="b-teams" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 7h12v10a3 3 0 0 1-3 3H3zM15 10h3v5a2 2 0 0 1-2 2"/><circle cx="20" cy="9" r="2"/><circle cx="9" cy="4" r="2"/>
+            </symbol>
+            <symbol id="b-keynote" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+            </symbol>
+            <symbol id="b-powerpoint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/><path d="M9 7v10M9 7h4a2.5 2.5 0 0 1 0 5H9"/>
+            </symbol>
+        </defs>
+    </svg>
+
+    <!-- ============================================================
+         HEADER
+         ============================================================ -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo" aria-label="HoverBoard home">
+                    <span class="logo-mark"><img src="icon.png" alt="HoverBoard logo"></span>
+                    <span class="logo-text">HoverBoard</span>
+                </a>
+                <div class="nav-links">
+                    <a href="/" class="back-link">← codeonholiday</a>
+                    <a href="#features">Features</a>
+                    <a href="#showcase">See it in action</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+                <div class="nav-cta">
+                    <!-- .btn-download keeps events.js tracking the download intent -->
+                    <a href="/hoverboard/releases/hoverboard-1.0-202606271055.zip" class="btn btn-primary btn-download">
+                        <svg><use href="#i-download"/></svg>
+                        Download
+                    </a>
+                    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                        <svg><use href="#i-chev"/></svg>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
     <section class="hero">
-        <div class="hero-badge">
-            <span class="hero-badge-dot"></span>
-            macOS 14+ • Menu Bar App
-        </div>
-        <h1>
-            Present like a pro.<br>
-            <span class="highlight">Without the fuss.</span>
-        </h1>
-        <p>Draw, Freeze, Whiteboard, Break Timer, Cursor Highlight — all a hotkey away. Works seamlessly with Zoom, Meet, Teams.</p>
-        <div class="hero-actions">
-            <a href="/hoverboard/releases/hoverboard-1.0-202606271055.zip" class="btn-primary">Download Free</a>
-            <a href="#features" class="btn-secondary">Learn More</a>
-        </div>
-    </section>
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <span class="pill reveal"><span class="dot"></span> macOS native · menu bar app · v1.0</span>
+                    <h1 class="reveal">Present like a pro.<br><span class="grad">Without the fuss.</span></h1>
+                    <p class="lede reveal">HoverBoard is a macOS menu bar app that puts <strong>draw, freeze, whiteboard, break timer, and cursor highlight</strong> over your screen — all a hotkey away. Works seamlessly while you share on Zoom, Meet, or Teams.</p>
+                    <div class="hero-cta reveal">
+                        <a href="/hoverboard/releases/hoverboard-1.0-202606271055.zip" class="btn btn-primary btn-lg btn-download">
+                            <svg><use href="#i-download"/></svg>
+                            Download for macOS
+                        </a>
+                        <a href="#showcase" class="btn btn-ghost btn-secondary btn-lg">
+                            <svg><use href="#i-video"/></svg>
+                            See it in action
+                        </a>
+                    </div>
+                    <div class="trust-line reveal">
+                        <svg style="width:16px;height:16px;color:var(--orange-2)"><use href="#i-apple"/></svg>
+                        <strong>macOS 14+</strong>
+                        <span class="sep"></span>
+                        <strong>Free download</strong>
+                        <span class="sep"></span>
+                        <strong>$9.99</strong> to unlock
+                        <span class="sep"></span>
+                        30-day money-back
+                    </div>
 
-    <!-- App Showcase -->
-    <section id="screenshots" class="showcase">
-        <div class="showcase-wrap">
-            <div class="showcase-head">
-                <h2>See HoverBoard in action</h2>
-                <p>Realistic previews of each workflow so you understand exactly what appears on screen during presentations.</p>
-            </div>
-            <div class="showcase-main">
-                <img src="showcase-draw.webp" alt="HoverBoard Draw mode with live annotations over a presentation slide" loading="eager" decoding="async">
-            </div>
-            <div class="showcase-grid">
-                <figure class="shot-card">
-                    <img src="showcase-freeze.webp" alt="HoverBoard Freeze and Explain mode with numbered annotations" loading="lazy" decoding="async">
-                    <figcaption>Freeze &amp; Explain mode</figcaption>
-                </figure>
-                <figure class="shot-card">
-                    <img src="showcase-whiteboard.webp" alt="HoverBoard Whiteboard mode with diagram tools and properties panel" loading="lazy" decoding="async">
-                    <figcaption>Infinite whiteboard mode</figcaption>
-                </figure>
-                <figure class="shot-card">
-                    <img src="showcase-break-timer.webp" alt="HoverBoard Break Timer countdown overlay with pause and add minute actions" loading="lazy" decoding="async">
-                    <figcaption>Break timer overlay</figcaption>
-                </figure>
-                <figure class="shot-card">
-                    <img src="showcase-cursor-halo.webp" alt="HoverBoard Cursor Halo highlighting cursor interaction during a demo" loading="lazy" decoding="async">
-                    <figcaption>Cursor halo visibility</figcaption>
-                </figure>
-                <figure class="shot-card">
-                    <img src="showcase-settings.webp" alt="HoverBoard settings window with hotkeys and general controls" loading="lazy" decoding="async">
-                    <figcaption>Settings and hotkey control</figcaption>
-                </figure>
-                <figure class="shot-card">
-                    <img src="showcase-draw.webp" alt="HoverBoard drawing toolbar and live annotation interface" loading="lazy" decoding="async">
-                    <figcaption>Live teaching flow</figcaption>
-                </figure>
-            </div>
-        </div>
-    </section>
+                    <div class="hero-social reveal">
+                        <div class="avatars">
+                            <span style="background:#FF6B35">E</span>
+                            <span style="background:#E01E5A">T</span>
+                            <span style="background:#FF8B5C">D</span>
+                            <span style="background:#F5B544">P</span>
+                        </div>
+                        <div>
+                            <div class="stars">★★★★★</div>
+                            <div class="hero-social-text"><strong>Loved by presenters, trainers &amp; educators</strong> who present every day.</div>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Features Grid -->
-    <section id="features" class="features">
-        <div class="features-intro">
-            <h2>Five tools, zero friction</h2>
-            <p>Everything you need to present effectively, nothing you don't.</p>
-        </div>
-        <div class="feature-grid">
-            <div class="feature-card feature-draw">
-                <div class="feature-icon">✏️</div>
-                <h3>Draw</h3>
-                <p>Annotate freely on screen with pen, arrows, and shapes. Auto-fade or keep your drawings.</p>
-            </div>
-            <div class="feature-card feature-freeze">
-                <div class="feature-icon">❄️</div>
-                <h3>Freeze & Explain</h3>
-                <p>Snapshot your screen and draw on the frozen image. Perfect for explaining complex visuals.</p>
-            </div>
-            <div class="feature-card feature-whiteboard">
-                <div class="feature-icon">🎨</div>
-                <h3>Whiteboard</h3>
-                <p>Private infinite canvas. Shapes, text, diagrams. Export to PNG/SVG. No cloud, no signup.</p>
-            </div>
-            <div class="feature-card feature-break">
-                <div class="feature-icon">⏱️</div>
-                <h3>Break Timer</h3>
-                <p>Countdown timer overlay for breaks. Fullscreen or minimal mode with custom messages.</p>
-            </div>
-            <div class="feature-card feature-cursor">
-                <div class="feature-icon">🎯</div>
-                <h3>Cursor Highlight</h3>
-                <p>Make your cursor visible with animated halo effects. Great for demos and tutorials.</p>
+                <!-- Hero product visual: real screenshot in a floating device frame -->
+                <div class="hero-visual reveal">
+                    <div class="device-frame">
+                        <div class="device-screen">
+                            <img src="showcase-draw.webp" alt="HoverBoard Draw mode with live annotations over a presentation slide" decoding="async">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Feature Details -->
-    <section class="feature-detail">
-        <div class="feature-detail-content">
-            <div class="feature-detail-text">
-                <h3>✏️ Draw — Annotate in the moment</h3>
-                <p>Press a hotkey and your cursor becomes a pen. Draw freely, add arrows, create rectangles. Choose colors, adjust stroke width. Set drawings to auto-fade or keep them until you dismiss. Perfect for highlighting key points during live presentations without breaking flow.</p>
-            </div>
-            <div class="feature-detail-visual">
-                <img src="showcase-draw.webp" alt="Detailed preview of Draw mode annotations" loading="lazy" decoding="async">
-            </div>
-        </div>
-    </section>
-
-    <section class="feature-detail">
-        <div class="feature-detail-content reverse">
-            <div class="feature-detail-text">
-                <h3>❄️ Freeze & Explain — Pause time</h3>
-                <p>Capture the current screen as a frozen image, then draw on top. Your audience sees the snapshot while you annotate and explain at your own pace. No more rushing while content changes underneath you.</p>
-            </div>
-            <div class="feature-detail-visual">
-                <img src="showcase-freeze.webp" alt="Detailed preview of Freeze and Explain mode" loading="lazy" decoding="async">
+    <!-- ============================================================
+         TRUST BAR
+         ============================================================ -->
+    <section class="trustbar">
+        <div class="container">
+            <p class="trustbar-label reveal">Works seamlessly over the tools you present on</p>
+            <div class="logos reveal">
+                <span class="brand"><svg><use href="#b-zoom"/></svg> Zoom</span>
+                <span class="brand"><svg><use href="#b-meet"/></svg> Google Meet</span>
+                <span class="brand"><svg><use href="#b-teams"/></svg> Teams</span>
+                <span class="brand"><svg><use href="#b-keynote"/></svg> Keynote</span>
+                <span class="brand"><svg><use href="#b-powerpoint"/></svg> PowerPoint</span>
             </div>
         </div>
     </section>
 
-    <section class="feature-detail">
-        <div class="feature-detail-content">
-            <div class="feature-detail-text">
-                <h3>🎨 Whiteboard — Your private canvas</h3>
-                <p>Open an infinite whiteboard without leaving your presentation. Add shapes, lines, text, freehand drawings. Select, move, resize, rotate. Full undo/redo history. Export to PNG, SVG, or Excalidraw format. All data stays local — no account required.</p>
+    <!-- ============================================================
+         PROBLEM
+         ============================================================ -->
+    <section class="problem" id="problem">
+        <div class="container">
+            <div class="sec-head reveal">
+                <span class="sec-eyebrow">The real cost</span>
+                <h2>Mid-presentation friction<br>costs you more than you think.</h2>
+                <p>Your slides are ready. What kills the moment isn't the content — it's fumbling with tools while everyone watches.</p>
             </div>
-            <div class="feature-detail-visual">
-                <img src="showcase-whiteboard.webp" alt="Detailed preview of Whiteboard mode with shape tools and properties panel" loading="lazy" decoding="async">
+            <div class="grid-3">
+                <div class="card reveal">
+                    <div class="icon-tile coral"><svg><use href="#i-target"/></svg></div>
+                    <h3>You can't point at the thing</h3>
+                    <p>"See this number here?" Your cursor vanishes against a bright slide. You end up waving the mouse around hoping anyone can follow.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="icon-tile coral"><svg><use href="#i-layers"/></svg></div>
+                    <h3>Switching apps breaks your flow</h3>
+                    <p>Need to draw a quick diagram? Tab out, open another app, share a new window — by the time you're back, you've lost the room.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="icon-tile coral"><svg><use href="#i-timer"/></svg></div>
+                    <h3>Breaks drift, nobody notices</h3>
+                    <p>"Five-minute break" becomes fifteen. You forget to track it, the audience disengages, and the agenda slips for the rest of the session.</p>
+                </div>
+            </div>
+            <p class="problem-punch reveal">Every awkward pause costs you <span class="hl">credibility</span>. HoverBoard exists so the tools never get in your way again.</p>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SOLUTION
+         ============================================================ -->
+    <section class="solution">
+        <div class="container">
+            <div class="solution-grid">
+                <div class="solution-content">
+                    <span class="sec-eyebrow reveal">Your overlay</span>
+                    <h2 class="reveal">Not another app.<br>A presentation layer you summon mid-flow.</h2>
+                    <p class="reveal">HoverBoard lives in your menu bar and floats over whatever you're presenting. One hotkey and your cursor is a pen, your screen is frozen, or a whiteboard appears — without leaving your slides or your video call.</p>
+                    <ul class="benefit-list">
+                        <li class="reveal">
+                            <span class="b-icon"><svg><use href="#i-pen"/></svg></span>
+                            <div><strong>Draw in the moment</strong><span>Annotate live over any screen with pen, arrows, and shapes. Auto-fade or keep — your call.</span></div>
+                        </li>
+                        <li class="reveal">
+                            <span class="b-icon"><svg><use href="#i-snow"/></svg></span>
+                            <div><strong>Freeze time</strong><span>Snapshot the screen and explain at your own pace. The audience sees a still frame while you annotate.</span></div>
+                        </li>
+                        <li class="reveal">
+                            <span class="b-icon"><svg><use href="#i-board"/></svg></span>
+                            <div><strong>A private whiteboard</strong><span>An infinite canvas a hotkey away — shapes, text, diagrams. Export to PNG, SVG, or Excalidraw.</span></div>
+                        </li>
+                        <li class="reveal">
+                            <span class="b-icon"><svg><use href="#i-target"/></svg></span>
+                            <div><strong>Make your cursor seen</strong><span>An animated halo follows your pointer so every attendee — and recording — can follow along.</span></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Menu bar overlay mock -->
+                <div class="reveal">
+                    <div class="device-frame" style="animation:none">
+                        <div class="device-screen">
+                            <img src="showcase-freeze.webp" alt="HoverBoard Freeze and Explain mode with numbered annotations over a frozen slide" decoding="async">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="feature-detail">
-        <div class="feature-detail-content reverse">
-            <div class="feature-detail-text">
-                <h3>⏱️ Break Timer — Keep everyone on schedule</h3>
-                <p>Set a countdown timer overlay for breaks. Choose fullscreen or minimal corner display. Customize the message. Optional chime when time's up. Perfect for workshops, training sessions, and long presentations.</p>
+    <!-- ============================================================
+         SHOWCASE (tabbed)
+         ============================================================ -->
+    <section class="showcase" id="showcase">
+        <div class="container">
+            <div class="sec-head reveal">
+                <span class="sec-eyebrow">See it in action</span>
+                <h2>Five tools, zero friction</h2>
+                <p>Click through each workflow — every one is a single hotkey away, layered right over your screen.</p>
             </div>
-            <div class="feature-detail-visual">
-                <img src="showcase-break-timer.webp" alt="Detailed preview of Break Timer overlay" loading="lazy" decoding="async">
+
+            <div class="showcase-tabs reveal">
+                <button class="tab active" data-panel="p1"><svg><use href="#i-pen"/></svg> Draw</button>
+                <button class="tab" data-panel="p2"><svg><use href="#i-snow"/></svg> Freeze &amp; Explain</button>
+                <button class="tab" data-panel="p3"><svg><use href="#i-board"/></svg> Whiteboard</button>
+                <button class="tab" data-panel="p4"><svg><use href="#i-timer"/></svg> Break Timer</button>
+                <button class="tab" data-panel="p5"><svg><use href="#i-target"/></svg> Cursor Highlight</button>
+            </div>
+
+            <div class="showcase-stage reveal">
+                <!-- Panel 1: Draw -->
+                <div class="panel active" id="p1">
+                    <div class="panel-grid">
+                        <div class="panel-copy">
+                            <h3>Annotate in the moment</h3>
+                            <p>Press a hotkey and your cursor becomes a pen. Draw freely, add arrows and rectangles, pick colors and stroke width. Set drawings to auto-fade or keep them until you dismiss.</p>
+                            <ul>
+                                <li><svg><use href="#i-check"/></svg> Pen, arrows, rectangles, freehand</li>
+                                <li><svg><use href="#i-check"/></svg> Auto-fade or persistent drawings</li>
+                                <li><svg><use href="#i-check"/></svg> Works over slides, browsers, and video calls</li>
+                            </ul>
+                        </div>
+                        <div class="shot">
+                            <img src="showcase-draw.webp" alt="HoverBoard Draw mode with live annotations over a presentation slide" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 2: Freeze & Explain -->
+                <div class="panel" id="p2">
+                    <div class="panel-grid">
+                        <div class="panel-copy">
+                            <h3>Pause time</h3>
+                            <p>Capture the current screen as a frozen image, then draw on top. Your audience sees the snapshot while you annotate and explain at your own pace — no more rushing while content changes underneath you.</p>
+                            <ul>
+                                <li><svg><use href="#i-check"/></svg> One-key freeze of the live screen</li>
+                                <li><svg><use href="#i-check"/></svg> Numbered annotations for step-by-step walkthroughs</li>
+                                <li><svg><use href="#i-check"/></svg> Resume the live screen when you're done</li>
+                            </ul>
+                        </div>
+                        <div class="shot">
+                            <img src="showcase-freeze.webp" alt="HoverBoard Freeze and Explain mode with numbered annotations" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 3: Whiteboard -->
+                <div class="panel" id="p3">
+                    <div class="panel-grid">
+                        <div class="panel-copy">
+                            <h3>Your private canvas</h3>
+                            <p>Open an infinite whiteboard without leaving your presentation. Add shapes, lines, text, and freehand drawings. Select, move, resize, rotate — with full undo/redo. All data stays local, no account required.</p>
+                            <ul>
+                                <li><svg><use href="#i-check"/></svg> Shapes, text, connectors, freehand</li>
+                                <li><svg><use href="#i-check"/></svg> Export to PNG, SVG, or Excalidraw format</li>
+                                <li><svg><use href="#i-check"/></svg> Local-only — no cloud, no signup</li>
+                            </ul>
+                        </div>
+                        <div class="shot">
+                            <img src="showcase-whiteboard.webp" alt="HoverBoard Whiteboard mode with diagram tools and properties panel" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 4: Break Timer -->
+                <div class="panel" id="p4">
+                    <div class="panel-grid">
+                        <div class="panel-copy">
+                            <h3>Keep everyone on schedule</h3>
+                            <p>Set a countdown timer overlay for breaks. Choose fullscreen or a minimal corner display, customize the message, and add an optional chime when time's up. Perfect for workshops and long sessions.</p>
+                            <ul>
+                                <li><svg><use href="#i-check"/></svg> Fullscreen or minimal corner overlay</li>
+                                <li><svg><use href="#i-check"/></svg> Custom messages and end chime</li>
+                                <li><svg><use href="#i-check"/></svg> Pause or add minutes on the fly</li>
+                            </ul>
+                        </div>
+                        <div class="shot">
+                            <img src="showcase-break-timer.webp" alt="HoverBoard Break Timer countdown overlay" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 5: Cursor Highlight -->
+                <div class="panel" id="p5">
+                    <div class="panel-grid">
+                        <div class="panel-copy">
+                            <h3>Be seen</h3>
+                            <p>Add an animated halo around your cursor. Customize color, size, and animation style, with click effects that show exactly where you're interacting. Essential for screen recordings, demos, and remote teaching.</p>
+                            <ul>
+                                <li><svg><use href="#i-check"/></svg> Customizable halo color and size</li>
+                                <li><svg><use href="#i-check"/></svg> Click ripple effects for emphasis</li>
+                                <li><svg><use href="#i-check"/></svg> Visible on shared screens and recordings</li>
+                            </ul>
+                        </div>
+                        <div class="shot">
+                            <img src="showcase-cursor-halo.webp" alt="HoverBoard cursor halo and click highlight during a demo" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="feature-detail">
-        <div class="feature-detail-content">
-            <div class="feature-detail-text">
-                <h3>🎯 Cursor Highlight — Be seen</h3>
-                <p>Add an animated halo around your cursor. Customize color, size, and animation style. Click effects show where you're interacting. Essential for screen recordings, demos, and helping others follow along.</p>
+    <!-- ============================================================
+         FEATURES BENTO
+         ============================================================ -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="sec-head reveal">
+                <span class="sec-eyebrow">Built for the moment</span>
+                <h2>Every detail tuned so the tools disappear</h2>
+                <p>Small features that keep you in flow instead of fighting your software.</p>
             </div>
-            <div class="feature-detail-visual">
-                <img src="showcase-cursor-halo.webp" alt="Detailed preview of cursor halo and click highlight" loading="lazy" decoding="async">
+            <div class="bento">
+                <div class="card featured-tile b-wide reveal">
+                    <div class="icon-tile orange"><svg><use href="#i-pen"/></svg></div>
+                    <h3>Auto-fade, or keep it forever</h3>
+                    <p>Set drawings to fade after a few seconds so they never clutter your slides — or pin them in place when you want them to stick. Your choice, per session.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="icon-tile pink"><svg><use href="#i-export"/></svg></div>
+                    <h3>Export anywhere</h3>
+                    <p>Whiteboards export to PNG, SVG, or Excalidraw. Drop them straight into your deck or docs.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="icon-tile amber"><svg><use href="#i-key"/></svg></div>
+                    <h3>Custom hotkeys</h3>
+                    <p>Every tool is a global shortcut — remap them to whatever fits your muscle memory.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="icon-tile orange"><svg><use href="#i-timer"/></svg></div>
+                    <h3>Flexible timer</h3>
+                    <p>Fullscreen blast or a quiet corner countdown. Add or pause time mid-break.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="icon-tile coral"><svg><use href="#i-target"/></svg></div>
+                    <h3>Click effects</h3>
+                    <p>Ripples on every click so demos and tutorials are effortless to follow.</p>
+                </div>
+                <div class="card b-wide reveal">
+                    <div class="icon-tile pink"><svg><use href="#i-shield"/></svg></div>
+                    <h3>Private &amp; local by design</h3>
+                    <p>No account, no cloud, no telemetry on your screen contents. HoverBoard runs entirely on your Mac — your slides and annotations never leave it.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Hotkeys -->
-    <section id="hotkeys" class="hotkeys">
-        <h3>Default Hotkeys</h3>
-        <div class="hotkey-list">
-            <div class="hotkey-item">
-                <div class="keys"><span class="key">⌘</span><span class="key">⇧</span><span class="key">D</span></div>
-                <span>Draw</span>
+    <!-- ============================================================
+         COMPARISON
+         ============================================================ -->
+    <section class="compare">
+        <div class="container">
+            <div class="sec-head reveal">
+                <span class="sec-eyebrow">Why HoverBoard</span>
+                <h2>vs. the stock macOS pointer</h2>
+                <p>macOS gives you a cursor. HoverBoard gives you a whole presentation layer — a hotkey away.</p>
             </div>
-            <div class="hotkey-item">
-                <div class="keys"><span class="key">⌘</span><span class="key">⇧</span><span class="key">F</span></div>
-                <span>Freeze</span>
-            </div>
-            <div class="hotkey-item">
-                <div class="keys"><span class="key">⌘</span><span class="key">⇧</span><span class="key">W</span></div>
-                <span>Whiteboard</span>
-            </div>
-            <div class="hotkey-item">
-                <div class="keys"><span class="key">⌘</span><span class="key">⇧</span><span class="key">B</span></div>
-                <span>Break Timer</span>
-            </div>
-            <div class="hotkey-item">
-                <div class="keys"><span class="key">⌘</span><span class="key">⇧</span><span class="key">C</span></div>
-                <span>Cursor</span>
-            </div>
-            <div class="hotkey-item">
-                <div class="keys"><span class="key">Esc</span></div>
-                <span>Exit</span>
+            <div class="compare-wrap reveal">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="col-hb"><span class="compare-badge">HoverBoard</span></th>
+                            <th class="col-other">Stock macOS / Keynote pointer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Draw &amp; annotate over any screen</td>
+                            <td class="col-hb yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Freeze the screen &amp; explain</td>
+                            <td class="col-hb yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Infinite whiteboard a hotkey away</td>
+                            <td class="col-hb yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Break timer overlay</td>
+                            <td class="col-hb yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Cursor halo &amp; click effects</td>
+                            <td class="col-hb yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Global hotkeys across every app</td>
+                            <td class="col-hb yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Works over Zoom / Meet / Teams</td>
+                            <td class="col-hb yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section id="download" class="cta">
-        <h2>Ready to present better?</h2>
-        <p>Download HoverBoard and level up your next presentation.</p>
-        <a href="/hoverboard/releases/hoverboard-1.0-202606271055.zip" class="btn-primary">Download for macOS</a>
+    <!-- ============================================================
+         TESTIMONIALS
+         ============================================================ -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="sec-head reveal">
+                <span class="sec-eyebrow">Loved by presenters</span>
+                <h2>People who present for a living</h2>
+                <!-- TODO: replace with real reviews once you have them -->
+            </div>
+            <div class="test-grid">
+                <div class="t-card reveal">
+                    <div class="t-stars">★★★★★</div>
+                    <p class="t-body">"I teach three online classes a day. Freeze &amp; Explain alone changed how I walk through diagrams — I snapshot the slide, annotate step by step, and the class actually follows. The hotkeys are muscle memory after a day."</p>
+                    <div class="t-author">
+                        <div class="t-avatar" style="background:var(--grad-brand)">E</div>
+                        <div>
+                            <div class="t-name">Elena Vasquez</div>
+                            <div class="t-role">Online instructor</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="t-card reveal">
+                    <div class="t-stars">★★★★★</div>
+                    <p class="t-body">"I run corporate training over Teams every week. The break timer keeps everyone honest and the cursor halo means nobody asks 'which button?' anymore. It just floats over whatever I'm sharing. Genuinely effortless."</p>
+                    <div class="t-author">
+                        <div class="t-avatar" style="background:var(--grad-pink)">T</div>
+                        <div>
+                            <div class="t-name">Tom Bridger</div>
+                            <div class="t-role">Corporate trainer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="t-card reveal">
+                    <div class="t-stars">★★★★★</div>
+                    <p class="t-body">"Demoing software to clients used to mean endless 'let me find the right window'. Now I draw on the screen, freeze to explain a flow, and the halo shows every click. My demo recordings look professional with zero editing."</p>
+                    <div class="t-author">
+                        <div class="t-avatar" style="background:linear-gradient(135deg,#FF8B5C,#FF6B35)">D</div>
+                        <div>
+                            <div class="t-name">Devon Park</div>
+                            <div class="t-role">Solutions engineer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ============================================================
+         PRICING
+         ============================================================ -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="sec-head reveal">
+                <span class="sec-eyebrow">Simple pricing</span>
+                <h2>Download free. Unlock once.</h2>
+                <p>Install HoverBoard and try every feature. Like it? Pay <strong>$9.99</strong> once, paste the license key from your email, and it's yours forever. Not for you? Get a full refund within 30 days.</p>
+            </div>
+            <div class="price-grid price-grid--single">
+                <!-- Pro (the only plan) -->
+                <div class="price-card pro reveal">
+                    <span class="price-tag">★ Launch price — save 37%</span>
+                    <div class="price-tier">HoverBoard</div>
+                    <div class="price-amt">
+                        <span class="cur">$</span>
+                        <span class="num">9.99</span>
+                        <span class="strike">$15.99</span>
+                        <span class="per">/ one-time</span>
+                    </div>
+                    <p class="price-desc">Every tool, unlocked, on every Mac you own. Pay once — own it forever.</p>
+                    <ul class="price-features">
+                        <li><svg><use href="#i-check"/></svg> Draw &amp; annotate over any screen</li>
+                        <li><svg><use href="#i-check"/></svg> Freeze &amp; Explain mode</li>
+                        <li><svg><use href="#i-check"/></svg> Infinite whiteboard (PNG / SVG / Excalidraw export)</li>
+                        <li><svg><use href="#i-check"/></svg> Break timer &amp; cursor halo</li>
+                        <li><svg><use href="#i-check"/></svg> Customizable global hotkeys</li>
+                        <li><svg><use href="#i-check"/></svg> Works over Zoom / Meet / Teams</li>
+                        <li><svg><use href="#i-check"/></svg> All updates in this major version</li>
+                        <li><svg><use href="#i-check"/></svg> Licensed for all your Macs + priority support</li>
+                    </ul>
+                    <div class="price-actions">
+                        <!-- TODO: paste purchase link — replace the href below with your LemonSqueezy/Stripe/Paddle checkout URL. -->
+                        <a href="#" class="btn btn-primary" target="_blank" rel="noopener">
+                            <svg><use href="#i-bolt"/></svg>
+                            Buy a license — $9.99
+                        </a>
+                        <a href="/hoverboard/releases/hoverboard-1.0-202606271055.zip" class="btn btn-ghost btn-download">
+                            <svg><use href="#i-download"/></svg>
+                            Download the app
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p class="price-note reveal">
+                <svg style="width:15px;height:15px;vertical-align:-2px;color:var(--orange-2)"><use href="#i-lock"/></svg>
+                <strong>One-time payment, not a subscription.</strong> Download the app, buy a license, and paste the key from your email to activate. 30-day money-back guarantee, no questions asked.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FAQ
+         ============================================================ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="sec-head reveal">
+                <span class="sec-eyebrow">Questions</span>
+                <h2>Before you ask</h2>
+            </div>
+            <div class="faq-list reveal">
+                <details class="faq-item" open>
+                    <summary>Does it work while I'm sharing my screen on Zoom, Meet, or Teams?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">Yes. HoverBoard draws and overlays on top of whatever is on your screen, so when you share your screen or a window in any video call, your audience sees the annotations live. It works over Keynote, PowerPoint, browsers, IDEs — anything.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Does my data stay private?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">Completely. HoverBoard has no backend server, no account, and no telemetry on your screen contents. Your slides, drawings, and whiteboards stay on your Mac. Whiteboards export only when you choose to.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>What's the refund policy?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">A 30-day, no-questions-asked money-back guarantee. If HoverBoard doesn't fit your workflow within 30 days of purchase, email us and we'll refund the full amount — you don't need to justify it. Buy it, put it through its paces in real presentations, and if it's not for you, get every cent back.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Which macOS version do I need?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">HoverBoard runs on macOS 14 (Sonoma) or later. It's a lightweight native menu bar app that uses minimal resources and stays out of the way until you summon it.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Can I customize the hotkeys?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">Yes. Every tool — Draw, Freeze, Whiteboard, Break Timer, Cursor — has a global hotkey, and all of them are remappable in Settings to whatever fits your muscle memory. Defaults are ⌘⇧D / F / W / B / C.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Can I export my whiteboards?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">Yes. Whiteboards export to PNG, SVG, or Excalidraw format, so you can drop them straight into your slides, docs, or hand off the source file for further editing.</div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FINAL CTA
+         ============================================================ -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-box reveal">
+                <h2>Your next presentation<br>deserves better tools.</h2>
+                <p>Install HoverBoard once. Stop fighting your software mid-presentation.</p>
+                <div class="hero-cta">
+                    <a href="/hoverboard/releases/hoverboard-1.0-202606271055.zip" class="btn btn-primary btn-lg btn-download">
+                        <svg><use href="#i-download"/></svg>
+                        Download for macOS
+                    </a>
+                    <a href="#pricing" class="btn btn-ghost btn-secondary btn-lg">See pricing</a>
+                </div>
+                <div class="trust-line" style="margin-top:24px;justify-content:center">
+                    <svg style="width:16px;height:16px;color:var(--orange-2)"><use href="#i-apple"/></svg>
+                    <strong>macOS 14+</strong>
+                    <span class="sep"></span>
+                    Free download
+                    <span class="sep"></span>
+                    $9.99 to unlock
+                    <span class="sep"></span>
+                    30-day money-back
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
     <footer>
-        <p>© 2026 HoverBoard. Made for presenters, by presenters.</p>
+        <div class="container">
+            <div class="foot-grid">
+                <div class="foot-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-mark"><img src="icon.png" alt="HoverBoard logo"></span>
+                        <span class="logo-text">HoverBoard</span>
+                    </a>
+                    <p>The macOS menu bar app that puts draw, freeze, whiteboard, timer, and cursor highlight a hotkey away — so you can present like a pro.</p>
+                </div>
+                <div class="foot-cols">
+                    <div class="foot-col">
+                        <h4>Product</h4>
+                        <a href="#features">Features</a>
+                        <a href="#showcase">See it in action</a>
+                        <a href="#pricing">Pricing</a>
+                        <a href="#faq">FAQ</a>
+                    </div>
+                    <div class="foot-col">
+                        <h4>Resources</h4>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Support</a>
+                        <a href="/">codeonholiday</a>
+                    </div>
+                </div>
+            </div>
+            <div class="foot-bottom">
+                <span>© 2026 HoverBoard. Made for presenters, by presenters.</span>
+                <span>Works over Zoom, Meet, and Teams.</span>
+            </div>
+        </div>
     </footer>
-    </main>
 
+    <!-- ============================================================
+         SCRIPTS
+         ============================================================ -->
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetSelector = this.getAttribute('href');
-                if (!targetSelector || targetSelector === '#') return;
-                const target = document.querySelector(targetSelector);
-                if (!target) return;
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth' });
+        // Sticky header state on scroll
+        const header = document.getElementById('header');
+        const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 20);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        // Scroll reveal
+        const reveals = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((e, i) => {
+                    if (e.isIntersecting) {
+                        setTimeout(() => e.target.classList.add('in'), (i % 4) * 60);
+                        io.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+            reveals.forEach(el => io.observe(el));
+        } else {
+            reveals.forEach(el => el.classList.add('in'));
+        }
+
+        // Showcase tabs
+        const tabs = document.querySelectorAll('.tab');
+        const panels = document.querySelectorAll('.panel');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.dataset.panel;
+                tabs.forEach(t => t.classList.toggle('active', t === tab));
+                panels.forEach(p => p.classList.toggle('active', p.id === target));
+            });
+        });
+
+        // FAQ: keep only one open
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.addEventListener('toggle', () => {
+                if (item.open) faqItems.forEach(o => { if (o !== item) o.open = false; });
             });
         });
     </script>
