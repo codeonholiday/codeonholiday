@@ -32,6 +32,15 @@
         }
     }
 
+    // Extract semver from a release zip href, e.g.
+    //   "/meetly/releases/meetly-0.1.3-202606272129.zip"  -> "0.1.3"
+    //   "/hoverboard/releases/hoverboard-1.0-202606271055.zip" -> "1.0"
+    // Returns '' if it doesn't look like a versioned release link.
+    function extractVersion(href) {
+        var m = href.match(/-(\d+\.\d+(?:\.\d+)?)-\d{12}\.zip$/);
+        return m ? m[1] : '';
+    }
+
     function classify(el) {
         var href = (el.getAttribute('href') || '').toLowerCase();
         var cls = (el.className || '').toLowerCase();
@@ -39,24 +48,24 @@
 
         // Download / install intent: real GitHub release links.
         if (href.indexOf('github.com') !== -1 && href.indexOf('releases') !== -1) {
-            return { name: 'download_click', label: 'download' };
+            return { name: 'download_click', label: 'download', version: extractVersion(href) };
         }
         // "#download" anchors (HoverBoard) — scroll intent to download section.
         if (href === '#download') {
-            return { name: 'download_click', label: 'download_section' };
+            return { name: 'download_click', label: 'download_section', version: '' };
         }
         // Product card on home page.
         if (cls.indexOf('product') !== -1) {
-            return { name: 'product_open', label: href.replace(/\/$/, '').split('/').pop() || 'home' };
+            return { name: 'product_open', label: href.replace(/\/$/, '').split('/').pop() || 'home', version: '' };
         }
         // Primary CTA buttons (e.g. "Download Free", "Download for macOS").
         if (/\bbtn-primary\b/.test(cls) || /\bbtn-download\b/.test(cls)) {
-            if (text.indexOf('download') !== -1) return { name: 'download_click', label: 'cta' };
-            return { name: 'cta_click', label: text.slice(0, 40) };
+            if (text.indexOf('download') !== -1) return { name: 'download_click', label: 'cta', version: extractVersion(href) };
+            return { name: 'cta_click', label: text.slice(0, 40), version: '' };
         }
         // Secondary / ghost buttons.
         if (/\bbtn-secondary\b/.test(cls) || /\bbtn-ghost\b/.test(cls)) {
-            return { name: 'secondary_click', label: text.slice(0, 40) };
+            return { name: 'secondary_click', label: text.slice(0, 40), version: '' };
         }
         return null;
     }
@@ -76,6 +85,7 @@
         send(info.name, {
             product: PRODUCT,
             label: info.label,
+            version: info.version || '',
             link_text: (node.textContent || '').trim().slice(0, 60),
             href: node.getAttribute('href') || ''
         });
