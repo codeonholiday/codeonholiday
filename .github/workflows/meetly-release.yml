@@ -1,0 +1,98 @@
+name: Meetly Release
+
+# Creates a versioned GitHub Release for Meetly whenever a new build is pushed
+# to meetly/releases/. GitHub serves release assets from objects.githubusercontent.com,
+# which has far higher reputation with Chrome Safe Browsing than GitHub Pages, so
+# the landing page download buttons point here instead of the Pages-hosted zip to
+# avoid the "dangerous file" warning. The appcast.xml + release notes .md stay on
+# Pages (only the .zip moves to GitHub Releases).
+#
+# Companion local flow (meetly repo, Scripts/release.sh, unchanged):
+#   build → sign → notarize → staple → generate appcast → commit .zip + appcast
+#   into this repo → push. That push triggers this workflow.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'meetly/releases/meetly-latest.zip'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Detect version
+        id: ver
+        run: |
+          set -euo pipefail
+          APICAST=meetly/releases/appcast.xml
+          if [ -f "$APICAST" ]; then
+            # appcast.xml is the source of truth (first item = newest release).
+            # shortVersionString is an element, not an attribute: <sparkle:shortVersionString>1.1.2</...>
+            VERSION=$(grep -oE '<sparkle:shortVersionString>[^<]+</sparkle:shortVersionString>' "$APICAST" \
+              | head -1 | sed -E 's#</?sparkle:shortVersionString>##g')
+          fi
+          # Fallback: parse meetly-<version>-<build>.zip, excluding meetly-latest.zip.
+          # Handles optional 'v' prefix in the filename (e.g. meetly-v0.1.0-...).
+          if [ -z "${VERSION:-}" ]; then
+            VERSION=$(ls meetly/releases/meetly-*-*.zip 2>/dev/null | grep -v 'meetly-latest' \
+              | sort -V | tail -1 | sed -E 's#.*/meetly-v?([0-9][0-9.]+)-[0-9]+\.zip#\1#')
+          fi
+          if [ -z "${VERSION:-}" ]; then
+            echo "Could not detect version from appcast.xml or zip filenames." >&2
+            exit 1
+          fi
+          echo "Detected version: $VERSION"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Locate release assets
+        id: assets
+        run: |
+          set -euo pipefail
+          VER=${{ steps.ver.outputs.version }}
+          LATEST_ZIP=meetly/releases/meetly-latest.zip
+          VERSIONED_ZIP=$(ls meetly/releases/meetly-"$VER"-*.zip 2>/dev/null | sort -V | tail -1)
+          if [ ! -f "$LATEST_ZIP" ]; then
+            echo "Missing $LATEST_ZIP" >&2; exit 1
+          fi
+          if [ -z "$VERSIONED_ZIP" ]; then
+            echo "No meetly-${VER}-<build>.zip found; falling back to meetly-latest.zip." >&2
+            VERSIONED_ZIP="$LATEST_ZIP"
+          fi
+          echo "latest=$LATEST_ZIP"       >> "$GITHUB_OUTPUT"
+          echo "versioned=$VERSIONED_ZIP" >> "$GITHUB_OUTPUT"
+
+      - name: Create or update GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          TAG=${{ steps.ver.outputs.tag }}
+          VER=${{ steps.ver.outputs.version }}
+          LATEST_ZIP=${{ steps.assets.outputs.latest }}
+          VERSIONED_ZIP=${{ steps.assets.outputs.versioned }}
+
+          # Resolve the matching release notes .md (one per <version>-<build>).
+          NOTES_ARGS=()
+          NOTES_FILE=$(ls meetly/releases/meetly-"$VER"-*.md 2>/dev/null | sort -V | tail -1 || true)
+          if [ -n "$NOTES_FILE" ]; then
+            NOTES_ARGS=(--notes-file "$NOTES_FILE")
+          else
+            NOTES_ARGS=(--notes "Meetly ${VER}")
+          fi
+
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release $TAG exists; re-uploading assets."
+            gh release upload "$TAG" "$LATEST_ZIP" "$VERSIONED_ZIP" --clobber
+          else
+            echo "Creating release $TAG."
+            gh release create "$TAG" "$LATEST_ZIP" "$VERSIONED_ZIP" \
+              --title "Meetly ${VER}" "${NOTES_ARGS[@]}" --latest
+          fi
