@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Meetly</title>
+    <meta name="description" content="Meetly respects your privacy. This Privacy Policy explains how Meetly handles your information. Meetly does not collect, store, or transmit your calendar data.">
+    <link rel="canonical" href="https://codeonholiday.com/meetly/privacy.html">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="codeonholiday">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="codeonholiday">
+    <meta property="og:url" content="https://codeonholiday.com/meetly/privacy.html">
+    <meta property="og:title" content="Privacy Policy — Meetly">
+    <meta property="og:description" content="Meetly respects your privacy. Meetly does not collect, store, or transmit your calendar data.">
+    <meta property="og:image" content="https://codeonholiday.com/meetly/og-image.png">
+
+    <!-- Plausible Analytics (Privacy-Friendly) -->
+    <script defer data-domain="codeonholiday.com" src="https://plausible.io/js/script.js"></script>
+    <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* Design tokens synced with the main landing page. */
+        :root {
+            --bg:           #0A0D13;
+            --bg-2:         #101722;
+            --card:         #161F2E;
+            --border:       rgba(120, 140, 170, 0.14);
+            --border-strong:rgba(120, 140, 170, 0.28);
+            --teal:         #4EE6D5;
+            --teal-2:       #1787FF;
+            --text:         #F8FBFF;
+            --text-muted:   #93A1B5;
+            --text-dim:     #64748B;
+            --grad-text:    linear-gradient(120deg, #FFFFFF 0%, var(--teal) 55%, var(--teal-2) 100%);
+            --radius:       16px;
+            --container:    820px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        *::selection { background: var(--teal); color: var(--bg); }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(60% 50% at 15% 0%, rgba(78, 230, 213, 0.10) 0%, transparent 60%),
+                radial-gradient(55% 45% at 95% 10%, rgba(255, 111, 111, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        a { color: var(--teal); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Header */
+        header {
+            position: sticky; top: 0; z-index: 50;
+            background: rgba(10, 13, 19, 0.72);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .brand-link { display: flex; align-items: center; gap: 10px; color: var(--text); }
+        .brand-link:hover { text-decoration: none; }
+        .brand-mark {
+            width: 30px; height: 30px; border-radius: 8px;
+            background: linear-gradient(135deg, var(--teal), var(--teal-2));
+            display: grid; place-items: center;
+            font-weight: 800; color: var(--bg); font-size: 16px;
+        }
+        .brand-text { font-weight: 800; letter-spacing: -0.01em; }
+        .back-link { color: var(--text-muted); font-size: 0.92rem; font-weight: 500; }
+        .back-link:hover { color: var(--text); text-decoration: none; }
+
+        /* Main */
+        main {
+            position: relative; z-index: 1;
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 72px 24px 100px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--teal);
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-size: clamp(2.1rem, 4.5vw, 3rem);
+            font-weight: 800; letter-spacing: -0.025em; line-height: 1.1;
+            background: var(--grad-text); -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 18px;
+        }
+        .lede {
+            color: var(--text-muted); font-size: 1.08rem;
+            max-width: 620px; margin-bottom: 48px;
+        }
+        .updated {
+            color: var(--text-dim); font-size: 0.88rem; margin-bottom: 48px;
+        }
+
+        .section {
+            padding: 32px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            font-size: 1.25rem; font-weight: 700; letter-spacing: -0.01em;
+            margin-bottom: 14px; color: var(--text);
+        }
+        .section p, .section li {
+            color: var(--text-muted);
+        }
+        .section p + p { margin-top: 12px; }
+        .section ul {
+            list-style: none; padding: 0; margin-top: 6px;
+        }
+        .section li {
+            position: relative; padding-left: 26px; margin-top: 10px;
+        }
+        .section li::before {
+            content: ''; position: absolute; left: 4px; top: 11px;
+            width: 6px; height: 6px; border-radius: 50%;
+            background: var(--teal);
+        }
+        .contact-block { color: var(--text); }
+        .contact-block code {
+            font-family: 'Inter', monospace;
+            color: var(--teal);
+            background: rgba(78, 230, 213, 0.08);
+            padding: 2px 8px; border-radius: 6px;
+            font-size: 0.95em;
+        }
+
+        /* Footer */
+        footer {
+            position: relative; z-index: 1;
+            border-top: 1px solid var(--border);
+            padding: 28px 24px;
+            text-align: center; color: var(--text-dim); font-size: 0.88rem;
+        }
+        footer a { color: var(--text-muted); }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <a href="/meetly/" class="brand-link">
+                <span class="brand-mark">M</span>
+                <span class="brand-text">Meetly</span>
+            </a>
+            <a href="/meetly/" class="back-link">← Back to Meetly</a>
+        </div>
+    </header>
+
+    <main>
+        <span class="eyebrow">Legal</span>
+        <h1>Privacy Policy</h1>
+        <p class="lede">Meetly respects your privacy. This Privacy Policy explains how Meetly handles your information.</p>
+        <p class="updated">Last updated: July 3, 2026</p>
+
+        <div class="section">
+            <h2>Information We Collect</h2>
+            <p>Meetly may access your calendar information solely for the purpose of displaying meeting reminders and notifications.</p>
+            <p>Meetly does not collect, store, or transmit your calendar events, meeting titles, attendee information, or any other personal calendar data to our servers.</p>
+        </div>
+
+        <div class="section">
+            <h2>Analytics and Usage Data</h2>
+            <p>Meetly does not collect personal usage data. If anonymous analytics are used in the future, this Privacy Policy will be updated accordingly.</p>
+        </div>
+
+        <div class="section">
+            <h2>License Verification</h2>
+            <p>Meetly may communicate with our licensing provider to verify your software license. This process may include transmitting basic technical information necessary for license validation.</p>
+        </div>
+
+        <div class="section">
+            <h2>Third-Party Services</h2>
+            <p>Meetly may use third-party services for payment processing, licensing, and software updates. These services have their own privacy policies.</p>
+        </div>
+
+        <div class="section">
+            <h2>Data Storage</h2>
+            <p>All meeting and calendar information remains on your device unless explicitly stated otherwise.</p>
+        </div>
+
+        <div class="section">
+            <h2>Your Rights</h2>
+            <p>You may revoke Meetly's access to your calendar at any time through macOS System Settings.</p>
+        </div>
+
+        <div class="section">
+            <h2>Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. Any changes will be published on this page.</p>
+        </div>
+
+        <div class="section">
+            <h2>Contact</h2>
+            <p class="contact-block">If you have any questions about this Privacy Policy, please contact us through: <code>codeonholiday.com/meetly</code></p>
+        </div>
+    </main>
+
+    <footer>
+        © 2026 Meetly · <a href="/meetly/">Back to Meetly</a>
+    </footer>
+</body>
+</html>
