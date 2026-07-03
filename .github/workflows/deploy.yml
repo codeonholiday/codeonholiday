@@ -32,6 +32,33 @@ jobs:
         with:
           enablement: true
 
+      # delete-pages-artifact quirk: with `cancel-in-progress: true` below, a
+      # superseded deploy can be cancelled AFTER `upload-pages-artifact` has
+      # created the `github-pages` artifact but BEFORE `deploy-pages` consumes
+      # it. That leaves an orphan artifact, and the next run's upload makes a
+      # second one with the same name — `deploy-pages` then fails with
+      # "Multiple artifacts named github-pages were unexpectedly found".
+      # Clearing any stale artifacts first guarantees this run is the only one.
+      - name: Delete stale github-pages artifacts
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const res = await github.rest.actions.listArtifactsForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              name: 'github-pages',
+            });
+            for (const art of res.data.artifacts) {
+              if (!art.expired) {
+                await github.rest.actions.deleteArtifact({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  artifact_id: art.id,
+                });
+                core.info(`Deleted stale github-pages artifact ${art.id}`);
+              }
+            }
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
