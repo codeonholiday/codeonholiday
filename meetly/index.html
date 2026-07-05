@@ -939,6 +939,9 @@
             <symbol id="i-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="6" width="14" height="12" rx="2"/><path d="m16 10 6-3v10l-6-3"/>
             </symbol>
+            <symbol id="i-checklist" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 6h11M9 12h11M9 18h11"/><path d="m2 6 1.5 1.5L5 5M2 12l1.5 1.5L5 11M2 18l1.5 1.5L5 17"/>
+            </symbol>
 
             <!-- Trust bar brand glyphs (simplified marks) -->
             <symbol id="b-gcal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1017,7 +1020,7 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-copy">
-                    <span class="pill reveal"><span class="dot"></span> Free forever · macOS native · v0.1.0</span>
+                    <span class="pill reveal"><span class="dot"></span> Free forever · macOS native · v1.3.0</span>
                     <h1 class="reveal">Never miss a<br><span class="grad">client meeting</span> again.</h1>
                     <p class="lede reveal">Meetly is a native macOS menu bar app that fires a <strong>fullscreen reminder</strong> right before your meetings start. Perfect for freelancers juggling multiple calendars across multiple Macs.</p>
                     <div class="hero-cta reveal">
@@ -1085,11 +1088,12 @@
          ============================================================ -->
     <section class="trustbar">
         <div class="container">
-            <p class="trustbar-label reveal">Works with the calendars & meeting links you already use</p>
+            <p class="trustbar-label reveal">Works with the calendars, reminders & meeting links you already use</p>
             <div class="logos reveal">
                 <span class="brand"><svg><use href="#b-gcal"/></svg> Google Calendar</span>
                 <span class="brand"><svg><use href="#b-outlook"/></svg> Outlook</span>
                 <span class="brand"><svg><use href="#b-icloud"/></svg> iCloud</span>
+                <span class="brand"><svg><use href="#i-checklist"/></svg> Apple Reminders</span>
                 <span class="brand"><svg><use href="#b-zoom"/></svg> Zoom</span>
                 <span class="brand"><svg><use href="#b-teams"/></svg> Teams</span>
                 <span class="brand"><svg><use href="#b-meet"/></svg> Meet</span>
@@ -1307,7 +1311,12 @@
             </div>
             <div class="bento">
                 <div class="card featured-tile b-wide reveal">
-                    <div class="icon-tile teal"><svg><use href="#i-alarm"/></svg></div>
+                    <div class="icon-tile teal"><svg><use href="#i-checklist"/></svg></div>
+                    <h3>Now also watches Apple Reminders</h3>
+                    <p>New in 1.3. Meetly doesn't just watch calendars anymore — it also watches the Apple Reminders lists you choose. Tasks with a due date fire the same impossible-to-miss fullscreen alert at the right moment. Per-list rules, iCloud sync, the works. (Pro)</p>
+                </div>
+                <div class="card reveal">
+                    <div class="icon-tile blue"><svg><use href="#i-alarm"/></svg></div>
                     <h3>Snooze without losing it</h3>
                     <p>Need five more minutes? Snooze 1 or 5 minutes and Meetly re-alerts you — it never just disappears. Snooze state syncs across your Macs too.</p>
                 </div>
@@ -1377,6 +1386,11 @@
                         </tr>
                         <tr>
                             <td>Watch multiple calendars together (Pro)</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Fullscreen alerts for Apple Reminders tasks (Pro)</td>
                             <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
                         </tr>
@@ -1516,9 +1530,10 @@
                     <ul class="price-features">
                         <li><svg><use href="#i-check"/></svg> Everything in Free</li>
                         <li><svg><use href="#i-check"/></svg> Monitor unlimited calendars</li>
+                        <li><svg><use href="#i-check"/></svg> Apple Reminders support — tasks with a due date</li>
                         <li><svg><use href="#i-check"/></svg> iCloud sync across all your Macs</li>
                         <li><svg><use href="#i-check"/></svg> Cross-device dismiss / join / snooze state</li>
-                        <li><svg><use href="#i-check"/></svg> Per-calendar overlay & sound controls</li>
+                        <li><svg><use href="#i-check"/></svg> Per-calendar & per-list overlay & sound controls</li>
                         <li><svg><use href="#i-check"/></svg> Reminders for plain events, not just meetings</li>
                         <li><svg><use href="#i-check"/></svg> Private overlay while screen sharing</li>
                         <li><svg><use href="#i-check"/></svg> Priority support</li>
@@ -1547,8 +1562,12 @@
             </div>
             <div class="faq-list reveal">
                 <details class="faq-item" open>
-                    <summary>Does Meetly work with my calendar?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">If it shows up in macOS Calendar — Google, Outlook, iCloud, Exchange, and more — Meetly can watch it. The Free plan monitors one calendar, perfect for a single work or personal calendar. Pro unlocks unlimited calendars so you can track work and personal side by side. Meetly reads events to remind you; it never modifies your calendars.</div>
+                    <summary>Does Meetly work with my calendar &amp; reminders?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">If it shows up in macOS Calendar — Google, Outlook, iCloud, Exchange, and more — Meetly can watch it. The Free plan monitors one calendar, perfect for a single work or personal calendar. Pro unlocks unlimited calendars so you can track work and personal side by side. As of version 1.3, Pro can also watch your Apple Reminders lists — tasks with a due date fire the same fullscreen alert as meetings. Meetly reads events to remind you; it never modifies your calendars.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>How do Apple Reminders tasks work in Meetly?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">In the Reminders tab, pick which Apple Reminders lists Meetly should watch. Any task with a due date in those lists shows up in the menu bar and fires the fullscreen reminder at the due time — exactly like a calendar event. Tasks without a time are treated as due at a default hour you choose (9 AM by default). It's a Pro feature, with per-list overlay and sound rules that sync across your Macs.</div>
                 </details>
                 <details class="faq-item">
                     <summary>Is my calendar data safe?<svg class="chev"><use href="#i-chev"/></svg></summary>
