@@ -93,6 +93,12 @@ jobs:
             gh release upload "$TAG" "$LATEST_ZIP" "$VERSIONED_ZIP" --clobber
           else
             echo "Creating release $TAG."
+            # NOTE: intentionally NOT passing --latest. This repo hosts GitHub
+            # Releases for two projects (meetly + hoverboard), and GitHub keeps
+            # only ONE global "latest" release per repo — so whichever project
+            # shipped last would steal the /releases/latest/ shortcut from the
+            # other. Landing pages use tag-pinned /releases/download/v<VER>/
+            # URLs instead, which are per-project and never collide.
             gh release create "$TAG" "$LATEST_ZIP" "$VERSIONED_ZIP" \
-              --title "HoverBoard ${VER}" "${NOTES_ARGS[@]}" --latest
+              --title "HoverBoard ${VER}" "${NOTES_ARGS[@]}"
           fi
