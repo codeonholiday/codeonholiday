@@ -4,12 +4,12 @@
         <title>HoverBoard</title>
         <item>
             <title>1.1.2</title>
-            <pubDate>Tue, 07 Jul 2026 17:29:56 +0700</pubDate>
-            <sparkle:version>RELEASE_NOTES_FILE=.release-notes-1.1.2.md</sparkle:version>
+            <pubDate>Tue, 07 Jul 2026 17:34:13 +0700</pubDate>
+            <sparkle:version>202607071731</sparkle:version>
             <sparkle:shortVersionString>1.1.2</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink>https://codeonholiday.com/hoverboard/releases/hoverboard-1.1.2-RELEASE_NOTES_FILE=.release-notes-1.1.2.md.md</sparkle:releaseNotesLink>
-            <enclosure url="https://codeonholiday.com/hoverboard/releases/hoverboard-1.1.2-RELEASE_NOTES_FILE=.release-notes-1.1.2.md.zip" length="5037806" type="application/octet-stream" sparkle:edSignature="vksviMJ/89jlA9kHZlAV5w7XVJxPCrB96m5qUwc3TK6Q8KTAgBitWyW/McbwuH1U0nrCwZTh/bzfFVpMpYjqBA=="/>
+            <sparkle:releaseNotesLink>https://codeonholiday.com/hoverboard/releases/hoverboard-1.1.2-202607071731.md</sparkle:releaseNotesLink>
+            <enclosure url="https://codeonholiday.com/hoverboard/releases/hoverboard-1.1.2-202607071731.zip" length="5037747" type="application/octet-stream" sparkle:edSignature="Bc8iA/qV06q8HLgEvZNojp2vv0OuhuObNhh+PGJ1HYJYzy7tL4TIL9DqlD/IUta18wPR9OhFcejP/XZafqhwCQ=="/>
         </item>
     </channel>
 </rss>
