@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service — HoverBoard</title>
+    <meta name="description" content="Terms of Service for HoverBoard, the macOS presentation overlay app by codeonholiday.">
+    <link rel="canonical" href="https://codeonholiday.com/hoverboard/terms.html">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="codeonholiday">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="codeonholiday">
+    <meta property="og:url" content="https://codeonholiday.com/hoverboard/terms.html">
+    <meta property="og:title" content="Terms of Service — HoverBoard">
+    <meta property="og:description" content="Terms of Service for HoverBoard by codeonholiday.">
+    <meta property="og:image" content="https://codeonholiday.com/hoverboard/og-image.png">
+
+    <script defer data-domain="codeonholiday.com" src="https://plausible.io/js/script.js"></script>
+    <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0A0A12;
+            --card: #15151F;
+            --border: rgba(160, 140, 200, 0.12);
+            --accent: #FF6B35;
+            --accent-2: #E01E5A;
+            --text: #F8FBFF;
+            --text-muted: #A8A0B8;
+            --text-dim: #6B6478;
+            --grad-text: linear-gradient(120deg, #FFFFFF 0%, var(--accent) 55%, var(--accent-2) 100%);
+            --radius: 16px;
+            --container: 820px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        *::selection { background: var(--accent); color: #0A0A12; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        body::before {
+            content: '';
+            position: fixed; inset: 0;
+            background:
+                radial-gradient(60% 50% at 15% 0%, rgba(255, 107, 53, 0.10) 0%, transparent 60%),
+                radial-gradient(55% 45% at 95% 10%, rgba(224, 30, 90, 0.08) 0%, transparent 60%);
+            pointer-events: none; z-index: 0;
+        }
+        a { color: #FF8B5C; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        header {
+            position: sticky; top: 0; z-index: 50;
+            background: rgba(10, 10, 18, 0.72);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav {
+            max-width: var(--container); margin: 0 auto; padding: 16px 24px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .brand-link { display: flex; align-items: center; gap: 10px; color: var(--text); }
+        .brand-link:hover { text-decoration: none; }
+        .brand-mark {
+            width: 30px; height: 30px; border-radius: 8px; overflow: hidden;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            display: grid; place-items: center;
+        }
+        .brand-mark img { width: 100%; height: 100%; object-fit: cover; }
+        .brand-text { font-weight: 800; letter-spacing: -0.01em; }
+        .back-link { color: var(--text-muted); font-size: 0.92rem; font-weight: 500; }
+        .back-link:hover { color: var(--text); text-decoration: none; }
+        main {
+            position: relative; z-index: 1;
+            max-width: var(--container); margin: 0 auto; padding: 72px 24px 100px;
+        }
+        .eyebrow {
+            display: inline-block; font-size: 0.78rem; font-weight: 700;
+            letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+        }
+        h1 {
+            font-size: clamp(2.1rem, 4.5vw, 3rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1;
+            background: var(--grad-text); -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent; margin-bottom: 18px;
+        }
+        .lede { color: var(--text-muted); font-size: 1.08rem; max-width: 680px; margin-bottom: 16px; }
+        .updated { color: var(--text-dim); font-size: 0.88rem; margin-bottom: 48px; }
+        .section {
+            padding: 32px; background: var(--card); border: 1px solid var(--border);
+            border-radius: var(--radius); margin-bottom: 20px;
+        }
+        .section h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 14px; }
+        .section p, .section li { color: var(--text-muted); }
+        .section p + p { margin-top: 12px; }
+        .section ul, .section ol { padding-left: 20px; margin-top: 8px; }
+        .section li { color: var(--text-muted); margin-top: 8px; }
+        .legal-nav { display: flex; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; }
+        .legal-nav a {
+            color: var(--text-muted); font-size: 0.92rem; font-weight: 500;
+            padding: 8px 14px; border: 1px solid var(--border); border-radius: 999px;
+        }
+        .legal-nav a.active { color: #FF8B5C; border-color: rgba(255, 107, 53, 0.35); }
+        .legal-nav a:hover { color: var(--text); text-decoration: none; }
+        footer {
+            position: relative; z-index: 1; border-top: 1px solid var(--border);
+            padding: 28px 24px; text-align: center; color: var(--text-dim); font-size: 0.88rem;
+        }
+        footer a { color: var(--text-muted); }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <a href="/hoverboard/" class="brand-link">
+                <span class="brand-mark"><img src="icon.png" alt=""></span>
+                <span class="brand-text">HoverBoard</span>
+            </a>
+            <a href="/hoverboard/" class="back-link">← Back to HoverBoard</a>
+        </div>
+    </header>
+
+    <main>
+        <span class="eyebrow">Legal</span>
+        <h1>Terms of Service</h1>
+        <p class="lede">These Terms govern your use of HoverBoard, a macOS presentation overlay application published by codeonholiday. By downloading or using HoverBoard, you agree to these Terms.</p>
+        <p class="updated">Last updated: July 13, 2026</p>
+
+        <nav class="legal-nav" aria-label="Legal pages">
+            <a href="/hoverboard/privacy.html">Privacy Policy</a>
+            <a href="/hoverboard/terms.html" class="active">Terms of Service</a>
+        </nav>
+
+        <div class="section">
+            <h2>1. The Service</h2>
+            <p>HoverBoard provides on-screen drawing, annotation, whiteboard, session capture, and related presentation tools for macOS. HoverBoard is a utility overlay and does not guarantee compatibility with every app, display configuration, or video-conferencing platform.</p>
+        </div>
+
+        <div class="section">
+            <h2>2. License</h2>
+            <p>Subject to these Terms, codeonholiday grants you a personal, non-exclusive, non-transferable license to install and use HoverBoard on Mac computers that you own or control.</p>
+            <p>You may try each feature for a limited trial period before purchasing. HoverBoard Pro unlocks unlimited use, Sessions, launch at login, and other features described on our website and in the app. Pro is a one-time purchase, not a subscription, unless we state otherwise at checkout.</p>
+        </div>
+
+        <div class="section">
+            <h2>3. Purchases and Refunds</h2>
+            <p>Purchases are processed by our payment provider (Lemon Squeezy). Prices shown at checkout are final unless a discount is explicitly applied.</p>
+            <p>We offer a 30-day money-back guarantee. If HoverBoard is not right for you, contact <a href="mailto:hello@codeonholiday.com">hello@codeonholiday.com</a> within 30 days of purchase for a full refund.</p>
+        </div>
+
+        <div class="section">
+            <h2>4. Acceptable Use</h2>
+            <p>You agree not to:</p>
+            <ul>
+                <li>Reverse engineer, decompile, or attempt to extract the source code of HoverBoard except where permitted by law.</li>
+                <li>Resell, sublicense, or redistribute HoverBoard or license keys except as expressly allowed.</li>
+                <li>Use HoverBoard to violate applicable law, infringe intellectual property, or harass others.</li>
+                <li>Circumvent license validation or trial limitations outside the intended use of the app.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>5. Your Content</h2>
+            <p>You retain ownership of the screen captures, drawings, whiteboards, and exports you create with HoverBoard. You are responsible for ensuring you have the right to capture, annotate, and share any content shown on your screen.</p>
+        </div>
+
+        <div class="section">
+            <h2>6. Updates</h2>
+            <p>We may release updates, bug fixes, and new features. Your license includes updates for the major version described at purchase, as stated on our website at the time of sale. Sparkle may download and install updates when you approve them or when automatic checks are enabled.</p>
+        </div>
+
+        <div class="section">
+            <h2>7. Disclaimer of Warranties</h2>
+            <p>HoverBoard is provided "as is" and "as available" without warranties of any kind, whether express or implied, including implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+        </div>
+
+        <div class="section">
+            <h2>8. Limitation of Liability</h2>
+            <p>To the maximum extent permitted by law, codeonholiday will not be liable for any indirect, incidental, special, consequential, or punitive damages, or for any loss of profits, data, business, or goodwill arising from your use of HoverBoard — including presentation failures, lost recordings, or compatibility issues with third-party software.</p>
+            <p>Our total liability for any claim relating to HoverBoard will not exceed the amount you paid for HoverBoard in the twelve months before the claim, or USD $10 if you have not purchased a license.</p>
+        </div>
+
+        <div class="section">
+            <h2>9. Termination</h2>
+            <p>You may stop using HoverBoard at any time by uninstalling it. We may suspend or terminate access to license validation services if you materially breach these Terms.</p>
+        </div>
+
+        <div class="section">
+            <h2>10. Changes</h2>
+            <p>We may update these Terms from time to time. Continued use of HoverBoard after changes are posted constitutes acceptance of the updated Terms.</p>
+        </div>
+
+        <div class="section">
+            <h2>11. Contact</h2>
+            <p>Questions about these Terms? Email <a href="mailto:hello@codeonholiday.com">hello@codeonholiday.com</a>.</p>
+        </div>
+    </main>
+
+    <footer>
+        © 2026 HoverBoard · <a href="/hoverboard/">Back to HoverBoard</a> · <a href="/hoverboard/privacy.html">Privacy Policy</a>
+    </footer>
+</body>
+</html>
