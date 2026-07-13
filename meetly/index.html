@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meetly — Never Miss a Client Meeting Again</title>
-    <meta name="description" content="Meetly is a native macOS menu bar app that fires a fullscreen reminder right before your meetings. Built for freelancers juggling multiple calendars. Free forever, one-time Pro, no subscription.">
+    <meta name="description" content="Meetly is a native macOS menu bar app that fires a fullscreen reminder before your meetings. Quick Panel, Apple Reminders, week browser, and one-click join. Free forever, one-time Pro, no subscription.">
     <link rel="canonical" href="https://codeonholiday.com/meetly/">
     <meta name="robots" content="index, follow">
     <meta name="author" content="codeonholiday">
@@ -66,7 +66,7 @@
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "macOS 14+",
         "url": "https://codeonholiday.com/meetly/",
-        "description": "A native macOS menu bar app that fires a fullscreen reminder before your meetings start. Built for freelancers juggling multiple calendars.",
+        "description": "A native macOS menu bar app that fires a fullscreen reminder before your meetings start, with Quick Panel, Apple Reminders, and iCloud sync.",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "publisher": { "@type": "Organization", "name": "codeonholiday", "url": "https://codeonholiday.com/" }
     }
@@ -366,6 +366,7 @@
         }
         @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 
+        .device-screen img { width: 100%; height: auto; display: block; }
         .device-screen {
             border-radius: 14px;
             overflow: hidden;
@@ -633,6 +634,7 @@
             overflow: hidden;
             position: relative;
         }
+        .shot img { width: 100%; height: auto; display: block; }
 
         /* Quick Join mock */
         .quickjoin-mock {
@@ -939,6 +941,9 @@
             <symbol id="i-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="6" width="14" height="12" rx="2"/><path d="m16 10 6-3v10l-6-3"/>
             </symbol>
+            <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+            </symbol>
             <symbol id="i-checklist" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M9 6h11M9 12h11M9 18h11"/><path d="m2 6 1.5 1.5L5 5M2 12l1.5 1.5L5 11M2 18l1.5 1.5L5 17"/>
             </symbol>
@@ -1020,7 +1025,7 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-copy">
-                    <span class="pill reveal"><span class="dot"></span> Free forever · macOS native · v1.3.0</span>
+                    <span class="pill reveal"><span class="dot"></span> Free forever · macOS native · v1.4.1</span>
                     <h1 class="reveal">Never miss a<br><span class="grad">client meeting</span> again.</h1>
                     <p class="lede reveal">Meetly is a native macOS menu bar app that fires a <strong>fullscreen reminder</strong> right before your meetings start. Perfect for freelancers juggling multiple calendars across multiple Macs.</p>
                     <div class="hero-cta reveal">
@@ -1058,24 +1063,11 @@
                     </div>
                 </div>
 
-                <!-- Hero product mockup: fullscreen reminder -->
+                <!-- Hero product visual: real screenshot -->
                 <div class="hero-visual reveal">
                     <div class="device-frame">
                         <div class="device-screen">
-                            <div class="mock-menubar">
-                                <svg class="mb-logo" viewBox="0 0 1024 1024"><rect width="1024" height="1024" rx="228" fill="url(#hteal)"/></svg>
-                                <span>Meetly</span>
-                                <span class="mb-pulse">Meeting in 1 min</span>
-                            </div>
-                            <div class="mock-soon">Starting in</div>
-                            <div class="mock-countdown">00:58</div>
-                            <div class="mock-title">Q3 Strategy — Acme Studio</div>
-                            <div class="mock-sub">Zoom · starts at 10:00 AM</div>
-                            <div class="mock-actions">
-                                <button class="mock-btn join">Join now</button>
-                                <button class="mock-btn">Snooze 5m</button>
-                                <button class="mock-btn">Dismiss</button>
-                            </div>
+                            <img src="showcase-reminder.webp" alt="Meetly fullscreen meeting reminder with countdown and Join now button" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -1156,29 +1148,21 @@
                             <div><strong>Sync across your Macs</strong><span>Dismiss or join on one device and every other Mac stays in sync via iCloud. (Pro)</span></div>
                         </li>
                         <li class="reveal">
+                            <span class="b-icon"><svg><use href="#i-key"/></svg></span>
+                            <div><strong>Quick Panel anywhere</strong><span>Summon your schedule from any app with ⌃⌥M (customizable). Esc to dismiss.</span></div>
+                        </li>
+                        <li class="reveal">
                             <span class="b-icon"><svg><use href="#i-shield"/></svg></span>
                             <div><strong>Privacy-first by design</strong><span>No backend server. Your calendar data stays on your Mac or in your iCloud. Nothing is sold or shared.</span></div>
                         </li>
                     </ul>
                 </div>
 
-                <!-- Menu bar dropdown mock -->
+                <!-- Menu bar screenshot -->
                 <div class="reveal">
-                    <div class="menubar-mock">
-                        <div class="mb-mock-title">Meetly · Menu Bar</div>
-                        <div class="mb-now">
-                            <div class="lbl">● Now</div>
-                            <div class="ttl">Q3 Strategy — Acme Studio</div>
-                            <div class="meta">Zoom · 10:00 – 10:30 AM</div>
-                            <a href="#" class="join" onclick="return false">
-                                <svg style="width:13px;height:13px"><use href="#i-video"/></svg>
-                                Join meeting
-                            </a>
-                        </div>
-                        <div class="mb-list">
-                            <div class="mb-item"><span>Standup — Internal</span><span class="time">in 1h</span></div>
-                            <div class="mb-item"><span>Design review — Northwind</span><span class="time">in 2h</span></div>
-                            <div class="mb-item"><span>1:1 — Client C</span><span class="time">3:30 PM</span></div>
+                    <div class="device-frame" style="animation:none">
+                        <div class="device-screen">
+                            <img src="showcase-menubar.webp" alt="Meetly menu bar popover showing now and upcoming meetings with time ranges" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -1193,14 +1177,15 @@
         <div class="container">
             <div class="sec-head reveal">
                 <span class="sec-eyebrow">See it in action</span>
-                <h2>Three ways Meetly has your back</h2>
-                <p>Click through the moments that matter — from the fullscreen alert to the quick join.</p>
+                <h2>Four ways Meetly has your back</h2>
+                <p>Click through the moments that matter — from the fullscreen alert to the global Quick Panel.</p>
             </div>
 
             <div class="showcase-tabs reveal">
                 <button class="tab active" data-panel="p1"><svg><use href="#i-alarm"/></svg> Fullscreen reminder</button>
                 <button class="tab" data-panel="p2"><svg><use href="#i-layers"/></svg> Menu bar</button>
                 <button class="tab" data-panel="p3"><svg><use href="#i-bolt"/></svg> Quick join</button>
+                <button class="tab" data-panel="p4"><svg><use href="#i-key"/></svg> Quick Panel</button>
             </div>
 
             <div class="showcase-stage reveal">
@@ -1216,26 +1201,8 @@
                                 <li><svg><use href="#i-check"/></svg> Detects overlapping meetings and groups them</li>
                             </ul>
                         </div>
-                        <div>
-                            <!-- TODO: replace with real screenshot of the fullscreen reminder -->
-                            <div class="device-frame">
-                                <div class="device-screen">
-                                    <div class="mock-menubar">
-                                        <svg class="mb-logo" viewBox="0 0 1024 1024"><rect width="1024" height="1024" rx="228" fill="url(#hteal)"/></svg>
-                                        <span>Meetly</span>
-                                        <span class="mb-pulse">Meeting in 1 min</span>
-                                    </div>
-                                    <div class="mock-soon">Starting in</div>
-                                    <div class="mock-countdown">00:58</div>
-                                    <div class="mock-title">Q3 Strategy — Acme Studio</div>
-                                    <div class="mock-sub">Zoom · starts at 10:00 AM</div>
-                                    <div class="mock-actions">
-                                        <button class="mock-btn join">Join now</button>
-                                        <button class="mock-btn">Snooze 5m</button>
-                                        <button class="mock-btn">Dismiss</button>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="shot">
+                            <img src="showcase-reminder.webp" alt="Meetly fullscreen reminder with live countdown" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -1245,29 +1212,15 @@
                     <div class="panel-grid">
                         <div class="panel-copy">
                             <h3>Your meetings, one click away</h3>
-                            <p>Click the menu bar icon to see what's happening now and what's coming up. The current meeting is always joinable in one click — no digging through calendar apps.</p>
+                            <p>Click the menu bar icon to see what's happening now and what's coming up. Browse the next seven days with ‹ › arrows, and see full start–end time ranges at a glance.</p>
                             <ul>
                                 <li><svg><use href="#i-check"/></svg> "Now" meeting always shown and joinable</li>
-                                <li><svg><use href="#i-check"/></svg> Upcoming meetings across all watched calendars</li>
-                                <li><svg><use href="#i-check"/></svg> Icon shows soon / current state at a glance</li>
+                                <li><svg><use href="#i-check"/></svg> Full time ranges like 10:00 AM – 11:00 AM</li>
+                                <li><svg><use href="#i-check"/></svg> Week browser for the next 7 days</li>
                             </ul>
                         </div>
-                        <div>
-                            <!-- TODO: replace with real screenshot of menu bar dropdown -->
-                            <div class="menubar-mock">
-                                <div class="mb-mock-title">Meetly · Menu Bar</div>
-                                <div class="mb-now">
-                                    <div class="lbl">● Now</div>
-                                    <div class="ttl">Q3 Strategy — Acme Studio</div>
-                                    <div class="meta">Zoom · 10:00 – 10:30 AM</div>
-                                    <a href="#" class="join" onclick="return false"><svg style="width:13px;height:13px"><use href="#i-video"/></svg> Join meeting</a>
-                                </div>
-                                <div class="mb-list">
-                                    <div class="mb-item"><span>Standup — Internal</span><span class="time">in 1h</span></div>
-                                    <div class="mb-item"><span>Design review — Northwind</span><span class="time">in 2h</span></div>
-                                    <div class="mb-item"><span>1:1 — Client C</span><span class="time">3:30 PM</span></div>
-                                </div>
-                            </div>
+                        <div class="shot">
+                            <img src="showcase-menubar.webp" alt="Meetly menu bar popover with now, next, and upcoming meetings" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -1284,14 +1237,26 @@
                                 <li><svg><use href="#i-check"/></svg> Marks the meeting handled everywhere</li>
                             </ul>
                         </div>
-                        <div>
-                            <!-- TODO: replace with real screenshot of quick join -->
-                            <div class="shot quickjoin-mock">
-                                <div class="qj-icon"><svg><use href="#i-bolt"/></svg></div>
-                                <div class="qj-title">Join Q3 Strategy?</div>
-                                <div class="qj-link">zoom.us/j/884•••••••</div>
-                                <button class="qj-launch">Launch meeting</button>
-                            </div>
+                        <div class="shot">
+                            <img src="showcase-quickjoin.webp" alt="Meetly fullscreen reminder with one-click Join now for Zoom" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 4: Quick Panel -->
+                <div class="panel" id="p4">
+                    <div class="panel-grid">
+                        <div class="panel-copy">
+                            <h3>Summon your schedule from anywhere</h3>
+                            <p>Press ⌃⌥M (customizable) to open the Quick Panel over whatever app you're in. See today's meetings, join in one click, and dismiss with Esc — no need to reach for the menu bar.</p>
+                            <ul>
+                                <li><svg><use href="#i-check"/></svg> Global shortcut works from any app</li>
+                                <li><svg><use href="#i-check"/></svg> Same NOW / NEXT / UPCOMING view as the menu bar</li>
+                                <li><svg><use href="#i-check"/></svg> Respects screen-share privacy when enabled (Pro)</li>
+                            </ul>
+                        </div>
+                        <div class="shot">
+                            <img src="showcase-quickpanel.webp" alt="Meetly Quick Panel summoned globally via keyboard shortcut" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -1311,9 +1276,14 @@
             </div>
             <div class="bento">
                 <div class="card featured-tile b-wide reveal">
-                    <div class="icon-tile teal"><svg><use href="#i-checklist"/></svg></div>
-                    <h3>Now also watches Apple Reminders</h3>
-                    <p>New in 1.3. Meetly doesn't just watch calendars anymore — it also watches the Apple Reminders lists you choose. Tasks with a due date fire the same impossible-to-miss fullscreen alert at the right moment. Per-list rules, iCloud sync, the works. (Pro)</p>
+                    <div class="icon-tile teal"><svg><use href="#i-key"/></svg></div>
+                    <h3>Quick Panel — summon your schedule anywhere</h3>
+                    <p>New in 1.4. Press ⌃⌥M from any app to open today's meetings in a floating panel. Join, browse, or dismiss without reaching for the menu bar. Shortcut is fully customizable in Settings.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="icon-tile blue"><svg><use href="#i-checklist"/></svg></div>
+                    <h3>Apple Reminders support</h3>
+                    <p>Watch selected Reminders lists and fire the same fullscreen alert for due-date tasks. Per-list rules and iCloud sync included. (Pro)</p>
                 </div>
                 <div class="card reveal">
                     <div class="icon-tile blue"><svg><use href="#i-alarm"/></svg></div>
@@ -1326,9 +1296,14 @@
                     <p>One click to launch Zoom, Meet, or Teams from any reminder.</p>
                 </div>
                 <div class="card reveal">
+                    <div class="icon-tile blue"><svg><use href="#i-layers"/></svg></div>
+                    <h3>Week browser &amp; time ranges</h3>
+                    <p>Browse the next seven days in the menu bar popover. Every row shows the full start–end range so you know exactly when each meeting ends.</p>
+                </div>
+                <div class="card reveal">
                     <div class="icon-tile amber"><svg><use href="#i-moon"/></svg></div>
-                    <h3>Quiet hours</h3>
-                    <p>No fullscreen blasts at 11 PM. You set the boundaries.</p>
+                    <h3>Quiet hours (Pro)</h3>
+                    <p>No fullscreen blasts at 11 PM. Set quiet hours and Meetly stays silent until morning.</p>
                 </div>
                 <div class="card reveal">
                     <div class="icon-tile coral"><svg><use href="#i-merge"/></svg></div>
@@ -1420,6 +1395,16 @@
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
                         </tr>
                         <tr>
+                            <td>Global Quick Panel shortcut (⌃⌥M)</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Quiet hours — mute alerts overnight (Pro)</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
                             <td>Privacy-first, no backend server</td>
                             <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
@@ -1438,6 +1423,7 @@
     <!-- ============================================================
          TESTIMONIALS
          ============================================================ -->
+    <!-- TESTIMONIALS hidden until real reviews are available
     <section class="testimonials">
         <div class="container">
             <div class="sec-head reveal">
@@ -1482,6 +1468,7 @@
             </div>
         </div>
     </section>
+    -->
 
     <!-- ============================================================
          PRICING
@@ -1507,7 +1494,8 @@
                         <li><svg><use href="#i-check"/></svg> Fullscreen meeting reminders</li>
                         <li><svg><use href="#i-check"/></svg> Menu bar now & upcoming</li>
                         <li><svg><use href="#i-check"/></svg> Monitor 1 calendar</li>
-                        <li><svg><use href="#i-check"/></svg> Snooze, quick join, quiet hours</li>
+                        <li><svg><use href="#i-check"/></svg> Snooze &amp; quick join</li>
+                        <li><svg><use href="#i-check"/></svg> Quick Panel global shortcut (⌃⌥M)</li>
                         <li class="muted"><svg><use href="#i-x"/></svg> iCloud sync across Macs</li>
                     </ul>
                     <a href="https://github.com/codeonholiday/codeonholiday/releases/download/v1.4.1/meetly-latest.zip?t=202607122035" class="btn btn-ghost btn-block">
@@ -1535,10 +1523,11 @@
                         <li><svg><use href="#i-check"/></svg> Cross-device dismiss / join / snooze state</li>
                         <li><svg><use href="#i-check"/></svg> Per-calendar & per-list overlay & sound controls</li>
                         <li><svg><use href="#i-check"/></svg> Reminders for plain events, not just meetings</li>
+                        <li><svg><use href="#i-check"/></svg> Quiet hours — no alerts late at night</li>
                         <li><svg><use href="#i-check"/></svg> Private overlay while screen sharing</li>
                         <li><svg><use href="#i-check"/></svg> Priority support</li>
                     </ul>
-                    <a href="https://codeonholiday.lemonsqueezy.com/checkout/buy/c3bc2ae8-d06d-42c6-a915-ccc6806c0a20?checkout[discount_code]=MEETLYLAUCH" class="btn btn-primary btn-block" target="_blank" rel="noopener">
+                    <a href="https://codeonholiday.lemonsqueezy.com/checkout/buy/c3bc2ae8-d06d-42c6-a915-ccc6806c0a20?checkout[discount_code]=MEETLYLAUNCH" class="btn btn-primary btn-block" target="_blank" rel="noopener">
                         <svg><use href="#i-bolt"/></svg>
                         Get Pro — $3.99 once
                     </a>
@@ -1584,6 +1573,10 @@
                 <details class="faq-item">
                     <summary>Is Meetly a replacement for my calendar app?<svg class="chev"><use href="#i-chev"/></svg></summary>
                     <div class="ans">No, and that's intentional. Meetly does one thing exceptionally well: making sure you never miss an important meeting. It works alongside your calendar app, not instead of it. Keep using Google Calendar, Fantastical, or whatever you love.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>What is the Quick Panel shortcut?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">Press ⌃⌥M from anywhere to summon Meetly's schedule panel over your current app — the same NOW / NEXT / UPCOMING view as the menu bar. Press Esc, click away, or hit the shortcut again to dismiss. You can customize or disable the shortcut in Settings → General. When screen-share privacy is enabled (Pro), the panel stays visible to you but hidden from viewers.</div>
                 </details>
                 <details class="faq-item">
                     <summary>What macOS version do I need?<svg class="chev"><use href="#i-chev"/></svg></summary>
@@ -1654,7 +1647,7 @@
                         <h4>Resources</h4>
                         <a href="/meetly/privacy.html">Privacy Policy</a>
                         <a href="#">Terms of Service</a>
-                        <a href="#">Support</a>
+                        <a href="mailto:hello@codeonholiday.com">Support</a>
                         <a href="https://github.com/codeonholiday/meetly">GitHub</a>
                     </div>
                 </div>

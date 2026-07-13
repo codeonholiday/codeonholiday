@@ -10,8 +10,8 @@
         .btn-primary  / .btn-download  / .btn-secondary  / .btn-ghost  / .product
       Do not rename them.
     ═════════════════════════════════════════════════════════════
-    Pricing model: download the app free, then unlock with a $9.99
-    one-time license (no subscription). Conversion flows: Download
+    Pricing model: download the app free, then unlock with a $7.99
+    launch license ($15.99 normal, no subscription). Conversion flows: Download
     (primary, on nav/hero/pricing/final-cta) → Buy license (checkout
     link, only in the Pricing section) → paste key from email.
     TODO before shipping:
@@ -25,7 +25,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HoverBoard — Present Like a Pro on macOS</title>
-    <meta name="description" content="HoverBoard is a macOS menu bar app to draw, freeze, whiteboard, spotlight, and run break timers over your screen — all a hotkey away. Works seamlessly with Zoom, Meet, and Teams.">
+    <meta name="description" content="HoverBoard is a macOS menu bar app to draw, freeze, whiteboard, spotlight, capture sessions, and run break timers over your screen — all a hotkey away. 30-second free trial on every tool.">
     <link rel="canonical" href="https://codeonholiday.com/hoverboard/">
     <meta name="robots" content="index, follow">
     <meta name="author" content="codeonholiday">
@@ -35,7 +35,7 @@
     <meta property="og:site_name" content="codeonholiday">
     <meta property="og:url" content="https://codeonholiday.com/hoverboard/">
     <meta property="og:title" content="HoverBoard — Present Like a Pro on macOS">
-    <meta property="og:description" content="Draw, freeze, whiteboard, spotlight, and run break timers on macOS — all a hotkey away. Works seamlessly with Zoom, Meet, and Teams.">
+    <meta property="og:description" content="Draw, freeze, whiteboard, mindmap, spotlight, sessions, and break timers on macOS — all a hotkey away. 30-second free trial on every tool.">
     <meta property="og:image" content="https://codeonholiday.com/hoverboard/og-image.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1536">
@@ -46,7 +46,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@codeonholiday">
     <meta name="twitter:title" content="HoverBoard — Present Like a Pro on macOS">
-    <meta name="twitter:description" content="Draw, freeze, whiteboard, spotlight, and run break timers on macOS — all a hotkey away.">
+    <meta name="twitter:description" content="Draw, freeze, whiteboard, mindmap, spotlight, sessions, and break timers on macOS — all a hotkey away.">
     <meta name="twitter:image" content="https://codeonholiday.com/hoverboard/og-image.png">
 
     <!-- Plausible Analytics (Privacy-Friendly) -->
@@ -71,8 +71,8 @@
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "macOS 14+",
         "url": "https://codeonholiday.com/hoverboard/",
-        "description": "A macOS menu bar app to draw, freeze, whiteboard, spotlight, and run break timers over your screen — all a hotkey away. Works seamlessly with Zoom, Meet, and Teams.",
-        "offers": { "@type": "Offer", "price": "9.99", "priceCurrency": "USD" },
+        "description": "A macOS menu bar app to draw, freeze, whiteboard, spotlight, capture sessions, and run break timers over your screen — all a hotkey away. 30-second free trial on every tool.",
+        "offers": { "@type": "Offer", "price": "7.99", "priceCurrency": "USD" },
         "publisher": { "@type": "Organization", "name": "codeonholiday", "url": "https://codeonholiday.com/" }
     }
     </script>
@@ -797,6 +797,12 @@
          ============================================================ -->
     <svg width="0" height="0" style="position:absolute" aria-hidden="true">
         <defs>
+            <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+            </symbol>
+            <symbol id="i-stack" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+            </symbol>
             <symbol id="i-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/>
             </symbol>
@@ -909,9 +915,9 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-copy">
-                    <span class="pill reveal"><span class="dot"></span> macOS native · menu bar app · v1.0</span>
+                    <span class="pill reveal"><span class="dot"></span> macOS native · menu bar app · v1.3.3</span>
                     <h1 class="reveal">Present like a pro.<br><span class="grad">Without the fuss.</span></h1>
-                    <p class="lede reveal">HoverBoard is a macOS menu bar app that puts <strong>draw, freeze, whiteboard, break timer, and cursor highlight</strong> over your screen — all a hotkey away. Works seamlessly while you share on Zoom, Meet, or Teams.</p>
+                    <p class="lede reveal">HoverBoard is a macOS menu bar app that puts <strong>draw, spotlight, freeze, whiteboard, break timer, cursor highlight, and sessions</strong> over your screen — all a hotkey away. Try every tool free for 30 seconds. Works seamlessly while you share on Zoom, Meet, or Teams.</p>
                     <div class="hero-cta reveal">
                         <a href="https://github.com/codeonholiday/codeonholiday/releases/download/v1.3.3/hoverboard-latest.zip?t=202607132041" class="btn btn-primary btn-lg btn-download">
                             <svg><use href="#i-download"/></svg>
@@ -928,7 +934,9 @@
                         <span class="sep"></span>
                         <strong>Free download</strong>
                         <span class="sep"></span>
-                        <strong>$15.99</strong> to unlock
+                        <strong>30s trial</strong>
+                        <span class="sep"></span>
+                        <strong>$7.99</strong> to unlock
                         <span class="sep"></span>
                         30-day money-back
                     </div>
@@ -1019,19 +1027,23 @@
                     <ul class="benefit-list">
                         <li class="reveal">
                             <span class="b-icon"><svg><use href="#i-pen"/></svg></span>
-                            <div><strong>Draw in the moment</strong><span>Annotate live over any screen with pen, arrows, and shapes. Auto-fade or keep — your call.</span></div>
+                            <div><strong>Draw in the moment</strong><span>Annotate live with pen, highlighter, laser pointer, arrows, and shapes. Auto-fade or keep — your call.</span></div>
+                        </li>
+                        <li class="reveal">
+                            <span class="b-icon"><svg><use href="#i-sun"/></svg></span>
+                            <div><strong>Spotlight focus</strong><span>Dim the screen and highlight a soft-edged hole around your cursor so attention follows you.</span></div>
                         </li>
                         <li class="reveal">
                             <span class="b-icon"><svg><use href="#i-snow"/></svg></span>
-                            <div><strong>Freeze time</strong><span>Snapshot the screen and explain at your own pace. The audience sees a still frame while you annotate.</span></div>
+                            <div><strong>Freeze time</strong><span>Snapshot the screen and explain at your own pace. Save frames to a Session as you go.</span></div>
                         </li>
                         <li class="reveal">
                             <span class="b-icon"><svg><use href="#i-board"/></svg></span>
-                            <div><strong>A private whiteboard</strong><span>An infinite canvas a hotkey away — shapes, text, diagrams. Export to PNG, SVG, or Excalidraw.</span></div>
+                            <div><strong>A private whiteboard</strong><span>Mindmaps, Fountain Pen, shapes, and diagrams — export to PNG, SVG, or Excalidraw.</span></div>
                         </li>
                         <li class="reveal">
-                            <span class="b-icon"><svg><use href="#i-target"/></svg></span>
-                            <div><strong>Make your cursor seen</strong><span>An animated halo follows your pointer so every attendee — and recording — can follow along.</span></div>
+                            <span class="b-icon"><svg><use href="#i-stack"/></svg></span>
+                            <div><strong>Sessions library (Pro)</strong><span>Capture presentation frames and export a PNG set or multi-page PDF when you're done.</span></div>
                         </li>
                     </ul>
                 </div>
@@ -1055,16 +1067,18 @@
         <div class="container">
             <div class="sec-head reveal">
                 <span class="sec-eyebrow">See it in action</span>
-                <h2>Five tools, zero friction</h2>
+                <h2>Seven tools, zero friction</h2>
                 <p>Click through each workflow — every one is a single hotkey away, layered right over your screen.</p>
             </div>
 
             <div class="showcase-tabs reveal">
                 <button class="tab active" data-panel="p1"><svg><use href="#i-pen"/></svg> Draw</button>
-                <button class="tab" data-panel="p2"><svg><use href="#i-snow"/></svg> Freeze &amp; Explain</button>
+                <button class="tab" data-panel="p2"><svg><use href="#i-snow"/></svg> Freeze</button>
                 <button class="tab" data-panel="p3"><svg><use href="#i-board"/></svg> Whiteboard</button>
                 <button class="tab" data-panel="p4"><svg><use href="#i-timer"/></svg> Break Timer</button>
-                <button class="tab" data-panel="p5"><svg><use href="#i-target"/></svg> Cursor Highlight</button>
+                <button class="tab" data-panel="p5"><svg><use href="#i-target"/></svg> Cursor</button>
+                <button class="tab" data-panel="p6"><svg><use href="#i-sun"/></svg> Spotlight</button>
+                <button class="tab" data-panel="p7"><svg><use href="#i-stack"/></svg> Sessions</button>
             </div>
 
             <div class="showcase-stage reveal">
@@ -1073,11 +1087,11 @@
                     <div class="panel-grid">
                         <div class="panel-copy">
                             <h3>Annotate in the moment</h3>
-                            <p>Press a hotkey and your cursor becomes a pen. Draw freely, add arrows and rectangles, pick colors and stroke width. Set drawings to auto-fade or keep them until you dismiss.</p>
+                            <p>Press a hotkey and your cursor becomes a pen. Draw freely, add arrows and rectangles, use the highlighter or laser pointer, and pick colors and stroke width. Set drawings to auto-fade or keep them until you dismiss.</p>
                             <ul>
-                                <li><svg><use href="#i-check"/></svg> Pen, arrows, rectangles, freehand</li>
+                                <li><svg><use href="#i-check"/></svg> Pen, highlighter, laser, arrows, shapes</li>
                                 <li><svg><use href="#i-check"/></svg> Auto-fade or persistent drawings</li>
-                                <li><svg><use href="#i-check"/></svg> Works over slides, browsers, and video calls</li>
+                                <li><svg><use href="#i-check"/></svg> Save visible frames to Sessions (Pro)</li>
                             </ul>
                         </div>
                         <div class="shot">
@@ -1095,6 +1109,7 @@
                             <ul>
                                 <li><svg><use href="#i-check"/></svg> One-key freeze of the live screen</li>
                                 <li><svg><use href="#i-check"/></svg> Numbered annotations for step-by-step walkthroughs</li>
+                                <li><svg><use href="#i-check"/></svg> Save to Session from the toolbar (Pro)</li>
                                 <li><svg><use href="#i-check"/></svg> Resume the live screen when you're done</li>
                             </ul>
                         </div>
@@ -1108,16 +1123,16 @@
                 <div class="panel" id="p3">
                     <div class="panel-grid">
                         <div class="panel-copy">
-                            <h3>Your private canvas</h3>
-                            <p>Open an infinite whiteboard without leaving your presentation. Add shapes, lines, text, and freehand drawings. Select, move, resize, rotate — with full undo/redo. All data stays local, no account required.</p>
+                            <h3>Mindmaps &amp; diagrams</h3>
+                            <p>Open an infinite whiteboard without leaving your presentation. Build mindmaps with child and sibling nodes, use the pressure-sensitive Fountain Pen, and collapse branches on demand. Select, move, resize, rotate — with a collapsible inspector and stroke presets up to 16pt.</p>
                             <ul>
-                                <li><svg><use href="#i-check"/></svg> Shapes, text, connectors, freehand</li>
-                                <li><svg><use href="#i-check"/></svg> Export to PNG, SVG, or Excalidraw format</li>
-                                <li><svg><use href="#i-check"/></svg> Local-only — no cloud, no signup</li>
+                                <li><svg><use href="#i-check"/></svg> Mindmap trees with Lesson Outline &amp; Concept Map templates</li>
+                                <li><svg><use href="#i-check"/></svg> Fountain Pen, highlighter, laser, curved arrows</li>
+                                <li><svg><use href="#i-check"/></svg> Export PNG, SVG, or editable Excalidraw files</li>
                             </ul>
                         </div>
                         <div class="shot">
-                            <img src="showcase-whiteboard.webp" alt="HoverBoard Whiteboard mode with diagram tools and properties panel" loading="lazy" decoding="async">
+                            <img src="showcase-mindmap.webp" alt="HoverBoard Whiteboard with mindmap diagram and properties panel" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -1157,6 +1172,42 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Panel 6: Spotlight -->
+                <div class="panel" id="p6">
+                    <div class="panel-grid">
+                        <div class="panel-copy">
+                            <h3>Focus attention</h3>
+                            <p>Dim the screen and put a soft-edged spotlight hole around your cursor. Viewers follow your pointer without you waving the mouse — and click-through stays enabled so you can still interact.</p>
+                            <ul>
+                                <li><svg><use href="#i-check"/></svg> Adjustable radius, darkness, and feather</li>
+                                <li><svg><use href="#i-check"/></svg> Click-through enabled</li>
+                                <li><svg><use href="#i-check"/></svg> Default hotkey ⌃⌥S — fully remappable</li>
+                            </ul>
+                        </div>
+                        <div class="shot">
+                            <img src="showcase-spotlight.webp" alt="HoverBoard Spotlight mode dimming the screen around the cursor" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 7: Sessions -->
+                <div class="panel" id="p7">
+                    <div class="panel-grid">
+                        <div class="panel-copy">
+                            <h3>Build a deck as you present</h3>
+                            <p>Save frames from Draw, Freeze, or Whiteboard into a local Session library. Reorder, rename, and export an ordered PNG set or multi-page PDF when the session is done. Everything stays on your Mac.</p>
+                            <ul>
+                                <li><svg><use href="#i-check"/></svg> Save to Session from Draw, Freeze, or Whiteboard</li>
+                                <li><svg><use href="#i-check"/></svg> Session browser with frame reordering</li>
+                                <li><svg><use href="#i-check"/></svg> Export PNG files or multi-page PDF (Pro)</li>
+                            </ul>
+                        </div>
+                        <div class="shot">
+                            <img src="showcase-sessions.webp" alt="HoverBoard Sessions library with captured presentation frames" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1173,34 +1224,34 @@
             </div>
             <div class="bento">
                 <div class="card featured-tile b-wide reveal">
-                    <div class="icon-tile orange"><svg><use href="#i-pen"/></svg></div>
-                    <h3>Auto-fade, or keep it forever</h3>
-                    <p>Set drawings to fade after a few seconds so they never clutter your slides — or pin them in place when you want them to stick. Your choice, per session.</p>
+                    <div class="icon-tile orange"><svg><use href="#i-stack"/></svg></div>
+                    <h3>Sessions — build a deck as you present (Pro)</h3>
+                    <p>Save frames from Draw, Freeze, or Whiteboard into a local session library. Reorder frames, rename sessions, and export an ordered PNG set or multi-page PDF when you're done teaching.</p>
                 </div>
                 <div class="card reveal">
-                    <div class="icon-tile pink"><svg><use href="#i-export"/></svg></div>
-                    <h3>Export anywhere</h3>
-                    <p>Whiteboards export to PNG, SVG, or Excalidraw. Drop them straight into your deck or docs.</p>
+                    <div class="icon-tile pink"><svg><use href="#i-board"/></svg></div>
+                    <h3>Mindmap whiteboard</h3>
+                    <p>Build topic trees with child and sibling nodes, collapse branches, and start from Lesson Outline or Concept Map templates. Tab / Return shortcuts included.</p>
                 </div>
                 <div class="card reveal">
-                    <div class="icon-tile amber"><svg><use href="#i-key"/></svg></div>
+                    <div class="icon-tile amber"><svg><use href="#i-pen"/></svg></div>
+                    <h3>Fountain Pen</h3>
+                    <p>Pressure-sensitive ink on trackpads and drawing tablets. Highlighter and laser pointer for quick callouts.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="icon-tile orange"><svg><use href="#i-bolt"/></svg></div>
+                    <h3>Try before you buy</h3>
+                    <p>Every tool runs free for 30 seconds per open — including export and save. Pro unlocks unlimited use, Sessions, and launch at login.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="icon-tile coral"><svg><use href="#i-key"/></svg></div>
                     <h3>Custom hotkeys</h3>
-                    <p>Every tool is a global shortcut — remap them to whatever fits your muscle memory.</p>
-                </div>
-                <div class="card reveal">
-                    <div class="icon-tile orange"><svg><use href="#i-timer"/></svg></div>
-                    <h3>Flexible timer</h3>
-                    <p>Fullscreen blast or a quiet corner countdown. Add or pause time mid-break.</p>
-                </div>
-                <div class="card reveal">
-                    <div class="icon-tile coral"><svg><use href="#i-target"/></svg></div>
-                    <h3>Click effects</h3>
-                    <p>Ripples on every click so demos and tutorials are effortless to follow.</p>
+                    <p>Default leader key ⌃⌥ + D/S/F/W/T/H — remap every tool to whatever fits your muscle memory.</p>
                 </div>
                 <div class="card b-wide reveal">
                     <div class="icon-tile pink"><svg><use href="#i-shield"/></svg></div>
                     <h3>Private &amp; local by design</h3>
-                    <p>No account, no cloud, no telemetry on your screen contents. HoverBoard runs entirely on your Mac — your slides and annotations never leave it.</p>
+                    <p>No account, no cloud, no telemetry on your screen contents. HoverBoard runs entirely on your Mac — your slides, sessions, and annotations never leave it.</p>
                 </div>
             </div>
         </div>
@@ -1257,6 +1308,26 @@
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
                         </tr>
                         <tr>
+                            <td>Mindmap whiteboard with templates</td>
+                            <td class="col-hb yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Spotlight focus mode</td>
+                            <td class="col-hb yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Session capture &amp; PDF export (Pro)</td>
+                            <td class="col-hb yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>30-second free trial on every tool</td>
+                            <td class="col-hb yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
                             <td>Works over Zoom / Meet / Teams</td>
                             <td class="col-hb yes"><svg><use href="#i-check"/></svg></td>
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
@@ -1270,6 +1341,7 @@
     <!-- ============================================================
          TESTIMONIALS
          ============================================================ -->
+    <!-- TESTIMONIALS hidden until real reviews are available
     <section class="testimonials">
         <div class="container">
             <div class="sec-head reveal">
@@ -1314,6 +1386,7 @@
             </div>
         </div>
     </section>
+    -->
 
     <!-- ============================================================
          PRICING
@@ -1323,7 +1396,7 @@
             <div class="sec-head reveal">
                 <span class="sec-eyebrow">Simple pricing</span>
                 <h2>Download free. Unlock once.</h2>
-                <p>Install HoverBoard and try every feature. Like it? Pay <strong>$7.99</strong> once, paste the license key from your email, and it's yours forever. Not for you? Get a full refund within 30 days.</p>
+                <p>Install HoverBoard and try every feature free for 30 seconds. Like it? Pay <strong>$7.99</strong> once (launch price, normally $15.99), paste the license key from your email, and it's yours forever. Not for you? Get a full refund within 30 days.</p>
             </div>
             <div class="price-grid price-grid--single">
                 <!-- Pro (the only plan) -->
@@ -1338,11 +1411,14 @@
                     </div>
                     <p class="price-desc">Every tool, unlocked, on every Mac you own. Pay once — own it forever.</p>
                     <ul class="price-features">
-                        <li><svg><use href="#i-check"/></svg> Draw &amp; annotate over any screen</li>
-                        <li><svg><use href="#i-check"/></svg> Freeze &amp; Explain mode</li>
-                        <li><svg><use href="#i-check"/></svg> Infinite whiteboard (PNG / SVG / Excalidraw export)</li>
+                        <li><svg><use href="#i-check"/></svg> 30-second free trial on every tool</li>
+                        <li><svg><use href="#i-check"/></svg> Draw, spotlight, freeze &amp; explain</li>
+                        <li><svg><use href="#i-check"/></svg> Mindmap whiteboard (PNG / SVG / Excalidraw)</li>
                         <li><svg><use href="#i-check"/></svg> Break timer &amp; cursor halo</li>
-                        <li><svg><use href="#i-check"/></svg> Customizable global hotkeys</li>
+                        <li><svg><use href="#i-check"/></svg> Sessions library + PNG/PDF export (Pro)</li>
+                        <li><svg><use href="#i-check"/></svg> Unlimited use — no trial cap (Pro)</li>
+                        <li><svg><use href="#i-check"/></svg> Customizable global hotkeys (⌃⌥ leader key)</li>
+                        <li><svg><use href="#i-check"/></svg> Launch at login (Pro)</li>
                         <li><svg><use href="#i-check"/></svg> Works over Zoom / Meet / Teams</li>
                         <li><svg><use href="#i-check"/></svg> All updates in this major version</li>
                     </ul>
@@ -1393,7 +1469,15 @@
                 </details>
                 <details class="faq-item">
                     <summary>Can I customize the hotkeys?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">Yes. Every tool — Draw, Freeze, Whiteboard, Break Timer, Cursor — has a global hotkey, and all of them are remappable in Settings to whatever fits your muscle memory. Defaults are ⌘⇧D / F / W / B / C.</div>
+                    <div class="ans">Yes. Every tool — Draw, Spotlight, Freeze, Whiteboard, Break Timer, Cursor — has a global hotkey using the ⌃⌥ leader key, and all of them are remappable in Settings. Defaults are ⌃⌥D / S / F / W / T / H.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>What are Sessions?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">Sessions let you capture presentation frames as you teach. Use Save to Session in Draw, Freeze, or Whiteboard to add the current view to a local library. Reorder frames, rename sessions, and export an ordered PNG set or multi-page PDF. Sessions are a Pro feature — everything stays on your Mac with no cloud account.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>How does the 30-second trial work?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">Every tool — including export and save — runs at full power for 30 seconds each time you open it. A live countdown shows time remaining. When the trial ends, you can reopen for another preview or upgrade to Pro for unlimited use, Sessions, and launch at login.</div>
                 </details>
                 <details class="faq-item">
                     <summary>Can I export my whiteboards?<svg class="chev"><use href="#i-chev"/></svg></summary>
@@ -1424,7 +1508,9 @@
                     <span class="sep"></span>
                     Free download
                     <span class="sep"></span>
-                    $9.99 to unlock
+                    30s trial
+                    <span class="sep"></span>
+                    $7.99 to unlock
                     <span class="sep"></span>
                     30-day money-back
                 </div>
@@ -1443,7 +1529,7 @@
                         <span class="logo-mark"><img src="icon.png" alt="HoverBoard logo"></span>
                         <span class="logo-text">HoverBoard</span>
                     </a>
-                    <p>The macOS menu bar app that puts draw, freeze, whiteboard, timer, and cursor highlight a hotkey away — so you can present like a pro.</p>
+                    <p>The macOS menu bar app for draw, spotlight, freeze, mindmap whiteboard, sessions, timer, and cursor highlight — all a hotkey away.</p>
                 </div>
                 <div class="foot-cols">
                     <div class="foot-col">
@@ -1457,7 +1543,7 @@
                         <h4>Resources</h4>
                         <a href="#">Privacy Policy</a>
                         <a href="#">Terms of Service</a>
-                        <a href="#">Support</a>
+                        <a href="mailto:hello@codeonholiday.com">Support</a>
                         <a href="/">codeonholiday</a>
                     </div>
                 </div>
