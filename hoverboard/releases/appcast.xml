@@ -3,13 +3,13 @@
     <channel>
         <title>HoverBoard</title>
         <item>
-            <title>1.3.3</title>
-            <pubDate>Mon, 13 Jul 2026 20:43:18 +0700</pubDate>
-            <sparkle:version>202607132041</sparkle:version>
-            <sparkle:shortVersionString>1.3.3</sparkle:shortVersionString>
+            <title>1.3.4</title>
+            <pubDate>Mon, 13 Jul 2026 21:35:54 +0700</pubDate>
+            <sparkle:version>202607132133</sparkle:version>
+            <sparkle:shortVersionString>1.3.4</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink>https://codeonholiday.com/hoverboard/releases/hoverboard-1.3.3-202607132041.md</sparkle:releaseNotesLink>
-            <enclosure url="https://codeonholiday.com/hoverboard/releases/hoverboard-1.3.3-202607132041.zip" length="5230393" type="application/octet-stream" sparkle:edSignature="pPtVzELv5HJHD5jy6M0GjwEVvnVb/UWCx65YdWExCTkCnAMoHdNV+aYWbQWrUBsiKFJhQgES1x+IXwShJZLDCA=="/>
+            <sparkle:releaseNotesLink>https://codeonholiday.com/hoverboard/releases/hoverboard-1.3.4-202607132133.md</sparkle:releaseNotesLink>
+            <enclosure url="https://codeonholiday.com/hoverboard/releases/hoverboard-1.3.4-202607132133.zip" length="5230683" type="application/octet-stream" sparkle:edSignature="os0450gsVFN3MmtoUt+IZzYhnpNJE+p5rKpj2wG//xisLjqjuRkYB5OCeibTnkMpqr4OuTyosT3IdUu2LHPnAQ=="/>
         </item>
     </channel>
 </rss>
