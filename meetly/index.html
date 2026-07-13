@@ -395,13 +395,6 @@
             max-width: 520px;
             margin-bottom: 32px;
         }
-        .hero-copy .hero-seo {
-            font-size: 0.95rem;
-            color: var(--text-dim);
-            max-width: 520px;
-            margin: -14px 0 22px;
-            line-height: 1.55;
-        }
         .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 26px; }
         .trust-line {
             display: flex;
@@ -815,6 +808,66 @@
         .t-role { font-size: 12.5px; color: var(--text-muted); }
 
         /* ============================================================
+           PRESS
+           ============================================================ */
+        .press { padding: 90px 0; }
+        .press-card {
+            max-width: 760px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, var(--card) 0%, var(--bg-2) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 40px 36px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+        }
+        .press-card:hover { transform: translateY(-4px); border-color: var(--border-strong); }
+        .press-quote {
+            font-size: 1.2rem;
+            line-height: 1.65;
+            color: var(--text);
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+        .press-quote::before { content: '\201C'; color: var(--teal); font-size: 2.4rem; line-height: 0; vertical-align: -0.35em; margin-right: 4px; }
+        .press-quote::after { content: '\201D'; color: var(--teal); font-size: 2.4rem; line-height: 0; vertical-align: -0.35em; margin-left: 2px; }
+        .press-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            padding-top: 8px;
+            border-top: 1px solid var(--border);
+        }
+        .press-source strong { display: block; font-size: 15px; }
+        .press-source span { font-size: 13px; color: var(--text-muted); }
+        .press-link {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--teal);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .press-link:hover { text-decoration: underline; }
+        .press-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+            background: rgba(78, 230, 213, 0.06);
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .press-badge a { color: var(--teal); text-decoration: none; font-weight: 700; }
+        .press-badge a:hover { text-decoration: underline; }
+
+        /* ============================================================
            PRICING
            ============================================================ */
         .pricing { padding: 90px 0; }
@@ -1112,7 +1165,6 @@
                 <div class="hero-copy">
                     <span class="pill reveal"><span class="dot"></span> Free forever · macOS native · v1.4.1</span>
                     <h1 class="reveal">Never miss a<br><span class="grad">client meeting</span> again.</h1>
-                    <p class="hero-seo reveal">macOS meeting reminder &amp; menu bar app — fullscreen alerts, one-click Zoom / Meet / Teams join, and Apple Reminders support.</p>
                     <p class="lede reveal">Meetly is a native macOS menu bar app that fires a <strong>fullscreen reminder</strong> right before your meetings start. Perfect for freelancers juggling multiple calendars across multiple Macs.</p>
                     <div class="hero-cta reveal">
                         <a href="https://github.com/codeonholiday/codeonholiday/releases/download/v1.4.1/meetly-latest.zip?t=202607122035" class="btn btn-primary btn-lg">
@@ -1136,16 +1188,11 @@
                     </div>
 
                     <div class="hero-social reveal">
-                        <div class="avatars">
-                            <span style="background:#4EE6D5">A</span>
-                            <span style="background:#FF6F6F">M</span>
-                            <span style="background:#1787FF">J</span>
-                            <span style="background:#F5B544">S</span>
+                        <div class="press-badge">
+                            <span>Reviewed on</span>
+                            <a href="https://vvmac.fr/wordpress_b/?p=78951#prise-en-main--vous-ne-raterez-plus-rien--meetly-impose-a-lecran-de-votre-mac-des-rappels-immanquables" target="_blank" rel="noopener noreferrer">VVMac</a>
                         </div>
-                        <div>
-                            <div class="stars">★★★★★</div>
-                            <div class="hero-social-text"><strong>Loved by freelancers</strong> who can't afford to miss client calls.</div>
-                        </div>
+                        <div class="hero-social-text">Independent French Mac blog · July 2026</div>
                     </div>
                 </div>
 
@@ -1507,6 +1554,28 @@
     </section>
 
     <!-- ============================================================
+         PRESS
+         ============================================================ -->
+    <section class="press" id="press">
+        <div class="container">
+            <div class="sec-head reveal">
+                <span class="sec-eyebrow">Press</span>
+                <h2>Featured review</h2>
+            </div>
+            <div class="press-card reveal">
+                <blockquote class="press-quote">Instead of a small banner in the corner, Meetly takes the whole screen — event front and center, a live countdown, and an alarm. It's truly impossible to miss. The developer thought of everything: conflict detection, duplicate merging, and alerts that stay private while you're screen sharing.</blockquote>
+                <div class="press-meta">
+                    <div class="press-source">
+                        <strong>VVMac ✿ Le Blog</strong>
+                        <span>Bernard · July 11, 2026 · Independent Mac blog (France)</span>
+                    </div>
+                    <a class="press-link" href="https://vvmac.fr/wordpress_b/?p=78951#prise-en-main--vous-ne-raterez-plus-rien--meetly-impose-a-lecran-de-votre-mac-des-rappels-immanquables" target="_blank" rel="noopener noreferrer">Read the full review →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
          TESTIMONIALS
          ============================================================ -->
     <!-- TESTIMONIALS hidden until real reviews are available
@@ -1727,6 +1796,7 @@
                         <a href="#features">Features</a>
                         <a href="#showcase">See it in action</a>
                         <a href="#pricing">Pricing</a>
+                        <a href="#press">Press</a>
                         <a href="#faq">FAQ</a>
                     </div>
                     <div class="foot-col">
