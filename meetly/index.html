@@ -19,7 +19,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meetly — Never Miss a Client Meeting Again</title>
+    <title>Meetly — macOS Meeting Reminder &amp; Menu Bar App</title>
     <meta name="description" content="Meetly is a native macOS menu bar app that fires a fullscreen reminder before your meetings. Quick Panel, Apple Reminders, week browser, and one-click join. Free forever, one-time Pro, no subscription.">
     <link rel="canonical" href="https://codeonholiday.com/meetly/">
     <meta name="robots" content="index, follow">
@@ -29,7 +29,7 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="codeonholiday">
     <meta property="og:url" content="https://codeonholiday.com/meetly/">
-    <meta property="og:title" content="Meetly — Never Miss a Client Meeting Again">
+    <meta property="og:title" content="Meetly — macOS Meeting Reminder &amp; Menu Bar App">
     <meta property="og:description" content="A native macOS menu bar app that fires a fullscreen reminder before your meetings start. Free forever.">
     <meta property="og:image" content="https://codeonholiday.com/meetly/og-image.png">
     <meta property="og:image:type" content="image/png">
@@ -40,7 +40,7 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@codeonholiday">
-    <meta name="twitter:title" content="Meetly — Never Miss a Client Meeting Again">
+    <meta name="twitter:title" content="Meetly — macOS Meeting Reminder &amp; Menu Bar App">
     <meta name="twitter:description" content="A native macOS menu bar app that fires a fullscreen reminder before your meetings start.">
     <meta name="twitter:image" content="https://codeonholiday.com/meetly/og-image.png">
 
@@ -57,18 +57,96 @@
         gtag('config', 'G-XSL5Z5MEBZ', { 'anonymize_ip': true });
     </script>
 
-    <!-- Structured data: Meetly app -->
+    <!-- Structured data: Meetly app + FAQ -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Meetly",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "macOS 14+",
-        "url": "https://codeonholiday.com/meetly/",
-        "description": "A native macOS menu bar app that fires a fullscreen reminder before your meetings start, with Quick Panel, Apple Reminders, and iCloud sync.",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-        "publisher": { "@type": "Organization", "name": "codeonholiday", "url": "https://codeonholiday.com/" }
+        "@graph": [
+            {
+                "@type": "SoftwareApplication",
+                "@id": "https://codeonholiday.com/meetly/#app",
+                "name": "Meetly",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "macOS 14+",
+                "softwareVersion": "1.4.1",
+                "url": "https://codeonholiday.com/meetly/",
+                "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/v1.4.1/meetly-latest.zip",
+                "screenshot": "https://codeonholiday.com/meetly/showcase-reminder.webp",
+                "description": "A native macOS menu bar app that fires a fullscreen reminder before your meetings start, with Quick Panel, Apple Reminders, and iCloud sync.",
+                "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+                "publisher": { "@type": "Organization", "name": "codeonholiday", "url": "https://codeonholiday.com/" }
+            },
+            {
+                "@type": "FAQPage",
+                "@id": "https://codeonholiday.com/meetly/#faq",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Does Meetly work with my calendar and reminders?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "If it shows up in macOS Calendar — Google, Outlook, iCloud, Exchange, and more — Meetly can watch it. The Free plan monitors one calendar. Pro unlocks unlimited calendars and Apple Reminders lists with due-date tasks that fire the same fullscreen alert as meetings."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How do Apple Reminders tasks work in Meetly?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Pick which Apple Reminders lists Meetly should watch. Tasks with a due date show in the menu bar and fire a fullscreen reminder at the due time. Tasks without a time default to 9 AM. Pro adds per-list overlay and sound rules with iCloud sync."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Is my calendar data safe?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. Meetly has no backend server. Your calendar data stays on your Mac, and sync state travels only through your own iCloud when Pro is enabled. Nothing is sold, shared, or sent to codeonholiday."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Do I have to pay every month?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "No. The Free plan is free forever for single-Mac use. Pro is a one-time payment that unlocks iCloud sync across your Macs. No subscription or recurring charge."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What if I work on multiple Macs?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Pro syncs dismiss, join, and snooze state across your Macs via iCloud so you do not get double reminders. Pro also keeps reminders private while you are screen sharing."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Is Meetly a replacement for my calendar app?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "No. Meetly works alongside Google Calendar, Fantastical, or any calendar app you already use. It focuses on making sure you never miss an important meeting."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What is the Quick Panel shortcut?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Press Control-Option-M from anywhere to summon Meetly's schedule panel over your current app. Press Esc, click away, or hit the shortcut again to dismiss. The shortcut is customizable in Settings."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What macOS version do I need for Meetly?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Meetly runs on macOS 14 (Sonoma) or later. It is a lightweight native menu bar app about 8 MB in size."
+                        }
+                    }
+                ]
+            }
+        ]
     }
     </script>
 
@@ -316,6 +394,13 @@
             color: var(--text-muted);
             max-width: 520px;
             margin-bottom: 32px;
+        }
+        .hero-copy .hero-seo {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            max-width: 520px;
+            margin: -14px 0 22px;
+            line-height: 1.55;
         }
         .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 26px; }
         .trust-line {
@@ -1027,6 +1112,7 @@
                 <div class="hero-copy">
                     <span class="pill reveal"><span class="dot"></span> Free forever · macOS native · v1.4.1</span>
                     <h1 class="reveal">Never miss a<br><span class="grad">client meeting</span> again.</h1>
+                    <p class="hero-seo reveal">macOS meeting reminder &amp; menu bar app — fullscreen alerts, one-click Zoom / Meet / Teams join, and Apple Reminders support.</p>
                     <p class="lede reveal">Meetly is a native macOS menu bar app that fires a <strong>fullscreen reminder</strong> right before your meetings start. Perfect for freelancers juggling multiple calendars across multiple Macs.</p>
                     <div class="hero-cta reveal">
                         <a href="https://github.com/codeonholiday/codeonholiday/releases/download/v1.4.1/meetly-latest.zip?t=202607122035" class="btn btn-primary btn-lg">

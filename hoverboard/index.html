@@ -24,7 +24,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HoverBoard — Present Like a Pro on macOS</title>
+    <title>HoverBoard — macOS Screen Annotation &amp; Presentation Overlay</title>
     <meta name="description" content="HoverBoard is a macOS menu bar app to draw, freeze, whiteboard, spotlight, capture sessions, and run break timers over your screen — all a hotkey away. 30-second free trial on every tool.">
     <link rel="canonical" href="https://codeonholiday.com/hoverboard/">
     <meta name="robots" content="index, follow">
@@ -34,7 +34,7 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="codeonholiday">
     <meta property="og:url" content="https://codeonholiday.com/hoverboard/">
-    <meta property="og:title" content="HoverBoard — Present Like a Pro on macOS">
+    <meta property="og:title" content="HoverBoard — macOS Screen Annotation &amp; Presentation Overlay">
     <meta property="og:description" content="Draw, freeze, whiteboard, mindmap, spotlight, sessions, and break timers on macOS — all a hotkey away. 30-second free trial on every tool.">
     <meta property="og:image" content="https://codeonholiday.com/hoverboard/og-image.png">
     <meta property="og:image:type" content="image/png">
@@ -45,7 +45,7 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@codeonholiday">
-    <meta name="twitter:title" content="HoverBoard — Present Like a Pro on macOS">
+    <meta name="twitter:title" content="HoverBoard — macOS Screen Annotation &amp; Presentation Overlay">
     <meta name="twitter:description" content="Draw, freeze, whiteboard, mindmap, spotlight, sessions, and break timers on macOS — all a hotkey away.">
     <meta name="twitter:image" content="https://codeonholiday.com/hoverboard/og-image.png">
 
@@ -62,18 +62,96 @@
         gtag('config', 'G-XSL5Z5MEBZ', { 'anonymize_ip': true });
     </script>
 
-    <!-- Structured data: HoverBoard app -->
+    <!-- Structured data: HoverBoard app + FAQ -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "HoverBoard",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "macOS 14+",
-        "url": "https://codeonholiday.com/hoverboard/",
-        "description": "A macOS menu bar app to draw, freeze, whiteboard, spotlight, capture sessions, and run break timers over your screen — all a hotkey away. 30-second free trial on every tool.",
-        "offers": { "@type": "Offer", "price": "7.99", "priceCurrency": "USD" },
-        "publisher": { "@type": "Organization", "name": "codeonholiday", "url": "https://codeonholiday.com/" }
+        "@graph": [
+            {
+                "@type": "SoftwareApplication",
+                "@id": "https://codeonholiday.com/hoverboard/#app",
+                "name": "HoverBoard",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "macOS 14+",
+                "softwareVersion": "1.3.4",
+                "url": "https://codeonholiday.com/hoverboard/",
+                "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/v1.3.4/hoverboard-latest.zip",
+                "screenshot": "https://codeonholiday.com/hoverboard/showcase-draw.webp",
+                "description": "A macOS menu bar app to draw, freeze, whiteboard, spotlight, capture sessions, and run break timers over your screen — all a hotkey away. 30-second free trial on every tool.",
+                "offers": { "@type": "Offer", "price": "7.99", "priceCurrency": "USD" },
+                "publisher": { "@type": "Organization", "name": "codeonholiday", "url": "https://codeonholiday.com/" }
+            },
+            {
+                "@type": "FAQPage",
+                "@id": "https://codeonholiday.com/hoverboard/#faq",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Does HoverBoard work while sharing screen on Zoom, Meet, or Teams?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. HoverBoard draws and overlays on top of whatever is on your screen, so your audience sees annotations live during screen share. It works over Keynote, PowerPoint, browsers, IDEs, and any app."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Does HoverBoard keep my data private?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. HoverBoard has no backend server, no account, and no telemetry on your screen contents. Slides, drawings, and whiteboards stay on your Mac until you export them."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What is HoverBoard's refund policy?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "HoverBoard offers a 30-day, no-questions-asked money-back guarantee. Contact hello@codeonholiday.com within 30 days of purchase for a full refund."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Which macOS version do I need for HoverBoard?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "HoverBoard runs on macOS 14 (Sonoma) or later. It is a lightweight native menu bar app that stays out of the way until you summon it."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can I customize HoverBoard hotkeys?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. Every tool has a global hotkey using the Control-Option leader key, and all are remappable in Settings. Defaults are Control-Option-D, S, F, W, T, and H."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What are HoverBoard Sessions?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Sessions let you capture presentation frames from Draw, Freeze, or Whiteboard into a local library. Reorder frames, rename sessions, and export an ordered PNG set or multi-page PDF. Sessions are a Pro feature with no cloud account."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How does the HoverBoard 30-second trial work?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Every tool runs at full power for 30 seconds each time you open it, including export and save. Reopen for another preview or upgrade to Pro for unlimited use, Sessions, and launch at login."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can I export HoverBoard whiteboards?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. Whiteboards export to PNG, SVG, or Excalidraw format for use in slides, docs, or further editing."
+                        }
+                    }
+                ]
+            }
+        ]
     }
     </script>
 
@@ -321,6 +399,13 @@
             color: var(--text-muted);
             max-width: 520px;
             margin-bottom: 32px;
+        }
+        .hero-copy .hero-seo {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            max-width: 520px;
+            margin: -14px 0 22px;
+            line-height: 1.55;
         }
         .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 26px; }
         .trust-line {
@@ -917,6 +1002,7 @@
                 <div class="hero-copy">
                     <span class="pill reveal"><span class="dot"></span> macOS native · menu bar app · v1.3.4</span>
                     <h1 class="reveal">Present like a pro.<br><span class="grad">Without the fuss.</span></h1>
+                    <p class="hero-seo reveal">macOS screen annotation &amp; presentation overlay — draw, freeze, spotlight, and whiteboard over Zoom, Meet, or Teams.</p>
                     <p class="lede reveal">HoverBoard is a macOS menu bar app that puts <strong>draw, spotlight, freeze, whiteboard, break timer, cursor highlight, and sessions</strong> over your screen — all a hotkey away. Try every tool free for 30 seconds. Works seamlessly while you share on Zoom, Meet, or Teams.</p>
                     <div class="hero-cta reveal">
                         <a href="https://github.com/codeonholiday/codeonholiday/releases/download/v1.3.4/hoverboard-latest.zip?t=202607132133" class="btn btn-primary btn-lg btn-download">
