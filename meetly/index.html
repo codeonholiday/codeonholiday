@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meetly — macOS Meeting Reminder &amp; Menu Bar App</title>
-    <meta name="description" content="Meetly is a native macOS menu bar app that fires a fullscreen reminder before your meetings. Quick Panel, Apple Reminders, week browser, and one-click join. Free forever, one-time Pro, no subscription.">
+    <meta name="description" content="Meetly is a native macOS menu bar app that fires a fullscreen reminder before your meetings. Quick Panel, full keyboard navigation, Apple Reminders, week browser, and one-click join. Free forever, one-time Pro, no subscription.">
     <link rel="canonical" href="https://codeonholiday.com/meetly/">
     <meta name="robots" content="index, follow">
     <meta name="author" content="codeonholiday">
@@ -68,11 +68,11 @@
                 "name": "Meetly",
                 "applicationCategory": "BusinessApplication",
                 "operatingSystem": "macOS 14+",
-                "softwareVersion": "1.4.1",
+                "softwareVersion": "1.4.3",
                 "url": "https://codeonholiday.com/meetly/",
-                "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/v1.4.1/meetly-latest.zip",
+                "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/v1.4.3/meetly-latest.zip",
                 "screenshot": "https://codeonholiday.com/meetly/showcase-reminder.webp",
-                "description": "A native macOS menu bar app that fires a fullscreen reminder before your meetings start, with Quick Panel, Apple Reminders, and iCloud sync.",
+                "description": "A native macOS menu bar app that fires a fullscreen reminder before your meetings start, with Quick Panel, keyboard navigation, Apple Reminders, and iCloud sync.",
                 "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
                 "publisher": { "@type": "Organization", "name": "codeonholiday", "url": "https://codeonholiday.com/" }
             },
@@ -133,7 +133,15 @@
                         "name": "What is the Quick Panel shortcut?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Press Control-Option-M from anywhere to summon Meetly's schedule panel over your current app. Press Esc, click away, or hit the shortcut again to dismiss. The shortcut is customizable in Settings."
+                            "text": "Press Control-Option-M from anywhere to summon Meetly's schedule panel over your current app. Browse days with left/right arrows, move between meetings with up/down, join with Enter, and dismiss with Esc. The shortcut is customizable in Settings."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can I use Meetly without a mouse?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. The menu bar, Quick Panel, and fullscreen reminder all support keyboard navigation — arrows move focus between actions, Enter activates the focused button, and Esc dismisses."
                         }
                     },
                     {
@@ -1163,7 +1171,7 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-copy">
-                    <span class="pill reveal"><span class="dot"></span> Free forever · macOS native · v1.4.1</span>
+                    <span class="pill reveal"><span class="dot"></span> Free forever · macOS native · v1.4.3</span>
                     <h1 class="reveal">Never miss a<br><span class="grad">client meeting</span> again.</h1>
                     <p class="lede reveal">Meetly is a native macOS menu bar app that fires a <strong>fullscreen reminder</strong> right before your meetings start. Perfect for freelancers juggling multiple calendars across multiple Macs.</p>
                     <div class="hero-cta reveal">
@@ -1270,7 +1278,7 @@
                     <ul class="benefit-list">
                         <li class="reveal">
                             <span class="b-icon"><svg><use href="#i-alarm"/></svg></span>
-                            <div><strong>Fullscreen reminders</strong><span>Impossible-to-ignore overlays that appear before your meetings — with a live countdown.</span></div>
+                            <div><strong>Fullscreen reminders</strong><span>Impossible-to-ignore overlays with a live countdown — join, snooze, or dismiss with the keyboard too.</span></div>
                         </li>
                         <li class="reveal">
                             <span class="b-icon"><svg><use href="#i-layers"/></svg></span>
@@ -1282,7 +1290,7 @@
                         </li>
                         <li class="reveal">
                             <span class="b-icon"><svg><use href="#i-key"/></svg></span>
-                            <div><strong>Quick Panel anywhere</strong><span>Summon your schedule from any app with ⌃⌥M (customizable). Esc to dismiss.</span></div>
+                            <div><strong>Quick Panel anywhere</strong><span>Summon your schedule with ⌃⌥M, browse with arrows, join with Enter, dismiss with Esc.</span></div>
                         </li>
                         <li class="reveal">
                             <span class="b-icon"><svg><use href="#i-shield"/></svg></span>
@@ -1330,8 +1338,8 @@
                             <p>Right before your meeting, Meetly takes over your screen with a clean, calm countdown — the meeting title, the link, and the buttons you need. No more "I didn't see the notification."</p>
                             <ul>
                                 <li><svg><use href="#i-check"/></svg> Live countdown with big, scannable numbers</li>
-                                <li><svg><use href="#i-check"/></svg> Snooze 1m / 5m or dismiss in one click</li>
-                                <li><svg><use href="#i-check"/></svg> Detects overlapping meetings and groups them</li>
+                                <li><svg><use href="#i-check"/></svg> Arrow keys move between actions; Enter to join or snooze</li>
+                                <li><svg><use href="#i-check"/></svg> Esc dismisses — works without reaching for the mouse</li>
                             </ul>
                         </div>
                         <div class="shot">
@@ -1345,11 +1353,11 @@
                     <div class="panel-grid">
                         <div class="panel-copy">
                             <h3>Your meetings, one click away</h3>
-                            <p>Click the menu bar icon to see what's happening now and what's coming up. Browse the next seven days with ‹ › arrows, and see full start–end time ranges at a glance.</p>
+                            <p>Click the menu bar icon to see what's happening now and what's coming up. Browse the next seven days with ← / →, move between meetings with ↑ / ↓, and join with Enter.</p>
                             <ul>
                                 <li><svg><use href="#i-check"/></svg> "Now" meeting always shown and joinable</li>
                                 <li><svg><use href="#i-check"/></svg> Full time ranges like 10:00 AM – 11:00 AM</li>
-                                <li><svg><use href="#i-check"/></svg> Week browser for the next 7 days</li>
+                                <li><svg><use href="#i-check"/></svg> Keyboard navigation — arrows, Enter, Esc</li>
                             </ul>
                         </div>
                         <div class="shot">
@@ -1381,10 +1389,10 @@
                     <div class="panel-grid">
                         <div class="panel-copy">
                             <h3>Summon your schedule from anywhere</h3>
-                            <p>Press ⌃⌥M (customizable) to open the Quick Panel over whatever app you're in. See today's meetings, join in one click, and dismiss with Esc — no need to reach for the menu bar.</p>
+                            <p>Press ⌃⌥M (customizable) to open the Quick Panel over whatever app you're in. Browse days with ← / →, select a meeting with ↑ / ↓, join with Enter, and dismiss with Esc — no mouse required.</p>
                             <ul>
                                 <li><svg><use href="#i-check"/></svg> Global shortcut works from any app</li>
-                                <li><svg><use href="#i-check"/></svg> Same NOW / NEXT / UPCOMING view as the menu bar</li>
+                                <li><svg><use href="#i-check"/></svg> Full keyboard nav — days, meetings, join, dismiss</li>
                                 <li><svg><use href="#i-check"/></svg> Respects screen-share privacy when enabled (Pro)</li>
                             </ul>
                         </div>
@@ -1411,7 +1419,12 @@
                 <div class="card featured-tile b-wide reveal">
                     <div class="icon-tile teal"><svg><use href="#i-key"/></svg></div>
                     <h3>Quick Panel — summon your schedule anywhere</h3>
-                    <p>New in 1.4. Press ⌃⌥M from any app to open today's meetings in a floating panel. Join, browse, or dismiss without reaching for the menu bar. Shortcut is fully customizable in Settings.</p>
+                    <p>Press ⌃⌥M from any app to open today's meetings. Browse days with ← / →, select with ↑ / ↓, join with Enter, dismiss with Esc. Shortcut is fully customizable in Settings.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="icon-tile teal"><svg><use href="#i-alarm"/></svg></div>
+                    <h3>Keyboard-first reminders</h3>
+                    <p>When the fullscreen overlay appears, use the arrows to move between Snooze / Dismiss / Join, Enter to act, Esc to clear — perfect when your hands are already on the keyboard.</p>
                 </div>
                 <div class="card reveal">
                     <div class="icon-tile blue"><svg><use href="#i-checklist"/></svg></div>
@@ -1529,6 +1542,11 @@
                         </tr>
                         <tr>
                             <td>Global Quick Panel shortcut (⌃⌥M)</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Full keyboard nav — panel &amp; overlay (arrows / Enter / Esc)</td>
                             <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
                         </tr>
@@ -1651,6 +1669,7 @@
                         <li><svg><use href="#i-check"/></svg> Monitor 1 calendar</li>
                         <li><svg><use href="#i-check"/></svg> Snooze &amp; quick join</li>
                         <li><svg><use href="#i-check"/></svg> Quick Panel global shortcut (⌃⌥M)</li>
+                        <li><svg><use href="#i-check"/></svg> Keyboard nav — arrows, Enter, Esc</li>
                         <li class="muted"><svg><use href="#i-x"/></svg> iCloud sync across Macs</li>
                     </ul>
                     <a href="https://github.com/codeonholiday/codeonholiday/releases/download/v1.4.3/meetly-latest.zip?t=202607142310" class="btn btn-ghost btn-block">
@@ -1731,7 +1750,11 @@
                 </details>
                 <details class="faq-item">
                     <summary>What is the Quick Panel shortcut?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">Press ⌃⌥M from anywhere to summon Meetly's schedule panel over your current app — the same NOW / NEXT / UPCOMING view as the menu bar. Press Esc, click away, or hit the shortcut again to dismiss. You can customize or disable the shortcut in Settings → General. When screen-share privacy is enabled (Pro), the panel stays visible to you but hidden from viewers.</div>
+                    <div class="ans">Press ⌃⌥M from anywhere to summon Meetly's schedule panel over your current app — the same NOW / NEXT / UPCOMING view as the menu bar. Browse days with ← / →, move between meetings with ↑ / ↓ (first event selected by default), join with Enter, and dismiss with Esc. You can customize or disable the shortcut in Settings → General. When screen-share privacy is enabled (Pro), the panel stays visible to you but hidden from viewers.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Can I use Meetly without a mouse?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">Yes. The menu bar, Quick Panel, and fullscreen reminder all support the same keyboard path: arrows move focus, Enter activates the focused action (join, snooze, copy location, or dismiss), and Esc closes the panel or overlay. Hands stay on the keyboard through the whole flow.</div>
                 </details>
                 <details class="faq-item">
                     <summary>What macOS version do I need?<svg class="chev"><use href="#i-chev"/></svg></summary>
