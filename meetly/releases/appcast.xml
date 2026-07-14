@@ -3,13 +3,13 @@
     <channel>
         <title>meetly</title>
         <item>
-            <title>1.4.2</title>
-            <pubDate>Tue, 14 Jul 2026 22:45:44 +0700</pubDate>
-            <sparkle:version>202607142243</sparkle:version>
-            <sparkle:shortVersionString>1.4.2</sparkle:shortVersionString>
+            <title>1.4.3</title>
+            <pubDate>Tue, 14 Jul 2026 23:12:02 +0700</pubDate>
+            <sparkle:version>202607142310</sparkle:version>
+            <sparkle:shortVersionString>1.4.3</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink>https://codeonholiday.com/meetly/releases/meetly-1.4.2-202607142243.md</sparkle:releaseNotesLink>
-            <enclosure url="https://codeonholiday.com/meetly/releases/meetly-1.4.2-202607142243.zip" length="5378642" type="application/octet-stream" sparkle:edSignature="6KpcNUv3aSohsO+aOvzFVGem2nrm/BwuvpwyEEwLa6u9jOCbGvV4A4naAXFJdPjMfbDtHK0twCqcav4lUj/VAw=="/>
+            <sparkle:releaseNotesLink>https://codeonholiday.com/meetly/releases/meetly-1.4.3-202607142310.md</sparkle:releaseNotesLink>
+            <enclosure url="https://codeonholiday.com/meetly/releases/meetly-1.4.3-202607142310.zip" length="5400142" type="application/octet-stream" sparkle:edSignature="uiOHMcB/vuzs8aZJrJowYnybuAtDI6hlW32wKk3D6/uZaE89EaCi2xrA8UlXxrCCHlIFTsaE8ZMmZomNjCOMCw=="/>
         </item>
     </channel>
 </rss>
