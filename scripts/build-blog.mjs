@@ -1,0 +1,657 @@
+/**
+ * build-blog.mjs — Markdown posts → static HTML with TOC, rich media, SEO.
+ *
+ * Usage: node scripts/build-blog.mjs
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import matter from 'gray-matter';
+import { marked } from 'marked';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+const SITE = 'https://codeonholiday.com';
+const POSTS_DIR = path.join(ROOT, 'blog', 'posts');
+const BLOG_DIR = path.join(ROOT, 'blog');
+const DEFAULT_OG = `${SITE}/og-image.png`;
+const DEFAULT_AUTHOR = 'codeonholiday';
+
+function slugify(text) {
+  return String(text)
+    .toLowerCase()
+    .trim()
+    .replace(/[\s_]+/g, '-')
+    .replace(/[^\w\-]+/g, '')
+    .replace(/\-\-+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function isoDate(d) {
+  if (!d) return new Date().toISOString().slice(0, 10);
+  if (d instanceof Date) return d.toISOString().slice(0, 10);
+  return String(d).slice(0, 10);
+}
+
+function isoDateTime(d) {
+  const day = isoDate(d);
+  return `${day}T00:00:00+00:00`;
+}
+
+function extractYoutubeId(input) {
+  const s = String(input).trim();
+  if (/^[\w-]{11}$/.test(s)) return s;
+  try {
+    const u = new URL(s);
+    if (u.hostname.includes('youtu.be')) return u.pathname.slice(1).split('/')[0];
+    if (u.searchParams.get('v')) return u.searchParams.get('v');
+    const m = u.pathname.match(/\/(?:embed|shorts)\/([\w-]{11})/);
+    if (m) return m[1];
+  } catch {
+    /* not a URL */
+  }
+  return null;
+}
+
+/** Expand :::youtube shortcodes before markdown parse. */
+function expandYoutubeShortcodes(md) {
+  return md.replace(
+    /^:::\s*youtube\s+(\S+)[ \t]*\r?\n:::[ \t]*$/gim,
+    (_, ref) => {
+      const id = extractYoutubeId(ref);
+      if (!id) return `\n<!-- invalid youtube: ${escapeHtml(ref)} -->\n`;
+      return `\n\n<div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/${id}" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>\n\n`;
+    }
+  );
+}
+
+function uniqueId(base, used) {
+  let id = base || 'section';
+  let n = 2;
+  while (used.has(id)) {
+    id = `${base}-${n++}`;
+  }
+  used.add(id);
+  return id;
+}
+
+function resolveAssetUrl(src, slug) {
+  if (!src) return src;
+  if (/^(https?:|data:|\/)/i.test(src)) return src;
+  // ./assets/welcome/x.webp or assets/welcome/x.webp → /blog/posts/assets/...
+  let cleaned = src.replace(/^\.\//, '');
+  if (cleaned.startsWith('assets/')) {
+    return `/blog/posts/${cleaned}`;
+  }
+  // relative like hero.webp assumed under assets/<slug>/
+  return `/blog/posts/assets/${slug}/${cleaned}`;
+}
+
+function createRenderer(slug, headingCollect, state) {
+  const renderer = new marked.Renderer();
+  const usedIds = new Set();
+
+  renderer.heading = function ({ tokens, depth, text }) {
+    const raw = this.parser.parseInline(tokens);
+    const plain = text || raw.replace(/<[^>]+>/g, '');
+    if (depth === 2 || depth === 3) {
+      const id = uniqueId(slugify(plain), usedIds);
+      headingCollect.push({ id, text: plain, depth });
+      return `<h${depth} id="${id}">${raw}</h${depth}>\n`;
+    }
+    return `<h${depth}>${raw}</h${depth}>\n`;
+  };
+
+  renderer.image = function ({ href, title, text }) {
+    const src = resolveAssetUrl(href, slug);
+    const alt = escapeHtml(text || '');
+    const titleAttr = title ? ` title="${escapeHtml(title)}"` : '';
+    const caption = text ? `<figcaption>${escapeHtml(text)}</figcaption>` : '';
+    return `<figure><img src="${escapeHtml(src)}" alt="${alt}"${titleAttr} loading="lazy" decoding="async">${caption}</figure>\n`;
+  };
+
+  renderer.code = function ({ text, lang }) {
+    if (lang === 'mermaid') {
+      state.hasMermaid = true;
+      return `<pre class="mermaid">${escapeHtml(text)}</pre>\n`;
+    }
+    const langClass = lang ? ` class="language-${escapeHtml(lang)}"` : '';
+    return `<pre><code${langClass}>${escapeHtml(text)}</code></pre>\n`;
+  };
+
+  renderer.link = function ({ href, title, tokens }) {
+    const body = this.parser.parseInline(tokens);
+    const titleAttr = title ? ` title="${escapeHtml(title)}"` : '';
+    const external = /^https?:\/\//i.test(href) && !href.startsWith(SITE);
+    const rel = external ? ' rel="noopener noreferrer"' : '';
+    const target = external ? ' target="_blank"' : '';
+    return `<a href="${escapeHtml(href || '')}"${titleAttr}${rel}${target}>${body}</a>`;
+  };
+
+  return renderer;
+}
+
+function tocHtml(headings, className) {
+  if (!headings.length) return '';
+  const links = headings
+    .map(
+      (h) =>
+        `<a href="#${h.id}" class="${h.depth === 3 ? 'toc-h3' : 'toc-h2'}">${escapeHtml(h.text)}</a>`
+    )
+    .join('\n');
+  if (className === 'toc-mobile') {
+    return `<details class="toc toc-mobile">
+      <summary>On this page</summary>
+      <nav aria-label="Table of contents">${links}</nav>
+    </details>`;
+  }
+  return `<aside class="toc toc-desktop" aria-label="Table of contents">
+    <div class="toc-title">On this page</div>
+    <nav>${links}</nav>
+  </aside>`;
+}
+
+function sharedHeadExtras() {
+  return `
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/blog/css/blog.css">
+    <script defer data-domain="codeonholiday.com" src="https://plausible.io/js/script.js"></script>
+    <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSL5Z5MEBZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XSL5Z5MEBZ', { 'anonymize_ip': true });
+    </script>`;
+}
+
+function siteHeader(active) {
+  return `<header class="site-header">
+    <div class="nav">
+      <a href="/" class="brand" aria-label="codeonholiday home">
+        <span class="brand-mark"></span>
+        codeonholiday
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/blog/"${active === 'blog' ? ' aria-current="page"' : ''}>Blog</a>
+        <a href="/meetly/">Meetly</a>
+        <a href="/hoverboard/">HoverBoard</a>
+      </nav>
+    </div>
+  </header>`;
+}
+
+function siteFooter() {
+  return `<footer class="site-footer">
+    <div class="wrap">
+      <div class="foot">
+        <span>© ${new Date().getFullYear()} codeonholiday</span>
+        <span>
+          <a href="/blog/">Blog</a>
+          ·
+          <a href="/blog/feed.xml">RSS</a>
+          ·
+          <a href="mailto:hello@codeonholiday.com">hello@codeonholiday.com</a>
+        </span>
+      </div>
+    </div>
+  </footer>`;
+}
+
+function resolveOgImage(image, slug) {
+  if (!image) return DEFAULT_OG;
+  const url = resolveAssetUrl(String(image), slug);
+  if (url.startsWith('http')) return url;
+  return `${SITE}${url}`;
+}
+
+function renderPostPage(post) {
+  const {
+    slug,
+    title,
+    description,
+    date,
+    updated,
+    tags,
+    author,
+    ogImage,
+    html,
+    headings,
+    hasMermaid,
+    lang,
+  } = post;
+
+  const canonical = `${SITE}/blog/${slug}/`;
+  const published = isoDateTime(date);
+  const modified = isoDateTime(updated || date);
+  const pageTitle = `${title} — codeonholiday`;
+  const tagMetas = (tags || [])
+    .map((t) => `<meta property="article:tag" content="${escapeHtml(t)}">`)
+    .join('\n    ');
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: title,
+    description,
+    datePublished: published,
+    dateModified: modified,
+    author: {
+      '@type': 'Organization',
+      name: author,
+      url: SITE + '/',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'codeonholiday',
+      url: SITE + '/',
+      logo: {
+        '@type': 'ImageObject',
+        url: DEFAULT_OG,
+      },
+    },
+    image: ogImage,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': canonical,
+    },
+    keywords: (tags || []).join(', '),
+  };
+
+  const mermaidScripts = hasMermaid
+    ? `
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+      window.mermaid = mermaid;
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'dark',
+        securityLevel: 'strict',
+        themeVariables: {
+          primaryColor: '#141C2A',
+          primaryTextColor: '#F8FBFF',
+          primaryBorderColor: '#4EE6D5',
+          lineColor: '#93A1B5',
+          secondaryColor: '#101722',
+          tertiaryColor: '#0A0D13',
+          background: '#0A0D13',
+          mainBkg: '#141C2A',
+          nodeBorder: '#4EE6D5',
+          clusterBkg: '#101722',
+          titleColor: '#F8FBFF',
+          edgeLabelBackground: '#101722'
+        }
+      });
+    </script>`
+    : '';
+
+  const tagsHtml = (tags || []).length
+    ? `<div class="tags">${tags.map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>`
+    : '';
+
+  const dateLabel = isoDate(date);
+  const tocDesktop = tocHtml(headings, 'toc-desktop');
+  const tocMobile = tocHtml(headings, 'toc-mobile');
+
+  return `<!DOCTYPE html>
+<html lang="${escapeHtml(lang || 'en')}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${escapeHtml(pageTitle)}</title>
+    <meta name="description" content="${escapeHtml(description)}">
+    <link rel="canonical" href="${canonical}">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="${escapeHtml(author)}">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="codeonholiday">
+    <meta property="og:url" content="${canonical}">
+    <meta property="og:title" content="${escapeHtml(title)}">
+    <meta property="og:description" content="${escapeHtml(description)}">
+    <meta property="og:image" content="${escapeHtml(ogImage)}">
+    <meta property="og:image:alt" content="${escapeHtml(title)}">
+    <meta property="article:published_time" content="${published}">
+    <meta property="article:modified_time" content="${modified}">
+    <meta property="article:author" content="${escapeHtml(author)}">
+    ${tagMetas}
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@codeonholiday">
+    <meta name="twitter:title" content="${escapeHtml(title)}">
+    <meta name="twitter:description" content="${escapeHtml(description)}">
+    <meta name="twitter:image" content="${escapeHtml(ogImage)}">
+
+    <link rel="alternate" type="application/rss+xml" title="codeonholiday Blog" href="${SITE}/blog/feed.xml">
+
+    <script type="application/ld+json">
+${JSON.stringify(jsonLd, null, 4)}
+    </script>
+    ${sharedHeadExtras()}
+</head>
+<body>
+${siteHeader('blog')}
+    <main class="wrap article-wrap">
+      <div class="article-layout">
+        <article>
+          <header class="article-header">
+            <div class="meta">
+              <time datetime="${isoDate(date)}">${dateLabel}</time>
+              <span class="dot"></span>
+              <span>${escapeHtml(author)}</span>
+            </div>
+            <h1>${escapeHtml(title)}</h1>
+            <p class="lede">${escapeHtml(description)}</p>
+            ${tagsHtml}
+          </header>
+          ${tocMobile}
+          <div class="prose">
+${html}
+          </div>
+          <div class="article-footer">
+            <a href="/blog/">← All posts</a>
+            <a href="/">codeonholiday home</a>
+          </div>
+        </article>
+        ${tocDesktop}
+      </div>
+    </main>
+${siteFooter()}
+    <script src="/events.js"></script>
+    <script src="/blog/js/blog.js"></script>
+    ${mermaidScripts}
+</body>
+</html>
+`;
+}
+
+function renderListingPage(posts) {
+  const canonical = `${SITE}/blog/`;
+  const title = 'Blog — codeonholiday';
+  const description =
+    'Notes on building small, focused macOS apps — Meetly, HoverBoard, and whatever comes next.';
+
+  const itemList = posts.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    url: `${SITE}/blog/${p.slug}/`,
+    name: p.title,
+  }));
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: 'codeonholiday Blog',
+    url: canonical,
+    description,
+    publisher: {
+      '@type': 'Organization',
+      name: 'codeonholiday',
+      url: SITE + '/',
+    },
+    blogPost: posts.map((p) => ({
+      '@type': 'BlogPosting',
+      headline: p.title,
+      url: `${SITE}/blog/${p.slug}/`,
+      datePublished: isoDateTime(p.date),
+      description: p.description,
+    })),
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: itemList,
+    },
+  };
+
+  const listHtml = posts.length
+    ? `<ul class="post-list">
+${posts
+  .map(
+    (p) => `      <li>
+        <a href="/blog/${p.slug}/">
+          <div class="post-date"><time datetime="${isoDate(p.date)}">${isoDate(p.date)}</time></div>
+          <h2>${escapeHtml(p.title)}</h2>
+          <p class="post-desc">${escapeHtml(p.description)}</p>
+        </a>
+      </li>`
+  )
+  .join('\n')}
+    </ul>`
+    : `<p class="empty">No posts yet.</p>`;
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${title}</title>
+    <meta name="description" content="${escapeHtml(description)}">
+    <link rel="canonical" href="${canonical}">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="codeonholiday">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="codeonholiday">
+    <meta property="og:url" content="${canonical}">
+    <meta property="og:title" content="${escapeHtml(title)}">
+    <meta property="og:description" content="${escapeHtml(description)}">
+    <meta property="og:image" content="${DEFAULT_OG}">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@codeonholiday">
+    <meta name="twitter:title" content="${escapeHtml(title)}">
+    <meta name="twitter:description" content="${escapeHtml(description)}">
+    <meta name="twitter:image" content="${DEFAULT_OG}">
+
+    <link rel="alternate" type="application/rss+xml" title="codeonholiday Blog" href="${SITE}/blog/feed.xml">
+
+    <script type="application/ld+json">
+${JSON.stringify(jsonLd, null, 4)}
+    </script>
+    ${sharedHeadExtras()}
+</head>
+<body>
+${siteHeader('blog')}
+    <main class="wrap wrap-narrow">
+      <div class="list-hero">
+        <h1>Blog</h1>
+        <p>${escapeHtml(description)}</p>
+      </div>
+      ${listHtml}
+    </main>
+${siteFooter()}
+    <script src="/events.js"></script>
+</body>
+</html>
+`;
+}
+
+function renderRss(posts) {
+  const items = posts
+    .map((p) => {
+      const link = `${SITE}/blog/${p.slug}/`;
+      return `    <item>
+      <title>${escapeHtml(p.title)}</title>
+      <link>${link}</link>
+      <guid isPermaLink="true">${link}</guid>
+      <pubDate>${new Date(isoDate(p.date)).toUTCString()}</pubDate>
+      <description>${escapeHtml(p.description)}</description>
+    </item>`;
+    })
+    .join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>codeonholiday Blog</title>
+    <link>${SITE}/blog/</link>
+    <description>Notes on building small, focused macOS apps.</description>
+    <language>en</language>
+    <atom:link href="${SITE}/blog/feed.xml" rel="self" type="application/rss+xml"/>
+${items}
+  </channel>
+</rss>
+`;
+}
+
+/** Static product/legal URLs always present in sitemap; blog URLs injected by build. */
+const STATIC_SITEMAP_URLS = [
+  { loc: `${SITE}/`, priority: '1.0', changefreq: 'weekly' },
+  { loc: `${SITE}/meetly/`, priority: '0.9', changefreq: 'weekly' },
+  { loc: `${SITE}/hoverboard/`, priority: '0.9', changefreq: 'weekly' },
+  { loc: `${SITE}/meetly/privacy.html`, priority: '0.3', changefreq: 'yearly' },
+  { loc: `${SITE}/meetly/terms.html`, priority: '0.3', changefreq: 'yearly' },
+  { loc: `${SITE}/hoverboard/privacy.html`, priority: '0.3', changefreq: 'yearly' },
+  { loc: `${SITE}/hoverboard/terms.html`, priority: '0.3', changefreq: 'yearly' },
+];
+
+function renderSitemap(posts) {
+  const today = isoDate(new Date());
+  const blogUrls = [
+    {
+      loc: `${SITE}/blog/`,
+      lastmod: posts[0] ? isoDate(posts[0].updated || posts[0].date) : today,
+      priority: '0.8',
+      changefreq: 'weekly',
+    },
+    ...posts.map((p) => ({
+      loc: `${SITE}/blog/${p.slug}/`,
+      lastmod: isoDate(p.updated || p.date),
+      priority: '0.7',
+      changefreq: 'monthly',
+    })),
+  ];
+
+  const all = [
+    ...STATIC_SITEMAP_URLS.map((u) => ({ ...u, lastmod: u.lastmod || today })),
+    ...blogUrls,
+  ];
+
+  const body = all
+    .map(
+      (u) => `    <url>
+        <loc>${u.loc}</loc>
+        <lastmod>${u.lastmod}</lastmod>
+        <priority>${u.priority}</priority>
+        <changefreq>${u.changefreq}</changefreq>
+    </url>`
+    )
+    .join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${body}
+</urlset>
+`;
+}
+
+function loadPosts() {
+  if (!fs.existsSync(POSTS_DIR)) {
+    fs.mkdirSync(POSTS_DIR, { recursive: true });
+    return [];
+  }
+
+  const files = fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith('.md'));
+  const posts = [];
+
+  for (const file of files) {
+    const slug = file.replace(/\.md$/, '');
+    const raw = fs.readFileSync(path.join(POSTS_DIR, file), 'utf8');
+    const { data, content } = matter(raw);
+
+    if (data.draft === true) {
+      console.log(`  skip draft: ${slug}`);
+      continue;
+    }
+
+    if (!data.title || !data.description || !data.date) {
+      console.warn(`  warn: ${slug} missing title/description/date — skipping`);
+      continue;
+    }
+
+    const headings = [];
+    const state = { hasMermaid: false };
+    const renderer = createRenderer(slug, headings, state);
+
+    let body = expandYoutubeShortcodes(content);
+    // Drop a leading H1 that duplicates frontmatter title
+    body = body.replace(/^#\s+.+\n+/, '');
+
+    marked.setOptions({ renderer, gfm: true, breaks: false });
+    const html = marked.parse(body);
+
+    posts.push({
+      slug,
+      title: String(data.title),
+      description: String(data.description),
+      date: data.date,
+      updated: data.updated || data.date,
+      tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
+      author: data.author ? String(data.author) : DEFAULT_AUTHOR,
+      ogImage: resolveOgImage(data.image, slug),
+      html,
+      headings,
+      hasMermaid: state.hasMermaid,
+      lang: data.lang ? String(data.lang) : 'en',
+    });
+  }
+
+  posts.sort((a, b) => (isoDate(b.date) > isoDate(a.date) ? 1 : -1));
+  return posts;
+}
+
+function cleanGeneratedDirs(posts) {
+  // Remove previously generated slug dirs (keep posts/, css/, js/)
+  const keep = new Set(['posts', 'css', 'js', 'README.md', 'index.html', 'feed.xml']);
+  if (!fs.existsSync(BLOG_DIR)) return;
+  for (const name of fs.readdirSync(BLOG_DIR)) {
+    if (keep.has(name)) continue;
+    const full = path.join(BLOG_DIR, name);
+    const stat = fs.statSync(full);
+    if (stat.isDirectory()) {
+      // only remove if it looks like a generated post folder
+      const indexPath = path.join(full, 'index.html');
+      if (fs.existsSync(indexPath)) {
+        fs.rmSync(full, { recursive: true, force: true });
+      }
+    }
+  }
+  // Ensure current slugs will be rewritten
+  void posts;
+}
+
+function main() {
+  console.log('Building blog…');
+  const posts = loadPosts();
+  cleanGeneratedDirs(posts);
+
+  for (const post of posts) {
+    const outDir = path.join(BLOG_DIR, post.slug);
+    fs.mkdirSync(outDir, { recursive: true });
+    fs.writeFileSync(path.join(outDir, 'index.html'), renderPostPage(post), 'utf8');
+    console.log(`  ✓ /blog/${post.slug}/`);
+  }
+
+  fs.writeFileSync(path.join(BLOG_DIR, 'index.html'), renderListingPage(posts), 'utf8');
+  console.log('  ✓ /blog/');
+
+  fs.writeFileSync(path.join(BLOG_DIR, 'feed.xml'), renderRss(posts), 'utf8');
+  console.log('  ✓ /blog/feed.xml');
+
+  fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), renderSitemap(posts), 'utf8');
+  console.log('  ✓ /sitemap.xml');
+
+  console.log(`Done — ${posts.length} post(s).`);
+}
+
+main();

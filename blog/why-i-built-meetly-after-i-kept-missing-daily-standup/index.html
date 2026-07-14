@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Kept Missing Daily Standup. So I Built Meetly. — codeonholiday</title>
+    <meta name="description" content="Calendar notifications weren’t enough. Here’s why I built Meetly — a macOS fullscreen meeting reminder that finally made daily standup unmissable.">
+    <link rel="canonical" href="https://codeonholiday.com/blog/why-i-built-meetly-after-i-kept-missing-daily-standup/">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="codeonholiday">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="codeonholiday">
+    <meta property="og:url" content="https://codeonholiday.com/blog/why-i-built-meetly-after-i-kept-missing-daily-standup/">
+    <meta property="og:title" content="I Kept Missing Daily Standup. So I Built Meetly.">
+    <meta property="og:description" content="Calendar notifications weren’t enough. Here’s why I built Meetly — a macOS fullscreen meeting reminder that finally made daily standup unmissable.">
+    <meta property="og:image" content="https://codeonholiday.com/blog/posts/assets/why-i-built-meetly-after-i-kept-missing-daily-standup/og.png">
+    <meta property="og:image:alt" content="I Kept Missing Daily Standup. So I Built Meetly.">
+    <meta property="article:published_time" content="2026-07-14T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-07-14T00:00:00+00:00">
+    <meta property="article:author" content="codeonholiday">
+    <meta property="article:tag" content="meetly">
+    <meta property="article:tag" content="macos">
+    <meta property="article:tag" content="indie-dev">
+    <meta property="article:tag" content="productivity">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@codeonholiday">
+    <meta name="twitter:title" content="I Kept Missing Daily Standup. So I Built Meetly.">
+    <meta name="twitter:description" content="Calendar notifications weren’t enough. Here’s why I built Meetly — a macOS fullscreen meeting reminder that finally made daily standup unmissable.">
+    <meta name="twitter:image" content="https://codeonholiday.com/blog/posts/assets/why-i-built-meetly-after-i-kept-missing-daily-standup/og.png">
+
+    <link rel="alternate" type="application/rss+xml" title="codeonholiday Blog" href="https://codeonholiday.com/blog/feed.xml">
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "I Kept Missing Daily Standup. So I Built Meetly.",
+    "description": "Calendar notifications weren’t enough. Here’s why I built Meetly — a macOS fullscreen meeting reminder that finally made daily standup unmissable.",
+    "datePublished": "2026-07-14T00:00:00+00:00",
+    "dateModified": "2026-07-14T00:00:00+00:00",
+    "author": {
+        "@type": "Organization",
+        "name": "codeonholiday",
+        "url": "https://codeonholiday.com/"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "codeonholiday",
+        "url": "https://codeonholiday.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://codeonholiday.com/og-image.png"
+        }
+    },
+    "image": "https://codeonholiday.com/blog/posts/assets/why-i-built-meetly-after-i-kept-missing-daily-standup/og.png",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://codeonholiday.com/blog/why-i-built-meetly-after-i-kept-missing-daily-standup/"
+    },
+    "keywords": "meetly, macos, indie-dev, productivity"
+}
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/blog/css/blog.css">
+    <script defer data-domain="codeonholiday.com" src="https://plausible.io/js/script.js"></script>
+    <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSL5Z5MEBZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XSL5Z5MEBZ', { 'anonymize_ip': true });
+    </script>
+</head>
+<body>
+<header class="site-header">
+    <div class="nav">
+      <a href="/" class="brand" aria-label="codeonholiday home">
+        <span class="brand-mark"></span>
+        codeonholiday
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/blog/" aria-current="page">Blog</a>
+        <a href="/meetly/">Meetly</a>
+        <a href="/hoverboard/">HoverBoard</a>
+      </nav>
+    </div>
+  </header>
+    <main class="wrap article-wrap">
+      <div class="article-layout">
+        <article>
+          <header class="article-header">
+            <div class="meta">
+              <time datetime="2026-07-14">2026-07-14</time>
+              <span class="dot"></span>
+              <span>codeonholiday</span>
+            </div>
+            <h1>I Kept Missing Daily Standup. So I Built Meetly.</h1>
+            <p class="lede">Calendar notifications weren’t enough. Here’s why I built Meetly — a macOS fullscreen meeting reminder that finally made daily standup unmissable.</p>
+            <div class="tags"><span class="tag">meetly</span><span class="tag">macos</span><span class="tag">indie-dev</span><span class="tag">productivity</span></div>
+          </header>
+          <details class="toc toc-mobile">
+      <summary>On this page</summary>
+      <nav aria-label="Table of contents"><a href="#the-standup-i-kept-missing" class="toc-h2">The standup I kept missing</a>
+<a href="#why-macos-calendar-alerts-werent-enough" class="toc-h2">Why macOS calendar alerts weren’t enough</a>
+<a href="#what-i-actually-needed" class="toc-h2">What I actually needed</a>
+<a href="#building-meetly-around-the-interrupt" class="toc-h2">Building Meetly around the interrupt</a>
+<a href="#menu-bar-always-one-glance-away" class="toc-h3">Menu bar, always one glance away</a>
+<a href="#quick-panel-for-the-day-ahead" class="toc-h3">Quick Panel for the day ahead</a>
+<a href="#one-click-join" class="toc-h3">One-click join</a>
+<a href="#how-the-pieces-fit-together" class="toc-h2">How the pieces fit together</a>
+<a href="#what-changed-after-i-started-using-it" class="toc-h2">What changed after I started using it</a>
+<a href="#who-meetly-is-for" class="toc-h2">Who Meetly is for</a>
+<a href="#try-it" class="toc-h2">Try it</a></nav>
+    </details>
+          <div class="prose">
+<p>I didn’t set out to build a meeting app. I set out to stop being <em>that</em> person who slides into standup three minutes late with “sorry, lost track of time.”</p>
+<p>If you work remotely — or hop between deep work and a stack of calendars — you already know the pattern. This is the story of how that pattern became <a href="/meetly/">Meetly</a>.</p>
+<h2 id="the-standup-i-kept-missing">The standup I kept missing</h2>
+<p>Daily standup is short. That’s the trap.</p>
+<p>It’s fifteen minutes on the calendar, same time every day, nothing dramatic about it. Easy to treat as background noise — until you’re heads-down in a bug, headphones on, and the banner on the corner of the screen never quite wins.</p>
+<p>I wasn’t ignoring meetings on purpose. I was optimizing for focus. The side effect was embarrassing: joining late, apologizing, losing the thread of what the team just synced on.</p>
+<p>One week I missed standup twice. That was enough.</p>
+<h2 id="why-macos-calendar-alerts-werent-enough">Why macOS calendar alerts weren’t enough</h2>
+<p>I already had calendars set up. Google, work, personal — all synced into macOS Calendar. Notifications were “on.”</p>
+<p>Here’s what actually happened in practice:</p>
+<ul>
+<li>A tiny banner appears in the corner for a few seconds, then vanishes</li>
+<li>Notification Center stacks it with everything else</li>
+<li>Focus Mode / Do Not Disturb quietly bury it when I’m deep in work</li>
+<li>Multiple calendars mean noise — important meetings compete with optional ones</li>
+</ul>
+<p>A notification that you can ignore <em>will</em> be ignored when you’re in flow. That’s not a character flaw. That’s how attention works on a laptop full of context.</p>
+<p>I didn’t need another calendar. I needed something that treated the next meeting like a hard interrupt — polite, but impossible to miss.</p>
+<h2 id="what-i-actually-needed">What I actually needed</h2>
+<p>I wrote down a short list before writing any code:</p>
+<ol>
+<li><strong>See it before it starts</strong> — not when the call already began</li>
+<li><strong>Fullscreen, not a corner toast</strong> — take over the screen for a moment</li>
+<li><strong>One-click join</strong> — Zoom, Meet, Teams links without digging in Calendar</li>
+<li><strong>Live in the menu bar</strong> — always there, never another window to manage</li>
+<li><strong>Stay on my Mac</strong> — no account, no cloud dashboard for calendar data I already own</li>
+</ol>
+<p>That list became Meetly’s design constraints. Everything else was optional until those five felt solid.</p>
+<h2 id="building-meetly-around-the-interrupt">Building Meetly around the interrupt</h2>
+<p>Meetly is a native macOS menu bar app. Before a meeting starts, it fires a <strong>fullscreen reminder</strong> — title, time, and a clear path to join.</p>
+<p><figure><img src="/blog/posts/assets/why-i-built-meetly-after-i-kept-missing-daily-standup/reminder.webp" alt="Meetly fullscreen meeting reminder on macOS" loading="lazy" decoding="async"><figcaption>Meetly fullscreen meeting reminder on macOS</figcaption></figure>
+</p>
+<p>The point isn’t to be loud for its own sake. It’s to create a reliable ritual: <em>when the overlay appears, you either join or consciously dismiss.</em> No ambiguous “maybe I saw a banner.”</p>
+<h3 id="menu-bar-always-one-glance-away">Menu bar, always one glance away</h3>
+<p>Between meetings, Meetly sits quietly in the menu bar — what’s next, when it starts, jump in when you need to.</p>
+<p><figure><img src="/blog/posts/assets/why-i-built-meetly-after-i-kept-missing-daily-standup/menubar.webp" alt="Meetly in the macOS menu bar" loading="lazy" decoding="async"><figcaption>Meetly in the macOS menu bar</figcaption></figure>
+</p>
+<h3 id="quick-panel-for-the-day-ahead">Quick Panel for the day ahead</h3>
+<p>When you want the bigger picture without opening Calendar, Quick Panel shows what’s coming up so you can plan deep work around the hard edges of your schedule.</p>
+<p><figure><img src="/blog/posts/assets/why-i-built-meetly-after-i-kept-missing-daily-standup/quickpanel.webp" alt="Meetly Quick Panel" loading="lazy" decoding="async"><figcaption>Meetly Quick Panel</figcaption></figure>
+</p>
+<h3 id="one-click-join">One-click join</h3>
+<p>If the event has a conferencing link, Meetly surfaces it. The reminder shouldn’t send you hunting through Calendar notes while the call is already greening up.</p>
+<p><figure><img src="/blog/posts/assets/why-i-built-meetly-after-i-kept-missing-daily-standup/quickjoin.webp" alt="One-click join from Meetly" loading="lazy" decoding="async"><figcaption>One-click join from Meetly</figcaption></figure>
+</p>
+<h2 id="how-the-pieces-fit-together">How the pieces fit together</h2>
+<pre class="mermaid">flowchart TD
+  Cal[macOS Calendar] --&gt; Meetly[Meetly menu bar]
+  Rem[Apple Reminders] --&gt; Meetly
+  Meetly --&gt; Overlay[Fullscreen reminder]
+  Meetly --&gt; Panel[Quick Panel]
+  Overlay --&gt; Join[One-click join]</pre>
+<p>If it shows up in Calendar — Google, Outlook, iCloud, Exchange — Meetly can watch it. Pro unlocks more calendars, Apple Reminders with due dates, and iCloud sync for settings across Macs. Free stays useful on its own: one calendar, fullscreen reminders, no subscription treadmill.</p>
+<h2 id="what-changed-after-i-started-using-it">What changed after I started using it</h2>
+<p>The metric that mattered wasn’t downloads. It was standup.</p>
+<p>I stopped building a “I’ll remember” system in my head. The overlay became the system. Late joins dropped. Apologies dropped. I could go deep on work <em>because</em> I trusted the interrupt would fire when it mattered.</p>
+<p>That’s the irony of a good meeting reminder: it protects focus. You don’t half-watch the clock. You work until Meetly says it’s time.</p>
+<h2 id="who-meetly-is-for">Who Meetly is for</h2>
+<p>Meetly is for people who:</p>
+<ul>
+<li>Live in multiple calendars and still miss the one meeting that happens every day</li>
+<li>Use macOS and want something native — not another Electron tab</li>
+<li>Want a one-time purchase path (Pro) instead of monthly SaaS guilt</li>
+<li>Care that calendar data stays on their Mac / their iCloud — not our servers</li>
+</ul>
+<p>If your standup never slipped, you might not need this. If it has — you’ll recognize the problem in the first overlay.</p>
+<h2 id="try-it">Try it</h2>
+<p><a href="/meetly/">Meetly is free to download</a>. Fullscreen reminders on one calendar cost nothing. Upgrade to Pro if you need more calendars, Reminders, or sync across machines — one-time, no subscription.</p>
+<p>I built it because I kept missing daily standup. I kept shipping it because the interrupt turned out to be useful for <em>every</em> meeting I actually care about — not just the recurring fifteen minutes that started it all.</p>
+
+          </div>
+          <div class="article-footer">
+            <a href="/blog/">← All posts</a>
+            <a href="/">codeonholiday home</a>
+          </div>
+        </article>
+        <aside class="toc toc-desktop" aria-label="Table of contents">
+    <div class="toc-title">On this page</div>
+    <nav><a href="#the-standup-i-kept-missing" class="toc-h2">The standup I kept missing</a>
+<a href="#why-macos-calendar-alerts-werent-enough" class="toc-h2">Why macOS calendar alerts weren’t enough</a>
+<a href="#what-i-actually-needed" class="toc-h2">What I actually needed</a>
+<a href="#building-meetly-around-the-interrupt" class="toc-h2">Building Meetly around the interrupt</a>
+<a href="#menu-bar-always-one-glance-away" class="toc-h3">Menu bar, always one glance away</a>
+<a href="#quick-panel-for-the-day-ahead" class="toc-h3">Quick Panel for the day ahead</a>
+<a href="#one-click-join" class="toc-h3">One-click join</a>
+<a href="#how-the-pieces-fit-together" class="toc-h2">How the pieces fit together</a>
+<a href="#what-changed-after-i-started-using-it" class="toc-h2">What changed after I started using it</a>
+<a href="#who-meetly-is-for" class="toc-h2">Who Meetly is for</a>
+<a href="#try-it" class="toc-h2">Try it</a></nav>
+  </aside>
+      </div>
+    </main>
+<footer class="site-footer">
+    <div class="wrap">
+      <div class="foot">
+        <span>© 2026 codeonholiday</span>
+        <span>
+          <a href="/blog/">Blog</a>
+          ·
+          <a href="/blog/feed.xml">RSS</a>
+          ·
+          <a href="mailto:hello@codeonholiday.com">hello@codeonholiday.com</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+    <script src="/events.js"></script>
+    <script src="/blog/js/blog.js"></script>
+    
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+      window.mermaid = mermaid;
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'dark',
+        securityLevel: 'strict',
+        themeVariables: {
+          primaryColor: '#141C2A',
+          primaryTextColor: '#F8FBFF',
+          primaryBorderColor: '#4EE6D5',
+          lineColor: '#93A1B5',
+          secondaryColor: '#101722',
+          tertiaryColor: '#0A0D13',
+          background: '#0A0D13',
+          mainBkg: '#141C2A',
+          nodeBorder: '#4EE6D5',
+          clusterBkg: '#101722',
+          titleColor: '#F8FBFF',
+          edgeLabelBackground: '#101722'
+        }
+      });
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>codeonholiday Blog</title>
+    <link>https://codeonholiday.com/blog/</link>
+    <description>Notes on building small, focused macOS apps.</description>
+    <language>en</language>
+    <atom:link href="https://codeonholiday.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>I Kept Missing Daily Standup. So I Built Meetly.</title>
+      <link>https://codeonholiday.com/blog/why-i-built-meetly-after-i-kept-missing-daily-standup/</link>
+      <guid isPermaLink="true">https://codeonholiday.com/blog/why-i-built-meetly-after-i-kept-missing-daily-standup/</guid>
+      <pubDate>Tue, 14 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Calendar notifications weren’t enough. Here’s why I built Meetly — a macOS fullscreen meeting reminder that finally made daily standup unmissable.</description>
+    </item>
+  </channel>
+</rss>

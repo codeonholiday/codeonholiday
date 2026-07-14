@@ -4,3 +4,6 @@
 # Editors
 .vscode/
 .idea/
+
+# Node (blog build)
+node_modules/

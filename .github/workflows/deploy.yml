@@ -24,7 +24,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Site lives at repo root (index.html, meetly/, hoverboard/).
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build blog
+        run: npm ci && npm run build:blog
+
+      # Site lives at repo root (index.html, meetly/, hoverboard/, blog/).
       # .nojekyll is committed so GitHub Pages serves files as-is.
       # `enablement: true` creates the Pages site on first run if missing.
       - name: Setup Pages

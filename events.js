@@ -12,6 +12,7 @@
         var p = location.pathname;
         if (p.indexOf('/meetly/') === 0 || p === '/meetly') return 'meetly';
         if (p.indexOf('/hoverboard/') === 0 || p === '/hoverboard') return 'hoverboard';
+        if (p.indexOf('/blog/') === 0 || p === '/blog') return 'blog';
         return 'home';
     })();
 
