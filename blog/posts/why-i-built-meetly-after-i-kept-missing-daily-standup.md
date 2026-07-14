@@ -54,6 +54,13 @@ That list became Meetly’s design constraints. Everything else was optional unt
 
 Meetly is a native macOS menu bar app. Before a meeting starts, it fires a **fullscreen reminder** — title, time, and a clear path to join.
 
+### See it in action
+
+Here’s a short demo of the fullscreen reminder and one-click join:
+
+:::youtube https://youtu.be/nbrieBO4OTs
+:::
+
 ![Meetly fullscreen meeting reminder on macOS](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/reminder.webp)
 
 The point isn’t to be loud for its own sake. It’s to create a reliable ritual: *when the overlay appears, you either join or consciously dismiss.* No ambiguous “maybe I saw a banner.”
