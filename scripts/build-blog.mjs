@@ -296,10 +296,6 @@ function renderPostPage(post) {
     </script>`
     : '';
 
-  const tagsHtml = (tags || []).length
-    ? `<div class="tags">${tags.map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>`
-    : '';
-
   const dateLabel = isoDate(date);
   const tocDesktop = tocHtml(headings, 'toc-desktop');
   const tocMobile = tocHtml(headings, 'toc-mobile');
@@ -352,8 +348,6 @@ ${siteHeader('blog')}
               <span>${escapeHtml(author)}</span>
             </div>
             <h1>${escapeHtml(title)}</h1>
-            <p class="lede">${escapeHtml(description)}</p>
-            ${tagsHtml}
           </header>
           ${tocMobile}
           <div class="prose">
