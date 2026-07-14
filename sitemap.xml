@@ -54,4 +54,10 @@
         <priority>0.7</priority>
         <changefreq>monthly</changefreq>
     </url>
+    <url>
+        <loc>https://codeonholiday.com/blog/presenting-meant-switching-apps-so-i-built-hoverboard/</loc>
+        <lastmod>2026-07-14</lastmod>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
 </urlset>

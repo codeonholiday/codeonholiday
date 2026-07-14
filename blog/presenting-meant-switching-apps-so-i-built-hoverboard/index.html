@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presenting Meant Switching Apps. So I Built HoverBoard. — codeonholiday</title>
+    <meta name="description" content="Annotating live on macOS meant quitting the share, opening another tool, and killing the room’s focus. Here’s why I built HoverBoard — draw, spotlight, freeze, and more, a hotkey away.">
+    <link rel="canonical" href="https://codeonholiday.com/blog/presenting-meant-switching-apps-so-i-built-hoverboard/">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="codeonholiday">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="codeonholiday">
+    <meta property="og:url" content="https://codeonholiday.com/blog/presenting-meant-switching-apps-so-i-built-hoverboard/">
+    <meta property="og:title" content="Presenting Meant Switching Apps. So I Built HoverBoard.">
+    <meta property="og:description" content="Annotating live on macOS meant quitting the share, opening another tool, and killing the room’s focus. Here’s why I built HoverBoard — draw, spotlight, freeze, and more, a hotkey away.">
+    <meta property="og:image" content="https://codeonholiday.com/blog/posts/assets/presenting-meant-switching-apps-so-i-built-hoverboard/og.png">
+    <meta property="og:image:alt" content="Presenting Meant Switching Apps. So I Built HoverBoard.">
+    <meta property="article:published_time" content="2026-07-14T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-07-14T00:00:00+00:00">
+    <meta property="article:author" content="codeonholiday">
+    <meta property="article:tag" content="hoverboard">
+    <meta property="article:tag" content="macos">
+    <meta property="article:tag" content="indie-dev">
+    <meta property="article:tag" content="presentation">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@codeonholiday">
+    <meta name="twitter:title" content="Presenting Meant Switching Apps. So I Built HoverBoard.">
+    <meta name="twitter:description" content="Annotating live on macOS meant quitting the share, opening another tool, and killing the room’s focus. Here’s why I built HoverBoard — draw, spotlight, freeze, and more, a hotkey away.">
+    <meta name="twitter:image" content="https://codeonholiday.com/blog/posts/assets/presenting-meant-switching-apps-so-i-built-hoverboard/og.png">
+
+    <link rel="alternate" type="application/rss+xml" title="codeonholiday Blog" href="https://codeonholiday.com/blog/feed.xml">
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Presenting Meant Switching Apps. So I Built HoverBoard.",
+    "description": "Annotating live on macOS meant quitting the share, opening another tool, and killing the room’s focus. Here’s why I built HoverBoard — draw, spotlight, freeze, and more, a hotkey away.",
+    "datePublished": "2026-07-14T00:00:00+00:00",
+    "dateModified": "2026-07-14T00:00:00+00:00",
+    "author": {
+        "@type": "Organization",
+        "name": "codeonholiday",
+        "url": "https://codeonholiday.com/"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "codeonholiday",
+        "url": "https://codeonholiday.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://codeonholiday.com/og-image.png"
+        }
+    },
+    "image": "https://codeonholiday.com/blog/posts/assets/presenting-meant-switching-apps-so-i-built-hoverboard/og.png",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://codeonholiday.com/blog/presenting-meant-switching-apps-so-i-built-hoverboard/"
+    },
+    "keywords": "hoverboard, macos, indie-dev, presentation"
+}
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/blog/css/blog.css">
+    <script defer data-domain="codeonholiday.com" src="https://plausible.io/js/script.js"></script>
+    <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSL5Z5MEBZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XSL5Z5MEBZ', { 'anonymize_ip': true });
+    </script>
+</head>
+<body>
+<header class="site-header">
+    <div class="nav">
+      <a href="/" class="brand" aria-label="codeonholiday home">
+        <span class="brand-mark"></span>
+        codeonholiday
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/blog/" aria-current="page">Blog</a>
+        <a href="/meetly/">Meetly</a>
+        <a href="/hoverboard/">HoverBoard</a>
+      </nav>
+    </div>
+  </header>
+    <main class="wrap article-wrap">
+      <div class="article-layout">
+        <article>
+          <header class="article-header">
+            <div class="meta">
+              <time datetime="2026-07-14">2026-07-14</time>
+              <span class="dot"></span>
+              <span>codeonholiday</span>
+            </div>
+            <h1>Presenting Meant Switching Apps. So I Built HoverBoard.</h1>
+          </header>
+          <details class="toc toc-mobile">
+      <summary>On this page</summary>
+      <nav aria-label="Table of contents"><a href="#the-mid-call-shuffle" class="toc-h2">The mid-call shuffle</a>
+<a href="#what-good-enough-wasnt" class="toc-h2">What “good enough” wasn’t</a>
+<a href="#building-hoverboard-as-an-overlay" class="toc-h2">Building HoverBoard as an overlay</a>
+<a href="#see-it-in-action" class="toc-h3">See it in action</a>
+<a href="#draw-in-the-moment" class="toc-h3">Draw in the moment</a>
+<a href="#spotlight-so-people-follow-your-pointer" class="toc-h3">Spotlight so people follow your pointer</a>
+<a href="#freeze-when-the-screen-is-about-to-move" class="toc-h3">Freeze when the screen is about to move</a>
+<a href="#whiteboard-and-mindmap-without-leaving-the-call" class="toc-h3">Whiteboard and mindmap without leaving the call</a>
+<a href="#breaks-that-the-room-can-see" class="toc-h3">Breaks that the room can see</a>
+<a href="#how-the-pieces-fit-together" class="toc-h2">How the pieces fit together</a>
+<a href="#what-changed-once-i-stopped-switching-apps" class="toc-h2">What changed once I stopped switching apps</a>
+<a href="#who-its-for" class="toc-h2">Who it’s for</a>
+<a href="#try-it" class="toc-h2">Try it</a></nav>
+    </details>
+          <div class="prose">
+<p>I didn’t set out to build a presentation suite. I set out to stop breaking my own screen share mid-sentence.</p>
+<p>If you’ve ever said “one second, let me switch apps” on Zoom, Meet, or Teams — then come back to a quiet room and a lost thread — you already know the pain. That friction is why <a href="/hoverboard/">HoverBoard</a> exists.</p>
+<h2 id="the-mid-call-shuffle">The mid-call shuffle</h2>
+<p>I present a lot. Training sessions, demos, walkthroughs of whatever is on screen.</p>
+<p>The pattern was always the same:</p>
+<ol>
+<li>I’m sharing a slide, a browser, or an IDE</li>
+<li>Someone asks a question that needs a circle, an arrow, or a freeze</li>
+<li>I alt-tab into another annotation tool (or worse, stop sharing)</li>
+<li>By the time I’m back, half the room has checked Slack</li>
+</ol>
+<p>Tools that <em>can</em> draw over the screen usually want to be the main event — a separate window, a separate mode, a separate mental context. I didn’t need theater software. I needed a thin overlay that respected whatever I was already sharing.</p>
+<h2 id="what-good-enough-wasnt">What “good enough” wasn’t</h2>
+<p>Keyboard screenshots and Markup. Sticky notes. A second display for a whiteboard. A browser timer in another tab for breaks.</p>
+<p>Each of those “works” once. None of them work when you’re live and the next beat of the workshop is already waiting.</p>
+<p>What I actually needed:</p>
+<ol>
+<li><strong>Draw on top of anything</strong> — without leaving the share</li>
+<li><strong>Spotlight / cursor emphasis</strong> — so people stop asking “where?”</li>
+<li><strong>Freeze the frame</strong> when the UI is about to change under me</li>
+<li><strong>A real whiteboard / mindmap</strong> when the conversation leaves the deck</li>
+<li><strong>A break timer</strong> that the room can see — not one I forget in Notes</li>
+<li><strong>Hotkeys</strong> — because hunting a menu mid-sentence is how you lose the room</li>
+</ol>
+<p>That list became HoverBoard’s design constraints.</p>
+<h2 id="building-hoverboard-as-an-overlay">Building HoverBoard as an overlay</h2>
+<p>HoverBoard lives in the macOS menu bar. Every tool is a hotkey away. Try any tool free for 30 seconds; unlock the full app with a one-time Pro license — no subscription.</p>
+<h3 id="see-it-in-action">See it in action</h3>
+<p>A short demo of draw, spotlight, and the overlay flow:</p>
+<div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/jbJOG-OBTqA" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+
+
+
+<h3 id="draw-in-the-moment">Draw in the moment</h3>
+<p>Pen, highlighter, laser, arrows, shapes — annotate live over whatever you’re sharing. Auto-fade or keep until you dismiss.</p>
+<p><figure><img src="/blog/posts/assets/presenting-meant-switching-apps-so-i-built-hoverboard/draw.webp" alt="HoverBoard Draw mode annotating a slide" loading="lazy" decoding="async"><figcaption>HoverBoard Draw mode annotating a slide</figcaption></figure>
+</p>
+<h3 id="spotlight-so-people-follow-your-pointer">Spotlight so people follow your pointer</h3>
+<p>Dim the screen and leave a soft spotlight on the cursor. Click-through stays enabled so you can still interact with the app underneath.</p>
+<p><figure><img src="/blog/posts/assets/presenting-meant-switching-apps-so-i-built-hoverboard/spotlight.webp" alt="HoverBoard Spotlight focusing attention on the cursor" loading="lazy" decoding="async"><figcaption>HoverBoard Spotlight focusing attention on the cursor</figcaption></figure>
+</p>
+<h3 id="freeze-when-the-screen-is-about-to-move">Freeze when the screen is about to move</h3>
+<p>Lock a frame so you can talk about what’s on screen without the UI changing under you — useful for live demos and flaky UIs.</p>
+<p><figure><img src="/blog/posts/assets/presenting-meant-switching-apps-so-i-built-hoverboard/freeze.webp" alt="HoverBoard Freeze locking the current screen" loading="lazy" decoding="async"><figcaption>HoverBoard Freeze locking the current screen</figcaption></figure>
+</p>
+<h3 id="whiteboard-and-mindmap-without-leaving-the-call">Whiteboard and mindmap without leaving the call</h3>
+<p>Open an infinite whiteboard for side discussions, then come back. Mindmap nodes, fountain pen, collapse branches — still an overlay, still hotkey-driven.</p>
+<p><figure><img src="/blog/posts/assets/presenting-meant-switching-apps-so-i-built-hoverboard/mindmap.webp" alt="HoverBoard Whiteboard mindmap" loading="lazy" decoding="async"><figcaption>HoverBoard Whiteboard mindmap</figcaption></figure>
+</p>
+<h3 id="breaks-that-the-room-can-see">Breaks that the room can see</h3>
+<p>Set a countdown — fullscreen or corner — so “five minutes” stays five minutes.</p>
+<p><figure><img src="/blog/posts/assets/presenting-meant-switching-apps-so-i-built-hoverboard/break-timer.webp" alt="HoverBoard Break Timer overlay" loading="lazy" decoding="async"><figcaption>HoverBoard Break Timer overlay</figcaption></figure>
+</p>
+<h2 id="how-the-pieces-fit-together">How the pieces fit together</h2>
+<pre class="mermaid">flowchart LR
+  Share[Screen share] --&gt; HB[HoverBoard overlay]
+  HB --&gt; Draw[Draw]
+  HB --&gt; Spot[Spotlight]
+  HB --&gt; Freeze[Freeze]
+  HB --&gt; Board[Whiteboard]
+  HB --&gt; Timer[Break timer]
+  Draw --&gt; Session[Sessions Pro]
+  Freeze --&gt; Session
+  Board --&gt; Session</pre>
+<p>Pro also adds <strong>Sessions</strong>: capture frames from Draw, Freeze, or Whiteboard into a local library, reorder them, and export PNG set or multi-page PDF — everything stays on your Mac.</p>
+<h2 id="what-changed-once-i-stopped-switching-apps">What changed once I stopped switching apps</h2>
+<p>The metric wasn’t feature count. It was interruptions.</p>
+<p>Fewer “wait, let me open…” moments. Fewer lost questions. Longer stretches where I could stay in the material and let the overlay do the visual work.</p>
+<p>HoverBoard isn’t meant to replace Keynote or your deck. It’s the layer <em>on top</em> when the conversation leaves the slide.</p>
+<h2 id="who-its-for">Who it’s for</h2>
+<p>HoverBoard is for people who:</p>
+<ul>
+<li>Present or train over Zoom / Meet / Teams on a Mac</li>
+<li>Hate breaking screen share just to circle something</li>
+<li>Want hotkeys over another floating toolbox you’ll never learn</li>
+<li>Prefer a one-time license and local-first Sessions over another SaaS</li>
+</ul>
+<h2 id="try-it">Try it</h2>
+<p><a href="/hoverboard/">Download HoverBoard</a>. Every tool has a 30-second free trial so you can feel the interrupt mid-share before you buy. Pro is a one-time unlock — no subscription.</p>
+<p>I built it because presenting meant switching apps. I kept shipping it because the overlay turned out to be the whole product — not a feature bolted onto something else.</p>
+
+          </div>
+          <div class="article-footer">
+            <a href="/blog/">← All posts</a>
+            <a href="/">codeonholiday home</a>
+          </div>
+        </article>
+        <aside class="toc toc-desktop" aria-label="Table of contents">
+    <div class="toc-title">On this page</div>
+    <nav><a href="#the-mid-call-shuffle" class="toc-h2">The mid-call shuffle</a>
+<a href="#what-good-enough-wasnt" class="toc-h2">What “good enough” wasn’t</a>
+<a href="#building-hoverboard-as-an-overlay" class="toc-h2">Building HoverBoard as an overlay</a>
+<a href="#see-it-in-action" class="toc-h3">See it in action</a>
+<a href="#draw-in-the-moment" class="toc-h3">Draw in the moment</a>
+<a href="#spotlight-so-people-follow-your-pointer" class="toc-h3">Spotlight so people follow your pointer</a>
+<a href="#freeze-when-the-screen-is-about-to-move" class="toc-h3">Freeze when the screen is about to move</a>
+<a href="#whiteboard-and-mindmap-without-leaving-the-call" class="toc-h3">Whiteboard and mindmap without leaving the call</a>
+<a href="#breaks-that-the-room-can-see" class="toc-h3">Breaks that the room can see</a>
+<a href="#how-the-pieces-fit-together" class="toc-h2">How the pieces fit together</a>
+<a href="#what-changed-once-i-stopped-switching-apps" class="toc-h2">What changed once I stopped switching apps</a>
+<a href="#who-its-for" class="toc-h2">Who it’s for</a>
+<a href="#try-it" class="toc-h2">Try it</a></nav>
+  </aside>
+      </div>
+    </main>
+<footer class="site-footer">
+    <div class="wrap">
+      <div class="foot">
+        <span>© 2026 codeonholiday</span>
+        <span>
+          <a href="/blog/">Blog</a>
+          ·
+          <a href="/blog/feed.xml">RSS</a>
+          ·
+          <a href="mailto:hello@codeonholiday.com">hello@codeonholiday.com</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+    <script src="/events.js"></script>
+    <script src="/blog/js/blog.js"></script>
+    
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+      window.mermaid = mermaid;
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'dark',
+        securityLevel: 'strict',
+        themeVariables: {
+          primaryColor: '#141C2A',
+          primaryTextColor: '#F8FBFF',
+          primaryBorderColor: '#4EE6D5',
+          lineColor: '#93A1B5',
+          secondaryColor: '#101722',
+          tertiaryColor: '#0A0D13',
+          background: '#0A0D13',
+          mainBkg: '#141C2A',
+          nodeBorder: '#4EE6D5',
+          clusterBkg: '#101722',
+          titleColor: '#F8FBFF',
+          edgeLabelBackground: '#101722'
+        }
+      });
+    </script>
+</body>
+</html>

@@ -13,5 +13,12 @@
       <pubDate>Tue, 14 Jul 2026 00:00:00 GMT</pubDate>
       <description>Calendar notifications weren’t enough. Here’s why I built Meetly — a macOS fullscreen meeting reminder that finally made daily standup unmissable.</description>
     </item>
+    <item>
+      <title>Presenting Meant Switching Apps. So I Built HoverBoard.</title>
+      <link>https://codeonholiday.com/blog/presenting-meant-switching-apps-so-i-built-hoverboard/</link>
+      <guid isPermaLink="true">https://codeonholiday.com/blog/presenting-meant-switching-apps-so-i-built-hoverboard/</guid>
+      <pubDate>Tue, 14 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Annotating live on macOS meant quitting the share, opening another tool, and killing the room’s focus. Here’s why I built HoverBoard — draw, spotlight, freeze, and more, a hotkey away.</description>
+    </item>
   </channel>
 </rss>
