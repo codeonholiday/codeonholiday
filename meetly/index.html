@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meetly — macOS Meeting Reminder &amp; Menu Bar App</title>
-    <meta name="description" content="Meetly is a native macOS menu bar app that fires a fullscreen reminder before your meetings. Quick Panel, full keyboard navigation, Apple Reminders, week browser, and one-click join. Free forever, one-time Pro, no subscription.">
+    <meta name="description" content="Meetly is a native macOS menu bar app that fires a fullscreen reminder before your meetings. Quick Panel, keyboard mute with ⌘M, Apple Reminders, week browser, and one-click join. Free forever, one-time Pro, no subscription.">
     <link rel="canonical" href="https://codeonholiday.com/meetly/">
     <meta name="robots" content="index, follow">
     <meta name="author" content="codeonholiday">
@@ -68,11 +68,11 @@
                 "name": "Meetly",
                 "applicationCategory": "BusinessApplication",
                 "operatingSystem": "macOS 14+",
-                "softwareVersion": "1.4.3",
+                "softwareVersion": "1.4.4",
                 "url": "https://codeonholiday.com/meetly/",
-                "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/v1.4.3/meetly-latest.zip",
+                "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/v1.4.4/meetly-latest.zip",
                 "screenshot": "https://codeonholiday.com/meetly/showcase-reminder.webp",
-                "description": "A native macOS menu bar app that fires a fullscreen reminder before your meetings start, with Quick Panel, keyboard navigation, Apple Reminders, and iCloud sync.",
+                "description": "A native macOS menu bar app that fires a fullscreen reminder before your meetings start, with Quick Panel, keyboard mute, Apple Reminders, and iCloud sync.",
                 "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
                 "publisher": { "@type": "Organization", "name": "codeonholiday", "url": "https://codeonholiday.com/" }
             },
@@ -101,7 +101,7 @@
                         "name": "Is my calendar data safe?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Yes. Meetly has no backend server. Your calendar data stays on your Mac, and sync state travels only through your own iCloud when Pro is enabled. Nothing is sold, shared, or sent to codeonholiday."
+                            "text": "Yes. Meetly has no backend server. Your calendar data stays on your Mac, and sync state (including mute) travels only through your own iCloud when Pro is enabled. Nothing is sold, shared, or sent to codeonholiday."
                         }
                     },
                     {
@@ -133,7 +133,15 @@
                         "name": "What is the Quick Panel shortcut?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Press Control-Option-M from anywhere to summon Meetly's schedule panel over your current app. Browse days with left/right arrows, move between meetings with up/down, join with Enter, and dismiss with Esc. The shortcut is customizable in Settings."
+                            "text": "Press Control-Option-M from anywhere to summon Meetly's schedule panel over your current app. Browse days with left/right arrows, move between meetings with up/down, join with Enter, mute with Command-M, unmute with Command-U, and dismiss with Esc. The shortcut is customizable in Settings."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can I mute a meeting so it won't remind me?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. In the menu bar or Quick Panel, select a meeting and press Command-M to skip its fullscreen reminder. Muted meetings show a Muted tag. Press Command-U to turn reminders back on. On Pro, mute state syncs across your Macs."
                         }
                     },
                     {
@@ -141,7 +149,7 @@
                         "name": "Can I use Meetly without a mouse?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Yes. The menu bar, Quick Panel, and fullscreen reminder all support keyboard navigation — arrows move focus between actions, Enter activates the focused button, and Esc dismisses."
+                            "text": "Yes. The menu bar, Quick Panel, and fullscreen reminder all support keyboard navigation — arrows move focus between actions, Enter activates the focused button, Command-M mutes a selected meeting, Command-U unmutes, and Esc dismisses."
                         }
                     },
                     {
@@ -1171,7 +1179,7 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-copy">
-                    <span class="pill reveal"><span class="dot"></span> Free forever · macOS native · v1.4.3</span>
+                    <span class="pill reveal"><span class="dot"></span> Free forever · macOS native · v1.4.4</span>
                     <h1 class="reveal">Never miss a<br><span class="grad">client meeting</span> again.</h1>
                     <p class="lede reveal">Meetly is a native macOS menu bar app that fires a <strong>fullscreen reminder</strong> right before your meetings start. Perfect for freelancers juggling multiple calendars across multiple Macs.</p>
                     <div class="hero-cta reveal">
@@ -1290,7 +1298,7 @@
                         </li>
                         <li class="reveal">
                             <span class="b-icon"><svg><use href="#i-key"/></svg></span>
-                            <div><strong>Quick Panel anywhere</strong><span>Summon your schedule with ⌃⌥M, browse with arrows, join with Enter, dismiss with Esc.</span></div>
+                            <div><strong>Quick Panel anywhere</strong><span>Summon with ⌃⌥M, browse with arrows, mute with ⌘M, join with Enter, dismiss with Esc.</span></div>
                         </li>
                         <li class="reveal">
                             <span class="b-icon"><svg><use href="#i-shield"/></svg></span>
@@ -1353,11 +1361,11 @@
                     <div class="panel-grid">
                         <div class="panel-copy">
                             <h3>Your meetings, one click away</h3>
-                            <p>Click the menu bar icon to see what's happening now and what's coming up. Browse the next seven days with ← / →, move between meetings with ↑ / ↓, and join with Enter.</p>
+                            <p>Click the menu bar icon to see what's happening now and what's coming up. Browse days with ← / →, select with ↑ / ↓, mute with ⌘M, and join with Enter.</p>
                             <ul>
-                                <li><svg><use href="#i-check"/></svg> "Now" meeting always shown and joinable</li>
-                                <li><svg><use href="#i-check"/></svg> Full time ranges like 10:00 AM – 11:00 AM</li>
-                                <li><svg><use href="#i-check"/></svg> Keyboard navigation — arrows, Enter, Esc</li>
+                                <li><svg><use href="#i-check"/></svg> NEXT shows “in 1:12” plus start–end on the right</li>
+                                <li><svg><use href="#i-check"/></svg> ⌘M mutes a meeting; muted rows show a clear tag</li>
+                                <li><svg><use href="#i-check"/></svg> Keyboard navigation — arrows, Enter, ⌘M / ⌘U, Esc</li>
                             </ul>
                         </div>
                         <div class="shot">
@@ -1389,10 +1397,10 @@
                     <div class="panel-grid">
                         <div class="panel-copy">
                             <h3>Summon your schedule from anywhere</h3>
-                            <p>Press ⌃⌥M (customizable) to open the Quick Panel over whatever app you're in. Browse days with ← / →, select a meeting with ↑ / ↓, join with Enter, and dismiss with Esc — no mouse required.</p>
+                            <p>Press ⌃⌥M (customizable) to open the Quick Panel over whatever app you're in. Browse days with ← / →, select with ↑ / ↓, mute with ⌘M, unmute with ⌘U, join with Enter, and dismiss with Esc.</p>
                             <ul>
                                 <li><svg><use href="#i-check"/></svg> Global shortcut works from any app</li>
-                                <li><svg><use href="#i-check"/></svg> Full keyboard nav — days, meetings, join, dismiss</li>
+                                <li><svg><use href="#i-check"/></svg> Mute skip-reminder meetings without leaving the keyboard</li>
                                 <li><svg><use href="#i-check"/></svg> Respects screen-share privacy when enabled (Pro)</li>
                             </ul>
                         </div>
@@ -1419,7 +1427,12 @@
                 <div class="card featured-tile b-wide reveal">
                     <div class="icon-tile teal"><svg><use href="#i-key"/></svg></div>
                     <h3>Quick Panel — summon your schedule anywhere</h3>
-                    <p>Press ⌃⌥M from any app to open today's meetings. Browse days with ← / →, select with ↑ / ↓, join with Enter, dismiss with Esc. Shortcut is fully customizable in Settings.</p>
+                    <p>Press ⌃⌥M from any app to open today's meetings. Browse with arrows, mute with ⌘M, unmute with ⌘U, join with Enter, dismiss with Esc. Shortcut is fully customizable in Settings.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="icon-tile teal"><svg><use href="#i-bell"/></svg></div>
+                    <h3>Mute from the keyboard</h3>
+                    <p>New in 1.4.4. Select a meeting and press ⌘M to skip its fullscreen reminder — muted rows show a clear tag. ⌘U turns reminders back on. Syncs with dismiss/snooze state via iCloud on Pro.</p>
                 </div>
                 <div class="card reveal">
                     <div class="icon-tile teal"><svg><use href="#i-alarm"/></svg></div>
@@ -1443,8 +1456,8 @@
                 </div>
                 <div class="card reveal">
                     <div class="icon-tile blue"><svg><use href="#i-layers"/></svg></div>
-                    <h3>Week browser &amp; time ranges</h3>
-                    <p>Browse the next seven days in the menu bar popover. Every row shows the full start–end range so you know exactly when each meeting ends.</p>
+                    <h3>Week browser &amp; clear NEXT timing</h3>
+                    <p>Browse the next seven days in the menu bar. The NEXT card shows a precise countdown like “in 1:12” and the start–end time on the right — not just a coarse “in 1h”.</p>
                 </div>
                 <div class="card reveal">
                     <div class="icon-tile amber"><svg><use href="#i-moon"/></svg></div>
@@ -1547,6 +1560,11 @@
                         </tr>
                         <tr>
                             <td>Full keyboard nav — panel &amp; overlay (arrows / Enter / Esc)</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Mute / unmute selected meeting (⌘M / ⌘U)</td>
                             <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
                         </tr>
@@ -1670,6 +1688,7 @@
                         <li><svg><use href="#i-check"/></svg> Snooze &amp; quick join</li>
                         <li><svg><use href="#i-check"/></svg> Quick Panel global shortcut (⌃⌥M)</li>
                         <li><svg><use href="#i-check"/></svg> Keyboard nav — arrows, Enter, Esc</li>
+                        <li><svg><use href="#i-check"/></svg> Mute / unmute (⌘M / ⌘U)</li>
                         <li class="muted"><svg><use href="#i-x"/></svg> iCloud sync across Macs</li>
                     </ul>
                     <a href="https://github.com/codeonholiday/codeonholiday/releases/download/v1.4.4/meetly-latest.zip?t=202607151520" class="btn btn-ghost btn-block">
@@ -1694,7 +1713,7 @@
                         <li><svg><use href="#i-check"/></svg> Monitor unlimited calendars</li>
                         <li><svg><use href="#i-check"/></svg> Apple Reminders support — tasks with a due date</li>
                         <li><svg><use href="#i-check"/></svg> iCloud sync across all your Macs</li>
-                        <li><svg><use href="#i-check"/></svg> Cross-device dismiss / join / snooze state</li>
+                        <li><svg><use href="#i-check"/></svg> Cross-device dismiss / join / snooze / mute state</li>
                         <li><svg><use href="#i-check"/></svg> Per-calendar & per-list overlay & sound controls</li>
                         <li><svg><use href="#i-check"/></svg> Reminders for plain events, not just meetings</li>
                         <li><svg><use href="#i-check"/></svg> Quiet hours — no alerts late at night</li>
@@ -1734,7 +1753,7 @@
                 </details>
                 <details class="faq-item">
                     <summary>Is my calendar data safe?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">Yes. Meetly has no backend server. Your calendar data stays on your Mac, and sync state (dismiss/join/snooze) travels only through your own iCloud when you enable Pro. Nothing is sold, shared, or sent to us.</div>
+                    <div class="ans">Yes. Meetly has no backend server. Your calendar data stays on your Mac, and sync state (dismiss/join/snooze/mute) travels only through your own iCloud when you enable Pro. Nothing is sold, shared, or sent to us.</div>
                 </details>
                 <details class="faq-item">
                     <summary>Do I have to pay every month?<svg class="chev"><use href="#i-chev"/></svg></summary>
@@ -1750,11 +1769,15 @@
                 </details>
                 <details class="faq-item">
                     <summary>What is the Quick Panel shortcut?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">Press ⌃⌥M from anywhere to summon Meetly's schedule panel over your current app — the same NOW / NEXT / UPCOMING view as the menu bar. Browse days with ← / →, move between meetings with ↑ / ↓ (first event selected by default), join with Enter, and dismiss with Esc. You can customize or disable the shortcut in Settings → General. When screen-share privacy is enabled (Pro), the panel stays visible to you but hidden from viewers.</div>
+                    <div class="ans">Press ⌃⌥M from anywhere to summon Meetly's schedule panel over your current app — the same NOW / NEXT / UPCOMING view as the menu bar. Browse days with ← / →, move between meetings with ↑ / ↓ (first event selected by default), mute with ⌘M, unmute with ⌘U, join with Enter, and dismiss with Esc. You can customize or disable the global shortcut in Settings → General. When screen-share privacy is enabled (Pro), the panel stays visible to you but hidden from viewers.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Can I mute a meeting so it won't remind me?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">Yes. In the menu bar or Quick Panel, select a meeting and press ⌘M to skip its fullscreen reminder. Muted meetings show a “Muted” tag so you can see they won't notify. Press ⌘U to turn reminders back on. On Pro, mute state syncs across your Macs with dismiss and snooze.</div>
                 </details>
                 <details class="faq-item">
                     <summary>Can I use Meetly without a mouse?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">Yes. The menu bar, Quick Panel, and fullscreen reminder all support the same keyboard path: arrows move focus, Enter activates the focused action (join, snooze, copy location, or dismiss), and Esc closes the panel or overlay. Hands stay on the keyboard through the whole flow.</div>
+                    <div class="ans">Yes. The menu bar, Quick Panel, and fullscreen reminder all support the same keyboard path: arrows move focus, Enter activates the focused action (join, snooze, copy location, or dismiss), ⌘M / ⌘U mute and unmute the selected meeting, and Esc closes the panel or overlay. Hands stay on the keyboard through the whole flow.</div>
                 </details>
                 <details class="faq-item">
                     <summary>What macOS version do I need?<svg class="chev"><use href="#i-chev"/></svg></summary>
