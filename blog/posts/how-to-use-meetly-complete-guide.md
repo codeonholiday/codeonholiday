@@ -20,6 +20,8 @@ Building something silly in OpenCode — then Meetly goes **Wake up, sleepy geni
 :::youtube https://youtu.be/GpIHgEA8iHY
 :::
 
+![Meetly fullscreen overlay — countdown, Join now, Snooze, Dismiss](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/reminder.webp)
+
 ## What Meetly does (and does not do)
 
 **Meetly does:**
@@ -78,7 +80,7 @@ Onboarding has two steps:
 2. Or click **Show Fullscreen Test** to preview the overlay immediately (after a test meeting exists).
 3. When you have seen the overlay, click **Finish**.
 
-![Meetly first-launch setup](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/onboarding.webp)
+![Meetly first-launch setup — calendars and test reminder](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/onboarding.webp)
 
 You can reopen onboarding anytime from **Settings → Open Onboarding**.
 
@@ -102,7 +104,7 @@ Footer actions:
 
 The same keyboard shortcuts as Quick Panel work here too — arrows or **⌘ H / J / K / L** to navigate, **⌘ M** / **⌘ U** to mute/unmute.
 
-![Meetly in the macOS menu bar](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/menubar.webp)
+![Meetly menu bar — NOW and UPCOMING meetings](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/menubar-upcoming.webp)
 
 **Tip:** Turn on **Launch Meetly at login** in Settings → General so reminders work after every reboot.
 
@@ -110,12 +112,12 @@ The same keyboard shortcuts as Quick Panel work here too — arrows or **⌘ H /
 
 Before a meeting starts (default: **10 seconds** ahead, configurable), Meetly covers **every connected display** with a fullscreen overlay:
 
-- Meeting title and time
+- Meeting title and countdown
 - **Join now** if a video link is detected
 - **Snooze** for 1, 3, or 5 minutes
 - **Dismiss** to skip this occurrence
 
-![Meetly fullscreen meeting reminder](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/reminder.webp)
+![Fullscreen reminder with Join now and Snooze](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/reminder.webp)
 
 The overlay auto-dismisses after a few minutes (default **3 minutes**) if you do not act. Joining from the overlay always dismisses it. Joining early from the menu bar can optionally dismiss it too — see Settings → Alerts.
 
@@ -131,13 +133,15 @@ If two meetings overlap, the overlay lists both. Use arrow keys to pick which on
 
 ### One-click join
 
-If the calendar event has a conferencing URL, Meetly surfaces **Join now** on that same overlay — no digging through Calendar notes.
+If the calendar event has a conferencing URL, Meetly surfaces **Join now** on that same overlay — no digging through Calendar notes. Zoom, Google Meet, Teams, and similar links are detected automatically.
+
+![One-click Join now on the Meetly overlay](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/quickjoin.webp)
 
 ## Quick Panel — your schedule from anywhere
 
 Press **Control + Option + M** (default) from any app to summon the **Quick Panel** at your cursor. It shows the same meeting list as the menu bar, without clicking the icon.
 
-![Meetly Quick Panel](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/quickpanel.gif)
+![Meetly Quick Panel — browse days and join from the keyboard](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/quickpanel.gif)
 
 | Key | Action |
 |-----|--------|
@@ -154,7 +158,7 @@ Change the shortcut in **Settings → General → Quick Panel Shortcut**. You ca
 
 ## Mute and unmute meetings
 
-Sometimes you want to skip the fullscreen alert for one meeting — standup you are intentionally skipping, a optional sync, a duplicate invite.
+Sometimes you want to skip the fullscreen alert for one meeting — standup you are intentionally skipping, an optional sync, a duplicate invite.
 
 1. Open the menu bar panel or Quick Panel.
 2. Select the meeting.
@@ -162,13 +166,13 @@ Sometimes you want to skip the fullscreen alert for one meeting — standup you 
 
 Muted meetings show a **Muted** tag. Press **⌘ U** to turn reminders back on.
 
-![Muted meeting in Meetly](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/mute.webp)
+![Muted meeting with Mute tag in the Meetly panel](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/mute.webp)
 
 Mute is separate from dismiss or snooze: it means “do not fire the fullscreen reminder for this occurrence.” On **Pro**, mute state syncs across your Macs via iCloud.
 
 ## Settings overview
 
-Open **Settings** from the menu bar panel. There are four tabs.
+Open **Settings** from the menu bar panel (gear icon). There are four tabs.
 
 ### General
 
@@ -177,6 +181,8 @@ Open **Settings** from the menu bar panel. There are four tabs.
 - **Quick Panel shortcut** — enable/disable and customize
 - **Health Check** — permissions, monitored calendars, next reminder, sync status
 - **Software Update** — Sparkle auto-update
+
+![Meetly Settings — General tab with Health Check](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/settings-general.webp)
 
 ### Calendars
 
@@ -188,6 +194,8 @@ Open **Settings** from the menu bar panel. There are four tabs.
   - Play sound on/off
   - Sound repeat count (Pro)
 
+![Meetly Settings — Calendars and per-calendar reminder rules](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/settings-calendars.webp)
+
 ### Reminders (Pro)
 
 Watch **Apple Reminders** lists with due dates:
@@ -196,6 +204,8 @@ Watch **Apple Reminders** lists with due dates:
 - Tasks with a due **time** fire like meetings
 - Tasks with a date but **no time** default to **9:00 AM** (configurable)
 - Per-list overlay and sound rules, synced via iCloud
+
+![Meetly Settings — Apple Reminders lists and rules](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/settings-reminders.webp)
 
 ### Alerts
 
@@ -208,6 +218,8 @@ Watch **Apple Reminders** lists with due dates:
 | **Quiet hours (Pro)** | Mute fullscreen reminders overnight |
 | **Hide during screen share (Pro)** | Overlay visible to you, hidden from Zoom/Meet/Teams viewers |
 | **Test reminders** | Create 30s test meetings or show overlay instantly |
+
+![Meetly Settings — Alerts, quiet hours, screen-share privacy](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/settings-alerts.webp)
 
 ## Meetly Pro
 
