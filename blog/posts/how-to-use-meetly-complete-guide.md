@@ -13,6 +13,13 @@ Meetly is a native macOS menu bar app that fires a **fullscreen reminder** befor
 
 This guide walks through install, first launch, daily use, keyboard shortcuts, settings, and Pro features. If you have not downloaded it yet, grab it from the [Meetly page](/meetly/).
 
+## See it in action
+
+Building something silly in OpenCode — then Meetly goes **Wake up, sleepy genius**:
+
+:::youtube https://youtu.be/GpIHgEA8iHY
+:::
+
 ## What Meetly does (and does not do)
 
 **Meetly does:**

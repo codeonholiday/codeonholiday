@@ -73,6 +73,14 @@
                 "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/v1.4.7/meetly-latest.zip",
                 "screenshot": "https://codeonholiday.com/meetly/showcase-reminder.webp",
                 "description": "A native macOS menu bar app that fires a fullscreen reminder before your meetings start, with Quick Panel, keyboard mute, Apple Reminders, and iCloud sync.",
+                "video": {
+                    "@type": "VideoObject",
+                    "name": "Meetly demo — Wake up, sleepy genius",
+                    "description": "Vibing in OpenCode in the terminal — then Meetly fires a fullscreen reminder you cannot ignore.",
+                    "thumbnailUrl": "https://i.ytimg.com/vi/GpIHgEA8iHY/hqdefault.jpg",
+                    "uploadDate": "2026-07-16",
+                    "embedUrl": "https://www.youtube-nocookie.com/embed/GpIHgEA8iHY"
+                },
                 "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
                 "publisher": { "@type": "Organization", "name": "codeonholiday", "url": "https://codeonholiday.com/" }
             },
@@ -477,6 +485,42 @@
         @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 
         .device-screen img { width: 100%; height: auto; display: block; }
+        .hero-video-embed {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #000;
+        }
+        .hero-video-embed iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .hero-video-caption {
+            margin-top: 12px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .hero-video-caption a { color: var(--teal); font-weight: 600; }
+        .shot-video {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+        }
+        .shot-video iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
         .device-screen {
             border-radius: 14px;
             overflow: hidden;
@@ -1204,7 +1248,7 @@
                             <svg><use href="#i-download"/></svg>
                             Download Free
                         </a>
-                        <a href="#showcase" class="btn btn-ghost btn-lg">
+                        <a href="#demo" class="btn btn-ghost btn-lg">
                             <svg><use href="#i-video"/></svg>
                             See it in action
                         </a>
@@ -1236,13 +1280,14 @@
                     </div>
                 </div>
 
-                <!-- Hero product visual: real screenshot -->
-                <div class="hero-visual reveal">
+                <!-- Hero demo video -->
+                <div class="hero-visual reveal" id="demo">
                     <div class="device-frame">
-                        <div class="device-screen">
-                            <img src="showcase-reminder.webp" alt="Meetly fullscreen meeting reminder with countdown and Join now button" decoding="async">
+                        <div class="hero-video-embed">
+                            <iframe src="https://www.youtube-nocookie.com/embed/GpIHgEA8iHY" title="Meetly demo — OpenCode in the terminal, then Wake up sleepy genius" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                         </div>
                     </div>
+                    <p class="hero-video-caption">Deep in <strong>OpenCode</strong> — then <strong>Wake up, sleepy genius</strong>. <a href="https://youtu.be/GpIHgEA8iHY" target="_blank" rel="noopener noreferrer">Watch on YouTube</a></p>
                 </div>
             </div>
         </div>
@@ -1367,15 +1412,16 @@
                     <div class="panel-grid">
                         <div class="panel-copy">
                             <h3>An overlay you can't ignore</h3>
-                            <p>Right before your meeting, Meetly takes over your screen with a clean, calm countdown — the meeting title, the link, and the buttons you need. No more "I didn't see the notification."</p>
+                            <p>Right before your meeting, Meetly takes over your screen — even when you're deep in the terminal building something ridiculous. No more "I didn't see the notification."</p>
                             <ul>
-                                <li><svg><use href="#i-check"/></svg> Live countdown with big, scannable numbers</li>
-                                <li><svg><use href="#i-check"/></svg> Arrow keys move between actions; Enter to join or snooze</li>
-                                <li><svg><use href="#i-check"/></svg> Esc dismisses — works without reaching for the mouse</li>
+                                <li><svg><use href="#i-check"/></svg> Fullscreen on every display — impossible to miss</li>
+                                <li><svg><use href="#i-check"/></svg> Live countdown with Join, Snooze, and Dismiss</li>
+                                <li><svg><use href="#i-check"/></svg> Arrow keys + Enter — hands stay on the keyboard</li>
                             </ul>
+                            <p style="margin-top:14px;font-size:14px"><a href="https://youtu.be/GpIHgEA8iHY" target="_blank" rel="noopener noreferrer" style="color:var(--teal);font-weight:600">Watch the full demo →</a></p>
                         </div>
-                        <div class="shot">
-                            <img src="showcase-reminder.webp" alt="Meetly fullscreen reminder with live countdown" loading="lazy" decoding="async">
+                        <div class="shot shot-video">
+                            <iframe src="https://www.youtube-nocookie.com/embed/GpIHgEA8iHY?start=18" title="Meetly fullscreen reminder demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                         </div>
                     </div>
                 </div>
