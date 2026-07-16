@@ -78,6 +78,8 @@ Onboarding has two steps:
 2. Or click **Show Fullscreen Test** to preview the overlay immediately (after a test meeting exists).
 3. When you have seen the overlay, click **Finish**.
 
+![Meetly first-launch setup](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/onboarding.webp)
+
 You can reopen onboarding anytime from **Settings → Open Onboarding**.
 
 ## Where Meetly lives: the menu bar
@@ -129,15 +131,13 @@ If two meetings overlap, the overlay lists both. Use arrow keys to pick which on
 
 ### One-click join
 
-If the calendar event has a conferencing URL, Meetly surfaces **Join now** — no digging through Calendar notes.
-
-![One-click join from Meetly](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/quickjoin.webp)
+If the calendar event has a conferencing URL, Meetly surfaces **Join now** on that same overlay — no digging through Calendar notes.
 
 ## Quick Panel — your schedule from anywhere
 
 Press **Control + Option + M** (default) from any app to summon the **Quick Panel** at your cursor. It shows the same meeting list as the menu bar, without clicking the icon.
 
-![Meetly Quick Panel](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/quickpanel.webp)
+![Meetly Quick Panel](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/quickpanel.gif)
 
 | Key | Action |
 |-----|--------|
@@ -161,6 +161,8 @@ Sometimes you want to skip the fullscreen alert for one meeting — standup you 
 3. Press **⌘ M** to mute.
 
 Muted meetings show a **Muted** tag. Press **⌘ U** to turn reminders back on.
+
+![Muted meeting in Meetly](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/mute.webp)
 
 Mute is separate from dismiss or snooze: it means “do not fire the fullscreen reminder for this occurrence.” On **Pro**, mute state syncs across your Macs via iCloud.
 

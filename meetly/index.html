@@ -19,8 +19,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meetly — macOS Meeting Reminder &amp; Menu Bar App</title>
-    <meta name="description" content="Meetly is a native macOS menu bar app that fires a fullscreen reminder before your meetings. Quick Panel with ⌃⌥M, vim-style ⌘HJKL navigation, keyboard mute with ⌘M, Apple Reminders, week browser, and one-click join. Free forever, one-time Pro, no subscription.">
+    <title>Meetly — Fullscreen Meeting Reminder for macOS | Free + Pro</title>
+    <meta name="description" content="Never miss a client meeting. Meetly is a native macOS menu bar app with fullscreen reminders, Quick Panel, one-click Zoom/Meet/Teams join, and Google/Outlook/iCloud support. Free forever — Pro is $3.99 one-time, no subscription.">
     <link rel="canonical" href="https://codeonholiday.com/meetly/">
     <meta name="robots" content="index, follow">
     <meta name="author" content="codeonholiday">
@@ -29,8 +29,8 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="codeonholiday">
     <meta property="og:url" content="https://codeonholiday.com/meetly/">
-    <meta property="og:title" content="Meetly — macOS Meeting Reminder &amp; Menu Bar App">
-    <meta property="og:description" content="A native macOS menu bar app that fires a fullscreen reminder before your meetings start. Free forever.">
+    <meta property="og:title" content="Meetly — Fullscreen Meeting Reminder for macOS | Free + Pro">
+    <meta property="og:description" content="Fullscreen meeting reminders that interrupt deep work — menu bar, Quick Panel, one-click join. Free forever; Pro $3.99 one-time.">
     <meta property="og:image" content="https://codeonholiday.com/meetly/og-image.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1024">
@@ -40,8 +40,8 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@codeonholiday">
-    <meta name="twitter:title" content="Meetly — macOS Meeting Reminder &amp; Menu Bar App">
-    <meta name="twitter:description" content="A native macOS menu bar app that fires a fullscreen reminder before your meetings start.">
+    <meta name="twitter:title" content="Meetly — Fullscreen Meeting Reminder for macOS | Free + Pro">
+    <meta name="twitter:description" content="Fullscreen meeting reminders for macOS. Free forever; Pro $3.99 one-time. No subscription.">
     <meta name="twitter:image" content="https://codeonholiday.com/meetly/og-image.png">
 
     <!-- Plausible Analytics (Privacy-Friendly) -->
@@ -71,7 +71,7 @@
                 "softwareVersion": "1.4.7",
                 "url": "https://codeonholiday.com/meetly/",
                 "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/v1.4.7/meetly-latest.zip",
-                "screenshot": "https://codeonholiday.com/meetly/showcase-reminder.webp",
+                "screenshot": "https://codeonholiday.com/meetly/showcase-quickjoin.webp",
                 "description": "A native macOS menu bar app that fires a fullscreen reminder before your meetings start, with Quick Panel, keyboard mute, Apple Reminders, and iCloud sync.",
                 "video": {
                     "@type": "VideoObject",
@@ -81,7 +81,30 @@
                     "uploadDate": "2026-07-16",
                     "embedUrl": "https://www.youtube-nocookie.com/embed/GpIHgEA8iHY"
                 },
-                "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+                "offers": {
+                    "@type": "AggregateOffer",
+                    "lowPrice": "0",
+                    "highPrice": "3.99",
+                    "priceCurrency": "USD",
+                    "offerCount": "2",
+                    "offers": [
+                        {
+                            "@type": "Offer",
+                            "name": "Meetly Free",
+                            "price": "0",
+                            "priceCurrency": "USD",
+                            "url": "https://codeonholiday.com/meetly/#pricing"
+                        },
+                        {
+                            "@type": "Offer",
+                            "name": "Meetly Pro",
+                            "price": "3.99",
+                            "priceCurrency": "USD",
+                            "url": "https://codeonholiday.com/meetly/#pricing",
+                            "description": "One-time purchase. Unlimited calendars, Apple Reminders, iCloud sync across Macs."
+                        }
+                    ]
+                },
                 "publisher": { "@type": "Organization", "name": "codeonholiday", "url": "https://codeonholiday.com/" }
             },
             {
@@ -98,10 +121,10 @@
                     },
                     {
                         "@type": "Question",
-                        "name": "How do Apple Reminders tasks work in Meetly?",
+                        "name": "How is Meetly different from Calendar notifications?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Pick which Apple Reminders lists Meetly should watch. Tasks with a due date show in the menu bar and fire a fullscreen reminder at the due time. Tasks without a time default to 9 AM. Pro adds per-list overlay and sound rules with iCloud sync."
+                            "text": "macOS Calendar shows corner banners. Meetly uses fullscreen overlays with one-click join, Quick Panel keyboard control, Apple Reminders (Pro), quiet hours, screen-share privacy, and iCloud sync of dismiss/join/mute across Macs — without a subscription."
                         }
                     },
                     {
@@ -125,39 +148,7 @@
                         "name": "What if I work on multiple Macs?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Pro syncs dismiss, join, and snooze state across your Macs via iCloud so you do not get double reminders. Pro also keeps reminders private while you are screen sharing."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Is Meetly a replacement for my calendar app?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "No. Meetly works alongside Google Calendar, Fantastical, or any calendar app you already use. It focuses on making sure you never miss an important meeting."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "What is the Quick Panel shortcut?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Press Control-Option-M from anywhere to summon Meetly's schedule panel over your current app. Browse days with left/right arrows or Command-H and Command-L, move between meetings with up/down or Command-K and Command-J, join with Enter, mute with Command-M, unmute with Command-U, and dismiss with Esc. The shortcut is customizable in Settings."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Can I mute a meeting so it won't remind me?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Yes. In the menu bar or Quick Panel, select a meeting and press Command-M to skip its fullscreen reminder. Muted meetings show a Muted tag. Press Command-U to turn reminders back on. On Pro, mute state syncs across your Macs."
-                        }
-                    },
-                    {
-                        "@type": "Question",
-                        "name": "Can I use Meetly without a mouse?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Yes. The menu bar, Quick Panel, and fullscreen reminder all support keyboard navigation — arrows or Command-HJKL (vim-style) in the panel, Enter activates the focused button, Command-M mutes a selected meeting, Command-U unmutes, and Esc dismisses."
+                            "text": "Pro syncs dismiss, join, snooze, and mute state across your Macs via iCloud so you do not get double reminders. Pro also keeps reminders private while you are screen sharing."
                         }
                     },
                     {
@@ -165,7 +156,7 @@
                         "name": "I opened Meetly and nothing happened — where is it?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Meetly is a menu bar app with no Dock icon after setup. As of 1.4.5, first launch shows the setup window right away. When you are done, look for the calendar icon in the menu bar at the top-right of your screen."
+                            "text": "Meetly is a menu bar app with no Dock icon after setup. First launch shows the setup window right away. When you are done, look for the calendar icon in the menu bar at the top-right of your screen."
                         }
                     },
                     {
@@ -173,7 +164,7 @@
                         "name": "Where can I learn how to use Meetly?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Read the complete How to Use Meetly guide at codeonholiday.com/blog/how-to-use-meetly-complete-guide/ — install, first launch, menu bar, fullscreen reminder, Quick Panel, vim-style Command-HJKL navigation, mute shortcuts, settings, Pro, and troubleshooting."
+                            "text": "Read the complete How to Use Meetly guide at codeonholiday.com/blog/how-to-use-meetly-complete-guide/."
                         }
                     },
                     {
@@ -341,7 +332,7 @@
         /* ============================================================
            SECTION HEADER
            ============================================================ */
-        .sec-head { max-width: 640px; margin: 0 auto 56px; text-align: center; }
+        .sec-head { max-width: 640px; margin: 0 auto 40px; text-align: center; }
         .sec-eyebrow {
             display: inline-block;
             font-size: 13px;
@@ -589,7 +580,7 @@
         /* ============================================================
            TRUST BAR
            ============================================================ */
-        .trustbar { padding: 24px 0 40px; }
+        .trustbar { padding: 20px 0 32px; }
         .trustbar-label {
             text-align: center;
             font-size: 12.5px;
@@ -597,8 +588,16 @@
             letter-spacing: 0.12em;
             text-transform: uppercase;
             color: var(--text-dim);
-            margin-bottom: 26px;
+            margin-bottom: 18px;
         }
+        .trustbar-press {
+            text-align: center;
+            margin-top: 18px;
+            font-size: 13.5px;
+            color: var(--text-muted);
+        }
+        .trustbar-press a { color: var(--teal); font-weight: 600; }
+        .trustbar-press span { color: var(--text-dim); }
         .logos {
             display: flex;
             flex-wrap: wrap;
@@ -736,7 +735,7 @@
         /* ============================================================
            PRODUCT SHOWCASE — tabbed
            ============================================================ */
-        .showcase { padding: 90px 0; }
+        .showcase { padding: 64px 0; }
         .showcase-tabs {
             display: flex; justify-content: center; gap: 8px;
             flex-wrap: wrap; margin-bottom: 36px;
@@ -810,28 +809,39 @@
         }
 
         /* ============================================================
-           FEATURES BENTO
+           HIGHLIGHTS (compact feature grid)
            ============================================================ */
-        .features { padding: 90px 0; }
-        .bento {
+        .features { padding: 64px 0; }
+        .highlight-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 18px;
         }
-        .bento .card { padding: 24px; display: flex; flex-direction: column; }
-        .bento .b-wide { grid-column: span 2; }
-        .bento .card.featured-tile {
-            background: linear-gradient(135deg, rgba(78,230,213,0.10), rgba(23,135,255,0.04));
-            border-color: rgba(78,230,213,0.30);
+        .highlight-item {
+            padding: 20px;
+            border-radius: var(--radius);
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
         }
-        .bento .card h3 { font-size: 1.05rem; }
-        .bento .b-wide h3 { font-size: 1.2rem; }
+        .highlight-item .icon-tile { margin-bottom: 12px; width: 40px; height: 40px; border-radius: 10px; }
+        .highlight-item .icon-tile svg { width: 18px; height: 18px; }
+        .highlight-item h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            letter-spacing: -0.01em;
+        }
+        .highlight-item p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.45;
+        }
 
         /* ============================================================
            COMPARISON TABLE
            ============================================================ */
-        .compare { padding: 90px 0; }
+        .compare { padding: 72px 0; }
         .compare-wrap {
             max-width: 860px; margin: 0 auto;
             background: linear-gradient(180deg, var(--card) 0%, var(--bg-2) 100%);
@@ -841,9 +851,10 @@
         }
         .compare table { width: 100%; border-collapse: collapse; }
         .compare th, .compare td {
-            padding: 18px 22px;
+            padding: 16px 20px;
             text-align: left;
             border-bottom: 1px solid var(--border);
+            vertical-align: middle;
         }
         .compare thead th {
             background: rgba(255,255,255,0.02);
@@ -852,14 +863,19 @@
         .compare th:first-child { width: 46%; color: var(--text-muted); }
         .compare .col-meetly { text-align: center; width: 27%; color: var(--teal); }
         .compare .col-other  { text-align: center; width: 27%; color: var(--text-muted); }
-        .compare tbody td:first-child { font-weight: 600; font-size: 0.98rem; }
+        .compare tbody td:first-child { font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
         .compare tbody tr:last-child td { border-bottom: none; }
         .compare .yes { color: var(--teal); }
         .compare .no  { color: var(--text-dim); }
         .compare .yes svg, .compare .no svg { width: 20px; height: 20px; }
+        .compare .partial {
+            display: inline-block;
+            font-size: 12px; font-weight: 600; line-height: 1.3;
+            color: var(--text-muted);
+        }
         .compare-badge {
             display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
-            background: var(--grad-teal); color: #051018; padding: 3px 8px; border-radius: 6px; margin-bottom: 6px;
+            background: var(--grad-teal); color: #051018; padding: 3px 8px; border-radius: 6px; margin-bottom: 4px;
         }
 
         /* ============================================================
@@ -943,10 +959,63 @@
         .press-badge a { color: var(--teal); text-decoration: none; font-weight: 700; }
         .press-badge a:hover { text-decoration: underline; }
 
+        /* Compact social proof before pricing */
+        .proof {
+            padding: 28px 0 8px;
+        }
+        .proof-quote {
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.15rem;
+            line-height: 1.6;
+            color: var(--text);
+            border: none;
+            padding: 0;
+        }
+        .proof-quote::before { content: '\201C'; color: var(--teal); font-size: 2rem; line-height: 0; vertical-align: -0.3em; margin-right: 2px; }
+        .proof-quote::after { content: '\201D'; color: var(--teal); font-size: 2rem; line-height: 0; vertical-align: -0.3em; margin-left: 2px; }
+        .proof-meta {
+            max-width: 720px;
+            margin: 16px auto 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .proof-meta strong { display: block; font-size: 14px; }
+        .proof-meta span { font-size: 13px; color: var(--text-muted); }
+
+        .soft-close {
+            padding: 28px 0 48px;
+        }
+        .soft-close-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 22px 24px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            background: rgba(78,230,213,0.05);
+        }
+        .soft-close-inner p {
+            margin: 0;
+            font-size: 1.05rem;
+            font-weight: 650;
+        }
+        .soft-close-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
         /* ============================================================
            PRICING
            ============================================================ */
-        .pricing { padding: 90px 0; }
+        .pricing { padding: 64px 0; }
         .price-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 820px; margin: 0 auto; }
         .price-card {
             position: relative;
@@ -988,7 +1057,7 @@
         /* ============================================================
            FAQ
            ============================================================ */
-        .faq { padding: 90px 0; }
+        .faq { padding: 64px 0 32px; }
         .faq-list { max-width: 760px; margin: 0 auto; display: grid; gap: 12px; }
         .faq-item {
             background: linear-gradient(180deg, var(--card) 0%, var(--bg-2) 100%);
@@ -1071,8 +1140,7 @@
             .hero-visual { max-width: 560px; margin: 0 auto; }
             .solution-grid { grid-template-columns: 1fr; gap: 40px; }
             .panel-grid { grid-template-columns: 1fr; gap: 28px; }
-            .bento { grid-template-columns: repeat(2, 1fr); }
-            .bento .b-wide { grid-column: span 2; }
+            .highlight-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
             .nav-links { display: none; }
@@ -1080,8 +1148,7 @@
             .grid-3 { grid-template-columns: 1fr; }
             .test-grid { grid-template-columns: 1fr; }
             .price-grid { grid-template-columns: 1fr; }
-            .bento { grid-template-columns: 1fr; }
-            .bento .b-wide { grid-column: auto; }
+            .highlight-grid { grid-template-columns: 1fr; }
             .hero { padding: 120px 0 70px; }
             .cta-box { padding: 44px 24px; }
             .compare-wrap { font-size: 0.9rem; }
@@ -1214,9 +1281,10 @@
                 </a>
                 <div class="nav-links">
                     <a href="/" class="back-link">← codeonholiday</a>
-                    <a href="#features">Features</a>
-                    <a href="#showcase">See it in action</a>
+                    <a href="#showcase">Product</a>
                     <a href="#pricing">Pricing</a>
+                    <a href="#features">Features</a>
+                    <a href="#compare">Compare</a>
                     <a href="#faq">FAQ</a>
                     <a href="/blog/how-to-use-meetly-complete-guide/">Guide</a>
                 </div>
@@ -1242,19 +1310,14 @@
                 <div class="hero-copy">
                     <span class="pill reveal"><span class="dot"></span> Free forever · macOS native · v1.4.7</span>
                     <h1 class="reveal">Never miss a<br><span class="grad">client meeting</span> again.</h1>
-                    <p class="lede reveal">Meetly is a native macOS menu bar app that fires a <strong>fullscreen reminder</strong> right before your meetings start. Perfect for freelancers juggling multiple calendars across multiple Macs.</p>
+                    <p class="lede reveal">Calendar banners vanish in deep work. <strong>Meetly</strong> fires a <strong>fullscreen meeting reminder</strong> on every display — join Zoom, Meet, or Teams in one click from the menu bar.</p>
                     <div class="hero-cta reveal">
                         <a href="https://github.com/codeonholiday/codeonholiday/releases/download/v1.4.7/meetly-latest.zip?t=202607161459" class="btn btn-primary btn-lg">
                             <svg><use href="#i-download"/></svg>
                             Download Free
                         </a>
-                        <a href="#demo" class="btn btn-ghost btn-lg">
-                            <svg><use href="#i-video"/></svg>
-                            See it in action
-                        </a>
-                        <a href="/blog/how-to-use-meetly-complete-guide/" class="btn btn-ghost btn-lg">
-                            <svg><use href="#i-checklist"/></svg>
-                            How to use Meetly
+                        <a href="#pricing" class="btn btn-ghost btn-lg">
+                            Get Pro — $3.99
                         </a>
                     </div>
                     <div class="trust-line reveal">
@@ -1263,21 +1326,14 @@
                         <span class="sep"></span>
                         <strong>~8 MB</strong>
                         <span class="sep"></span>
-                        No credit card
-                        <span class="sep"></span>
                         No subscription
+                        <span class="sep"></span>
+                        14-day refund
                     </div>
                     <p class="reveal" style="margin-top:14px;font-size:13.5px;color:var(--text-muted);max-width:36em">
                         After Open: setup appears right away. Meetly then lives in your <strong>menu bar</strong> (top-right calendar icon) — no Dock icon.
+                        <a href="/blog/how-to-use-meetly-complete-guide/" style="color:var(--teal);font-weight:600;margin-left:4px">Guide →</a>
                     </p>
-
-                    <div class="hero-social reveal">
-                        <div class="press-badge">
-                            <span>Reviewed on</span>
-                            <a href="https://vvmac.fr/wordpress_b/?p=78951#prise-en-main--vous-ne-raterez-plus-rien--meetly-impose-a-lecran-de-votre-mac-des-rappels-immanquables" target="_blank" rel="noopener noreferrer">VVMac</a>
-                        </div>
-                        <div class="hero-social-text">Independent French Mac blog · July 2026</div>
-                    </div>
                 </div>
 
                 <!-- Hero demo video -->
@@ -1298,7 +1354,7 @@
          ============================================================ -->
     <section class="trustbar">
         <div class="container">
-            <p class="trustbar-label reveal">Works with the calendars, reminders & meeting links you already use</p>
+            <p class="trustbar-label reveal">Works with the calendars, reminders &amp; meeting links you already use</p>
             <div class="logos reveal">
                 <span class="brand"><svg><use href="#b-gcal"/></svg> Google Calendar</span>
                 <span class="brand"><svg><use href="#b-outlook"/></svg> Outlook</span>
@@ -1308,174 +1364,79 @@
                 <span class="brand"><svg><use href="#b-teams"/></svg> Teams</span>
                 <span class="brand"><svg><use href="#b-meet"/></svg> Meet</span>
             </div>
+            <p class="trustbar-press reveal">
+                Reviewed on <a href="https://vvmac.fr/wordpress_b/?p=78951#prise-en-main--vous-ne-raterez-plus-rien--meetly-impose-a-lecran-de-votre-mac-des-rappels-immanquables" target="_blank" rel="noopener noreferrer">VVMac</a>
+                <span>· Independent French Mac blog · July 2026</span>
+            </p>
         </div>
     </section>
 
     <!-- ============================================================
-         PROBLEM
-         ============================================================ -->
-    <section class="problem" id="problem">
-        <div class="container">
-            <div class="sec-head reveal">
-                <span class="sec-eyebrow">The real cost</span>
-                <h2>One missed meeting<br>costs more than Meetly.</h2>
-                <p>Calendar apps were built to organize your day — not to grab your attention when it matters. If you work across clients, you know the pain.</p>
-            </div>
-            <div class="grid-3">
-                <div class="card reveal">
-                    <div class="icon-tile coral"><svg><use href="#i-bell"/></svg></div>
-                    <h3>Notifications you swipe away</h3>
-                    <p>That little banner? Gone while you're in deep work. By the time you notice, the client's been waiting ten minutes.</p>
-                </div>
-                <div class="card reveal">
-                    <div class="icon-tile coral"><svg><use href="#i-layers"/></svg></div>
-                    <h3>Calendars scattered everywhere</h3>
-                    <p>Google for client A, Outlook for client B, iCloud for yourself. No single place watches them all for what's next.</p>
-                </div>
-                <div class="card reveal">
-                    <div class="icon-tile coral"><svg><use href="#i-devices"/></svg></div>
-                    <h3>Dismissed on one Mac, gone everywhere</h3>
-                    <p>You handled the reminder on your laptop — then your desktop pings you again five minutes later. Chaos.</p>
-                </div>
-            </div>
-            <p class="problem-punch reveal">One missed client call can cost a <span class="hl">whole contract</span>. Meetly exists so that never happens.</p>
-        </div>
-    </section>
-
-    <!-- ============================================================
-         SOLUTION
-         ============================================================ -->
-    <section class="solution">
-        <div class="container">
-            <div class="solution-grid">
-                <div class="solution-content">
-                    <span class="sec-eyebrow reveal">Your safety net</span>
-                    <h2 class="reveal">Not another calendar.<br>A reminder that's impossible to miss.</h2>
-                    <p class="reveal">Meetly isn't a calendar replacement. It's a focused companion that watches the calendars you choose and interrupts you — gently but firmly — right before a meeting starts.</p>
-                    <ul class="benefit-list">
-                        <li class="reveal">
-                            <span class="b-icon"><svg><use href="#i-alarm"/></svg></span>
-                            <div><strong>Fullscreen reminders</strong><span>Impossible-to-ignore overlays with a live countdown — join, snooze, or dismiss with the keyboard too.</span></div>
-                        </li>
-                        <li class="reveal">
-                            <span class="b-icon"><svg><use href="#i-layers"/></svg></span>
-                            <div><strong>All your calendars, one watchlist</strong><span>Pick exactly which calendars Meetly monitors. Client, personal, side-project — your call.</span></div>
-                        </li>
-                        <li class="reveal">
-                            <span class="b-icon"><svg><use href="#i-refresh"/></svg></span>
-                            <div><strong>Sync across your Macs</strong><span>Dismiss or join on one device and every other Mac stays in sync via iCloud.</span></div>
-                        </li>
-                        <li class="reveal">
-                            <span class="b-icon"><svg><use href="#i-key"/></svg></span>
-                            <div><strong>Quick Panel anywhere</strong><span>Summon with ⌃⌥M. Browse with ← / → or ⌘H / ⌘L, select with ↑ / ↓ or ⌘K / ⌘J, mute with ⌘M, join with Enter, dismiss with Esc.</span></div>
-                        </li>
-                        <li class="reveal">
-                            <span class="b-icon"><svg><use href="#i-shield"/></svg></span>
-                            <div><strong>Privacy-first by design</strong><span>No backend server. Your calendar data stays on your Mac or in your iCloud. Nothing is sold or shared.</span></div>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Menu bar screenshot -->
-                <div class="reveal">
-                    <div class="device-frame" style="animation:none">
-                        <div class="device-screen">
-                            <img src="showcase-menubar.webp" alt="Meetly menu bar popover showing now and upcoming meetings with time ranges" decoding="async">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-         SHOWCASE (tabbed)
+         PRODUCT SHOWCASE (3 tabs)
          ============================================================ -->
     <section class="showcase" id="showcase">
         <div class="container">
             <div class="sec-head reveal">
                 <span class="sec-eyebrow">See it in action</span>
-                <h2>Four ways Meetly has your back</h2>
-                <p>Click through the moments that matter — from the fullscreen alert to the global Quick Panel.</p>
+                <h2>Fullscreen when it matters.<br>Quiet the rest of the day.</h2>
+                <p>Overlay, menu bar, and Quick Panel — the three surfaces that keep you on time.</p>
             </div>
 
             <div class="showcase-tabs reveal">
-                <button class="tab active" data-panel="p1"><svg><use href="#i-alarm"/></svg> Fullscreen reminder</button>
+                <button class="tab active" data-panel="p1"><svg><use href="#i-alarm"/></svg> Overlay</button>
                 <button class="tab" data-panel="p2"><svg><use href="#i-layers"/></svg> Menu bar</button>
-                <button class="tab" data-panel="p3"><svg><use href="#i-bolt"/></svg> Quick join</button>
-                <button class="tab" data-panel="p4"><svg><use href="#i-key"/></svg> Quick Panel</button>
+                <button class="tab" data-panel="p3"><svg><use href="#i-key"/></svg> Quick Panel</button>
             </div>
 
             <div class="showcase-stage reveal">
-                <!-- Panel 1: Fullscreen reminder -->
                 <div class="panel active" id="p1">
                     <div class="panel-grid">
                         <div class="panel-copy">
                             <h3>An overlay you can't ignore</h3>
-                            <p>Right before your meeting, Meetly takes over your screen — even when you're deep in the terminal building something ridiculous. No more "I didn't see the notification."</p>
+                            <p>Right before your meeting, Meetly takes every display — even when you're deep in the terminal. Join, snooze, or dismiss from the keyboard.</p>
                             <ul>
-                                <li><svg><use href="#i-check"/></svg> Fullscreen on every display — impossible to miss</li>
-                                <li><svg><use href="#i-check"/></svg> Live countdown with Join, Snooze, and Dismiss</li>
-                                <li><svg><use href="#i-check"/></svg> Arrow keys + Enter — hands stay on the keyboard</li>
+                                <li><svg><use href="#i-check"/></svg> Live countdown + one-click Join</li>
+                                <li><svg><use href="#i-check"/></svg> Covers all connected monitors</li>
+                                <li><svg><use href="#i-check"/></svg> Arrows, Enter, Esc — no mouse required</li>
                             </ul>
                             <p style="margin-top:14px;font-size:14px"><a href="https://youtu.be/GpIHgEA8iHY" target="_blank" rel="noopener noreferrer" style="color:var(--teal);font-weight:600">Watch the full demo →</a></p>
                         </div>
-                        <div class="shot shot-video">
-                            <iframe src="https://www.youtube-nocookie.com/embed/GpIHgEA8iHY?start=18" title="Meetly fullscreen reminder demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                        <div class="shot">
+                            <img src="showcase-quickjoin.webp" alt="Meetly fullscreen reminder with countdown and Join now" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
 
-                <!-- Panel 2: Menu bar -->
                 <div class="panel" id="p2">
                     <div class="panel-grid">
                         <div class="panel-copy">
                             <h3>Your meetings, one click away</h3>
-                            <p>Click the menu bar icon to see what's happening now and what's coming up. Browse days with ← / → or ⌘H / ⌘L, select with ↑ / ↓ or ⌘K / ⌘J, mute with ⌘M, and join with Enter.</p>
+                            <p>Browse today and the week ahead from the menu bar. Mute optional meetings with ⌘M so they never fire a fullscreen alert.</p>
                             <ul>
-                                <li><svg><use href="#i-check"/></svg> NEXT shows “in 1:12” plus start–end on the right</li>
-                                <li><svg><use href="#i-check"/></svg> ⌘M mutes a meeting; muted rows show a clear tag</li>
-                                <li><svg><use href="#i-check"/></svg> Arrows or ⌘HJKL — Enter, ⌘M / ⌘U, Esc</li>
+                                <li><svg><use href="#i-check"/></svg> NEXT timing like “in 1:12” plus start–end</li>
+                                <li><svg><use href="#i-check"/></svg> ←→ / ⌘HL days · ↑↓ / ⌘JK select</li>
+                                <li><svg><use href="#i-check"/></svg> Muted rows show a clear tag</li>
                             </ul>
                         </div>
                         <div class="shot">
-                            <img src="showcase-menubar.webp" alt="Meetly menu bar popover with now, next, and upcoming meetings" loading="lazy" decoding="async">
+                            <img src="showcase-menubar.webp" alt="Meetly menu bar with TODAY and keyboard hints" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
 
-                <!-- Panel 3: Quick join -->
                 <div class="panel" id="p3">
                     <div class="panel-grid">
                         <div class="panel-copy">
-                            <h3>One click to join anything</h3>
-                            <p>Meetly reads your event notes and finds the Zoom, Google Meet, or Teams link for you. No more hunting through invites while the client waits.</p>
+                            <h3>Summon your schedule anywhere</h3>
+                            <p>Press ⌃⌥M (customizable) to open the Quick Panel over whatever you're doing. Same list as the menu bar — without leaving your flow.</p>
                             <ul>
-                                <li><svg><use href="#i-check"/></svg> Auto-extracts Zoom / Meet / Teams links</li>
-                                <li><svg><use href="#i-check"/></svg> Join straight from the reminder or menu bar</li>
-                                <li><svg><use href="#i-check"/></svg> Marks the meeting handled everywhere</li>
+                                <li><svg><use href="#i-check"/></svg> Global shortcut from any app</li>
+                                <li><svg><use href="#i-check"/></svg> Vim-style ⌘HJKL alongside arrows</li>
+                                <li><svg><use href="#i-check"/></svg> Enter to join · Esc to dismiss</li>
                             </ul>
                         </div>
                         <div class="shot">
-                            <img src="showcase-quickjoin.webp" alt="Meetly fullscreen reminder with one-click Join now for Zoom" loading="lazy" decoding="async">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Panel 4: Quick Panel -->
-                <div class="panel" id="p4">
-                    <div class="panel-grid">
-                        <div class="panel-copy">
-                            <h3>Summon your schedule from anywhere</h3>
-                            <p>Press ⌃⌥M (customizable) to open the Quick Panel over whatever app you're in. Browse days with ← / → or ⌘H / ⌘L, select with ↑ / ↓ or ⌘K / ⌘J, mute with ⌘M, unmute with ⌘U, join with Enter, and dismiss with Esc.</p>
-                            <ul>
-                                <li><svg><use href="#i-check"/></svg> Vim-style ⌘HJKL alongside arrow keys</li>
-                                <li><svg><use href="#i-check"/></svg> Mute skip-reminder meetings without leaving the keyboard</li>
-                                <li><svg><use href="#i-check"/></svg> Respects screen-share privacy when enabled (Pro)</li>
-                            </ul>
-                        </div>
-                        <div class="shot">
-                            <img src="showcase-quickpanel.webp" alt="Meetly Quick Panel summoned globally via keyboard shortcut" loading="lazy" decoding="async">
+                            <img src="showcase-quickpanel.gif" alt="Meetly Quick Panel summoned over another app" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -1484,280 +1445,34 @@
     </section>
 
     <!-- ============================================================
-         FEATURES BENTO
+         SOCIAL PROOF (compact — before pricing)
          ============================================================ -->
-    <section class="features" id="features">
+    <section class="proof" id="press">
         <div class="container">
-            <div class="sec-head reveal">
-                <span class="sec-eyebrow">Built for reliability</span>
-                <h2>Every detail tuned so you don't miss a beat</h2>
-                <p>Small features that save you from the awkward "sorry I'm late" message.</p>
-            </div>
-            <div class="bento">
-                <div class="card featured-tile b-wide reveal">
-                    <div class="icon-tile teal"><svg><use href="#i-key"/></svg></div>
-                    <h3>Quick Panel — summon your schedule anywhere</h3>
-                    <p>Press ⌃⌥M from any app to open today's meetings. Browse with ← / → or ⌘H / ⌘L, select with ↑ / ↓ or ⌘K / ⌘J, mute with ⌘M, unmute with ⌘U, join with Enter, dismiss with Esc. Shortcut is fully customizable in Settings.</p>
+            <blockquote class="proof-quote reveal">
+                Instead of a small banner in the corner, Meetly takes the whole screen — event front and center, a live countdown, and an alarm. It's truly impossible to miss.
+            </blockquote>
+            <div class="proof-meta reveal">
+                <div>
+                    <strong>VVMac ✿ Le Blog</strong>
+                    <span>Bernard · Independent Mac blog (France)</span>
                 </div>
-                <div class="card reveal">
-                    <div class="icon-tile teal"><svg><use href="#i-bell"/></svg></div>
-                    <h3>Mute from the keyboard</h3>
-                    <p>Select a meeting and press ⌘M to skip its fullscreen reminder — muted rows show a clear tag. ⌘U turns reminders back on. Syncs with dismiss/snooze state via iCloud on Pro.</p>
-                </div>
-                <div class="card reveal">
-                    <div class="icon-tile teal"><svg><use href="#i-key"/></svg></div>
-                    <h3>Vim-style panel navigation</h3>
-                    <p>New in 1.4.7. In the menu bar and Quick Panel, use ⌘H / ⌘L to change day and ⌘K / ⌘J to move between meetings — same as the arrow keys, friendly to vim muscle memory.</p>
-                </div>
-                <div class="card reveal">
-                    <div class="icon-tile teal"><svg><use href="#i-layers"/></svg></div>
-                    <h3>Every display covered</h3>
-                    <p>New in 1.4.6. The fullscreen reminder spans all connected monitors — no half-overlay on secondary screens.</p>
-                </div>
-                <div class="card reveal">
-                    <div class="icon-tile teal"><svg><use href="#i-layers"/></svg></div>
-                    <h3>Clearer first launch</h3>
-                    <p>After you Open Meetly, setup appears immediately (with a temporary Dock icon). Calendar access is requested from that window, and Meetly explains it lives in the menu bar afterward.</p>
-                </div>
-                <div class="card reveal">
-                    <div class="icon-tile teal"><svg><use href="#i-alarm"/></svg></div>
-                    <h3>Keyboard-first reminders</h3>
-                    <p>When the fullscreen overlay appears, use the arrows to move between Snooze / Dismiss / Join, Enter to act, Esc to clear — perfect when your hands are already on the keyboard.</p>
-                </div>
-                <div class="card reveal">
-                    <div class="icon-tile blue"><svg><use href="#i-checklist"/></svg></div>
-                    <h3>Apple Reminders support</h3>
-                    <p>Watch selected Reminders lists and fire the same fullscreen alert for due-date tasks. Per-list rules and iCloud sync included.</p>
-                </div>
-                <div class="card reveal">
-                    <div class="icon-tile blue"><svg><use href="#i-alarm"/></svg></div>
-                    <h3>Snooze without losing it</h3>
-                    <p>Need five more minutes? Snooze 1 or 5 minutes and Meetly re-alerts you — it never just disappears. Snooze state syncs across your Macs too.</p>
-                </div>
-                <div class="card reveal">
-                    <div class="icon-tile blue"><svg><use href="#i-bolt"/></svg></div>
-                    <h3>Quick Join</h3>
-                    <p>One click to launch Zoom, Meet, or Teams from any reminder.</p>
-                </div>
-                <div class="card reveal">
-                    <div class="icon-tile blue"><svg><use href="#i-layers"/></svg></div>
-                    <h3>Week browser &amp; clear NEXT timing</h3>
-                    <p>Browse the next seven days in the menu bar. The NEXT card shows a precise countdown like “in 1:12” and the start–end time on the right — not just a coarse “in 1h”.</p>
-                </div>
-                <div class="card reveal">
-                    <div class="icon-tile amber"><svg><use href="#i-moon"/></svg></div>
-                    <h3>Quiet hours</h3>
-                    <p>No fullscreen blasts at 11 PM. Set quiet hours and Meetly stays silent until morning.</p>
-                </div>
-                <div class="card reveal">
-                    <div class="icon-tile coral"><svg><use href="#i-merge"/></svg></div>
-                    <h3>Conflict detection</h3>
-                    <p>Overlapping meetings grouped into one clear reminder.</p>
-                </div>
-                <div class="card reveal">
-                    <div class="icon-tile teal"><svg><use href="#i-filter"/></svg></div>
-                    <h3>Per-calendar controls</h3>
-                    <p>Some calendars matter more than others. Turn the overlay or the sound on or off per calendar, and cap the sound so it stops after a few beeps instead of looping forever.</p>
-                </div>
-                <div class="card reveal">
-                    <div class="icon-tile blue"><svg><use href="#i-bell"/></svg></div>
-                    <h3>Not just meetings</h3>
-                    <p>Pro can also remind you about plain events with no link or location — like "5pm groceries". Treat any calendar as a real reminder, not just meetings.</p>
-                </div>
-                <div class="card reveal">
-                    <div class="icon-tile teal"><svg><use href="#i-layers"/></svg></div>
-                    <h3>Duplicate merging</h3>
-                    <p>Same meeting on three calendars? Meetly shows it once.</p>
-                </div>
-                <div class="card b-wide reveal">
-                    <div class="icon-tile blue"><svg><use href="#i-eye-off"/></svg></div>
-                    <h3>Private while screen sharing</h3>
-                    <p>Presenting in a meeting? Pro auto-hides your overlay reminder from everyone else on the call — they see your screen as normal, you still see the alert. No more accidental exposure.</p>
-                </div>
+                <a class="press-link" href="https://vvmac.fr/wordpress_b/?p=78951#prise-en-main--vous-ne-raterez-plus-rien--meetly-impose-a-lecran-de-votre-mac-des-rappels-immanquables" target="_blank" rel="noopener noreferrer">Read the review →</a>
             </div>
         </div>
     </section>
 
     <!-- ============================================================
-         COMPARISON
-         ============================================================ -->
-    <section class="compare">
-        <div class="container">
-            <div class="sec-head reveal">
-                <span class="sec-eyebrow">Why Meetly</span>
-                <h2>vs. native calendar notifications</h2>
-                <p>Your calendar app organizes your day. Meetly makes sure you actually show up.</p>
-            </div>
-            <div class="compare-wrap reveal">
-                <table>
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th class="col-meetly"><span class="compare-badge">Meetly</span></th>
-                            <th class="col-other">Native calendar apps</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Fullscreen reminder before meetings</td>
-                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
-                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
-                        </tr>
-                        <tr>
-                            <td>Watch multiple calendars together (Pro)</td>
-                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
-                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
-                        </tr>
-                        <tr>
-                            <td>Fullscreen alerts for Apple Reminders tasks (Pro)</td>
-                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
-                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
-                        </tr>
-                        <tr>
-                            <td>Dismiss / join syncs across Macs</td>
-                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
-                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
-                        </tr>
-                        <tr>
-                            <td>One-click join (Zoom / Meet / Teams)</td>
-                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
-                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
-                        </tr>
-                        <tr>
-                            <td>Reminders hidden from screen-share viewers</td>
-                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
-                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
-                        </tr>
-                        <tr>
-                            <td>Per-calendar overlay &amp; sound controls (Pro)</td>
-                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
-                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
-                        </tr>
-                        <tr>
-                            <td>Reminders for plain events, not just meetings (Pro)</td>
-                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
-                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
-                        </tr>
-                        <tr>
-                            <td>Global Quick Panel shortcut (⌃⌥M)</td>
-                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
-                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
-                        </tr>
-                        <tr>
-                            <td>Full keyboard nav — panel &amp; overlay (arrows / ⌘HJKL / Enter / Esc)</td>
-                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
-                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
-                        </tr>
-                        <tr>
-                            <td>Mute / unmute selected meeting (⌘M / ⌘U)</td>
-                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
-                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
-                        </tr>
-                        <tr>
-                            <td>Quiet hours — mute alerts overnight (Pro)</td>
-                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
-                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
-                        </tr>
-                        <tr>
-                            <td>Privacy-first, no backend server</td>
-                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
-                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
-                        </tr>
-                        <tr>
-                            <td>One-time price, no subscription</td>
-                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
-                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-         PRESS
-         ============================================================ -->
-    <section class="press" id="press">
-        <div class="container">
-            <div class="sec-head reveal">
-                <span class="sec-eyebrow">Press</span>
-                <h2>Featured review</h2>
-            </div>
-            <div class="press-card reveal">
-                <blockquote class="press-quote">Instead of a small banner in the corner, Meetly takes the whole screen — event front and center, a live countdown, and an alarm. It's truly impossible to miss. The developer thought of everything: conflict detection, duplicate merging, and alerts that stay private while you're screen sharing.</blockquote>
-                <div class="press-meta">
-                    <div class="press-source">
-                        <strong>VVMac ✿ Le Blog</strong>
-                        <span>Bernard · July 11, 2026 · Independent Mac blog (France)</span>
-                    </div>
-                    <a class="press-link" href="https://vvmac.fr/wordpress_b/?p=78951#prise-en-main--vous-ne-raterez-plus-rien--meetly-impose-a-lecran-de-votre-mac-des-rappels-immanquables" target="_blank" rel="noopener noreferrer">Read the full review →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-         TESTIMONIALS
-         ============================================================ -->
-    <!-- TESTIMONIALS hidden until real reviews are available
-    <section class="testimonials">
-        <div class="container">
-            <div class="sec-head reveal">
-                <span class="sec-eyebrow">Loved by freelancers</span>
-                <h2>People who can't afford to miss calls</h2>
-                <!-- TODO: replace with real reviews once you have them -->
-            </div>
-            <div class="test-grid">
-                <div class="t-card reveal">
-                    <div class="t-stars">★★★★★</div>
-                    <p class="t-body">"I missed a client kickoff because the calendar notification came in while I was in flow mode. Meetly's fullscreen alert is exactly the safety net I needed. Paid for Pro the day it launched."</p>
-                    <div class="t-author">
-                        <div class="t-avatar" style="background:var(--grad-teal)">A</div>
-                        <div>
-                            <div class="t-name">Alex Rivera</div>
-                            <div class="t-role">Freelance designer</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="t-card reveal">
-                    <div class="t-stars">★★★★★</div>
-                    <p class="t-body">"I juggle four client calendars across two Macs. Before Meetly, double-notifications were a daily nightmare. Now I dismiss on my laptop and it's handled on the desktop too. Worth every cent."</p>
-                    <div class="t-author">
-                        <div class="t-avatar" style="background:var(--grad-coral)">M</div>
-                        <div>
-                            <div class="t-name">Maya Chen</div>
-                            <div class="t-role">Contract consultant</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="t-card reveal">
-                    <div class="t-stars">★★★★★</div>
-                    <p class="t-body">"The quick-join alone saves me the awkward 30 seconds of hunting for the Zoom link every meeting. Privacy-first was the clincher — my client data never leaves my Mac."</p>
-                    <div class="t-author">
-                        <div class="t-avatar" style="background:linear-gradient(135deg,#1787FF,#4EE6D5)">J</div>
-                        <div>
-                            <div class="t-name">Jordan Park</div>
-                            <div class="t-role">Indie developer</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    -->
-
-    <!-- ============================================================
-         PRICING
+         PRICING (early)
          ============================================================ -->
     <section class="pricing" id="pricing">
         <div class="container">
             <div class="sec-head reveal">
                 <span class="sec-eyebrow">Simple pricing</span>
                 <h2>Free forever. Pro once.</h2>
-                <p>No subscription, ever. Use the Free plan as long as you want — upgrade only when you need sync across Macs.</p>
+                <p>No subscription, ever. Most freelancers start Free; upgrade when you add a second Mac or calendar.</p>
             </div>
             <div class="price-grid">
-                <!-- Free -->
                 <div class="price-card reveal">
                     <div class="price-tier">Free</div>
                     <div class="price-amt">
@@ -1768,10 +1483,10 @@
                     <p class="price-desc">Everything you need to never miss a meeting on a single Mac.</p>
                     <ul class="price-features">
                         <li><svg><use href="#i-check"/></svg> Fullscreen meeting reminders</li>
-                        <li><svg><use href="#i-check"/></svg> Menu bar now & upcoming</li>
+                        <li><svg><use href="#i-check"/></svg> Menu bar now &amp; upcoming</li>
                         <li><svg><use href="#i-check"/></svg> Monitor 1 calendar</li>
                         <li><svg><use href="#i-check"/></svg> Snooze &amp; quick join</li>
-                        <li><svg><use href="#i-check"/></svg> Quick Panel global shortcut (⌃⌥M)</li>
+                        <li><svg><use href="#i-check"/></svg> Quick Panel (⌃⌥M)</li>
                         <li><svg><use href="#i-check"/></svg> Keyboard nav — arrows, ⌘HJKL, Enter, Esc</li>
                         <li><svg><use href="#i-check"/></svg> Mute / unmute (⌘M / ⌘U)</li>
                         <li class="muted"><svg><use href="#i-x"/></svg> iCloud sync across Macs</li>
@@ -1782,7 +1497,6 @@
                     </a>
                 </div>
 
-                <!-- Pro -->
                 <div class="price-card pro reveal">
                     <span class="price-tag">★ Launch price — save 60%</span>
                     <div class="price-tier">Pro</div>
@@ -1792,17 +1506,15 @@
                         <span class="strike">$9.99</span>
                         <span class="per">/ one-time</span>
                     </div>
-                    <p class="price-desc">For freelancers working across multiple Macs. Pay once, own it.</p>
+                    <p class="price-desc">For freelancers on multiple Macs or calendars. Pay once, own it — launch pricing while it lasts.</p>
                     <ul class="price-features">
                         <li><svg><use href="#i-check"/></svg> Everything in Free</li>
-                        <li><svg><use href="#i-check"/></svg> Monitor unlimited calendars</li>
-                        <li><svg><use href="#i-check"/></svg> Apple Reminders support — tasks with a due date</li>
-                        <li><svg><use href="#i-check"/></svg> iCloud sync across all your Macs</li>
-                        <li><svg><use href="#i-check"/></svg> Cross-device dismiss / join / snooze / mute state</li>
-                        <li><svg><use href="#i-check"/></svg> Per-calendar & per-list overlay & sound controls</li>
-                        <li><svg><use href="#i-check"/></svg> Reminders for plain events, not just meetings</li>
-                        <li><svg><use href="#i-check"/></svg> Quiet hours — no alerts late at night</li>
-                        <li><svg><use href="#i-check"/></svg> Private overlay while screen sharing</li>
+                        <li><svg><use href="#i-check"/></svg> Unlimited calendars</li>
+                        <li><svg><use href="#i-check"/></svg> Apple Reminders with due dates</li>
+                        <li><svg><use href="#i-check"/></svg> Per-calendar &amp; per-list Reminder rules</li>
+                        <li><svg><use href="#i-check"/></svg> Quiet hours &amp; screen-share privacy</li>
+                        <li><svg><use href="#i-check"/></svg> iCloud sync across Macs</li>
+                        <li><svg><use href="#i-check"/></svg> Cross-device dismiss / join / snooze / mute</li>
                         <li><svg><use href="#i-check"/></svg> Priority support</li>
                     </ul>
                     <a href="https://codeonholiday.lemonsqueezy.com/checkout/buy/c3bc2ae8-d06d-42c6-a915-ccc6806c0a20?checkout[discount_code]=MEETLYLAUCH" class="btn btn-primary btn-block" target="_blank" rel="noopener">
@@ -1813,8 +1525,149 @@
             </div>
             <p class="price-note reveal">
                 <svg style="width:15px;height:15px;vertical-align:-2px;color:var(--teal)"><use href="#i-lock"/></svg>
-                <strong>One-time payment, not a subscription.</strong> 14-day money-back, no questions asked. After purchase you'll receive a license key by email — enter it in the app to unlock Pro.
+                <strong>One-time payment — not a subscription.</strong> <strong>14-day money-back</strong>, no questions asked. License key by email — enter it in Meetly to unlock Pro.
             </p>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         HIGHLIGHTS (compact)
+         ============================================================ -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="sec-head reveal">
+                <span class="sec-eyebrow">Built for macOS</span>
+                <h2>Fullscreen reminders, menu bar control, zero subscription</h2>
+                <p>A native menu bar app — not another Electron calendar. Full walkthrough in the <a href="/blog/how-to-use-meetly-complete-guide/" style="color:var(--teal)">How to Use Meetly guide</a>.</p>
+            </div>
+            <div class="highlight-grid reveal">
+                <div class="highlight-item">
+                    <div class="icon-tile teal"><svg><use href="#i-alarm"/></svg></div>
+                    <h3>Fullscreen meeting reminders</h3>
+                    <p>Impossible-to-miss overlay before every meeting — Join, Snooze, or Dismiss from the keyboard.</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="icon-tile teal"><svg><use href="#i-key"/></svg></div>
+                    <h3>Quick Panel from anywhere</h3>
+                    <p>⌃⌥M summons today’s schedule over any app. Browse with arrows or ⌘HJKL, mute with ⌘M, join with Enter.</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="icon-tile teal"><svg><use href="#i-filter"/></svg></div>
+                    <h3>Per-calendar reminder rules</h3>
+                    <p>Pro: control overlay, sound, and repeat per calendar — work loud, personal quiet, or meetings-only.</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="icon-tile blue"><svg><use href="#i-checklist"/></svg></div>
+                    <h3>Per-list Reminders rules</h3>
+                    <p>Pro: watch Apple Reminders lists and set overlay/sound rules per list — due-date tasks fire like meetings.</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="icon-tile amber"><svg><use href="#i-moon"/></svg></div>
+                    <h3>Quiet hours</h3>
+                    <p>Pro: mute fullscreen alerts overnight (or any window you set) so deep work and sleep stay uninterrupted.</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="icon-tile blue"><svg><use href="#i-eye-off"/></svg></div>
+                    <h3>Private while screen sharing</h3>
+                    <p>Pro: you still see the reminder; Zoom/Meet/Teams viewers see your slides — not the overlay.</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="icon-tile teal"><svg><use href="#i-layers"/></svg></div>
+                    <h3>Multi-monitor overlay</h3>
+                    <p>Fullscreen reminder covers every connected display — not just the main screen.</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="icon-tile teal"><svg><use href="#i-bell"/></svg></div>
+                    <h3>Mute with ⌘M</h3>
+                    <p>Skip the fullscreen reminder for one meeting. Muted rows stay visible; ⌘U turns alerts back on.</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="icon-tile blue"><svg><use href="#i-shield"/></svg></div>
+                    <h3>Privacy-first + iCloud sync</h3>
+                    <p>No backend. Calendar data stays on your Mac. Pro syncs dismiss/join/snooze/mute via your iCloud.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         COMPARISON
+         ============================================================ -->
+    <section class="compare" id="compare">
+        <div class="container">
+            <div class="sec-head reveal">
+                <span class="sec-eyebrow">Why Meetly</span>
+                <h2>vs native calendar notifications</h2>
+                <p>Your calendar app organizes your day. Meetly makes sure you actually show up.</p>
+            </div>
+            <div class="compare-wrap reveal">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="col-meetly"><span class="compare-badge">Meetly</span></th>
+                            <th class="col-other">macOS Calendar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fullscreen reminder before meetings</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other"><span class="partial">Corner banner</span></td>
+                        </tr>
+                        <tr>
+                            <td>Menu bar now &amp; upcoming + one-click join</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Global Quick Panel + full keyboard (⌃⌥M, ⌘HJKL)</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Mute / unmute one meeting (⌘M / ⌘U)</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Apple Reminders overlays (Pro)</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other"><span class="partial">Separate app</span></td>
+                        </tr>
+                        <tr>
+                            <td>Per-calendar &amp; per-list reminder rules (Pro)</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Quiet hours (Pro)</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other"><span class="partial">Focus modes</span></td>
+                        </tr>
+                        <tr>
+                            <td>Hidden from Zoom / Meet / Teams screen share (Pro)</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Dismiss / join / mute sync across Macs (Pro)</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Multi-monitor fullscreen overlay</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>One-time price, no subscription</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other"><span class="partial">Built-in</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
 
@@ -1825,86 +1678,55 @@
         <div class="container">
             <div class="sec-head reveal">
                 <span class="sec-eyebrow">Questions</span>
-                <h2>Before you ask</h2>
+                <h2>Meetly FAQ — calendars, pricing, privacy</h2>
+                <p>Need the long version? See the <a href="/blog/how-to-use-meetly-complete-guide/" style="color:var(--teal)">complete guide</a>.</p>
             </div>
             <div class="faq-list reveal">
                 <details class="faq-item" open>
                     <summary>Does Meetly work with my calendar &amp; reminders?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">If it shows up in macOS Calendar — Google, Outlook, iCloud, Exchange, and more — Meetly can watch it. The Free plan monitors one calendar, perfect for a single work or personal calendar. Pro unlocks unlimited calendars so you can track work and personal side by side. As of version 1.3, Pro can also watch your Apple Reminders lists — tasks with a due date fire the same fullscreen alert as meetings. Meetly reads events to remind you; it never modifies your calendars.</div>
+                    <div class="ans">If it shows up in macOS Calendar — Google, Outlook, iCloud, Exchange, and more — Meetly can watch it. Free monitors one calendar. Pro unlocks unlimited calendars and Apple Reminders lists with due dates. Meetly never modifies your calendars.</div>
                 </details>
                 <details class="faq-item">
-                    <summary>How do Apple Reminders tasks work in Meetly?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">In the Reminders tab, pick which Apple Reminders lists Meetly should watch. Any task with a due date in those lists shows up in the menu bar and fires the fullscreen reminder at the due time — exactly like a calendar event. Tasks without a time are treated as due at a default hour you choose (9 AM by default). It's a Pro feature, with per-list overlay and sound rules that sync across your Macs.</div>
+                    <summary>How is Meetly different from Calendar notifications?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">Calendar shows corner banners. Meetly uses fullscreen overlays, Quick Panel keyboard control, Apple Reminders (Pro), quiet hours, screen-share privacy, and iCloud action sync — see the <a href="#compare">comparison</a>.</div>
                 </details>
                 <details class="faq-item">
                     <summary>Is my calendar data safe?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">Yes. Meetly has no backend server. Your calendar data stays on your Mac, and sync state (dismiss/join/snooze/mute) travels only through your own iCloud when you enable Pro. Nothing is sold, shared, or sent to us.</div>
+                    <div class="ans">Yes. Meetly has no backend server. Your calendar data stays on your Mac; sync state travels only through your own iCloud on Pro.</div>
                 </details>
                 <details class="faq-item">
                     <summary>Do I have to pay every month?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">Never. The Free plan is free forever and covers single-Mac use completely. Pro is a one-time $3.99 payment (launch pricing, normally $9.99) that unlocks iCloud sync across your Macs. No subscription, no recurring charge.</div>
+                    <div class="ans">Never. Free is free forever. Pro is a one-time $3.99 payment (launch pricing). No subscription.</div>
                 </details>
                 <details class="faq-item">
                     <summary>What if I work on multiple Macs?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">That's exactly what Pro is for. With iCloud sync, dismissing or joining a meeting on one Mac marks it handled on all your Macs — no more double reminders for the same meeting. Pro also keeps your reminders private while you're screen sharing. Single-Mac use stays fully free.</div>
-                </details>
-                <details class="faq-item">
-                    <summary>Is Meetly a replacement for my calendar app?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">No, and that's intentional. Meetly does one thing exceptionally well: making sure you never miss an important meeting. It works alongside your calendar app, not instead of it. Keep using Google Calendar, Fantastical, or whatever you love.</div>
-                </details>
-                <details class="faq-item">
-                    <summary>What is the Quick Panel shortcut?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">Press ⌃⌥M from anywhere to summon Meetly's schedule panel over your current app — the same NOW / NEXT / UPCOMING view as the menu bar. Browse days with ← / → or ⌘H / ⌘L, move between meetings with ↑ / ↓ or ⌘K / ⌘J (first event selected by default), mute with ⌘M, unmute with ⌘U, join with Enter, and dismiss with Esc. You can customize or disable the global shortcut in Settings → General. When screen-share privacy is enabled (Pro), the panel stays visible to you but hidden from viewers.</div>
-                </details>
-                <details class="faq-item">
-                    <summary>Can I mute a meeting so it won't remind me?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">Yes. In the menu bar or Quick Panel, select a meeting and press ⌘M to skip its fullscreen reminder. Muted meetings show a “Muted” tag so you can see they won't notify. Press ⌘U to turn reminders back on. On Pro, mute state syncs across your Macs with dismiss and snooze.</div>
-                </details>
-                <details class="faq-item">
-                    <summary>Can I use Meetly without a mouse?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">Yes. The menu bar, Quick Panel, and fullscreen reminder all support the same keyboard path: arrows or ⌘H / ⌘J / ⌘K / ⌘L (vim-style) in the panel, Enter activates the focused action (join, snooze, copy location, or dismiss), ⌘M / ⌘U mute and unmute the selected meeting, and Esc closes the panel or overlay. Hands stay on the keyboard through the whole flow.</div>
+                    <div class="ans">Pro syncs dismiss, join, snooze, and mute via iCloud so you don't get double reminders. Screen-share privacy is included.</div>
                 </details>
                 <details class="faq-item">
                     <summary>I opened Meetly and nothing happened — where is it?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">Meetly is a menu bar app: after setup it has no Dock icon. As of 1.4.5, first launch shows the setup window right away (you may briefly see Meetly in the Dock during setup). When you’re done, look for the calendar icon in the menu bar at the top-right of your screen — click it to open your meetings. If the icon is missing, check the menu bar overflow (» / Control Center extras).</div>
+                    <div class="ans">Meetly is a menu bar app with no Dock icon after setup. First launch shows setup right away; then look for the calendar icon top-right. See the <a href="/blog/how-to-use-meetly-complete-guide/">guide</a> for keyboard shortcuts and settings.</div>
                 </details>
                 <details class="faq-item">
                     <summary>Where can I learn how to use Meetly?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">See the <a href="/blog/how-to-use-meetly-complete-guide/">How to Use Meetly guide</a> — install, first launch, menu bar, fullscreen reminder, Quick Panel, ⌘HJKL vim navigation, mute shortcuts, settings, Pro, and troubleshooting.</div>
+                    <div class="ans">Read the <a href="/blog/how-to-use-meetly-complete-guide/">How to Use Meetly guide</a> — install, overlay, Quick Panel, ⌘HJKL, mute, Pro, and troubleshooting.</div>
                 </details>
                 <details class="faq-item">
                     <summary>What macOS version do I need?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">Meetly runs on macOS 14 (Sonoma) or later. It's a tiny native app (~8 MB), lives in your menu bar, and uses minimal resources.</div>
+                    <div class="ans">macOS 14 (Sonoma) or later. Native app, ~8 MB.</div>
                 </details>
             </div>
         </div>
     </section>
 
-    <!-- ============================================================
-         FINAL CTA
-         ============================================================ -->
-    <section class="final-cta">
+    <!-- Soft close -->
+    <section class="soft-close">
         <div class="container">
-            <div class="cta-box reveal">
-                <h2>Your next client meeting<br>deserves a safety net.</h2>
-                <p>Install Meetly once. Never send another "sorry I missed this" email.</p>
-                <div class="hero-cta">
-                    <a href="https://github.com/codeonholiday/codeonholiday/releases/download/v1.4.7/meetly-latest.zip?t=202607161459" class="btn btn-primary btn-lg">
-                        <svg><use href="#i-download"/></svg>
-                        Download Free
-                    </a>
-                    <a href="#pricing" class="btn btn-ghost btn-lg">See pricing</a>
-                    <a href="/blog/how-to-use-meetly-complete-guide/" class="btn btn-ghost btn-lg">Read the guide</a>
-                </div>
-                <div class="trust-line" style="margin-top:24px;justify-content:center">
-                    <svg style="width:16px;height:16px;color:var(--teal)"><use href="#i-apple"/></svg>
-                    <strong>macOS 14+</strong>
-                    <span class="sep"></span>
-                    Free forever
-                    <span class="sep"></span>
-                    No subscription
-                    <span class="sep"></span>
-                    No credit card
+            <div class="soft-close-inner reveal">
+                <p>Ready to stop missing standups?</p>
+                <div class="soft-close-links">
+                    <a href="https://github.com/codeonholiday/codeonholiday/releases/download/v1.4.7/meetly-latest.zip?t=202607161459" class="btn btn-primary">Download Free</a>
+                    <a href="#pricing" class="btn btn-ghost">Get Pro — $3.99</a>
+                    <a href="/blog/how-to-use-meetly-complete-guide/" class="btn btn-ghost">Guide</a>
                 </div>
             </div>
         </div>
@@ -1933,10 +1755,9 @@
                 <div class="foot-cols">
                     <div class="foot-col">
                         <h4>Product</h4>
-                        <a href="#features">Features</a>
-                        <a href="#showcase">See it in action</a>
+                        <a href="#showcase">Product</a>
                         <a href="#pricing">Pricing</a>
-                        <a href="#press">Press</a>
+                        <a href="#features">Features</a>
                         <a href="#faq">FAQ</a>
                         <a href="/blog/how-to-use-meetly-complete-guide/">Guide</a>
                     </div>
@@ -1946,7 +1767,6 @@
                         <a href="/meetly/privacy.html">Privacy Policy</a>
                         <a href="/meetly/terms.html">Terms of Service</a>
                         <a href="mailto:hello@codeonholiday.com">Support</a>
-                        <a href="https://github.com/codeonholiday/meetly">GitHub</a>
                     </div>
                 </div>
             </div>
