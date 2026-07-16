@@ -68,9 +68,9 @@
                 "name": "Meetly",
                 "applicationCategory": "BusinessApplication",
                 "operatingSystem": "macOS 14+",
-                "softwareVersion": "1.4.4",
+                "softwareVersion": "1.4.5",
                 "url": "https://codeonholiday.com/meetly/",
-                "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/v1.4.4/meetly-latest.zip",
+                "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/v1.4.5/meetly-latest.zip",
                 "screenshot": "https://codeonholiday.com/meetly/showcase-reminder.webp",
                 "description": "A native macOS menu bar app that fires a fullscreen reminder before your meetings start, with Quick Panel, keyboard mute, Apple Reminders, and iCloud sync.",
                 "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -150,6 +150,14 @@
                         "acceptedAnswer": {
                             "@type": "Answer",
                             "text": "Yes. The menu bar, Quick Panel, and fullscreen reminder all support keyboard navigation — arrows move focus between actions, Enter activates the focused button, Command-M mutes a selected meeting, Command-U unmutes, and Esc dismisses."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "I opened Meetly and nothing happened — where is it?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Meetly is a menu bar app with no Dock icon after setup. As of 1.4.5, first launch shows the setup window right away. When you are done, look for the calendar icon in the menu bar at the top-right of your screen."
                         }
                     },
                     {
@@ -1179,7 +1187,7 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-copy">
-                    <span class="pill reveal"><span class="dot"></span> Free forever · macOS native · v1.4.4</span>
+                    <span class="pill reveal"><span class="dot"></span> Free forever · macOS native · v1.4.5</span>
                     <h1 class="reveal">Never miss a<br><span class="grad">client meeting</span> again.</h1>
                     <p class="lede reveal">Meetly is a native macOS menu bar app that fires a <strong>fullscreen reminder</strong> right before your meetings start. Perfect for freelancers juggling multiple calendars across multiple Macs.</p>
                     <div class="hero-cta reveal">
@@ -1202,6 +1210,9 @@
                         <span class="sep"></span>
                         No subscription
                     </div>
+                    <p class="reveal" style="margin-top:14px;font-size:13.5px;color:var(--text-muted);max-width:36em">
+                        After Open: setup appears right away. Meetly then lives in your <strong>menu bar</strong> (top-right calendar icon) — no Dock icon.
+                    </p>
 
                     <div class="hero-social reveal">
                         <div class="press-badge">
@@ -1432,7 +1443,12 @@
                 <div class="card reveal">
                     <div class="icon-tile teal"><svg><use href="#i-bell"/></svg></div>
                     <h3>Mute from the keyboard</h3>
-                    <p>New in 1.4.4. Select a meeting and press ⌘M to skip its fullscreen reminder — muted rows show a clear tag. ⌘U turns reminders back on. Syncs with dismiss/snooze state via iCloud on Pro.</p>
+                    <p>Select a meeting and press ⌘M to skip its fullscreen reminder — muted rows show a clear tag. ⌘U turns reminders back on. Syncs with dismiss/snooze state via iCloud on Pro.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="icon-tile teal"><svg><use href="#i-layers"/></svg></div>
+                    <h3>Clearer first launch</h3>
+                    <p>New in 1.4.5. After you Open Meetly, setup appears immediately (with a temporary Dock icon). Calendar access is requested from that window, and Meetly explains it lives in the menu bar afterward.</p>
                 </div>
                 <div class="card reveal">
                     <div class="icon-tile teal"><svg><use href="#i-alarm"/></svg></div>
@@ -1778,6 +1794,10 @@
                 <details class="faq-item">
                     <summary>Can I use Meetly without a mouse?<svg class="chev"><use href="#i-chev"/></svg></summary>
                     <div class="ans">Yes. The menu bar, Quick Panel, and fullscreen reminder all support the same keyboard path: arrows move focus, Enter activates the focused action (join, snooze, copy location, or dismiss), ⌘M / ⌘U mute and unmute the selected meeting, and Esc closes the panel or overlay. Hands stay on the keyboard through the whole flow.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>I opened Meetly and nothing happened — where is it?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">Meetly is a menu bar app: after setup it has no Dock icon. As of 1.4.5, first launch shows the setup window right away (you may briefly see Meetly in the Dock during setup). When you’re done, look for the calendar icon in the menu bar at the top-right of your screen — click it to open your meetings. If the icon is missing, check the menu bar overflow (» / Control Center extras).</div>
                 </details>
                 <details class="faq-item">
                     <summary>What macOS version do I need?<svg class="chev"><use href="#i-chev"/></svg></summary>
