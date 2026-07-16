@@ -270,6 +270,18 @@ a:hover { text-decoration: underline; }
 }
 .foot a { color: var(--text-muted); text-decoration: none; }
 .foot a:hover { color: var(--text); }
+.foot-end { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.social {
+    display: inline-flex; align-items: center; gap: 4px;
+}
+.social a {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; border-radius: 8px;
+    color: var(--text-muted);
+    transition: color 0.2s, background 0.2s;
+}
+.social a:hover { color: var(--text); background: rgba(120, 140, 170, 0.12); text-decoration: none; }
+.social svg { width: 16px; height: 16px; display: block; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {

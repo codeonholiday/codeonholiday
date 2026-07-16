@@ -105,7 +105,8 @@
                         }
                     ]
                 },
-                "publisher": { "@type": "Organization", "name": "codeonholiday", "url": "https://codeonholiday.com/" }
+                "publisher": { "@type": "Organization", "name": "codeonholiday", "url": "https://codeonholiday.com/" },
+                "sameAs": ["https://www.producthunt.com/products/meetly-3"]
             },
             {
                 "@type": "FAQPage",
@@ -437,6 +438,46 @@
         }
         .trust-line .sep { width: 4px; height: 4px; border-radius: 50%; background: var(--text-dim); }
         .trust-line strong { color: var(--text-muted); font-weight: 600; }
+
+        .ph-support {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+            padding: 14px 16px;
+            max-width: 440px;
+            border-radius: 14px;
+            border: 1px solid rgba(78, 230, 213, 0.22);
+            background: linear-gradient(135deg, rgba(78, 230, 213, 0.08) 0%, rgba(23, 135, 255, 0.06) 100%);
+        }
+        .ph-support-copy {
+            flex: 1 1 160px;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .ph-support-copy strong {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
+        .ph-support-copy span {
+            font-size: 13px;
+            line-height: 1.45;
+            color: var(--text-muted);
+        }
+        .ph-badge {
+            display: inline-block; line-height: 0; flex-shrink: 0;
+            transition: transform 0.2s var(--ease), opacity 0.2s;
+        }
+        .ph-badge:hover { transform: translateY(-1px); opacity: 0.92; }
+        .ph-badge img {
+            display: block; width: 200px; height: auto;
+            border-radius: 8px;
+        }
 
         /* Hero social proof */
         .hero-social {
@@ -1116,6 +1157,17 @@
         .foot-brand { display: flex; flex-direction: column; gap: 14px; max-width: 300px; }
         .foot-brand .logo { font-size: 18px; }
         .foot-brand p { font-size: 13.5px; color: var(--text-muted); }
+        .social {
+            display: inline-flex; align-items: center; gap: 4px;
+        }
+        .social a {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 34px; height: 34px; border-radius: 8px;
+            color: var(--text-muted);
+            transition: color 0.2s, background 0.2s;
+        }
+        .social a:hover { color: var(--text); background: rgba(120, 140, 170, 0.12); }
+        .social svg { width: 16px; height: 16px; display: block; }
         .foot-cols { display: flex; gap: 60px; flex-wrap: wrap; }
         .foot-col h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-dim); margin-bottom: 14px; font-weight: 700; }
         .foot-col a { display: block; color: var(--text-muted); text-decoration: none; font-size: 14px; padding: 5px 0; transition: color 0.2s; }
@@ -1329,6 +1381,15 @@
                         No subscription
                         <span class="sep"></span>
                         14-day refund
+                    </div>
+                    <div class="ph-support reveal">
+                        <div class="ph-support-copy">
+                            <strong>Found Meetly useful?</strong>
+                            <span>An upvote on Product Hunt takes 2 seconds — and helps more people never miss a meeting.</span>
+                        </div>
+                        <a class="ph-badge" href="https://www.producthunt.com/products/meetly-3?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-meetly-4" target="_blank" rel="noopener noreferrer">
+                            <img alt="Meetly - Fullscreen meeting reminders for macOS. Never miss a call. | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1189425&theme=light&t=1784211881586">
+                        </a>
                     </div>
                     <p class="reveal" style="margin-top:14px;font-size:13.5px;color:var(--text-muted);max-width:36em">
                         After Open: setup appears right away. Meetly then lives in your <strong>menu bar</strong> (top-right calendar icon) — no Dock icon.
@@ -1751,6 +1812,21 @@
                         <span class="logo-text">Meetly</span>
                     </a>
                     <p>The macOS menu bar app that makes sure you never miss a client meeting again.</p>
+                    <!-- Social URLs — replace placeholders as real links arrive -->
+                    <nav class="social" aria-label="Social links">
+                        <a href="https://x.com/codeonholiday" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@codeonholiday" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.16 16.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.73a8.2 8.2 0 0 0 4.79 1.52V6.84a4.84 4.84 0 0 1-1.04-.15z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/codeonholiday" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14C17.26 2.09 16.09 2 14.84 2 12.27 2 10.5 3.57 10.5 6.61V9.5H8v4h2.5V22h3.5z"/></svg>
+                        </a>
+                        <a href="https://www.reddit.com/r/codeonholiday" target="_blank" rel="noopener noreferrer" aria-label="Reddit">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12a1.75 1.75 0 0 1 2.541-1.562 8.796 8.796 0 0 1 4.66-1.49l.885-4.162a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.068l2.914.614a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.841 2.484.917 2.961.917.477 0 2.105-.079 2.961-.917a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+                        </a>
+                    </nav>
                 </div>
                 <div class="foot-cols">
                     <div class="foot-col">

@@ -55,6 +55,10 @@
         if (href === '#download') {
             return { name: 'download_click', label: 'download_section', version: '' };
         }
+        // Product Hunt upvote / featured badge.
+        if (href.indexOf('producthunt.com') !== -1) {
+            return { name: 'producthunt_click', label: 'upvote', version: '' };
+        }
         // Product card on home page.
         if (cls.indexOf('product') !== -1) {
             return { name: 'product_open', label: href.replace(/\/$/, '').split('/').pop() || 'home', version: '' };

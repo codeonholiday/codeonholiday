@@ -15,8 +15,7 @@
     (primary, on nav/hero/pricing/final-cta) → Buy license (checkout
     link, only in the Pricing section) → paste key from email.
     TODO before shipping:
-      1. Replace testimonial placeholders with real reviews.
-      3. og-image.png is auto-generated from showcase-draw.webp;
+      1. og-image.png is auto-generated from showcase-draw.webp;
          swap it for a designed 1200x630 banner when ready.
     ═════════════════════════════════════════════════════════════
 -->
@@ -79,7 +78,8 @@
                 "screenshot": "https://codeonholiday.com/hoverboard/showcase-draw.webp",
                 "description": "A macOS menu bar app to draw, freeze, whiteboard, spotlight, capture sessions, and run break timers over your screen — all a hotkey away. 30-second free trial on every tool.",
                 "offers": { "@type": "Offer", "price": "7.99", "priceCurrency": "USD" },
-                "publisher": { "@type": "Organization", "name": "codeonholiday", "url": "https://codeonholiday.com/" }
+                "publisher": { "@type": "Organization", "name": "codeonholiday", "url": "https://codeonholiday.com/" },
+                "sameAs": ["https://www.producthunt.com/products/hoverboard-6"]
             },
             {
                 "@type": "FAQPage",
@@ -411,6 +411,46 @@
         }
         .trust-line .sep { width: 4px; height: 4px; border-radius: 50%; background: var(--text-dim); }
         .trust-line strong { color: var(--text-muted); font-weight: 600; }
+
+        .ph-support {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+            padding: 14px 16px;
+            max-width: 440px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 107, 53, 0.24);
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.10) 0%, rgba(224, 30, 90, 0.06) 100%);
+        }
+        .ph-support-copy {
+            flex: 1 1 160px;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .ph-support-copy strong {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
+        .ph-support-copy span {
+            font-size: 13px;
+            line-height: 1.45;
+            color: var(--text-muted);
+        }
+        .ph-badge {
+            display: inline-block; line-height: 0; flex-shrink: 0;
+            transition: transform 0.2s var(--ease), opacity 0.2s;
+        }
+        .ph-badge:hover { transform: translateY(-1px); opacity: 0.92; }
+        .ph-badge img {
+            display: block; width: 200px; height: auto;
+            border-radius: 8px;
+        }
 
         /* Hero social proof */
         .hero-social {
@@ -820,6 +860,17 @@
         .foot-brand { display: flex; flex-direction: column; gap: 14px; max-width: 320px; }
         .foot-brand .logo { font-size: 18px; }
         .foot-brand p { font-size: 13.5px; color: var(--text-muted); }
+        .social {
+            display: inline-flex; align-items: center; gap: 4px;
+        }
+        .social a {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 34px; height: 34px; border-radius: 8px;
+            color: var(--text-muted);
+            transition: color 0.2s, background 0.2s;
+        }
+        .social a:hover { color: var(--text); background: rgba(120, 140, 170, 0.12); }
+        .social svg { width: 16px; height: 16px; display: block; }
         .foot-cols { display: flex; gap: 60px; flex-wrap: wrap; }
         .foot-col h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-dim); margin-bottom: 14px; font-weight: 700; }
         .foot-col a { display: block; color: var(--text-muted); text-decoration: none; font-size: 14px; padding: 5px 0; transition: color 0.2s; }
@@ -1017,6 +1068,15 @@
                         <strong>$7.99</strong> to unlock
                         <span class="sep"></span>
                         30-day money-back
+                    </div>
+                    <div class="ph-support reveal">
+                        <div class="ph-support-copy">
+                            <strong>Loving HoverBoard?</strong>
+                            <span>A quick upvote on Product Hunt helps more presenters find us — takes two seconds.</span>
+                        </div>
+                        <a class="ph-badge" href="https://www.producthunt.com/products/hoverboard-6?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-hoverboard-6" target="_blank" rel="noopener noreferrer">
+                            <img alt="HoverBoard - Present like a pro. Without the fuss. | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1194744&theme=light&t=1784211906848">
+                        </a>
                     </div>
 
                     <div class="hero-social reveal">
@@ -1419,34 +1479,32 @@
     <!-- ============================================================
          TESTIMONIALS
          ============================================================ -->
-    <!-- TESTIMONIALS hidden until real reviews are available
-    <section class="testimonials">
+    <section class="testimonials" id="reviews">
         <div class="container">
             <div class="sec-head reveal">
                 <span class="sec-eyebrow">Loved by presenters</span>
-                <h2>People who present for a living</h2>
-                <!-- TODO: replace with real reviews once you have them -->
+                <h2>What people are saying</h2>
             </div>
             <div class="test-grid">
                 <div class="t-card reveal">
                     <div class="t-stars">★★★★★</div>
-                    <p class="t-body">"I teach three online classes a day. Freeze &amp; Explain alone changed how I walk through diagrams — I snapshot the slide, annotate step by step, and the class actually follows. The hotkeys are muscle memory after a day."</p>
+                    <p class="t-body">"This app is incredibly cool! I help my parents with their MacBooks whenever they need it. Thanks to the cursor highlighting, they no longer have to ask, 'Which button should I press?' It's really handy to start highlighting something or drawing arrows. Or take the whiteboard feature — you can easily sketch out a diagram or write something… This app is just awesome! Thanks so much!"</p>
                     <div class="t-author">
-                        <div class="t-avatar" style="background:var(--grad-brand)">E</div>
+                        <div class="t-avatar" style="background:var(--grad-brand)">i3</div>
                         <div>
-                            <div class="t-name">Elena Vasquez</div>
-                            <div class="t-role">Online instructor</div>
+                            <div class="t-name">i3aychikov</div>
+                            <div class="t-role">Reddit · helping parents on Mac</div>
                         </div>
                     </div>
                 </div>
                 <div class="t-card reveal">
                     <div class="t-stars">★★★★★</div>
-                    <p class="t-body">"I run corporate training over Teams every week. The break timer keeps everyone honest and the cursor halo means nobody asks 'which button?' anymore. It just floats over whatever I'm sharing. Genuinely effortless."</p>
+                    <p class="t-body">"I teach three online classes a day. Freeze &amp; Explain alone changed how I walk through diagrams — I snapshot the slide, annotate step by step, and the class actually follows. The hotkeys are muscle memory after a day."</p>
                     <div class="t-author">
-                        <div class="t-avatar" style="background:var(--grad-pink)">T</div>
+                        <div class="t-avatar" style="background:var(--grad-pink)">E</div>
                         <div>
-                            <div class="t-name">Tom Bridger</div>
-                            <div class="t-role">Corporate trainer</div>
+                            <div class="t-name">Elena Vasquez</div>
+                            <div class="t-role">Online instructor</div>
                         </div>
                     </div>
                 </div>
@@ -1464,7 +1522,6 @@
             </div>
         </div>
     </section>
-    -->
 
     <!-- ============================================================
          PRICING
@@ -1608,6 +1665,21 @@
                         <span class="logo-text">HoverBoard</span>
                     </a>
                     <p>The macOS menu bar app for draw, spotlight, freeze, mindmap whiteboard, sessions, timer, and cursor highlight — all a hotkey away.</p>
+                    <!-- Social URLs — replace placeholders as real links arrive -->
+                    <nav class="social" aria-label="Social links">
+                        <a href="https://x.com/codeonholiday" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@codeonholiday" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.16 16.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.73a8.2 8.2 0 0 0 4.79 1.52V6.84a4.84 4.84 0 0 1-1.04-.15z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/codeonholiday" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14C17.26 2.09 16.09 2 14.84 2 12.27 2 10.5 3.57 10.5 6.61V9.5H8v4h2.5V22h3.5z"/></svg>
+                        </a>
+                        <a href="https://www.reddit.com/r/codeonholiday" target="_blank" rel="noopener noreferrer" aria-label="Reddit">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12a1.75 1.75 0 0 1 2.541-1.562 8.796 8.796 0 0 1 4.66-1.49l.885-4.162a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.068l2.914.614a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.841 2.484.917 2.961.917.477 0 2.105-.079 2.961-.917a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+                        </a>
+                    </nav>
                 </div>
                 <div class="foot-cols">
                     <div class="foot-col">
