@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meetly — macOS Meeting Reminder &amp; Menu Bar App</title>
-    <meta name="description" content="Meetly is a native macOS menu bar app that fires a fullscreen reminder before your meetings. Quick Panel, keyboard mute with ⌘M, Apple Reminders, week browser, and one-click join. Free forever, one-time Pro, no subscription.">
+    <meta name="description" content="Meetly is a native macOS menu bar app that fires a fullscreen reminder before your meetings. Quick Panel with ⌃⌥M, vim-style ⌘HJKL navigation, keyboard mute with ⌘M, Apple Reminders, week browser, and one-click join. Free forever, one-time Pro, no subscription.">
     <link rel="canonical" href="https://codeonholiday.com/meetly/">
     <meta name="robots" content="index, follow">
     <meta name="author" content="codeonholiday">
@@ -68,9 +68,9 @@
                 "name": "Meetly",
                 "applicationCategory": "BusinessApplication",
                 "operatingSystem": "macOS 14+",
-                "softwareVersion": "1.4.5",
+                "softwareVersion": "1.4.7",
                 "url": "https://codeonholiday.com/meetly/",
-                "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/v1.4.5/meetly-latest.zip",
+                "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/v1.4.7/meetly-latest.zip",
                 "screenshot": "https://codeonholiday.com/meetly/showcase-reminder.webp",
                 "description": "A native macOS menu bar app that fires a fullscreen reminder before your meetings start, with Quick Panel, keyboard mute, Apple Reminders, and iCloud sync.",
                 "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -133,7 +133,7 @@
                         "name": "What is the Quick Panel shortcut?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Press Control-Option-M from anywhere to summon Meetly's schedule panel over your current app. Browse days with left/right arrows, move between meetings with up/down, join with Enter, mute with Command-M, unmute with Command-U, and dismiss with Esc. The shortcut is customizable in Settings."
+                            "text": "Press Control-Option-M from anywhere to summon Meetly's schedule panel over your current app. Browse days with left/right arrows or Command-H and Command-L, move between meetings with up/down or Command-K and Command-J, join with Enter, mute with Command-M, unmute with Command-U, and dismiss with Esc. The shortcut is customizable in Settings."
                         }
                     },
                     {
@@ -149,7 +149,7 @@
                         "name": "Can I use Meetly without a mouse?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Yes. The menu bar, Quick Panel, and fullscreen reminder all support keyboard navigation — arrows move focus between actions, Enter activates the focused button, Command-M mutes a selected meeting, Command-U unmutes, and Esc dismisses."
+                            "text": "Yes. The menu bar, Quick Panel, and fullscreen reminder all support keyboard navigation — arrows or Command-HJKL (vim-style) in the panel, Enter activates the focused button, Command-M mutes a selected meeting, Command-U unmutes, and Esc dismisses."
                         }
                     },
                     {
@@ -158,6 +158,14 @@
                         "acceptedAnswer": {
                             "@type": "Answer",
                             "text": "Meetly is a menu bar app with no Dock icon after setup. As of 1.4.5, first launch shows the setup window right away. When you are done, look for the calendar icon in the menu bar at the top-right of your screen."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Where can I learn how to use Meetly?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Read the complete How to Use Meetly guide at codeonholiday.com/blog/how-to-use-meetly-complete-guide/ — install, first launch, menu bar, fullscreen reminder, Quick Panel, vim-style Command-HJKL navigation, mute shortcuts, settings, Pro, and troubleshooting."
                         }
                     },
                     {
@@ -1166,6 +1174,7 @@
                     <a href="#showcase">See it in action</a>
                     <a href="#pricing">Pricing</a>
                     <a href="#faq">FAQ</a>
+                    <a href="/blog/how-to-use-meetly-complete-guide/">Guide</a>
                 </div>
                 <div class="nav-cta">
                     <a href="https://github.com/codeonholiday/codeonholiday/releases/download/v1.4.7/meetly-latest.zip?t=202607161459" class="btn btn-primary">
@@ -1187,7 +1196,7 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-copy">
-                    <span class="pill reveal"><span class="dot"></span> Free forever · macOS native · v1.4.5</span>
+                    <span class="pill reveal"><span class="dot"></span> Free forever · macOS native · v1.4.7</span>
                     <h1 class="reveal">Never miss a<br><span class="grad">client meeting</span> again.</h1>
                     <p class="lede reveal">Meetly is a native macOS menu bar app that fires a <strong>fullscreen reminder</strong> right before your meetings start. Perfect for freelancers juggling multiple calendars across multiple Macs.</p>
                     <div class="hero-cta reveal">
@@ -1198,6 +1207,10 @@
                         <a href="#showcase" class="btn btn-ghost btn-lg">
                             <svg><use href="#i-video"/></svg>
                             See it in action
+                        </a>
+                        <a href="/blog/how-to-use-meetly-complete-guide/" class="btn btn-ghost btn-lg">
+                            <svg><use href="#i-checklist"/></svg>
+                            How to use Meetly
                         </a>
                     </div>
                     <div class="trust-line reveal">
@@ -1309,7 +1322,7 @@
                         </li>
                         <li class="reveal">
                             <span class="b-icon"><svg><use href="#i-key"/></svg></span>
-                            <div><strong>Quick Panel anywhere</strong><span>Summon with ⌃⌥M, browse with arrows, mute with ⌘M, join with Enter, dismiss with Esc.</span></div>
+                            <div><strong>Quick Panel anywhere</strong><span>Summon with ⌃⌥M. Browse with ← / → or ⌘H / ⌘L, select with ↑ / ↓ or ⌘K / ⌘J, mute with ⌘M, join with Enter, dismiss with Esc.</span></div>
                         </li>
                         <li class="reveal">
                             <span class="b-icon"><svg><use href="#i-shield"/></svg></span>
@@ -1372,11 +1385,11 @@
                     <div class="panel-grid">
                         <div class="panel-copy">
                             <h3>Your meetings, one click away</h3>
-                            <p>Click the menu bar icon to see what's happening now and what's coming up. Browse days with ← / →, select with ↑ / ↓, mute with ⌘M, and join with Enter.</p>
+                            <p>Click the menu bar icon to see what's happening now and what's coming up. Browse days with ← / → or ⌘H / ⌘L, select with ↑ / ↓ or ⌘K / ⌘J, mute with ⌘M, and join with Enter.</p>
                             <ul>
                                 <li><svg><use href="#i-check"/></svg> NEXT shows “in 1:12” plus start–end on the right</li>
                                 <li><svg><use href="#i-check"/></svg> ⌘M mutes a meeting; muted rows show a clear tag</li>
-                                <li><svg><use href="#i-check"/></svg> Keyboard navigation — arrows, Enter, ⌘M / ⌘U, Esc</li>
+                                <li><svg><use href="#i-check"/></svg> Arrows or ⌘HJKL — Enter, ⌘M / ⌘U, Esc</li>
                             </ul>
                         </div>
                         <div class="shot">
@@ -1408,9 +1421,9 @@
                     <div class="panel-grid">
                         <div class="panel-copy">
                             <h3>Summon your schedule from anywhere</h3>
-                            <p>Press ⌃⌥M (customizable) to open the Quick Panel over whatever app you're in. Browse days with ← / →, select with ↑ / ↓, mute with ⌘M, unmute with ⌘U, join with Enter, and dismiss with Esc.</p>
+                            <p>Press ⌃⌥M (customizable) to open the Quick Panel over whatever app you're in. Browse days with ← / → or ⌘H / ⌘L, select with ↑ / ↓ or ⌘K / ⌘J, mute with ⌘M, unmute with ⌘U, join with Enter, and dismiss with Esc.</p>
                             <ul>
-                                <li><svg><use href="#i-check"/></svg> Global shortcut works from any app</li>
+                                <li><svg><use href="#i-check"/></svg> Vim-style ⌘HJKL alongside arrow keys</li>
                                 <li><svg><use href="#i-check"/></svg> Mute skip-reminder meetings without leaving the keyboard</li>
                                 <li><svg><use href="#i-check"/></svg> Respects screen-share privacy when enabled (Pro)</li>
                             </ul>
@@ -1438,7 +1451,7 @@
                 <div class="card featured-tile b-wide reveal">
                     <div class="icon-tile teal"><svg><use href="#i-key"/></svg></div>
                     <h3>Quick Panel — summon your schedule anywhere</h3>
-                    <p>Press ⌃⌥M from any app to open today's meetings. Browse with arrows, mute with ⌘M, unmute with ⌘U, join with Enter, dismiss with Esc. Shortcut is fully customizable in Settings.</p>
+                    <p>Press ⌃⌥M from any app to open today's meetings. Browse with ← / → or ⌘H / ⌘L, select with ↑ / ↓ or ⌘K / ⌘J, mute with ⌘M, unmute with ⌘U, join with Enter, dismiss with Esc. Shortcut is fully customizable in Settings.</p>
                 </div>
                 <div class="card reveal">
                     <div class="icon-tile teal"><svg><use href="#i-bell"/></svg></div>
@@ -1446,9 +1459,19 @@
                     <p>Select a meeting and press ⌘M to skip its fullscreen reminder — muted rows show a clear tag. ⌘U turns reminders back on. Syncs with dismiss/snooze state via iCloud on Pro.</p>
                 </div>
                 <div class="card reveal">
+                    <div class="icon-tile teal"><svg><use href="#i-key"/></svg></div>
+                    <h3>Vim-style panel navigation</h3>
+                    <p>New in 1.4.7. In the menu bar and Quick Panel, use ⌘H / ⌘L to change day and ⌘K / ⌘J to move between meetings — same as the arrow keys, friendly to vim muscle memory.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="icon-tile teal"><svg><use href="#i-layers"/></svg></div>
+                    <h3>Every display covered</h3>
+                    <p>New in 1.4.6. The fullscreen reminder spans all connected monitors — no half-overlay on secondary screens.</p>
+                </div>
+                <div class="card reveal">
                     <div class="icon-tile teal"><svg><use href="#i-layers"/></svg></div>
                     <h3>Clearer first launch</h3>
-                    <p>New in 1.4.5. After you Open Meetly, setup appears immediately (with a temporary Dock icon). Calendar access is requested from that window, and Meetly explains it lives in the menu bar afterward.</p>
+                    <p>After you Open Meetly, setup appears immediately (with a temporary Dock icon). Calendar access is requested from that window, and Meetly explains it lives in the menu bar afterward.</p>
                 </div>
                 <div class="card reveal">
                     <div class="icon-tile teal"><svg><use href="#i-alarm"/></svg></div>
@@ -1575,7 +1598,7 @@
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
                         </tr>
                         <tr>
-                            <td>Full keyboard nav — panel &amp; overlay (arrows / Enter / Esc)</td>
+                            <td>Full keyboard nav — panel &amp; overlay (arrows / ⌘HJKL / Enter / Esc)</td>
                             <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
                         </tr>
@@ -1703,7 +1726,7 @@
                         <li><svg><use href="#i-check"/></svg> Monitor 1 calendar</li>
                         <li><svg><use href="#i-check"/></svg> Snooze &amp; quick join</li>
                         <li><svg><use href="#i-check"/></svg> Quick Panel global shortcut (⌃⌥M)</li>
-                        <li><svg><use href="#i-check"/></svg> Keyboard nav — arrows, Enter, Esc</li>
+                        <li><svg><use href="#i-check"/></svg> Keyboard nav — arrows, ⌘HJKL, Enter, Esc</li>
                         <li><svg><use href="#i-check"/></svg> Mute / unmute (⌘M / ⌘U)</li>
                         <li class="muted"><svg><use href="#i-x"/></svg> iCloud sync across Macs</li>
                     </ul>
@@ -1785,7 +1808,7 @@
                 </details>
                 <details class="faq-item">
                     <summary>What is the Quick Panel shortcut?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">Press ⌃⌥M from anywhere to summon Meetly's schedule panel over your current app — the same NOW / NEXT / UPCOMING view as the menu bar. Browse days with ← / →, move between meetings with ↑ / ↓ (first event selected by default), mute with ⌘M, unmute with ⌘U, join with Enter, and dismiss with Esc. You can customize or disable the global shortcut in Settings → General. When screen-share privacy is enabled (Pro), the panel stays visible to you but hidden from viewers.</div>
+                    <div class="ans">Press ⌃⌥M from anywhere to summon Meetly's schedule panel over your current app — the same NOW / NEXT / UPCOMING view as the menu bar. Browse days with ← / → or ⌘H / ⌘L, move between meetings with ↑ / ↓ or ⌘K / ⌘J (first event selected by default), mute with ⌘M, unmute with ⌘U, join with Enter, and dismiss with Esc. You can customize or disable the global shortcut in Settings → General. When screen-share privacy is enabled (Pro), the panel stays visible to you but hidden from viewers.</div>
                 </details>
                 <details class="faq-item">
                     <summary>Can I mute a meeting so it won't remind me?<svg class="chev"><use href="#i-chev"/></svg></summary>
@@ -1793,11 +1816,15 @@
                 </details>
                 <details class="faq-item">
                     <summary>Can I use Meetly without a mouse?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">Yes. The menu bar, Quick Panel, and fullscreen reminder all support the same keyboard path: arrows move focus, Enter activates the focused action (join, snooze, copy location, or dismiss), ⌘M / ⌘U mute and unmute the selected meeting, and Esc closes the panel or overlay. Hands stay on the keyboard through the whole flow.</div>
+                    <div class="ans">Yes. The menu bar, Quick Panel, and fullscreen reminder all support the same keyboard path: arrows or ⌘H / ⌘J / ⌘K / ⌘L (vim-style) in the panel, Enter activates the focused action (join, snooze, copy location, or dismiss), ⌘M / ⌘U mute and unmute the selected meeting, and Esc closes the panel or overlay. Hands stay on the keyboard through the whole flow.</div>
                 </details>
                 <details class="faq-item">
                     <summary>I opened Meetly and nothing happened — where is it?<svg class="chev"><use href="#i-chev"/></svg></summary>
                     <div class="ans">Meetly is a menu bar app: after setup it has no Dock icon. As of 1.4.5, first launch shows the setup window right away (you may briefly see Meetly in the Dock during setup). When you’re done, look for the calendar icon in the menu bar at the top-right of your screen — click it to open your meetings. If the icon is missing, check the menu bar overflow (» / Control Center extras).</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Where can I learn how to use Meetly?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">See the <a href="/blog/how-to-use-meetly-complete-guide/">How to Use Meetly guide</a> — install, first launch, menu bar, fullscreen reminder, Quick Panel, ⌘HJKL vim navigation, mute shortcuts, settings, Pro, and troubleshooting.</div>
                 </details>
                 <details class="faq-item">
                     <summary>What macOS version do I need?<svg class="chev"><use href="#i-chev"/></svg></summary>
@@ -1821,6 +1848,7 @@
                         Download Free
                     </a>
                     <a href="#pricing" class="btn btn-ghost btn-lg">See pricing</a>
+                    <a href="/blog/how-to-use-meetly-complete-guide/" class="btn btn-ghost btn-lg">Read the guide</a>
                 </div>
                 <div class="trust-line" style="margin-top:24px;justify-content:center">
                     <svg style="width:16px;height:16px;color:var(--teal)"><use href="#i-apple"/></svg>
@@ -1864,9 +1892,11 @@
                         <a href="#pricing">Pricing</a>
                         <a href="#press">Press</a>
                         <a href="#faq">FAQ</a>
+                        <a href="/blog/how-to-use-meetly-complete-guide/">Guide</a>
                     </div>
                     <div class="foot-col">
                         <h4>Resources</h4>
+                        <a href="/blog/how-to-use-meetly-complete-guide/">How to Use Meetly</a>
                         <a href="/meetly/privacy.html">Privacy Policy</a>
                         <a href="/meetly/terms.html">Terms of Service</a>
                         <a href="mailto:hello@codeonholiday.com">Support</a>
