@@ -1,0 +1,318 @@
+---
+title: How to Use HoverBoard — A Complete Guide
+description: Install HoverBoard, use Draw, Spotlight, Freeze, Whiteboard, Break Timer, Cursor Halo, and Keystroke Display, learn hotkeys, free vs Pro, and Stream Deck URLs on macOS.
+date: 2026-07-17
+updated: 2026-07-17
+tags: [hoverboard, macos, guide, presentation, teaching]
+image: ./assets/how-to-use-hoverboard-complete-guide/og.png
+author: codeonholiday
+draft: false
+---
+
+HoverBoard is a native macOS **menu bar** app that puts a presentation layer over whatever you are already sharing — slides, a browser, an IDE, or a video call. It is not a slide deck app and not a cloud whiteboard. You summon tools with a hotkey, teach, then dismiss with Esc.
+
+This guide covers install, every mode, whiteboard collage tools, keyboard shortcuts, free vs Pro, Stream Deck URLs, and troubleshooting. Download from the [HoverBoard page](/hoverboard/) if you have not already.
+
+## See it in action
+
+A quick tour of the overlay in a real presenting flow:
+
+:::youtube https://youtu.be/DgMY9qRFxFI
+:::
+
+![HoverBoard Draw mode with live annotations over a presentation slide](./assets/how-to-use-hoverboard-complete-guide/draw.webp)
+
+> Demo updated for recent builds — landing screenshots for whiteboard, keystroke, and sessions match the current UI.
+
+## What HoverBoard does (and does not do)
+
+**HoverBoard does:**
+
+- Draw and annotate over any screen while you share
+- Spotlight a soft hole around the cursor
+- Freeze a frame and explain at your own pace
+- Open an infinite local whiteboard (mindmap, sticky notes, checklists, polaroids, and more)
+- Run a break timer overlay
+- Highlight the cursor and show live keystrokes
+- Capture frames into Sessions and export PNG / PDF (Pro)
+
+**HoverBoard does not:**
+
+- Replace Keynote, PowerPoint, or Google Slides
+- Upload your screen or boards to our servers — everything stays on your Mac
+- Require a subscription — Free covers core tools forever; Pro is a one-time purchase
+
+```mermaid
+flowchart LR
+  Share[Whatever you share] --> Overlay[HoverBoard overlay]
+  Overlay --> Draw[Draw / Spotlight]
+  Overlay --> Freeze[Freeze and Explain]
+  Overlay --> Board[Whiteboard]
+  Overlay --> Extra[Timer / Halo / Keys]
+  Board --> Export[PNG SVG Excalidraw]
+  Freeze --> Sessions[Sessions Pro]
+```
+
+## Requirements
+
+- **macOS 14 (Sonoma) or later**
+- Enough disk for a lightweight native app (not Electron)
+- **Accessibility** permission for global hotkeys and Keystroke Display (macOS will prompt when needed)
+- **Screen Recording** permission for Freeze (and related capture flows)
+
+## Install and first launch
+
+1. [Download HoverBoard](/hoverboard/) and unzip the archive.
+2. Drag **HoverBoard.app** into Applications (or run it from the folder).
+3. On first open, macOS may ask you to confirm — choose **Open**.
+4. HoverBoard lives in the **menu bar** (top-right). There is no persistent Dock icon after launch.
+
+> **Opened HoverBoard and nothing happened?** Click the HoverBoard icon in the menu bar. If you do not see it, check the menu bar overflow (» or Control Center extras).
+
+**Tip:** On Pro, enable **Launch at login** in Settings so overlays are ready after every reboot.
+
+## Modes walkthrough
+
+Open any mode from the menu bar or with the **⌃⌥** leader key (Control + Option) plus a letter. Press **Esc** to close the current mode.
+
+### Draw — free forever
+
+Annotate live over whatever is on screen: pen, arrow, rectangle, number markers, eraser, pan, colors, optional auto-fade, undo/clear.
+
+![Draw mode annotations](./assets/how-to-use-hoverboard-complete-guide/draw.webp)
+
+Default hotkey: **⌃⌥D**
+
+### Spotlight — free forever
+
+Dim the screen and put a soft spotlight around the cursor. Click-through stays enabled so you can keep presenting.
+
+![Spotlight focus mode](./assets/how-to-use-hoverboard-complete-guide/spotlight.webp)
+
+Default hotkey: **⌃⌥S**
+
+### Freeze & Explain — 60s Pro trial
+
+Snapshot the screen, then annotate the frozen frame. Ideal when the UI is about to change under you. Save frames to Sessions on Pro.
+
+![Freeze and Explain](./assets/how-to-use-hoverboard-complete-guide/freeze.webp)
+
+Default hotkey: **⌃⌥F**
+
+### Whiteboard — 60s Pro trial
+
+Private infinite canvas with shapes, freehand, text, connectors, mindmaps, teaching widgets (sticky, checklist, polaroid, media links), and **architecture stencils** for system-design diagrams. Export PNG, SVG, or Excalidraw.
+
+![Whiteboard collage — mindmap, sticky notes, checklist](./assets/how-to-use-hoverboard-complete-guide/whiteboard-collage.webp)
+
+Default hotkey: **⌃⌥W**
+
+### Break Timer — free forever
+
+Countdown overlay for breaks. Fullscreen or minimal, custom message, optional chime, pause / +1 minute.
+
+![Break Timer overlay](./assets/how-to-use-hoverboard-complete-guide/break-timer.webp)
+
+Default hotkey: **⌃⌥T**
+
+### Cursor Halo — 60s Pro trial
+
+Animated halo and click feedback so viewers can follow your pointer.
+
+![Cursor halo](./assets/how-to-use-hoverboard-complete-guide/cursor-halo.webp)
+
+Default hotkey: **⌃⌥H**
+
+### Keystroke Display — 60s Pro trial
+
+Show live keystrokes on screen while you present or record. The first time you enable it, HoverBoard asks for a **privacy confirmation**. Esc closes the overlay.
+
+Default hotkey: **⌃⌥K**
+
+![Keystroke Display HUD](./assets/how-to-use-hoverboard-complete-guide/keystroke.webp)
+
+
+### Sessions — Pro
+
+Save frames from Draw, Freeze, or Whiteboard into a local library. Reorder, rename, export PNG set or multi-page PDF.
+
+![Sessions library](./assets/how-to-use-hoverboard-complete-guide/sessions.webp)
+
+## Whiteboard deep dive
+
+### Mindmap
+
+- **Tab** — add a child node  
+- **Return** — add a sibling  
+- **⌘⇧L** — arrange the tree (tree or radial)  
+- Collapse a branch when the board gets busy; drag a collapsed subtree as one unit  
+- New children inherit the parent’s color and style  
+- Start from **Lesson Outline** or **Concept Map** templates when available  
+
+### Teaching widgets
+
+Drop these from the toolbar / Annotation menu — they sit on the same infinite canvas as shapes and mindmaps.
+
+- **Paper** — background color plus patterns (dots, grid, lines, graph, isometric).  
+- **Sticky note** — pastel note for a question or reminder.  
+- **Callout** — speech-style card for a shout-out.  
+- **Checklist** — interactive todos with an Add row (great for agendas).  
+- **Frame** — titled region to group related content.  
+- **Quote** — attributed quote card.  
+- **Polaroid** — photo with an editable caption under the frame.  
+- **Media link** — paste or drop a YouTube / video / audio URL; the card shows a poster and plays **inline** on the board (you can move and resize while it plays).
+- **Highlight box / Redaction / Step badge** — call out a region, redact a strip, or mark a numbered step on a screenshot.
+
+### Architecture stencils (system design)
+
+From the stencil menu, drop ready-made blocks for architecture diagrams — connect them with arrows like any other shape:
+
+- **Compute** — Web App, Service, Auth Service, Client/User, Worker  
+- **Data** — Database, PostgreSQL, Cache, Redis, Object Storage  
+- **Messaging** — Queue, Event Stream  
+- **Network** — Load Balancer, API Gateway, External API, CDN  
+- **Infrastructure** — Cloud, Region/VPC, Kubernetes/Cluster  
+
+Use these when you sketch a backend or product topology mid-call instead of drawing boxes from scratch.
+
+The properties panel only shows controls that apply to the current selection. Multi-select drag moves the whole selection without grouping first.
+
+### Export
+
+Export the board to **PNG**, **SVG**, or **Excalidraw** when you want the artifact in slides or another editor.
+
+## Keyboard shortcuts
+
+### Leader key (global)
+
+Default leader is **⌃⌥** (remappable modifiers in Settings) + letter:
+
+| Key | Mode |
+|-----|------|
+| **D** | Draw |
+| **S** | Spotlight |
+| **F** | Freeze |
+| **W** | Whiteboard |
+| **T** | Break Timer |
+| **H** | Cursor Halo |
+| **K** | Keystroke Display |
+| **Esc** | Close current mode |
+
+### In Draw / Freeze
+
+| Key | Action |
+|-----|--------|
+| **Shift+P** | Pan |
+| **B** | Pen |
+| **Shift+A** | Arrow |
+| **Shift+R** | Rectangle |
+| **N** | Number marker |
+| **E** | Eraser |
+| **1–4** | Colors |
+| **U** / **Shift+U** | Undo / redo |
+| **X** | Clear |
+| **C** | Copy |
+| **Shift+S** | Save |
+| **R** | Reset viewport |
+
+### Break Timer
+
+| Key | Action |
+|-----|--------|
+| **P** | Pause / resume |
+| **M** | Add one minute |
+
+## Free vs Pro
+
+| | Free forever | 60s trial / Pro |
+|--|--------------|-----------------|
+| Draw | Yes | — |
+| Spotlight | Yes | — |
+| Break Timer | Yes | — |
+| Freeze | — | Trial, then Pro |
+| Whiteboard | — | Trial, then Pro |
+| Cursor Halo | — | Trial, then Pro |
+| Keystroke Display | — | Trial, then Pro |
+| Sessions, unlimited overlays, export/copy, command URLs, launch at login | — | Pro |
+
+While a Pro trial is running, a countdown pill shows remaining seconds (for example `Pro trial · 60s`). When it ends, reopen for another preview or buy a license from Settings / the [pricing section](/hoverboard/#pricing).
+
+Pro is a **one-time purchase** (launch pricing on the product page), not a subscription. 30-day money-back guarantee.
+
+## Stream Deck and command URLs
+
+HoverBoard registers the `hoverboard://` URL scheme for automation (Stream Deck, Alfred, shortcuts):
+
+```sh
+open "hoverboard://activate/draw"
+open "hoverboard://activate/spotlight"
+open "hoverboard://activate/freeze"
+open "hoverboard://activate/whiteboard"
+open "hoverboard://activate/timer"
+open "hoverboard://activate/halo"
+open "hoverboard://activate/keys"
+open "hoverboard://stop"
+```
+
+Tool and color actions also exist (`hoverboard://action/tool/pen`, `…/color/red`, undo, clear, timer-pause, and more). Full list: see the app’s COMMANDS docs or Settings. Command URLs are a **Pro** capability.
+
+## HoverBoard vs Presentify-class tools
+
+Apps like **Presentify** are excellent at annotate, cursor highlight, spotlight, and often **screen zoom**. HoverBoard overlaps on draw / cursor / spotlight, then adds:
+
+- Freeze & Explain
+- Break Timer
+- Live Keystroke Display
+- Teaching whiteboard (mindmap + collage widgets) with Excalidraw export
+- Sessions capture and PDF export
+- Draw, Spotlight, and Break Timer **free forever**
+
+We do not claim competitor pricing (it changes). For a side-by-side matrix, see the [comparison table on the product page](/hoverboard/#compare).
+
+## Privacy
+
+- No account and no backend for your screen contents
+- Boards, sessions, and drawings stay on your Mac until you export
+- Keystroke Display shows keys on screen — confirm the privacy prompt before first use, and avoid enabling it when typing passwords
+
+## Troubleshooting
+
+### Hotkeys do nothing
+
+1. Grant **Accessibility** to HoverBoard in System Settings → Privacy & Security.
+2. Check Settings that the leader key and mode shortcuts are enabled.
+3. Another app may own the same combo — remapping usually fixes it.
+
+### Freeze asks for Screen Recording
+
+Allow Screen Recording for HoverBoard, then try Freeze again.
+
+### Menu bar icon missing
+
+Look in the overflow menu. Quit and relaunch from Applications. Confirm you are on macOS 14+.
+
+### Trial ended mid-demo
+
+Reopen the Pro tool for another 60-second preview, or unlock Pro. Draw / Spotlight / Timer never start a trial.
+
+### Keystroke HUD not showing
+
+Confirm you accepted the privacy alert, Accessibility is granted, and you used **⌃⌥K** (or your custom shortcut).
+
+## Recommended teaching workflow
+
+1. **Install** and learn **⌃⌥D** (Draw) and **⌃⌥S** (Spotlight) — both free.
+2. Use **⌃⌥F** to freeze when a live UI is about to move.
+3. Keep **⌃⌥T** ready for workshop breaks.
+4. Open **Whiteboard** for digressions; Tab / Return for mindmaps; collage widgets for checklists and photos.
+5. Enable **Keystroke Display** only when demoing shortcuts.
+6. On Pro, **Save to Session** as you teach, then export a PDF after class.
+7. Optionally wire Stream Deck to `hoverboard://activate/…`.
+
+## Get help
+
+- [HoverBoard product page](/hoverboard/) — download, pricing, FAQ, compare
+- [Origin story](/blog/presenting-meant-switching-apps-so-i-built-hoverboard/) — why the app exists
+- Email [hello@codeonholiday.com](mailto:hello@codeonholiday.com)
+
+Present like a pro — without the mid-call app shuffle.

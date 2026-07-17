@@ -75,7 +75,14 @@
                 "softwareVersion": "1.3.8",
                 "url": "https://codeonholiday.com/hoverboard/",
                 "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/v1.3.8/hoverboard-latest.zip",
-                "screenshot": "https://codeonholiday.com/hoverboard/showcase-draw.webp",
+                "screenshot": "https://codeonholiday.com/hoverboard/showcase-whiteboard.webp",
+                "video": {
+                    "@type": "VideoObject",
+                    "name": "HoverBoard demo",
+                    "embedUrl": "https://www.youtube-nocookie.com/embed/DgMY9qRFxFI",
+                    "thumbnailUrl": "https://img.youtube.com/vi/DgMY9qRFxFI/maxresdefault.jpg",
+                    "uploadDate": "2026-07-17"
+                },
                 "description": "A macOS menu bar app to draw, freeze, whiteboard, spotlight, show keystrokes, capture sessions, and run break timers over your screen — all a hotkey away. Draw, Spotlight, and Break Timer are free forever.",
                 "offers": [
                     { "@type": "Offer", "name": "HoverBoard Free", "price": "0", "priceCurrency": "USD" },
@@ -514,6 +521,29 @@
             position: relative;
         }
         .device-screen img { width: 100%; height: auto; display: block; }
+        .hero-video-embed {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #000;
+        }
+        .hero-video-embed iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .hero-video-caption {
+            margin-top: 12px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .hero-video-caption a { color: var(--orange-2); font-weight: 600; }
         .hero-visual::before {
             content: '';
             position: absolute;
@@ -1075,7 +1105,7 @@
                             <svg><use href="#i-download"/></svg>
                             Download Free
                         </a>
-                        <a href="#showcase" class="btn btn-ghost btn-secondary btn-lg">
+                        <a href="#demo" class="btn btn-ghost btn-secondary btn-lg">
                             <svg><use href="#i-video"/></svg>
                             See it in action
                         </a>
@@ -1120,13 +1150,14 @@
                     </div>
                 </div>
 
-                <!-- Hero product visual: real screenshot in a floating device frame -->
-                <div class="hero-visual reveal">
+                <!-- Hero demo video -->
+                <div class="hero-visual reveal" id="demo">
                     <div class="device-frame">
-                        <div class="device-screen">
-                            <img src="showcase-draw.webp" alt="HoverBoard Draw mode with live annotations over a presentation slide" decoding="async">
+                        <div class="hero-video-embed">
+                            <iframe src="https://www.youtube-nocookie.com/embed/DgMY9qRFxFI" title="HoverBoard demo — draw, spotlight, freeze, whiteboard, and keystroke display" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                         </div>
                     </div>
+                    <p class="hero-video-caption">Draw, spotlight, freeze, whiteboard &amp; more — over a live lesson. <a href="https://youtu.be/DgMY9qRFxFI" target="_blank" rel="noopener noreferrer">Watch on YouTube</a></p>
                 </div>
             </div>
         </div>
@@ -1245,17 +1276,16 @@
                     <div class="panel-grid">
                         <div class="panel-copy">
                             <h3>Infinite canvas for teaching</h3>
-                            <p>Open a private whiteboard without leaving your presentation. Build mindmaps, drop sticky notes and checklists, frame content, add quotes and polaroid photos, and pick paper colors or patterns. Export when you're done.</p>
+                            <p>Open a private whiteboard without leaving your presentation. Build mindmaps, drop sticky notes and checklists, add media links, or sketch system design with architecture stencils. Export when you're done.</p>
                             <ul>
                                 <li><svg><use href="#i-check"/></svg> Mindmap trees — Tab child, Return sibling, ⌘⇧L arrange</li>
-                                <li><svg><use href="#i-check"/></svg> Sticky notes, callouts, checklists, frames, quotes, polaroids</li>
-                                <li><svg><use href="#i-check"/></svg> Paper colors &amp; patterns (dots, grid, lines, and more)</li>
+                                <li><svg><use href="#i-check"/></svg> Sticky notes, checklists, frames, quotes, polaroids, media links</li>
+                                <li><svg><use href="#i-check"/></svg> Architecture stencils — compute, data, network, infra</li>
                                 <li><svg><use href="#i-check"/></svg> Export PNG, SVG, or editable Excalidraw files</li>
                             </ul>
                         </div>
                         <div class="shot">
-                            <!-- Prefer showcase-whiteboard-collage.webp when available; mindmap shot ships today. -->
-                            <img src="showcase-mindmap.webp" alt="HoverBoard Whiteboard with mindmap diagram and properties panel" loading="lazy" decoding="async">
+                            <img src="showcase-whiteboard.webp" alt="HoverBoard Whiteboard with mindmap, sticky notes, checklist, and collage widgets" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -1327,15 +1357,7 @@
                             </ul>
                         </div>
                         <div class="shot">
-                            <!-- Drop showcase-keystroke.webp here when ready; CSS mock until then. -->
-                            <img src="showcase-keystroke.webp" alt="HoverBoard Keystroke Display HUD over a presentation" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                            <div class="shot-placeholder" style="display:none" aria-hidden="true">
-                                <div class="ks-hud">
-                                    <span class="ks-key">⌘C</span>
-                                    <span class="ks-key">⌃⌥D</span>
-                                </div>
-                                <p class="ks-caption">Keystroke Display preview — replace with <code>showcase-keystroke.webp</code></p>
-                            </div>
+                            <img src="showcase-keystroke.webp" alt="HoverBoard Keystroke Display HUD showing typed keys over a presentation" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -1380,7 +1402,7 @@
                 <div class="card reveal">
                     <div class="icon-tile pink"><svg><use href="#i-board"/></svg></div>
                     <h3>Whiteboard that teaches</h3>
-                    <p>Mindmaps, sticky notes, checklists, frames, quotes, and polaroids on paper styles — plus Tab / Return mindmap shortcuts.</p>
+                    <p>Mindmaps, sticky notes, checklists, media links, and architecture stencils for system-design diagrams — plus Tab / Return mindmap shortcuts.</p>
                 </div>
                 <div class="card reveal">
                     <div class="icon-tile amber"><svg><use href="#i-key"/></svg></div>

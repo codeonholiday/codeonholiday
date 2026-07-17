@@ -13,6 +13,8 @@ I didn’t set out to build a presentation suite. I set out to stop breaking my 
 
 If you’ve ever said “one second, let me switch apps” on Zoom, Meet, or Teams — then come back to a quiet room and a lost thread — you already know the pain. That friction is why [HoverBoard](/hoverboard/) exists.
 
+**New here?** Start with the [How to Use HoverBoard complete guide](/blog/how-to-use-hoverboard-complete-guide/) — install, every mode, hotkeys, free vs Pro, and troubleshooting.
+
 ## The mid-call shuffle
 
 I present a lot. Training sessions, demos, walkthroughs of whatever is on screen.
