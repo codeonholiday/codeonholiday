@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meetly — Fullscreen Meeting Reminder for macOS | Free + Pro</title>
-    <meta name="description" content="Never miss a client meeting. Meetly is a native macOS menu bar app with fullscreen reminders, Quick Panel, one-click Zoom/Meet/Teams join, and Google/Outlook/iCloud support. Free forever — Pro is $3.99 one-time, no subscription.">
+    <meta name="description" content="Never miss a client meeting. Meetly is a native macOS menu bar app with fullscreen reminders, share free time, pinned Quick Panel, one-click Zoom/Meet/Teams join, and Google/Outlook/iCloud support. Free forever — Pro is $3.99 one-time, no subscription.">
     <link rel="canonical" href="https://codeonholiday.com/meetly/">
     <meta name="robots" content="index, follow">
     <meta name="author" content="codeonholiday">
@@ -68,11 +68,11 @@
                 "name": "Meetly",
                 "applicationCategory": "BusinessApplication",
                 "operatingSystem": "macOS 14+",
-                "softwareVersion": "1.4.7",
+                "softwareVersion": "1.5.0",
                 "url": "https://codeonholiday.com/meetly/",
-                "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/v1.4.7/meetly-latest.zip",
+                "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/v1.5.0/meetly-latest.zip",
                 "screenshot": "https://codeonholiday.com/meetly/showcase-quickjoin.webp",
-                "description": "A native macOS menu bar app that fires a fullscreen reminder before your meetings start, with Quick Panel, keyboard mute, Apple Reminders, and iCloud sync.",
+                "description": "A native macOS menu bar app that fires a fullscreen reminder before your meetings start, with Quick Panel (pin + live countdown), share free time, post-meeting action items, Apple Reminders, and iCloud sync.",
                 "video": {
                     "@type": "VideoObject",
                     "name": "Meetly demo — Wake up, sleepy genius",
@@ -1360,7 +1360,7 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-copy">
-                    <span class="pill reveal"><span class="dot"></span> Free forever · macOS native · v1.4.7</span>
+                    <span class="pill reveal"><span class="dot"></span> Free forever · macOS native · v1.5.0</span>
                     <h1 class="reveal">Never miss a<br><span class="grad">client meeting</span> again.</h1>
                     <p class="lede reveal">Calendar banners vanish in deep work. <strong>Meetly</strong> fires a <strong>fullscreen meeting reminder</strong> on every display — join Zoom, Meet, or Teams in one click from the menu bar.</p>
                     <div class="hero-cta reveal">
@@ -1474,9 +1474,9 @@
                             <h3>Your meetings, one click away</h3>
                             <p>Browse today and the week ahead from the menu bar. Mute optional meetings with ⌘M so they never fire a fullscreen alert.</p>
                             <ul>
-                                <li><svg><use href="#i-check"/></svg> NEXT timing like “in 1:12” plus start–end</li>
+                                <li><svg><use href="#i-check"/></svg> Live NEXT countdown with clear units</li>
                                 <li><svg><use href="#i-check"/></svg> ←→ / ⌘HL days · ↑↓ / ⌘JK select</li>
-                                <li><svg><use href="#i-check"/></svg> Muted rows show a clear tag</li>
+                                <li><svg><use href="#i-check"/></svg> Share free time · mute optional meetings</li>
                             </ul>
                         </div>
                         <div class="shot">
@@ -1489,10 +1489,10 @@
                     <div class="panel-grid">
                         <div class="panel-copy">
                             <h3>Summon your schedule anywhere</h3>
-                            <p>Press ⌃⌥M (customizable) to open the Quick Panel over whatever you're doing. Same list as the menu bar — without leaving your flow.</p>
+                            <p>Press ⌃⌥M (customizable) to open the Quick Panel over whatever you're doing. Pin it above other apps when you need it to stay put.</p>
                             <ul>
                                 <li><svg><use href="#i-check"/></svg> Global shortcut from any app</li>
-                                <li><svg><use href="#i-check"/></svg> Vim-style ⌘HJKL alongside arrows</li>
+                                <li><svg><use href="#i-check"/></svg> Pin to stay on top · drag when pinned</li>
                                 <li><svg><use href="#i-check"/></svg> Enter to join · Esc to dismiss</li>
                             </ul>
                         </div>
@@ -1547,8 +1547,9 @@
                         <li><svg><use href="#i-check"/></svg> Menu bar now &amp; upcoming</li>
                         <li><svg><use href="#i-check"/></svg> Monitor 1 calendar</li>
                         <li><svg><use href="#i-check"/></svg> Snooze &amp; quick join</li>
-                        <li><svg><use href="#i-check"/></svg> Quick Panel (⌃⌥M)</li>
-                        <li><svg><use href="#i-check"/></svg> Keyboard nav — arrows, ⌘HJKL, Enter, Esc</li>
+                        <li><svg><use href="#i-check"/></svg> Quick Panel (⌃⌥M) · pin &amp; drag</li>
+                        <li><svg><use href="#i-check"/></svg> Share free time for booking messages</li>
+                        <li><svg><use href="#i-check"/></svg> Post-meeting action item capture</li>
                         <li><svg><use href="#i-check"/></svg> Mute / unmute (⌘M / ⌘U)</li>
                         <li class="muted"><svg><use href="#i-x"/></svg> iCloud sync across Macs</li>
                     </ul>
@@ -1597,8 +1598,8 @@
     <section class="features" id="features">
         <div class="container">
             <div class="sec-head reveal">
-                <span class="sec-eyebrow">Built for macOS</span>
-                <h2>Fullscreen reminders, menu bar control, zero subscription</h2>
+                <span class="sec-eyebrow">Built for macOS · New in 1.5</span>
+                <h2>Fullscreen reminders, share free time, zero subscription</h2>
                 <p>A native menu bar app — not another Electron calendar. Full walkthrough in the <a href="/blog/how-to-use-meetly-complete-guide/" style="color:var(--teal)">How to Use Meetly guide</a>.</p>
             </div>
             <div class="highlight-grid reveal">
@@ -1609,8 +1610,18 @@
                 </div>
                 <div class="highlight-item">
                     <div class="icon-tile teal"><svg><use href="#i-key"/></svg></div>
-                    <h3>Quick Panel from anywhere</h3>
-                    <p>⌃⌥M summons today’s schedule over any app. Browse with arrows or ⌘HJKL, mute with ⌘M, join with Enter.</p>
+                    <h3>Quick Panel · pin &amp; live countdown</h3>
+                    <p>⌃⌥M summons today’s schedule. Pin it above other apps, drag when pinned, and watch NEXT tick live.</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="icon-tile teal"><svg><use href="#i-merge"/></svg></div>
+                    <h3>Share free time</h3>
+                    <p>Pick free 30m/1h slots, convert timezone for the recipient, and copy a booking message for email or WhatsApp.</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="icon-tile amber"><svg><use href="#i-checklist"/></svg></div>
+                    <h3>Action items after meetings</h3>
+                    <p>Optional: after you Join via Meetly, capture action items when the meeting ends — then copy them out.</p>
                 </div>
                 <div class="highlight-item">
                     <div class="icon-tile teal"><svg><use href="#i-filter"/></svg></div>
@@ -1631,16 +1642,6 @@
                     <div class="icon-tile blue"><svg><use href="#i-eye-off"/></svg></div>
                     <h3>Private while screen sharing</h3>
                     <p>Pro: you still see the reminder; Zoom/Meet/Teams viewers see your slides — not the overlay.</p>
-                </div>
-                <div class="highlight-item">
-                    <div class="icon-tile teal"><svg><use href="#i-layers"/></svg></div>
-                    <h3>Multi-monitor overlay</h3>
-                    <p>Fullscreen reminder covers every connected display — not just the main screen.</p>
-                </div>
-                <div class="highlight-item">
-                    <div class="icon-tile teal"><svg><use href="#i-bell"/></svg></div>
-                    <h3>Mute with ⌘M</h3>
-                    <p>Skip the fullscreen reminder for one meeting. Muted rows stay visible; ⌘U turns alerts back on.</p>
                 </div>
                 <div class="highlight-item">
                     <div class="icon-tile blue"><svg><use href="#i-shield"/></svg></div>
@@ -1683,6 +1684,16 @@
                         </tr>
                         <tr>
                             <td>Global Quick Panel + full keyboard (⌃⌥M, ⌘HJKL)</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Pin Quick Panel above other apps</td>
+                            <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Share free time for booking messages</td>
                             <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
                         </tr>
@@ -1750,6 +1761,10 @@
                 <details class="faq-item">
                     <summary>How is Meetly different from Calendar notifications?<svg class="chev"><use href="#i-chev"/></svg></summary>
                     <div class="ans">Calendar shows corner banners. Meetly uses fullscreen overlays, Quick Panel keyboard control, Apple Reminders (Pro), quiet hours, screen-share privacy, and iCloud action sync — see the <a href="#compare">comparison</a>.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Can I share my free time for booking?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">Yes. Open the menu bar or Quick Panel and tap Share. Pick free 30-minute or 1-hour slots over the next week, optionally convert to the recipient’s timezone, then copy a day-grouped message for email or WhatsApp. Busy and past slots stay visible but aren’t selectable.</div>
                 </details>
                 <details class="faq-item">
                     <summary>Is my calendar data safe?<svg class="chev"><use href="#i-chev"/></svg></summary>
