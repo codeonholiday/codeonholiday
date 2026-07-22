@@ -125,7 +125,7 @@
                         "name": "How is Meetly different from Calendar notifications?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "macOS Calendar shows corner banners. Meetly uses fullscreen overlays with one-click join, Quick Panel keyboard control, Apple Reminders (Pro), quiet hours, screen-share privacy, and iCloud sync of dismiss/join/mute across Macs — without a subscription."
+                            "text": "macOS Calendar shows corner banners. MeetingBar focuses on menu-bar join. Meetly adds fullscreen overlays on every display, a pinnable Quick Panel, share free time, Apple Reminders (Pro), quiet hours, screen-share privacy, and iCloud sync of dismiss/join/mute across Macs — without a subscription."
                         }
                     },
                     {
@@ -884,11 +884,11 @@
            ============================================================ */
         .compare { padding: 72px 0; }
         .compare-wrap {
-            max-width: 860px; margin: 0 auto;
+            max-width: 980px; margin: 0 auto;
             background: linear-gradient(180deg, var(--card) 0%, var(--bg-2) 100%);
             border: 1px solid var(--border-strong);
             border-radius: var(--radius-lg);
-            overflow: hidden;
+            overflow-x: auto;
         }
         .compare table { width: 100%; border-collapse: collapse; }
         .compare th, .compare td {
@@ -901,9 +901,9 @@
             background: rgba(255,255,255,0.02);
             font-size: 14px; font-weight: 700;
         }
-        .compare th:first-child { width: 46%; color: var(--text-muted); }
-        .compare .col-meetly { text-align: center; width: 27%; color: var(--teal); }
-        .compare .col-other  { text-align: center; width: 27%; color: var(--text-muted); }
+        .compare th:first-child { width: 34%; color: var(--text-muted); }
+        .compare .col-meetly { text-align: center; width: 22%; color: var(--teal); }
+        .compare .col-other  { text-align: center; width: 22%; color: var(--text-muted); }
         .compare tbody td:first-child { font-weight: 600; font-size: 0.95rem; line-height: 1.35; }
         .compare tbody tr:last-child td { border-bottom: none; }
         .compare .yes { color: var(--teal); }
@@ -1659,8 +1659,8 @@
         <div class="container">
             <div class="sec-head reveal">
                 <span class="sec-eyebrow">Why Meetly</span>
-                <h2>vs native calendar notifications</h2>
-                <p>Your calendar app organizes your day. Meetly makes sure you actually show up.</p>
+                <h2>vs MeetingBar &amp; macOS Calendar</h2>
+                <p>MeetingBar is great for one-click joins from the menu bar. Meetly is built so you actually notice the meeting — and still share free time, mute noise, and stay private on calls.</p>
             </div>
             <div class="compare-wrap reveal">
                 <table>
@@ -1668,6 +1668,7 @@
                         <tr>
                             <th></th>
                             <th class="col-meetly"><span class="compare-badge">Meetly</span></th>
+                            <th class="col-other">MeetingBar</th>
                             <th class="col-other">macOS Calendar</th>
                         </tr>
                     </thead>
@@ -1675,66 +1676,79 @@
                         <tr>
                             <td>Fullscreen reminder before meetings</td>
                             <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other"><span class="partial">If event has a join link</span></td>
                             <td class="col-other"><span class="partial">Corner banner</span></td>
                         </tr>
                         <tr>
                             <td>Menu bar now &amp; upcoming + one-click join</td>
                             <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other yes"><svg><use href="#i-check"/></svg></td>
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
                         </tr>
                         <tr>
                             <td>Global Quick Panel + full keyboard (⌃⌥M, ⌘HJKL)</td>
                             <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other"><span class="partial">Join-next shortcut</span></td>
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
                         </tr>
                         <tr>
                             <td>Pin Quick Panel above other apps</td>
                             <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
                         </tr>
                         <tr>
                             <td>Share free time for booking messages</td>
                             <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
                         </tr>
                         <tr>
                             <td>Mute / unmute one meeting (⌘M / ⌘U)</td>
                             <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other"><span class="partial">Dismiss notification</span></td>
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
                         </tr>
                         <tr>
                             <td>Apple Reminders overlays (Pro)</td>
                             <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
                             <td class="col-other"><span class="partial">Separate app</span></td>
                         </tr>
                         <tr>
                             <td>Per-calendar &amp; per-list reminder rules (Pro)</td>
                             <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other"><span class="partial">Calendar filters</span></td>
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
                         </tr>
                         <tr>
                             <td>Quiet hours (Pro)</td>
                             <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
                             <td class="col-other"><span class="partial">Focus modes</span></td>
                         </tr>
                         <tr>
                             <td>Hidden from Zoom / Meet / Teams screen share (Pro)</td>
                             <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
                         </tr>
                         <tr>
                             <td>Dismiss / join / mute sync across Macs (Pro)</td>
                             <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
                         </tr>
                         <tr>
                             <td>Multi-monitor fullscreen overlay</td>
                             <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other"><span class="partial">Single overlay window</span></td>
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
                         </tr>
                         <tr>
                             <td>One-time price, no subscription</td>
                             <td class="col-meetly yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-other yes"><svg><use href="#i-check"/></svg></td>
                             <td class="col-other"><span class="partial">Built-in</span></td>
                         </tr>
                     </tbody>
@@ -1760,7 +1774,7 @@
                 </details>
                 <details class="faq-item">
                     <summary>How is Meetly different from Calendar notifications?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">Calendar shows corner banners. Meetly uses fullscreen overlays, Quick Panel keyboard control, Apple Reminders (Pro), quiet hours, screen-share privacy, and iCloud action sync — see the <a href="#compare">comparison</a>.</div>
+                    <div class="ans">Calendar shows corner banners. MeetingBar focuses on menu-bar join. Meetly adds fullscreen overlays on every display, a pinnable Quick Panel, share free time, Apple Reminders (Pro), quiet hours, screen-share privacy, and iCloud action sync — see the <a href="#compare">comparison</a>.</div>
                 </details>
                 <details class="faq-item">
                     <summary>Can I share my free time for booking?<svg class="chev"><use href="#i-chev"/></svg></summary>
