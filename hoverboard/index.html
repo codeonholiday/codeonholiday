@@ -24,7 +24,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HoverBoard — macOS Screen Annotation &amp; Presentation Overlay</title>
-    <meta name="description" content="HoverBoard is a macOS menu bar app to draw, freeze, whiteboard, spotlight, show keystrokes, capture sessions, and run break timers — all a hotkey away. Draw, Spotlight, and Break Timer are free forever.">
+    <meta name="description" content="HoverBoard is a macOS menu bar app to draw, freeze, whiteboard, write private notes, spotlight, show keystrokes, capture sessions, and run break timers — all a hotkey away. Draw, Spotlight, and Break Timer are free forever.">
     <link rel="canonical" href="https://codeonholiday.com/hoverboard/">
     <meta name="robots" content="index, follow">
     <meta name="author" content="codeonholiday">
@@ -34,7 +34,7 @@
     <meta property="og:site_name" content="codeonholiday">
     <meta property="og:url" content="https://codeonholiday.com/hoverboard/">
     <meta property="og:title" content="HoverBoard — macOS Screen Annotation &amp; Presentation Overlay">
-    <meta property="og:description" content="Draw, freeze, whiteboard, mindmap, spotlight, keystroke display, sessions, and break timers on macOS — all a hotkey away. Core tools free forever.">
+    <meta property="og:description" content="Draw, freeze, whiteboard, private Markdown notes, mindmap, spotlight, keystroke display, sessions, and break timers on macOS — all a hotkey away. Core tools free forever.">
     <meta property="og:image" content="https://codeonholiday.com/hoverboard/og-image.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1536">
@@ -45,7 +45,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@codeonholiday">
     <meta name="twitter:title" content="HoverBoard — macOS Screen Annotation &amp; Presentation Overlay">
-    <meta name="twitter:description" content="Draw, freeze, whiteboard, mindmap, spotlight, keystrokes, sessions, and break timers on macOS — all a hotkey away.">
+    <meta name="twitter:description" content="Draw, freeze, whiteboard, private Markdown notes, mindmap, spotlight, keystrokes, sessions, and break timers on macOS — all a hotkey away.">
     <meta name="twitter:image" content="https://codeonholiday.com/hoverboard/og-image.png">
 
     <!-- Plausible Analytics (Privacy-Friendly) -->
@@ -72,9 +72,9 @@
                 "name": "HoverBoard",
                 "applicationCategory": "BusinessApplication",
                 "operatingSystem": "macOS 14+",
-                "softwareVersion": "1.3.8",
+                "softwareVersion": "1.3.12",
                 "url": "https://codeonholiday.com/hoverboard/",
-                "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/v1.3.8/hoverboard-latest.zip",
+                "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/v1.3.12/hoverboard-latest.zip",
                 "screenshot": "https://codeonholiday.com/hoverboard/showcase-whiteboard.webp",
                 "video": {
                     "@type": "VideoObject",
@@ -83,7 +83,7 @@
                     "thumbnailUrl": "https://img.youtube.com/vi/DgMY9qRFxFI/maxresdefault.jpg",
                     "uploadDate": "2026-07-17"
                 },
-                "description": "A macOS menu bar app to draw, freeze, whiteboard, spotlight, show keystrokes, capture sessions, and run break timers over your screen — all a hotkey away. Draw, Spotlight, and Break Timer are free forever.",
+                "description": "A macOS menu bar app to draw, freeze, whiteboard, take private Markdown notes, spotlight, show keystrokes, capture sessions, and run break timers over your screen — all a hotkey away. Draw, Spotlight, and Break Timer are free forever.",
                 "offers": [
                     { "@type": "Offer", "name": "HoverBoard Free", "price": "0", "priceCurrency": "USD" },
                     { "@type": "Offer", "name": "HoverBoard Pro", "price": "7.99", "priceCurrency": "USD" }
@@ -132,7 +132,7 @@
                         "name": "Can I customize HoverBoard hotkeys?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Yes. Every tool has a global hotkey using the Control-Option leader key, and all are remappable in Settings. Defaults are Control-Option D, S, F, W, T, H, and K for Keystroke Display. Read the How to Use HoverBoard guide for the full cheat sheet."
+                            "text": "Yes. Every tool has a global hotkey using the Control-Option leader key, and all are remappable in Settings. Defaults are Control-Option D, S, F, W, T, H, K, and N for Notes. Read the How to Use HoverBoard guide for the full cheat sheet."
                         }
                     },
                     {
@@ -165,6 +165,14 @@
                         "acceptedAnswer": {
                             "@type": "Answer",
                             "text": "Yes. Whiteboards export to PNG, SVG, or Excalidraw format for use in slides, docs, or further editing."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What are HoverBoard Notes?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Notes is a local Markdown notepad with live preview, Mermaid diagrams, folders, search, autosave, and PDF export. It opens as a popup or full-screen presenter view and stays hidden from screen sharing by default until you choose Share."
                         }
                     },
                     {
@@ -1002,6 +1010,9 @@
             <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h0M10 10h0M14 10h0M18 10h0M7 14h10"/>
             </symbol>
+            <symbol id="i-note" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 3h10l4 4v14H5z"/><path d="M15 3v5h4M8 12h8M8 16h6"/>
+            </symbol>
             <symbol id="i-export" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
             </symbol>
@@ -1097,9 +1108,9 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-copy">
-                    <span class="pill reveal"><span class="dot"></span> macOS native · menu bar app · v1.3.8</span>
+                    <span class="pill reveal"><span class="dot"></span> macOS native · menu bar app · v1.3.12</span>
                     <h1 class="reveal">Present like a pro.<br><span class="grad">Without the fuss.</span></h1>
-                    <p class="lede reveal">HoverBoard is a macOS menu bar app that puts <strong>draw, spotlight, freeze, whiteboard, break timer, cursor highlight, keystroke display, and sessions</strong> over your screen — all a hotkey away. Draw, Spotlight, and Break Timer are free forever. Works seamlessly while you share on Zoom, Meet, or Teams.</p>
+                    <p class="lede reveal">HoverBoard is a macOS menu bar app that puts <strong>draw, spotlight, freeze, whiteboard, private notes, break timer, cursor highlight, keystroke display, and sessions</strong> over your screen — all a hotkey away. Draw, Spotlight, and Break Timer are free forever. Works seamlessly while you share on Zoom, Meet, or Teams.</p>
                     <div class="hero-cta reveal">
                         <a href="https://github.com/codeonholiday/codeonholiday/releases/download/v1.3.12/hoverboard-latest.zip?t=202607231025" class="btn btn-primary btn-lg btn-download">
                             <svg><use href="#i-download"/></svg>
@@ -1217,7 +1228,7 @@
         <div class="container">
             <div class="sec-head reveal">
                 <span class="sec-eyebrow">See it in action</span>
-                <h2>Eight tools, zero friction</h2>
+                <h2>Nine tools, zero friction</h2>
                 <p>Click through each workflow — every one is a single hotkey away, layered right over your screen.
                     Full walkthrough in the <a href="/blog/how-to-use-hoverboard-complete-guide/" style="color:var(--orange-2)">How to Use HoverBoard guide</a>.</p>
             </div>
@@ -1231,6 +1242,7 @@
                 <button class="tab" data-panel="p6"><svg><use href="#i-sun"/></svg> Spotlight</button>
                 <button class="tab" data-panel="p7"><svg><use href="#i-key"/></svg> Keystroke</button>
                 <button class="tab" data-panel="p8"><svg><use href="#i-stack"/></svg> Sessions</button>
+                <button class="tab" data-panel="p9"><svg><use href="#i-note"/></svg> Notes</button>
             </div>
 
             <div class="showcase-stage reveal">
@@ -1379,6 +1391,25 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Panel 9: Private Notes -->
+                <div class="panel" id="p9">
+                    <div class="panel-grid">
+                        <div class="panel-copy">
+                            <h3>Your notes, invisible when you need them to be</h3>
+                            <p>Keep speaker notes, prompts, and technical details beside your presentation in a fast local Markdown workspace. Notes stay private by default, so your audience sees only what you intentionally share.</p>
+                            <ul>
+                                <li><svg><use href="#i-check"/></svg> GitHub-Flavored Markdown with live preview</li>
+                                <li><svg><use href="#i-check"/></svg> Mermaid diagrams, folders, search, and autosave</li>
+                                <li><svg><use href="#i-check"/></svg> Popup or full-screen presenter mode</li>
+                                <li><svg><use href="#i-check"/></svg> Private / Sharing toggle and PDF export (Pro)</li>
+                            </ul>
+                        </div>
+                        <div class="shot">
+                            <img src="showcase-notes.webp" alt="HoverBoard Notes with Markdown editor, live preview, and Mermaid diagram" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1403,6 +1434,11 @@
                     <div class="icon-tile pink"><svg><use href="#i-board"/></svg></div>
                     <h3>Whiteboard that teaches</h3>
                     <p>Mindmaps, sticky notes, checklists, media links, and architecture stencils for system-design diagrams — plus Tab / Return mindmap shortcuts.</p>
+                </div>
+                <div class="card featured-tile b-wide reveal">
+                    <div class="icon-tile amber"><svg><use href="#i-note"/></svg></div>
+                    <h3>Private Notes for presenters (Pro)</h3>
+                    <p>Write speaker notes in Markdown with live preview and Mermaid diagrams. Search your local library, keep notes hidden from screen share by default, then switch to Sharing or export a PDF when you need to.</p>
                 </div>
                 <div class="card reveal">
                     <div class="icon-tile amber"><svg><use href="#i-key"/></svg></div>
@@ -1436,7 +1472,7 @@
             <div class="sec-head reveal">
                 <span class="sec-eyebrow">Why HoverBoard</span>
                 <h2>vs. annotation-only overlays</h2>
-                <p>Presentify and similar apps are great at draw, cursor, and spotlight. HoverBoard adds a full teaching layer — freeze, timer, keystrokes, mindmap whiteboard, and Sessions — with core tools free forever.</p>
+                <p>Presentify and similar apps are great at draw, cursor, and spotlight. HoverBoard adds a full teaching layer — freeze, timer, keystrokes, mindmap whiteboard, private Notes, and Sessions — with core tools free forever.</p>
             </div>
             <div class="compare-wrap reveal">
                 <table>
@@ -1499,6 +1535,12 @@
                         </tr>
                         <tr>
                             <td>Sessions capture &amp; PDF export</td>
+                            <td class="col-hb yes"><svg><use href="#i-check"/></svg></td>
+                            <td class="col-peer no"><svg><use href="#i-x"/></svg></td>
+                            <td class="col-other no"><svg><use href="#i-x"/></svg></td>
+                        </tr>
+                        <tr>
+                            <td>Private Markdown notes + live preview</td>
                             <td class="col-hb yes"><svg><use href="#i-check"/></svg></td>
                             <td class="col-peer no"><svg><use href="#i-x"/></svg></td>
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
@@ -1588,7 +1630,7 @@
             <div class="sec-head reveal">
                 <span class="sec-eyebrow">Simple pricing</span>
                 <h2>Free forever. Pro once.</h2>
-                <p>Download the same app for everyone. <strong>Draw, Spotlight, and Break Timer stay free forever.</strong> Unlock Freeze, Whiteboard, Cursor Halo, Keystroke Display, Sessions, and more with a one-time Pro license — or try those tools for <strong>60 seconds</strong> anytime.</p>
+                <p>Download the same app for everyone. <strong>Draw, Spotlight, and Break Timer stay free forever.</strong> Unlock Freeze, Whiteboard, Notes, Cursor Halo, Keystroke Display, Sessions, and more with a one-time Pro license — or try those tools for <strong>60 seconds</strong> anytime.</p>
             </div>
             <div class="price-grid">
                 <div class="price-card reveal">
@@ -1607,7 +1649,7 @@
                         <li><svg><use href="#i-check"/></svg> Works over Zoom / Meet / Teams</li>
                         <li><svg><use href="#i-check"/></svg> 60s preview of Pro tools anytime</li>
                         <li class="muted"><svg><use href="#i-x"/></svg> Unlimited Freeze / Whiteboard / Halo / Keys</li>
-                        <li class="muted"><svg><use href="#i-x"/></svg> Sessions, export, launch at login</li>
+                        <li class="muted"><svg><use href="#i-x"/></svg> Notes, Sessions, export, launch at login</li>
                     </ul>
                     <a href="https://github.com/codeonholiday/codeonholiday/releases/download/v1.3.12/hoverboard-latest.zip?t=202607231025" class="btn btn-ghost btn-download">
                         <svg><use href="#i-download"/></svg>
@@ -1631,6 +1673,7 @@
                         <li><svg><use href="#i-check"/></svg> Whiteboard — mindmap, collage &amp; media links</li>
                         <li><svg><use href="#i-check"/></svg> Cursor Halo &amp; Keystroke Display</li>
                         <li><svg><use href="#i-check"/></svg> Sessions library + PNG / PDF export</li>
+                        <li><svg><use href="#i-check"/></svg> Private Notes — Markdown, Mermaid &amp; PDF export</li>
                         <li><svg><use href="#i-check"/></svg> Copy / export without trial caps</li>
                         <li><svg><use href="#i-check"/></svg> Launch at login &amp; command URLs</li>
                         <li><svg><use href="#i-check"/></svg> All updates in this major version</li>
@@ -1695,6 +1738,10 @@
                 <details class="faq-item">
                     <summary>Can I export my whiteboards?<svg class="chev"><use href="#i-chev"/></svg></summary>
                     <div class="ans">Yes. Whiteboards export to PNG, SVG, or Excalidraw format, so you can drop them straight into your slides, docs, or hand off the source file for further editing.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>What are HoverBoard Notes?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">Notes is a local Markdown workspace for speaker notes and presenter prompts, with live preview, Mermaid diagrams, folders, search, autosave, and PDF export. It opens as a popup or full-screen presenter view and stays hidden from screen sharing by default until you choose <strong>Share</strong>.</div>
                 </details>
                 <details class="faq-item">
                     <summary>How do I learn all the tools?<svg class="chev"><use href="#i-chev"/></svg></summary>
