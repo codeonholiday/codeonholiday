@@ -1,6 +1,6 @@
 ---
 title: How to Use HoverBoard — A Complete Guide
-description: Install HoverBoard, use Draw, Spotlight, Freeze, Whiteboard, Break Timer, Cursor Halo, and Keystroke Display, learn hotkeys, free vs Pro, and Stream Deck URLs on macOS.
+description: Install HoverBoard, use Draw, Spotlight, Freeze, Whiteboard, private Notes, Break Timer, Cursor Halo, Keystroke Display, and Sessions, learn hotkeys, free vs Pro, and Stream Deck URLs on macOS.
 date: 2026-07-17
 updated: 2026-07-17
 tags: [hoverboard, macos, guide, presentation, teaching]
@@ -34,6 +34,7 @@ A quick tour of the overlay in a real presenting flow:
 - Open an infinite local whiteboard (mindmap, sticky notes, checklists, polaroids, and more)
 - Run a break timer overlay
 - Highlight the cursor and show live keystrokes
+- Keep private Markdown notes with live preview and Mermaid diagrams
 - Capture frames into Sessions and export PNG / PDF (Pro)
 
 **HoverBoard does not:**
@@ -77,6 +78,8 @@ Open any mode from the menu bar or with the **⌃⌥** leader key (Control + Opt
 
 ### Draw — free forever
 
+Read the dedicated [Draw guide](/blog/how-to-use-hoverboard-draw/) for the full tool and shortcut reference.
+
 Annotate live over whatever is on screen: pen, arrow, rectangle, number markers, eraser, pan, colors, optional auto-fade, undo/clear.
 
 ![Draw mode annotations](./assets/how-to-use-hoverboard-complete-guide/draw.webp)
@@ -84,6 +87,8 @@ Annotate live over whatever is on screen: pen, arrow, rectangle, number markers,
 Default hotkey: **⌃⌥D**
 
 ### Spotlight — free forever
+
+Read the dedicated [Spotlight guide](/blog/how-to-use-hoverboard-spotlight/) for radius, darkness, feathering, and click-through tips.
 
 Dim the screen and put a soft spotlight around the cursor. Click-through stays enabled so you can keep presenting.
 
@@ -93,6 +98,8 @@ Default hotkey: **⌃⌥S**
 
 ### Freeze & Explain — 60s Pro trial
 
+Read the dedicated [Freeze guide](/blog/how-to-use-hoverboard-freeze/) for screen capture permissions and Session capture.
+
 Snapshot the screen, then annotate the frozen frame. Ideal when the UI is about to change under you. Save frames to Sessions on Pro.
 
 ![Freeze and Explain](./assets/how-to-use-hoverboard-complete-guide/freeze.webp)
@@ -100,6 +107,8 @@ Snapshot the screen, then annotate the frozen frame. Ideal when the UI is about 
 Default hotkey: **⌃⌥F**
 
 ### Whiteboard — 60s Pro trial
+
+Read the dedicated [Whiteboard guide](/blog/how-to-use-hoverboard-whiteboard/) for mindmaps, widgets, architecture stencils, and exports.
 
 Private infinite canvas with shapes, freehand, text, connectors, mindmaps, teaching widgets (sticky, checklist, polaroid, media links), and **architecture stencils** for system-design diagrams. Export PNG, SVG, or Excalidraw.
 
@@ -109,6 +118,8 @@ Default hotkey: **⌃⌥W**
 
 ### Break Timer — free forever
 
+Read the dedicated [Break Timer guide](/blog/how-to-use-hoverboard-break-timer/) for fullscreen, minimal, chimes, and live controls.
+
 Countdown overlay for breaks. Fullscreen or minimal, custom message, optional chime, pause / +1 minute.
 
 ![Break Timer overlay](./assets/how-to-use-hoverboard-complete-guide/break-timer.webp)
@@ -116,6 +127,8 @@ Countdown overlay for breaks. Fullscreen or minimal, custom message, optional ch
 Default hotkey: **⌃⌥T**
 
 ### Cursor Halo — 60s Pro trial
+
+Read the dedicated [Cursor Halo guide](/blog/how-to-use-hoverboard-cursor-halo/) for pointer visibility and click feedback.
 
 Animated halo and click feedback so viewers can follow your pointer.
 
@@ -125,14 +138,23 @@ Default hotkey: **⌃⌥H**
 
 ### Keystroke Display — 60s Pro trial
 
+Read the dedicated [Keystroke Display guide](/blog/how-to-use-hoverboard-keystroke-display/) before enabling keyboard monitoring.
+
 Show live keystrokes on screen while you present or record. The first time you enable it, HoverBoard asks for a **privacy confirmation**. Esc closes the overlay.
 
 Default hotkey: **⌃⌥K**
 
 ![Keystroke Display HUD](./assets/how-to-use-hoverboard-complete-guide/keystroke.webp)
 
+### Notes — 60s Pro trial
+
+Keep speaker notes in a local Markdown library with live preview, Mermaid diagrams, folders, search, autosave, Popup / Full screen presentation, and PDF export. Notes are **Private** by default and stay hidden from screen sharing until you choose **Sharing**.
+
+Default hotkey: **⌃⌥N**. Read the dedicated [Notes guide](/blog/how-to-use-hoverboard-notes/) for the privacy workflow and presenter mode.
 
 ### Sessions — Pro
+
+Read the dedicated [Sessions guide](/blog/how-to-use-hoverboard-sessions/) for capture, reorder, and export workflows.
 
 Save frames from Draw, Freeze, or Whiteboard into a local library. Reorder, rename, export PNG set or multi-page PDF.
 
@@ -196,6 +218,7 @@ Default leader is **⌃⌥** (remappable modifiers in Settings) + letter:
 | **T** | Break Timer |
 | **H** | Cursor Halo |
 | **K** | Keystroke Display |
+| **N** | Notes |
 | **Esc** | Close current mode |
 
 ### In Draw / Freeze
@@ -233,6 +256,7 @@ Default leader is **⌃⌥** (remappable modifiers in Settings) + letter:
 | Whiteboard | — | Trial, then Pro |
 | Cursor Halo | — | Trial, then Pro |
 | Keystroke Display | — | Trial, then Pro |
+| Notes | — | Trial, then Pro |
 | Sessions, unlimited overlays, export/copy, command URLs, launch at login | — | Pro |
 
 While a Pro trial is running, a countdown pill shows remaining seconds (for example `Pro trial · 60s`). When it ends, reopen for another preview or buy a license from Settings / the [pricing section](/hoverboard/#pricing).
@@ -251,6 +275,7 @@ open "hoverboard://activate/whiteboard"
 open "hoverboard://activate/timer"
 open "hoverboard://activate/halo"
 open "hoverboard://activate/keys"
+open "hoverboard://activate/notes"
 open "hoverboard://stop"
 ```
 

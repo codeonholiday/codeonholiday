@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use HoverBoard Keystroke Display — Show Shortcuts Live — codeonholiday</title>
+    <meta name="description" content="Learn how HoverBoard Keystroke Display shows modifier chords and app shortcuts on screen, how to grant Input Monitoring permission, and how to present safely.">
+    <link rel="canonical" href="https://codeonholiday.com/blog/how-to-use-hoverboard-keystroke-display/">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="codeonholiday">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="codeonholiday">
+    <meta property="og:url" content="https://codeonholiday.com/blog/how-to-use-hoverboard-keystroke-display/">
+    <meta property="og:title" content="How to Use HoverBoard Keystroke Display — Show Shortcuts Live">
+    <meta property="og:description" content="Learn how HoverBoard Keystroke Display shows modifier chords and app shortcuts on screen, how to grant Input Monitoring permission, and how to present safely.">
+    <meta property="og:image" content="https://codeonholiday.com/blog/posts/assets/how-to-use-hoverboard-complete-guide/keystroke.webp">
+    <meta property="og:image:alt" content="How to Use HoverBoard Keystroke Display — Show Shortcuts Live">
+    <meta property="article:published_time" content="2026-07-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-07-23T00:00:00+00:00">
+    <meta property="article:author" content="codeonholiday">
+    <meta property="article:tag" content="hoverboard">
+    <meta property="article:tag" content="macos">
+    <meta property="article:tag" content="keystroke-display">
+    <meta property="article:tag" content="shortcuts">
+    <meta property="article:tag" content="teaching">
+    <meta property="article:tag" content="guide">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@codeonholiday">
+    <meta name="twitter:title" content="How to Use HoverBoard Keystroke Display — Show Shortcuts Live">
+    <meta name="twitter:description" content="Learn how HoverBoard Keystroke Display shows modifier chords and app shortcuts on screen, how to grant Input Monitoring permission, and how to present safely.">
+    <meta name="twitter:image" content="https://codeonholiday.com/blog/posts/assets/how-to-use-hoverboard-complete-guide/keystroke.webp">
+
+    <link rel="alternate" type="application/rss+xml" title="codeonholiday Blog" href="https://codeonholiday.com/blog/feed.xml">
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How to Use HoverBoard Keystroke Display — Show Shortcuts Live",
+    "description": "Learn how HoverBoard Keystroke Display shows modifier chords and app shortcuts on screen, how to grant Input Monitoring permission, and how to present safely.",
+    "datePublished": "2026-07-23T00:00:00+00:00",
+    "dateModified": "2026-07-23T00:00:00+00:00",
+    "author": {
+        "@type": "Organization",
+        "name": "codeonholiday",
+        "url": "https://codeonholiday.com/"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "codeonholiday",
+        "url": "https://codeonholiday.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://codeonholiday.com/og-image.png"
+        }
+    },
+    "image": "https://codeonholiday.com/blog/posts/assets/how-to-use-hoverboard-complete-guide/keystroke.webp",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://codeonholiday.com/blog/how-to-use-hoverboard-keystroke-display/"
+    },
+    "keywords": "hoverboard, macos, keystroke-display, shortcuts, teaching, guide"
+}
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/blog/css/blog.css">
+    <script defer data-domain="codeonholiday.com" src="https://plausible.io/js/script.js"></script>
+    <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSL5Z5MEBZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XSL5Z5MEBZ', { 'anonymize_ip': true });
+    </script>
+</head>
+<body>
+<header class="site-header">
+    <div class="nav">
+      <a href="/" class="brand" aria-label="codeonholiday home">
+        <span class="brand-mark"></span>
+        codeonholiday
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/blog/" aria-current="page">Blog</a>
+        <a href="/meetly/">Meetly</a>
+        <a href="/hoverboard/">HoverBoard</a>
+      </nav>
+    </div>
+  </header>
+    <main class="wrap article-wrap">
+      <div class="article-layout">
+        <article>
+          <header class="article-header">
+            <div class="meta">
+              <time datetime="2026-07-23">2026-07-23</time>
+              <span class="dot"></span>
+              <span>codeonholiday</span>
+            </div>
+            <h1>How to Use HoverBoard Keystroke Display — Show Shortcuts Live</h1>
+          </header>
+          <details class="toc toc-mobile">
+      <summary>On this page</summary>
+      <nav aria-label="Table of contents"><a href="#activate-the-hud" class="toc-h2">Activate the HUD</a>
+<a href="#what-appears-on-screen" class="toc-h2">What appears on screen</a>
+<a href="#make-a-shortcut-demo-readable" class="toc-h2">Make a shortcut demo readable</a>
+<a href="#privacy-and-permissions" class="toc-h2">Privacy and permissions</a>
+<a href="#trial-and-pro-access" class="toc-h2">Trial and Pro access</a>
+<a href="#troubleshooting" class="toc-h2">Troubleshooting</a>
+<a href="#the-hud-stays-empty" class="toc-h3">The HUD stays empty</a>
+<a href="#app-shortcuts-do-not-appear" class="toc-h3">App shortcuts do not appear</a>
+<a href="#a-chord-looks-duplicated" class="toc-h3">A chord looks duplicated</a></nav>
+    </details>
+          <div class="prose">
+<p>Keystroke Display puts the keys you press into a small on-screen HUD. It is designed for shortcut tutorials, coding lessons, Stream Deck demonstrations, and any presentation where saying “press Command plus K” is less clear than showing the chord as it happens.</p>
+<h2 id="activate-the-hud">Activate the HUD</h2>
+<p>The default shortcut is <strong>⌃⌥K</strong>. You can also open Keystroke Display from the menu bar. The first time you enable it, HoverBoard asks for a privacy confirmation because the feature must observe keyboard events in order to show them. macOS may also require Input Monitoring permission.</p>
+<p>Grant permission only if you are comfortable with the feature. HoverBoard uses the events to render the HUD locally; do not enable it while entering passwords, payment details, or other secrets. Press <strong>Esc</strong> to close the display.</p>
+<h2 id="what-appears-on-screen">What appears on screen</h2>
+<p>Keystroke Display shows ordinary keys, modifier combinations, and simultaneous keys. Holding a modifier and pressing a key produces one live chord chip, such as <strong>⌘C</strong>, instead of separate overlapping chips. Simultaneous independent keys can appear as <strong>A + S</strong>.</p>
+<p>This is useful when the shortcut itself is the content. For a tutorial, slow down enough for the chip to be readable, then perform the action once. The HUD can show app shortcuts and global shortcuts through its listen-only event tap, so viewers can follow menu commands as well as HoverBoard controls.</p>
+<h2 id="make-a-shortcut-demo-readable">Make a shortcut demo readable</h2>
+<ol>
+<li>Open the app or slide where the shortcut will be used.</li>
+<li>Enable <strong>⌃⌥K</strong> and confirm the privacy prompt.</li>
+<li>Increase the display size or adjust its position in Settings if the audience is remote.</li>
+<li>Press the chord deliberately and pause for the HUD to appear.</li>
+<li>Explain the result, then press <strong>Esc</strong> when the shortcut section is finished.</li>
+</ol>
+<p>Do not hold random keys while talking. The HUD is strongest when the keypress is a visual caption for one clear action.</p>
+<h2 id="privacy-and-permissions">Privacy and permissions</h2>
+<p>Keyboard visibility is inherently sensitive, which is why HoverBoard asks for confirmation before first use. Input Monitoring and Accessibility permissions are controlled by macOS in System Settings → Privacy &amp; Security. HoverBoard has no backend for your key events and does not need an account.</p>
+<p>Use the mode only for demonstrations where showing the input is intentional. Turn it off before typing credentials, private messages, or unpublished information.</p>
+<h2 id="trial-and-pro-access">Trial and Pro access</h2>
+<p>Keystroke Display includes a 60-second Pro trial each time you open it. Pro unlocks unlimited use. Draw, Spotlight, and Break Timer remain free forever and never show a trial countdown.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="the-hud-stays-empty">The HUD stays empty</h3>
+<p>Confirm the privacy acknowledgment, then enable HoverBoard under Input Monitoring and Accessibility. Quit and relaunch if macOS asks for a restart. Check Settings → Hotkeys if the activation shortcut is not responding.</p>
+<h3 id="app-shortcuts-do-not-appear">App shortcuts do not appear</h3>
+<p>Recent HoverBoard builds use a listen-only event tap to observe app and global shortcuts. Make sure Input Monitoring is enabled, and test with a visible shortcut such as opening a menu rather than a password field.</p>
+<h3 id="a-chord-looks-duplicated">A chord looks duplicated</h3>
+<p>Release and press the modifier/key combination again. Current builds update a single live chip while a chord is held and combine simultaneous keys into one readable display.</p>
+<p>Keystroke Display turns invisible keyboard muscle memory into something the audience can actually learn.</p>
+
+          </div>
+          <div class="article-footer">
+            <a href="/blog/">← All posts</a>
+            <a href="/">codeonholiday home</a>
+          </div>
+        </article>
+        <aside class="toc toc-desktop" aria-label="Table of contents">
+    <div class="toc-title">On this page</div>
+    <nav><a href="#activate-the-hud" class="toc-h2">Activate the HUD</a>
+<a href="#what-appears-on-screen" class="toc-h2">What appears on screen</a>
+<a href="#make-a-shortcut-demo-readable" class="toc-h2">Make a shortcut demo readable</a>
+<a href="#privacy-and-permissions" class="toc-h2">Privacy and permissions</a>
+<a href="#trial-and-pro-access" class="toc-h2">Trial and Pro access</a>
+<a href="#troubleshooting" class="toc-h2">Troubleshooting</a>
+<a href="#the-hud-stays-empty" class="toc-h3">The HUD stays empty</a>
+<a href="#app-shortcuts-do-not-appear" class="toc-h3">App shortcuts do not appear</a>
+<a href="#a-chord-looks-duplicated" class="toc-h3">A chord looks duplicated</a></nav>
+  </aside>
+      </div>
+    </main>
+<footer class="site-footer">
+    <div class="wrap">
+      <div class="foot">
+        <span>© 2026 codeonholiday</span>
+        <div class="foot-end">
+          <!-- Social URLs — replace placeholders as real links arrive -->
+          <nav class="social" aria-label="Social links">
+            <a href="https://x.com/codeonholiday" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@codeonholiday" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.16 16.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.73a8.2 8.2 0 0 0 4.79 1.52V6.84a4.84 4.84 0 0 1-1.04-.15z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/codeonholiday" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14C17.26 2.09 16.09 2 14.84 2 12.27 2 10.5 3.57 10.5 6.61V9.5H8v4h2.5V22h3.5z"/></svg>
+            </a>
+            <a href="https://www.reddit.com/r/codeonholiday" target="_blank" rel="noopener noreferrer" aria-label="Reddit">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12a1.75 1.75 0 0 1 2.541-1.562 8.796 8.796 0 0 1 4.66-1.49l.885-4.162a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.068l2.914.614a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.841 2.484.917 2.961.917.477 0 2.105-.079 2.961-.917a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+            </a>
+          </nav>
+          <span>
+            <a href="/blog/">Blog</a>
+            ·
+            <a href="/blog/feed.xml">RSS</a>
+            ·
+            <a href="mailto:hello@codeonholiday.com">hello@codeonholiday.com</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+    <script src="/events.js"></script>
+    <script src="/blog/js/blog.js"></script>
+    
+</body>
+</html>

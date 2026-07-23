@@ -7,11 +7,74 @@
     <language>en</language>
     <atom:link href="https://codeonholiday.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>How to Use HoverBoard Whiteboard — Mindmaps, Diagrams, and Teaching Widgets</title>
+      <link>https://codeonholiday.com/blog/how-to-use-hoverboard-whiteboard/</link>
+      <guid isPermaLink="true">https://codeonholiday.com/blog/how-to-use-hoverboard-whiteboard/</guid>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 GMT</pubDate>
+      <description>A detailed guide to HoverBoard Whiteboard: infinite canvas, mindmaps, connectors, sticky notes, checklists, media links, architecture stencils, and exports on macOS.</description>
+    </item>
+    <item>
+      <title>How to Use HoverBoard Spotlight — Focus Attention on One Area</title>
+      <link>https://codeonholiday.com/blog/how-to-use-hoverboard-spotlight/</link>
+      <guid isPermaLink="true">https://codeonholiday.com/blog/how-to-use-hoverboard-spotlight/</guid>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Learn how HoverBoard Spotlight dims the screen around your cursor, how to tune radius and feathering, and how to keep presenting with click-through on macOS.</description>
+    </item>
+    <item>
+      <title>How to Use HoverBoard Sessions — Build a Deck While You Present</title>
+      <link>https://codeonholiday.com/blog/how-to-use-hoverboard-sessions/</link>
+      <guid isPermaLink="true">https://codeonholiday.com/blog/how-to-use-hoverboard-sessions/</guid>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Learn how HoverBoard Sessions captures frames from Draw, Freeze, and Whiteboard, how to reorder and rename them, and how to export PNG sets or PDFs on macOS.</description>
+    </item>
+    <item>
+      <title>How to Use HoverBoard Notes — Private Markdown for Presenters</title>
+      <link>https://codeonholiday.com/blog/how-to-use-hoverboard-notes/</link>
+      <guid isPermaLink="true">https://codeonholiday.com/blog/how-to-use-hoverboard-notes/</guid>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Learn how HoverBoard Notes keeps speaker notes private by default with Markdown, live preview, Mermaid diagrams, search, folders, autosave, presenter mode, and PDF export on macOS.</description>
+    </item>
+    <item>
+      <title>How to Use HoverBoard Keystroke Display — Show Shortcuts Live</title>
+      <link>https://codeonholiday.com/blog/how-to-use-hoverboard-keystroke-display/</link>
+      <guid isPermaLink="true">https://codeonholiday.com/blog/how-to-use-hoverboard-keystroke-display/</guid>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Learn how HoverBoard Keystroke Display shows modifier chords and app shortcuts on screen, how to grant Input Monitoring permission, and how to present safely.</description>
+    </item>
+    <item>
+      <title>How to Use HoverBoard Freeze &amp; Explain — Pause the Screen and Teach Clearly</title>
+      <link>https://codeonholiday.com/blog/how-to-use-hoverboard-freeze/</link>
+      <guid isPermaLink="true">https://codeonholiday.com/blog/how-to-use-hoverboard-freeze/</guid>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Learn how HoverBoard Freeze captures a screen snapshot for calm step-by-step explanations, annotations, session capture, and live presenting on macOS.</description>
+    </item>
+    <item>
+      <title>How to Use HoverBoard Draw — Annotate Any Screen on macOS</title>
+      <link>https://codeonholiday.com/blog/how-to-use-hoverboard-draw/</link>
+      <guid isPermaLink="true">https://codeonholiday.com/blog/how-to-use-hoverboard-draw/</guid>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Learn how to use HoverBoard Draw for live annotations, arrows, shapes, number markers, colors, auto-fade, and click-through presenting on macOS.</description>
+    </item>
+    <item>
+      <title>How to Use HoverBoard Cursor Halo — Make Your Pointer Easy to Follow</title>
+      <link>https://codeonholiday.com/blog/how-to-use-hoverboard-cursor-halo/</link>
+      <guid isPermaLink="true">https://codeonholiday.com/blog/how-to-use-hoverboard-cursor-halo/</guid>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Learn how to use HoverBoard Cursor Halo for cursor visibility, click ripples, color and size customization, and clearer screen sharing on macOS.</description>
+    </item>
+    <item>
+      <title>How to Use HoverBoard Break Timer — Keep Workshops on Schedule</title>
+      <link>https://codeonholiday.com/blog/how-to-use-hoverboard-break-timer/</link>
+      <guid isPermaLink="true">https://codeonholiday.com/blog/how-to-use-hoverboard-break-timer/</guid>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Learn how to run HoverBoard Break Timer with fullscreen or minimal overlays, custom messages, chimes, pause, and live time adjustments on macOS.</description>
+    </item>
+    <item>
       <title>How to Use HoverBoard — A Complete Guide</title>
       <link>https://codeonholiday.com/blog/how-to-use-hoverboard-complete-guide/</link>
       <guid isPermaLink="true">https://codeonholiday.com/blog/how-to-use-hoverboard-complete-guide/</guid>
       <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
-      <description>Install HoverBoard, use Draw, Spotlight, Freeze, Whiteboard, Break Timer, Cursor Halo, and Keystroke Display, learn hotkeys, free vs Pro, and Stream Deck URLs on macOS.</description>
+      <description>Install HoverBoard, use Draw, Spotlight, Freeze, Whiteboard, private Notes, Break Timer, Cursor Halo, Keystroke Display, and Sessions, learn hotkeys, free vs Pro, and Stream Deck URLs on macOS.</description>
     </item>
     <item>
       <title>How to Use Meetly — A Complete Guide</title>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use HoverBoard Notes — Private Markdown for Presenters — codeonholiday</title>
+    <meta name="description" content="Learn how HoverBoard Notes keeps speaker notes private by default with Markdown, live preview, Mermaid diagrams, search, folders, autosave, presenter mode, and PDF export on macOS.">
+    <link rel="canonical" href="https://codeonholiday.com/blog/how-to-use-hoverboard-notes/">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="codeonholiday">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="codeonholiday">
+    <meta property="og:url" content="https://codeonholiday.com/blog/how-to-use-hoverboard-notes/">
+    <meta property="og:title" content="How to Use HoverBoard Notes — Private Markdown for Presenters">
+    <meta property="og:description" content="Learn how HoverBoard Notes keeps speaker notes private by default with Markdown, live preview, Mermaid diagrams, search, folders, autosave, presenter mode, and PDF export on macOS.">
+    <meta property="og:image" content="https://codeonholiday.com/hoverboard/showcase-notes.webp">
+    <meta property="og:image:alt" content="How to Use HoverBoard Notes — Private Markdown for Presenters">
+    <meta property="article:published_time" content="2026-07-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-07-23T00:00:00+00:00">
+    <meta property="article:author" content="codeonholiday">
+    <meta property="article:tag" content="hoverboard">
+    <meta property="article:tag" content="macos">
+    <meta property="article:tag" content="notes">
+    <meta property="article:tag" content="markdown">
+    <meta property="article:tag" content="mermaid">
+    <meta property="article:tag" content="presentation">
+    <meta property="article:tag" content="guide">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@codeonholiday">
+    <meta name="twitter:title" content="How to Use HoverBoard Notes — Private Markdown for Presenters">
+    <meta name="twitter:description" content="Learn how HoverBoard Notes keeps speaker notes private by default with Markdown, live preview, Mermaid diagrams, search, folders, autosave, presenter mode, and PDF export on macOS.">
+    <meta name="twitter:image" content="https://codeonholiday.com/hoverboard/showcase-notes.webp">
+
+    <link rel="alternate" type="application/rss+xml" title="codeonholiday Blog" href="https://codeonholiday.com/blog/feed.xml">
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How to Use HoverBoard Notes — Private Markdown for Presenters",
+    "description": "Learn how HoverBoard Notes keeps speaker notes private by default with Markdown, live preview, Mermaid diagrams, search, folders, autosave, presenter mode, and PDF export on macOS.",
+    "datePublished": "2026-07-23T00:00:00+00:00",
+    "dateModified": "2026-07-23T00:00:00+00:00",
+    "author": {
+        "@type": "Organization",
+        "name": "codeonholiday",
+        "url": "https://codeonholiday.com/"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "codeonholiday",
+        "url": "https://codeonholiday.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://codeonholiday.com/og-image.png"
+        }
+    },
+    "image": "https://codeonholiday.com/hoverboard/showcase-notes.webp",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://codeonholiday.com/blog/how-to-use-hoverboard-notes/"
+    },
+    "keywords": "hoverboard, macos, notes, markdown, mermaid, presentation, guide"
+}
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/blog/css/blog.css">
+    <script defer data-domain="codeonholiday.com" src="https://plausible.io/js/script.js"></script>
+    <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSL5Z5MEBZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XSL5Z5MEBZ', { 'anonymize_ip': true });
+    </script>
+</head>
+<body>
+<header class="site-header">
+    <div class="nav">
+      <a href="/" class="brand" aria-label="codeonholiday home">
+        <span class="brand-mark"></span>
+        codeonholiday
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/blog/" aria-current="page">Blog</a>
+        <a href="/meetly/">Meetly</a>
+        <a href="/hoverboard/">HoverBoard</a>
+      </nav>
+    </div>
+  </header>
+    <main class="wrap article-wrap">
+      <div class="article-layout">
+        <article>
+          <header class="article-header">
+            <div class="meta">
+              <time datetime="2026-07-23">2026-07-23</time>
+              <span class="dot"></span>
+              <span>codeonholiday</span>
+            </div>
+            <h1>How to Use HoverBoard Notes — Private Markdown for Presenters</h1>
+          </header>
+          <details class="toc toc-mobile">
+      <summary>On this page</summary>
+      <nav aria-label="Table of contents"><a href="#open-notes" class="toc-h2">Open Notes</a>
+<a href="#write-markdown-and-see-the-result" class="toc-h2">Write Markdown and see the result</a>
+<a href="#add-mermaid-diagrams" class="toc-h2">Add Mermaid diagrams</a>
+<a href="#organize-a-local-note-library" class="toc-h2">Organize a local note library</a>
+<a href="#private-versus-sharing" class="toc-h2">Private versus Sharing</a>
+<a href="#popup-or-full-screen" class="toc-h2">Popup or Full screen</a>
+<a href="#export-a-pdf" class="toc-h2">Export a PDF</a>
+<a href="#a-presenter-workflow" class="toc-h2">A presenter workflow</a>
+<a href="#trial-and-pro-access" class="toc-h2">Trial and Pro access</a>
+<a href="#troubleshooting" class="toc-h2">Troubleshooting</a>
+<a href="#notes-are-visible-when-they-should-be-private" class="toc-h3">Notes are visible when they should be private</a>
+<a href="#mermaid-is-not-rendering" class="toc-h3">Mermaid is not rendering</a>
+<a href="#the-note-is-not-saved" class="toc-h3">The note is not saved</a></nav>
+    </details>
+          <div class="prose">
+<p>HoverBoard Notes is a local Markdown workspace for the material you need beside a presentation: speaker prompts, technical details, links, meeting notes, code snippets, and diagrams. It is private by default, which means the Notes window stays hidden from screen sharing until you explicitly choose <strong>Share</strong>.</p>
+<h2 id="open-notes">Open Notes</h2>
+<p>The default shortcut is <strong>⌃⌥N</strong>. You can also activate Notes from the menu bar or with the <code>hoverboard://activate/notes</code> command URL. Press the leader shortcut again or use the close control to dismiss it.</p>
+<p>Notes can appear as a compact <strong>Popup</strong> card or a <strong>Full screen</strong> presenter view. Use Popup when you need a small prompt beside the app you are showing. Use Full screen when the notes themselves are the presentation or when you want a larger reading and editing surface.</p>
+<h2 id="write-markdown-and-see-the-result">Write Markdown and see the result</h2>
+<p>Notes has a split Markdown editor and live preview. Write headings, lists, task lists, emphasis, links, inline code, and fenced code blocks in the source side. The preview renders the document as a readable page while you work.</p>
+<p>Example:</p>
+<pre><code class="language-markdown">## Explain the trade-off
+
+- Start with latency.
+- Show the cache boundary.
+- Ask for questions.
+
+```swift
+print(&quot;Hello HoverBoard&quot;)
+```</code></pre>
+<p>The source editor includes syntax highlighting, while the preview is optimized for reading aloud and screen sharing when you intentionally enable Sharing.</p>
+<h2 id="add-mermaid-diagrams">Add Mermaid diagrams</h2>
+<p>Mermaid is useful when a presenter needs a small flowchart without opening a separate diagram tool:</p>
+<pre><code class="language-markdown">```mermaid
+flowchart LR
+  Presenter --&gt; Notes
+  Notes --&gt;|Private| Presenter
+  Notes --&gt;|Share| Viewers
+```</code></pre>
+<p>The preview renders the diagram locally. Keep the source readable so you can edit the flow during preparation; use the rendered preview when the audience should see the result.</p>
+<h2 id="organize-a-local-note-library">Organize a local note library</h2>
+<p>Notes includes a local library with folders and search. Create folders by project, class, customer, or meeting series. Use short, searchable titles rather than keeping one enormous document for every presentation.</p>
+<p>Autosave stores the library under the app’s local Application Support data. There is no account or cloud sync. If a note is important, export it or back up the local data as part of your normal Mac backup workflow.</p>
+<h2 id="private-versus-sharing">Private versus Sharing</h2>
+<p>The toolbar has a <strong>Private / Sharing</strong> control. Private is the default. In Private mode, HoverBoard configures the Notes window so screen-sharing systems do not include it. This is ideal for speaker prompts, reminders, unfinished thoughts, customer details, or a checklist that viewers should not see.</p>
+<p>Choose <strong>Share</strong> only when you want the audience to see the rendered notes. Switch to Sharing before presenting a Markdown explanation, a Mermaid diagram, or a full-screen reading page. Switch back to Private as soon as the visible note section is finished.</p>
+<p>This control is a presentation privacy boundary, not a replacement for good judgment. Do not put passwords or secrets into a note merely because the window is private.</p>
+<h2 id="popup-or-full-screen">Popup or Full screen</h2>
+<p>Use <strong>Popup</strong> when:</p>
+<ul>
+<li>You need one short prompt while sharing another app.</li>
+<li>You want notes near the edge of the screen.</li>
+<li>You are switching between a demo and a quick reminder.</li>
+</ul>
+<p>Use <strong>Full screen</strong> when:</p>
+<ul>
+<li>You are presenting the rendered document itself.</li>
+<li>The note contains a long lesson outline or Mermaid diagram.</li>
+<li>You want the audience to read the preview comfortably.</li>
+</ul>
+<p>The toolbar can toggle the presentation size while Notes is open. The <code>hoverboard://action/notes-presentation</code> command is useful for Stream Deck or automation.</p>
+<h2 id="export-a-pdf">Export a PDF</h2>
+<p>When a rendered note should become a handout or an archive, export it as a PDF from Notes. Export the rendered preview rather than the raw Markdown when the recipient needs a finished document. Keep the Markdown source when the note is still a living script.</p>
+<h2 id="a-presenter-workflow">A presenter workflow</h2>
+<ol>
+<li>Create a folder for the project or session.</li>
+<li>Write the outline in Markdown before the call.</li>
+<li>Add Mermaid only where a visual flow is clearer than prose.</li>
+<li>Open Notes in Popup mode and leave it <strong>Private</strong> while sharing another app.</li>
+<li>Use the search or folder library to jump to the next prompt.</li>
+<li>Switch to <strong>Sharing</strong> only for the section the audience should see.</li>
+<li>Export a PDF after the session if a handout is useful.</li>
+</ol>
+<h2 id="trial-and-pro-access">Trial and Pro access</h2>
+<p>Notes is a Pro feature with a 60-second trial each time you open it. Pro unlocks unlimited Notes use and PDF export alongside Whiteboard, Freeze, Cursor Halo, Keystroke Display, Sessions, and other advanced tools. Draw, Spotlight, and Break Timer remain free forever.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="notes-are-visible-when-they-should-be-private">Notes are visible when they should be private</h3>
+<p>Check that the toolbar says <strong>Private</strong>, not Sharing. If you changed the sharing state while a call was already running, close and reopen the Notes window or verify what the meeting app is sharing.</p>
+<h3 id="mermaid-is-not-rendering">Mermaid is not rendering</h3>
+<p>Check the fenced block language: it must start with three backticks followed by <code>mermaid</code> and end with three backticks. Keep the diagram syntax simple while debugging and make sure each node and arrow is on a valid line.</p>
+<h3 id="the-note-is-not-saved">The note is not saved</h3>
+<p>Wait for the Saved indicator in the toolbar. If the issue persists, confirm the app can write to its Application Support directory and avoid force-quitting while a document is changing.</p>
+<p>Notes is the quiet companion to every other HoverBoard tool: keep the script private, reveal only what helps the audience, and stay in the same presenting flow.</p>
+
+          </div>
+          <div class="article-footer">
+            <a href="/blog/">← All posts</a>
+            <a href="/">codeonholiday home</a>
+          </div>
+        </article>
+        <aside class="toc toc-desktop" aria-label="Table of contents">
+    <div class="toc-title">On this page</div>
+    <nav><a href="#open-notes" class="toc-h2">Open Notes</a>
+<a href="#write-markdown-and-see-the-result" class="toc-h2">Write Markdown and see the result</a>
+<a href="#add-mermaid-diagrams" class="toc-h2">Add Mermaid diagrams</a>
+<a href="#organize-a-local-note-library" class="toc-h2">Organize a local note library</a>
+<a href="#private-versus-sharing" class="toc-h2">Private versus Sharing</a>
+<a href="#popup-or-full-screen" class="toc-h2">Popup or Full screen</a>
+<a href="#export-a-pdf" class="toc-h2">Export a PDF</a>
+<a href="#a-presenter-workflow" class="toc-h2">A presenter workflow</a>
+<a href="#trial-and-pro-access" class="toc-h2">Trial and Pro access</a>
+<a href="#troubleshooting" class="toc-h2">Troubleshooting</a>
+<a href="#notes-are-visible-when-they-should-be-private" class="toc-h3">Notes are visible when they should be private</a>
+<a href="#mermaid-is-not-rendering" class="toc-h3">Mermaid is not rendering</a>
+<a href="#the-note-is-not-saved" class="toc-h3">The note is not saved</a></nav>
+  </aside>
+      </div>
+    </main>
+<footer class="site-footer">
+    <div class="wrap">
+      <div class="foot">
+        <span>© 2026 codeonholiday</span>
+        <div class="foot-end">
+          <!-- Social URLs — replace placeholders as real links arrive -->
+          <nav class="social" aria-label="Social links">
+            <a href="https://x.com/codeonholiday" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@codeonholiday" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.16 16.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.73a8.2 8.2 0 0 0 4.79 1.52V6.84a4.84 4.84 0 0 1-1.04-.15z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/codeonholiday" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14C17.26 2.09 16.09 2 14.84 2 12.27 2 10.5 3.57 10.5 6.61V9.5H8v4h2.5V22h3.5z"/></svg>
+            </a>
+            <a href="https://www.reddit.com/r/codeonholiday" target="_blank" rel="noopener noreferrer" aria-label="Reddit">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12a1.75 1.75 0 0 1 2.541-1.562 8.796 8.796 0 0 1 4.66-1.49l.885-4.162a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.068l2.914.614a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.841 2.484.917 2.961.917.477 0 2.105-.079 2.961-.917a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+            </a>
+          </nav>
+          <span>
+            <a href="/blog/">Blog</a>
+            ·
+            <a href="/blog/feed.xml">RSS</a>
+            ·
+            <a href="mailto:hello@codeonholiday.com">hello@codeonholiday.com</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+    <script src="/events.js"></script>
+    <script src="/blog/js/blog.js"></script>
+    
+</body>
+</html>
