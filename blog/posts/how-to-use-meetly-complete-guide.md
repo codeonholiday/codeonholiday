@@ -17,7 +17,7 @@ This guide walks through install, first launch, daily use, keyboard shortcuts, s
 
 Building something silly in OpenCode — then Meetly goes **Wake up, sleepy genius**:
 
-:::youtube https://youtu.be/GpIHgEA8iHY
+:::youtube https://youtu.be/dOFuKFBh5Ds
 :::
 
 ![Meetly fullscreen overlay — countdown, Join now, Snooze, Dismiss](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/reminder.webp)
