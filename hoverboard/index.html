@@ -11,7 +11,7 @@
       Do not rename them.
     ═════════════════════════════════════════════════════════════
     Pricing model: Free forever (Draw, Spotlight, Break Timer) + one-time
-    Pro license ($7.99 launch / $15.99). Same download for both; Pro tools
+    Pro license ($15.99). Same download for both; Pro tools
     include a 60s trial. Conversion: Download Free (nav/hero/pricing/final-cta)
     → Buy Pro (checkout in Pricing) → paste key from email.
     TODO before shipping:
@@ -23,8 +23,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HoverBoard — macOS Screen Annotation &amp; Presentation Overlay</title>
-    <meta name="description" content="HoverBoard is a macOS menu bar app to draw, freeze, whiteboard, write private notes, spotlight, show keystrokes, capture sessions, and run break timers — all a hotkey away. Draw, Spotlight, and Break Timer are free forever.">
+    <title>HoverBoard — Present, explain, and capture on macOS</title>
+    <meta name="description" content="HoverBoard is the macOS menu bar app for presenting, teaching, and demoing without breaking your flow. Draw, spotlight, freeze, whiteboard, take private notes, record meetings, transcribe offline, and summarize locally.">
     <link rel="canonical" href="https://codeonholiday.com/hoverboard/">
     <meta name="robots" content="index, follow">
     <meta name="author" content="codeonholiday">
@@ -33,8 +33,8 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="codeonholiday">
     <meta property="og:url" content="https://codeonholiday.com/hoverboard/">
-    <meta property="og:title" content="HoverBoard — macOS Screen Annotation &amp; Presentation Overlay">
-    <meta property="og:description" content="Draw, freeze, whiteboard, private Markdown notes, mindmap, spotlight, keystroke display, sessions, and break timers on macOS — all a hotkey away. Core tools free forever.">
+    <meta property="og:title" content="HoverBoard — Present, explain, and capture on macOS">
+    <meta property="og:description" content="One hotkey away from drawing, explaining, capturing, transcribing, and summarizing your next session. Core presentation tools are free forever.">
     <meta property="og:image" content="https://codeonholiday.com/hoverboard/og-image.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1536">
@@ -44,8 +44,8 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@codeonholiday">
-    <meta name="twitter:title" content="HoverBoard — macOS Screen Annotation &amp; Presentation Overlay">
-    <meta name="twitter:description" content="Draw, freeze, whiteboard, private Markdown notes, mindmap, spotlight, keystrokes, sessions, and break timers on macOS — all a hotkey away.">
+    <meta name="twitter:title" content="HoverBoard — Present, explain, and capture on macOS">
+    <meta name="twitter:description" content="Present, teach, and demo without breaking your flow. Draw, explain, record, transcribe, and summarize locally on macOS.">
     <meta name="twitter:image" content="https://codeonholiday.com/hoverboard/og-image.png">
 
     <!-- Plausible Analytics (Privacy-Friendly) -->
@@ -72,9 +72,9 @@
                 "name": "HoverBoard",
                 "applicationCategory": "BusinessApplication",
                 "operatingSystem": "macOS 14+",
-                "softwareVersion": "1.3.12",
+                "softwareVersion": "1.3.13",
                 "url": "https://codeonholiday.com/hoverboard/",
-                "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/v1.3.12/hoverboard-latest.zip",
+                "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/v1.3.13/hoverboard-latest.zip",
                 "screenshot": "https://codeonholiday.com/hoverboard/showcase-whiteboard.webp",
                 "video": {
                     "@type": "VideoObject",
@@ -83,10 +83,10 @@
                     "thumbnailUrl": "https://img.youtube.com/vi/DgMY9qRFxFI/maxresdefault.jpg",
                     "uploadDate": "2026-07-17"
                 },
-                "description": "A macOS menu bar app to draw, freeze, whiteboard, take private Markdown notes, spotlight, show keystrokes, capture sessions, and run break timers over your screen — all a hotkey away. Draw, Spotlight, and Break Timer are free forever.",
+                "description": "A macOS menu bar app to present, teach, and demo without breaking your flow. Draw, freeze, whiteboard, take private Markdown notes, record meetings, transcribe offline, label speakers, and create on-device summaries. Draw, Spotlight, and Break Timer are free forever.",
                 "offers": [
                     { "@type": "Offer", "name": "HoverBoard Free", "price": "0", "priceCurrency": "USD" },
-                    { "@type": "Offer", "name": "HoverBoard Pro", "price": "7.99", "priceCurrency": "USD" }
+                    { "@type": "Offer", "name": "HoverBoard Pro", "price": "15.99", "priceCurrency": "USD" }
                 ],
                 "publisher": { "@type": "Organization", "name": "codeonholiday", "url": "https://codeonholiday.com/" },
                 "sameAs": ["https://www.producthunt.com/products/hoverboard-6"]
@@ -173,6 +173,14 @@
                         "acceptedAnswer": {
                             "@type": "Answer",
                             "text": "Notes is a local Markdown notepad with live preview, Mermaid diagrams, folders, search, autosave, and PDF export. It opens as a popup or full-screen presenter view and stays hidden from screen sharing by default until you choose Share."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can HoverBoard record and transcribe meetings?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. HoverBoard 1.3.13 can record meetings from Notes, transcribe English locally with WhisperKit, identify speakers in completed transcripts, and use Apple Intelligence on-device to create key points, decisions, and action items when supported by your Mac."
                         }
                     },
                     {
@@ -966,7 +974,10 @@
             .bento .b-wide { grid-column: span 2; }
         }
         @media (max-width: 768px) {
-            .nav-links { display: none; }
+            .nav-links { display: none; position: absolute; top: 64px; left: 24px; right: 24px; padding: 12px; flex-direction: column; align-items: stretch; gap: 2px; border: 1px solid var(--border-strong); border-radius: 16px; background: rgba(14, 17, 24, .96); box-shadow: 0 20px 50px rgba(0,0,0,.45); backdrop-filter: blur(18px); }
+            .nav-links.open { display: flex; }
+            .nav-links a { padding: 11px 12px; border-radius: 9px; }
+            .nav-links a:hover { background: rgba(255,255,255,.06); }
             .mobile-toggle { display: inline-flex; }
             .grid-3 { grid-template-columns: 1fr; }
             .test-grid { grid-template-columns: 1fr; }
@@ -983,6 +994,85 @@
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation: none !important; transition: none !important; }
             .reveal { opacity: 1; transform: none; }
+        }
+
+        /* ============================================================
+           1.3.13 VISUAL PASS — editorial workflow-led landing
+           ============================================================ */
+        :root {
+            --bg: #08090d;
+            --bg-2: #0e1118;
+            --card: #11151d;
+            --border: rgba(190, 202, 230, 0.13);
+            --border-strong: rgba(190, 202, 230, 0.25);
+            --text-muted: #9ca6b9;
+            --text-dim: #687286;
+        }
+        body::before {
+            background:
+                radial-gradient(45% 38% at 8% 2%, rgba(255, 107, 53, 0.11) 0%, transparent 70%),
+                radial-gradient(38% 34% at 94% 14%, rgba(224, 30, 90, 0.08) 0%, transparent 70%);
+        }
+        .hero { padding-top: 142px; padding-bottom: 76px; }
+        .hero-grid { align-items: start; }
+        .hero-copy h1 { max-width: 620px; font-size: clamp(2.8rem, 5.2vw, 4.55rem); letter-spacing: -0.055em; }
+        .hero-copy h1 .grad { white-space: nowrap; }
+        .hero-copy .lede { max-width: 570px; line-height: 1.62; }
+        .hero-copy .lede strong { color: var(--text); font-weight: 600; }
+        .hero-visual { margin-top: 86px; }
+        .device-frame { border-radius: 26px; padding: 10px; background: rgba(18, 22, 31, 0.82); box-shadow: 0 40px 100px -34px rgba(0,0,0,.85), 0 0 0 1px rgba(255,107,53,.08); }
+        .hero-video-caption { color: #7d879a; }
+        .hero-copy > p[style] { margin-top: 18px !important; font-size: .9rem !important; }
+        .trust-line { gap: 8px; }
+        .hero-social { margin-top: 22px; padding-top: 20px; }
+        .ph-support { margin-top: 16px; padding: 11px 13px; gap: 12px; }
+        .ph-support-copy span { font-size: 12px; }
+        .ph-badge img { width: 165px; }
+        .trustbar { padding-top: 18px; padding-bottom: 64px; }
+        .trustbar-label { letter-spacing: .08em; }
+        .workflow { padding: 70px 0 92px; }
+        .workflow-intro { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; align-items: end; margin-bottom: 34px; }
+        .workflow-intro .sec-head { margin: 0; text-align: left; max-width: 530px; }
+        .workflow-intro .sec-head h2 { font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -.045em; }
+        .workflow-intro > p { color: var(--text-muted); font-size: 1.08rem; max-width: 470px; margin-bottom: 8px; }
+        .workflow-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        .workflow-step { min-height: 190px; padding: 24px; border: 1px solid var(--border); border-radius: 18px; background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.012)); }
+        .workflow-step:nth-child(2) { background: linear-gradient(145deg, rgba(255,107,53,.12), rgba(255,255,255,.012)); }
+        .workflow-step:nth-child(3) { background: linear-gradient(145deg, rgba(224,30,90,.12), rgba(255,255,255,.012)); }
+        .workflow-step:nth-child(4) { background: linear-gradient(145deg, rgba(245,181,68,.10), rgba(255,255,255,.012)); }
+        .workflow-step .step-no { color: var(--orange-2); font: 700 12px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; }
+        .workflow-step h3 { margin: 34px 0 7px; font-size: 1.18rem; letter-spacing: -.02em; }
+        .workflow-step p { color: var(--text-muted); font-size: .91rem; line-height: 1.55; }
+        .release-card { display: grid; grid-template-columns: 1.15fr .85fr; gap: 28px; align-items: center; margin-top: 18px; padding: 28px; border-radius: 20px; border: 1px solid rgba(255,107,53,.28); background: linear-gradient(120deg, rgba(255,107,53,.11), rgba(224,30,90,.06) 60%, rgba(255,255,255,.02)); }
+        .release-card h3 { font-size: 1.35rem; letter-spacing: -.025em; margin: 8px 0; }
+        .release-card p { color: var(--text-muted); max-width: 640px; }
+        .release-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 18px; list-style: none; }
+        .release-list li { display: flex; gap: 8px; align-items: flex-start; color: var(--text-muted); font-size: .9rem; }
+        .release-list svg { width: 17px; height: 17px; flex: 0 0 auto; color: var(--orange-2); margin-top: 2px; }
+        .showcase { padding-top: 104px; }
+        .showcase-stage { box-shadow: 0 28px 80px -38px rgba(0,0,0,.9); }
+        .features { padding-top: 104px; }
+        .features .sec-head h2, .compare .sec-head h2, .pricing .sec-head h2 { letter-spacing: -.045em; }
+        .bento .card.featured-tile { min-height: 230px; }
+        .bento > .b-wide:last-child { grid-column: span 1; }
+        .testimonials { padding-top: 104px; }
+        .pricing { padding-top: 104px; }
+        @media (max-width: 900px) {
+            .workflow-intro, .release-card { grid-template-columns: 1fr; gap: 20px; }
+            .workflow-steps { grid-template-columns: repeat(2, 1fr); }
+            .workflow-intro .sec-head { max-width: 680px; }
+            .bento > .b-wide:last-child { grid-column: span 2; }
+        }
+        @media (max-width: 768px) {
+            .hero-copy h1 { font-size: clamp(2.65rem, 13vw, 4rem); }
+            .hero-copy h1 .grad { white-space: normal; }
+            .hero-visual { margin-top: 14px; }
+            .workflow { padding-top: 42px; }
+            .workflow-steps, .release-list { grid-template-columns: 1fr; }
+            .workflow-step { min-height: 0; }
+            .workflow-step h3 { margin-top: 24px; }
+            .release-card { padding: 22px; }
+            .bento > .b-wide:last-child { grid-column: auto; }
         }
     </style>
 </head>
@@ -1115,9 +1205,9 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-copy">
-                    <span class="pill reveal"><span class="dot"></span> macOS native · menu bar app · v1.3.12</span>
-                    <h1 class="reveal">Present like a pro.<br><span class="grad">Without the fuss.</span></h1>
-                    <p class="lede reveal">HoverBoard is a macOS menu bar app that puts <strong>draw, spotlight, freeze, whiteboard, private notes, break timer, cursor highlight, keystroke display, and sessions</strong> over your screen — all a hotkey away. Draw, Spotlight, and Break Timer are free forever. Works seamlessly while you share on Zoom, Meet, or Teams.</p>
+                    <span class="pill reveal"><span class="dot"></span> macOS native · menu bar app · v1.3.13</span>
+                    <h1 class="reveal">Keep the room<br><span class="grad">in the moment.</span></h1>
+                    <p class="lede reveal">HoverBoard puts every tool around your presentation in one quiet menu bar app: <strong>draw, spotlight, freeze, whiteboard, private notes, meeting recording, offline transcription, and on-device summaries</strong> — all a hotkey away.</p>
                     <div class="hero-cta reveal">
                         <a href="https://github.com/codeonholiday/codeonholiday/releases/download/v1.3.13/hoverboard-latest.zip?t=1" class="btn btn-primary btn-lg btn-download">
                             <svg><use href="#i-download"/></svg>
@@ -1140,20 +1230,10 @@
                         <span class="sep"></span>
                         <strong>60s Pro trial</strong>
                         <span class="sep"></span>
-                        <strong>$7.99</strong> to unlock
+                        <strong>$15.99</strong> to unlock
                         <span class="sep"></span>
                         30-day money-back
                     </div>
-                    <div class="ph-support reveal">
-                        <div class="ph-support-copy">
-                            <strong>Loving HoverBoard?</strong>
-                            <span>A quick upvote on Product Hunt helps more presenters find us — takes two seconds.</span>
-                        </div>
-                        <a class="ph-badge" href="https://www.producthunt.com/products/hoverboard-6?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-hoverboard-6" target="_blank" rel="noopener noreferrer">
-                            <img alt="HoverBoard - Present like a pro. Without the fuss. | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1194744&theme=light&t=1784211906848">
-                        </a>
-                    </div>
-
                     <div class="hero-social reveal">
                         <div class="avatars">
                             <span style="background:#FF6B35">E</span>
@@ -1176,6 +1256,15 @@
                         </div>
                     </div>
                     <p class="hero-video-caption">Draw, spotlight, freeze, whiteboard &amp; more — over a live lesson. <a href="https://youtu.be/DgMY9qRFxFI" target="_blank" rel="noopener noreferrer">Watch on YouTube</a></p>
+                    <div class="ph-support reveal">
+                        <div class="ph-support-copy">
+                            <strong>Loving HoverBoard?</strong>
+                            <span>A quick upvote on Product Hunt helps more presenters find us — takes two seconds.</span>
+                        </div>
+                        <a class="ph-badge" href="https://www.producthunt.com/products/hoverboard-6?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-hoverboard-6" target="_blank" rel="noopener noreferrer">
+                            <img alt="HoverBoard - Present like a pro. Without the fuss. | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1194744&theme=light&t=1784211906848">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1229,14 +1318,48 @@
     </section>
 
     <!-- ============================================================
+         WORKFLOW — the 1.3.13 product story
+         ============================================================ -->
+    <section class="workflow" id="workflow">
+        <div class="container">
+            <div class="workflow-intro">
+                <div class="sec-head reveal">
+                    <span class="sec-eyebrow">One flow, start to finish</span>
+                    <h2>Present clearly.<br>Leave with the useful parts.</h2>
+                </div>
+                <p class="reveal">HoverBoard helps you stay in the conversation while you present — then turns the session into notes you can actually use. No app switching. No cloud account. No clean-up project afterwards.</p>
+            </div>
+            <div class="workflow-steps">
+                <article class="workflow-step reveal"><span class="step-no">01 / PRESENT</span><h3>Make every point visible</h3><p>Draw, spotlight, highlight clicks, and show keystrokes over any screen or call.</p></article>
+                <article class="workflow-step reveal"><span class="step-no">02 / EXPLAIN</span><h3>Slow down the hard bit</h3><p>Freeze a frame, open a whiteboard, or build a session as you teach.</p></article>
+                <article class="workflow-step reveal"><span class="step-no">03 / CAPTURE</span><h3>Record without leaving Notes</h3><p>Record meetings with a compact movable pill and keep timestamped entries beside your Markdown notes.</p></article>
+                <article class="workflow-step reveal"><span class="step-no">04 / FOLLOW UP</span><h3>Get the signal back</h3><p>Transcribe offline, label speakers, and create private summaries, decisions, and action items on your Mac.</p></article>
+            </div>
+            <div class="release-card reveal">
+                <div>
+                    <span class="sec-eyebrow">New in HoverBoard 1.3.13</span>
+                    <h3>Your meeting stays yours.</h3>
+                    <p>Recording, English transcription, speaker labels, and Apple Intelligence summaries all run locally. Hardware and feature availability are checked before use, so the workflow stays clear and predictable.</p>
+                </div>
+                <ul class="release-list">
+                    <li><svg><use href="#i-check"/></svg>Offline English transcription</li>
+                    <li><svg><use href="#i-check"/></svg>Timestamped speaker labels</li>
+                    <li><svg><use href="#i-check"/></svg>Key points and action items</li>
+                    <li><svg><use href="#i-check"/></svg>Private on-device writing help</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
          SHOWCASE (tabbed)
          ============================================================ -->
     <section class="showcase" id="showcase">
         <div class="container">
             <div class="sec-head reveal">
                 <span class="sec-eyebrow">See it in action</span>
-                <h2>Nine tools, zero friction</h2>
-                <p>Click through each workflow — every one is a single hotkey away, layered right over your screen.
+                <h2>Tools that disappear into your workflow</h2>
+                <p>Click through the moments where presenters usually lose momentum — every one is a single hotkey away, layered right over your screen.
                     Full walkthrough in the <a href="/blog/how-to-use-hoverboard-complete-guide/" style="color:var(--orange-2)">How to Use HoverBoard guide</a>.</p>
             </div>
 
@@ -1428,44 +1551,49 @@
         <div class="container">
             <div class="sec-head reveal">
                 <span class="sec-eyebrow">Built for the moment</span>
-                <h2>Every detail tuned so the tools disappear</h2>
-                <p>Small features that keep you in flow instead of fighting your software.</p>
+                <h2>Everything around the moment, handled</h2>
+                <p>Quiet tools for the live session, plus a private way to make sense of what happened afterwards.</p>
             </div>
             <div class="bento">
                 <div class="card featured-tile b-wide reveal">
                     <div class="icon-tile orange"><svg><use href="#i-stack"/></svg></div>
-                    <h3>Sessions — build a deck as you present (Pro)</h3>
-                    <p>Save frames from Draw, Freeze, or Whiteboard into a local session library. Reorder frames, rename sessions, and export an ordered PNG set or multi-page PDF when you're done teaching.</p>
+                    <h3>One hotkey, no context switching</h3>
+                    <p>Every tool appears exactly where you need it: over your slides, browser, IDE, or video call. Stay in the conversation instead of hunting through windows.</p>
                 </div>
                 <div class="card reveal">
                     <div class="icon-tile pink"><svg><use href="#i-board"/></svg></div>
-                    <h3>Whiteboard that teaches</h3>
-                    <p>Mindmaps, sticky notes, checklists, media links, and architecture stencils for system-design diagrams — plus Tab / Return mindmap shortcuts.</p>
+                    <h3>Works over anything</h3>
+                    <p>Present on Zoom, Meet, Teams, Keynote, PowerPoint, a browser, or an IDE without changing how you share your screen.</p>
                 </div>
                 <div class="card reveal">
                     <div class="icon-tile amber"><svg><use href="#i-note"/></svg></div>
-                    <h3>Private Notes for presenters (Pro)</h3>
-                    <p>Write speaker notes in Markdown with live preview and Mermaid diagrams. Search your local library, keep notes hidden from screen share by default, then switch to Sharing or export a PDF when you need to.</p>
+                    <h3>Private by default</h3>
+                    <p>No account, no cloud workspace, and no telemetry on your screen contents. Your notes, recordings, transcripts, and sessions stay on your Mac.</p>
+                </div>
+                <div class="card featured-tile reveal">
+                    <div class="icon-tile orange"><svg><use href="#i-video"/></svg></div>
+                    <h3>Leave with something useful</h3>
+                    <p>Capture frames, notes, recordings, transcripts, and follow-up in one workflow — then export what you need when the session is done.</p>
                 </div>
                 <div class="card reveal">
                     <div class="icon-tile amber"><svg><use href="#i-key"/></svg></div>
-                    <h3>Keystroke Display</h3>
-                    <p>Show live shortcuts on screen while you demo. Privacy confirmation on first enable; ⌃⌥K by default.</p>
+                    <h3>Built around muscle memory</h3>
+                    <p>Global hotkeys use a consistent Control-Option leader by default, and every shortcut can be remapped in Settings.</p>
                 </div>
                 <div class="card reveal">
                     <div class="icon-tile orange"><svg><use href="#i-bolt"/></svg></div>
                     <h3>Core tools free forever</h3>
-                    <p>Draw, Spotlight, and Break Timer never require Pro. Other tools include a 60-second trial. Pro unlocks unlimited use, Sessions, and launch at login.</p>
+                    <p>Draw, Spotlight, and Break Timer never require Pro. Try the rest for 60 seconds, then unlock the full workflow with a one-time Pro license.</p>
                 </div>
                 <div class="card reveal">
                     <div class="icon-tile coral"><svg><use href="#i-pen"/></svg></div>
-                    <h3>Custom hotkeys</h3>
-                    <p>Default leader key ⌃⌥ + D/S/F/W/T/H/K — remap every tool to whatever fits your muscle memory.</p>
+                    <h3>Made for live moments</h3>
+                    <p>Lightweight and quiet until you summon it, so the app supports your presentation without becoming part of the distraction.</p>
                 </div>
                 <div class="card b-wide reveal">
                     <div class="icon-tile pink"><svg><use href="#i-shield"/></svg></div>
-                    <h3>Private &amp; local by design</h3>
-                    <p>No account, no cloud, no telemetry on your screen contents. HoverBoard runs entirely on your Mac — your slides, sessions, and annotations never leave it.</p>
+                    <h3>Export when the moment is over</h3>
+                    <p>Turn a live session into something you can keep: export annotated frames, whiteboards, notes, transcripts, and follow-up without rebuilding the work in another app.</p>
                 </div>
             </div>
         </div>
@@ -1656,7 +1784,7 @@
                         <li><svg><use href="#i-check"/></svg> Works over Zoom / Meet / Teams</li>
                         <li><svg><use href="#i-check"/></svg> 60s preview of Pro tools anytime</li>
                         <li class="muted"><svg><use href="#i-x"/></svg> Unlimited Freeze / Whiteboard / Halo / Keys</li>
-                        <li class="muted"><svg><use href="#i-x"/></svg> Notes, Sessions, export, launch at login</li>
+                        <li class="muted"><svg><use href="#i-x"/></svg> Notes, Sessions, recording, export, launch at login</li>
                     </ul>
                     <a href="https://github.com/codeonholiday/codeonholiday/releases/download/v1.3.13/hoverboard-latest.zip?t=1" class="btn btn-ghost btn-download">
                         <svg><use href="#i-download"/></svg>
@@ -1665,12 +1793,10 @@
                 </div>
 
                 <div class="price-card pro reveal">
-                    <span class="price-tag">★ Launch price — save 50%</span>
                     <div class="price-tier">Pro</div>
                     <div class="price-amt">
                         <span class="cur">$</span>
-                        <span class="num">7.99</span>
-                        <span class="strike">$15.99</span>
+                        <span class="num">15.99</span>
                         <span class="per">/ one-time</span>
                     </div>
                     <p class="price-desc">Everything unlocked on every Mac you own. Pay once — own it forever.</p>
@@ -1681,14 +1807,16 @@
                         <li><svg><use href="#i-check"/></svg> Cursor Halo &amp; Keystroke Display</li>
                         <li><svg><use href="#i-check"/></svg> Sessions library + PNG / PDF export</li>
                         <li><svg><use href="#i-check"/></svg> Private Notes — Markdown, Mermaid &amp; PDF export</li>
+                        <li><svg><use href="#i-check"/></svg> Meeting recording + offline transcription</li>
+                        <li><svg><use href="#i-check"/></svg> Speaker labels + on-device summaries</li>
                         <li><svg><use href="#i-check"/></svg> Copy / export without trial caps</li>
                         <li><svg><use href="#i-check"/></svg> Launch at login &amp; command URLs</li>
                         <li><svg><use href="#i-check"/></svg> All updates in this major version</li>
                     </ul>
                     <div class="price-actions">
-                        <a href="https://codeonholiday.lemonsqueezy.com/checkout/buy/304518b9-5fa8-4a1a-97b3-4b743fadedf8?checkout[discount_code]=HBLAUCH50" class="btn btn-primary" target="_blank" rel="noopener">
+                        <a href="https://codeonholiday.lemonsqueezy.com/checkout/buy/304518b9-5fa8-4a1a-97b3-4b743fadedf8" class="btn btn-primary" target="_blank" rel="noopener">
                             <svg><use href="#i-bolt"/></svg>
-                            Buy Pro — $7.99
+                            Buy Pro — $15.99
                         </a>
                     </div>
                 </div>
@@ -1748,7 +1876,11 @@
                 </details>
                 <details class="faq-item">
                     <summary>What are HoverBoard Notes?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">Notes is a local Markdown workspace for speaker notes and presenter prompts, with live preview, Mermaid diagrams, folders, search, autosave, and PDF export. It opens as a popup or full-screen presenter view and stays hidden from screen sharing by default until you choose <strong>Share</strong>.</div>
+                    <div class="ans">Notes is a local Markdown workspace for speaker notes and presenter prompts, with live preview, Mermaid diagrams, folders, search, autosave, and PDF export. In 1.3.13 it can also record meetings, keep timestamped note entries, and connect them to local transcripts. It opens as a popup or full-screen presenter view and stays hidden from screen sharing by default until you choose <strong>Share</strong>.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Can HoverBoard record and transcribe meetings?<svg class="chev"><use href="#i-chev"/></svg></summary>
+                    <div class="ans">Yes. HoverBoard 1.3.13 records from Notes, transcribes English offline with WhisperKit, can label speakers in completed transcripts, and can create private key points, decisions, and action items with Apple Intelligence on supported Macs.</div>
                 </details>
                 <details class="faq-item">
                     <summary>How do I learn all the tools?<svg class="chev"><use href="#i-chev"/></svg></summary>
@@ -1782,7 +1914,7 @@
                     <span class="sep"></span>
                     60s Pro trial
                     <span class="sep"></span>
-                    $7.99 to unlock
+                    $15.99 to unlock
                     <span class="sep"></span>
                     30-day money-back
                 </div>
@@ -1801,7 +1933,7 @@
                         <span class="logo-mark"><img src="icon.png" alt="HoverBoard logo"></span>
                         <span class="logo-text">HoverBoard</span>
                     </a>
-                    <p>The macOS menu bar app for draw, spotlight, freeze, whiteboard, keystroke display, sessions, timer, and cursor highlight — all a hotkey away.</p>
+                    <p>The macOS menu bar app for presenting, teaching, recording, and following up — all a hotkey away.</p>
                     <!-- Social URLs — replace placeholders as real links arrive -->
                     <nav class="social" aria-label="Social links">
                         <a href="https://x.com/codeonholiday" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
@@ -1853,6 +1985,18 @@
         const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 20);
         onScroll();
         window.addEventListener('scroll', onScroll, { passive: true });
+
+        // Mobile navigation
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.querySelector('.nav-links');
+        mobileToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            mobileToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+        navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+        }));
 
         // Scroll reveal
         const reveals = document.querySelectorAll('.reveal');
