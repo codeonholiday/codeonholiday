@@ -10,8 +10,8 @@
         .btn-primary  / .btn-download  / .btn-secondary  / .btn-ghost  / .product
       Do not rename them.
     ═════════════════════════════════════════════════════════════
-    Pricing model: Free forever (Draw, Spotlight, Break Timer) + one-time
-    Pro license ($15.99). Same download for both; Pro tools
+    Pricing model: Free forever (Spotlight, Break Timer) + one-time
+    Pro license ($15.99). Same download for both; Draw and other Pro tools
     include a 60s trial. Conversion: Download Free (nav/hero/pricing/final-cta)
     → Buy Pro (checkout in Pricing) → paste key from email.
     TODO before shipping:
@@ -34,7 +34,7 @@
     <meta property="og:site_name" content="codeonholiday">
     <meta property="og:url" content="https://codeonholiday.com/hoverboard/">
     <meta property="og:title" content="HoverBoard — Present, explain, and capture on macOS">
-    <meta property="og:description" content="One hotkey away from drawing, explaining, capturing, transcribing, and summarizing your next session. Core presentation tools are free forever.">
+    <meta property="og:description" content="One hotkey away from drawing, explaining, capturing, transcribing, and summarizing your next session. Spotlight and Break Timer are free forever.">
     <meta property="og:image" content="https://codeonholiday.com/hoverboard/og-image.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1536">
@@ -72,9 +72,9 @@
                 "name": "HoverBoard",
                 "applicationCategory": "BusinessApplication",
                 "operatingSystem": "macOS 14+",
-                "softwareVersion": "1.3.13",
+                "softwareVersion": "1.3.14",
                 "url": "https://codeonholiday.com/hoverboard/",
-                "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/v1.3.13/hoverboard-latest.zip",
+                "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/v1.3.14/hoverboard-latest.zip?t=202607252144",
                 "screenshot": "https://codeonholiday.com/hoverboard/showcase-whiteboard.webp",
                 "video": {
                     "@type": "VideoObject",
@@ -83,7 +83,7 @@
                     "thumbnailUrl": "https://img.youtube.com/vi/DgMY9qRFxFI/maxresdefault.jpg",
                     "uploadDate": "2026-07-17"
                 },
-                "description": "A macOS menu bar app to present, teach, and demo without breaking your flow. Draw, freeze, whiteboard, take private Markdown notes, record meetings, transcribe offline, label speakers, and create on-device summaries. Draw, Spotlight, and Break Timer are free forever.",
+                "description": "A macOS menu bar app to present, teach, and demo without breaking your flow. Draw, freeze, whiteboard, take private Markdown notes, record meetings, transcribe offline, label speakers, and create on-device summaries. Spotlight and Break Timer are free forever; Draw includes a 60-second Pro trial.",
                 "offers": [
                     { "@type": "Offer", "name": "HoverBoard Free", "price": "0", "priceCurrency": "USD" },
                     { "@type": "Offer", "name": "HoverBoard Pro", "price": "15.99", "priceCurrency": "USD" }
@@ -148,7 +148,7 @@
                         "name": "What is free in HoverBoard without buying?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Draw, Spotlight, and Break Timer are free forever with no trial. Freeze, Whiteboard, Cursor Halo, and Keystroke Display include a 60-second Pro trial each time you open them. Pro unlocks unlimited use, Sessions, export and copy, command URLs, and launch at login."
+                            "text": "Spotlight and Break Timer are free forever with no trial. Draw, Freeze, Whiteboard, Cursor Halo, and Keystroke Display include a 60-second Pro trial each time you open them. Pro unlocks unlimited use, Sessions, export and copy, command URLs, and launch at login."
                         }
                     },
                     {
@@ -156,7 +156,7 @@
                         "name": "How does the HoverBoard Pro trial work?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Freeze, Whiteboard, Cursor Halo, and Keystroke Display run at full power for 60 seconds each time you open them, with a live countdown. Draw, Spotlight, and Break Timer stay free forever. Upgrade to Pro for unlimited overlays, Sessions, and launch at login. See the complete guide for details."
+                            "text": "Draw, Freeze, Whiteboard, Cursor Halo, and Keystroke Display run at full power for 60 seconds each time you open them, with a live countdown. Spotlight and Break Timer stay free forever. Upgrade to Pro for unlimited overlays, Sessions, and launch at login. See the complete guide for details."
                         }
                     },
                     {
@@ -180,7 +180,7 @@
                         "name": "Can HoverBoard record and transcribe meetings?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Yes. HoverBoard 1.3.13 can record meetings from Notes, transcribe English locally with WhisperKit, identify speakers in completed transcripts, and use Apple Intelligence on-device to create key points, decisions, and action items when supported by your Mac."
+                            "text": "Yes. HoverBoard 1.3.14 can record meetings from Notes, transcribe English locally with WhisperKit, identify speakers in completed transcripts, and use Apple Intelligence on-device to create key points, decisions, and action items when supported by your Mac."
                         }
                     },
                     {
@@ -1205,7 +1205,7 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-copy">
-                    <span class="pill reveal"><span class="dot"></span> macOS native · menu bar app · v1.3.13</span>
+                    <span class="pill reveal"><span class="dot"></span> macOS native · menu bar app · v1.3.14</span>
                     <h1 class="reveal">Keep the room<br><span class="grad">in the moment.</span></h1>
                     <p class="lede reveal">HoverBoard puts every tool around your presentation in one quiet menu bar app: <strong>draw, spotlight, freeze, whiteboard, private notes, meeting recording, offline transcription, and on-device summaries</strong> — all a hotkey away.</p>
                     <div class="hero-cta reveal">
@@ -1337,7 +1337,7 @@
             </div>
             <div class="release-card reveal">
                 <div>
-                    <span class="sec-eyebrow">New in HoverBoard 1.3.13</span>
+                    <span class="sec-eyebrow">New in HoverBoard 1.3.14</span>
                     <h3>Your meeting stays yours.</h3>
                     <p>Recording, English transcription, speaker labels, and Apple Intelligence summaries all run locally. Hardware and feature availability are checked before use, so the workflow stays clear and predictable.</p>
                 </div>
@@ -1582,8 +1582,8 @@
                 </div>
                 <div class="card reveal">
                     <div class="icon-tile orange"><svg><use href="#i-bolt"/></svg></div>
-                    <h3>Core tools free forever</h3>
-                    <p>Draw, Spotlight, and Break Timer never require Pro. Try the rest for 60 seconds, then unlock the full workflow with a one-time Pro license.</p>
+                    <h3>Spotlight and Timer free forever</h3>
+                    <p>Spotlight and Break Timer never require Pro. Try Draw and the rest for 60 seconds, then unlock the full workflow with a one-time Pro license.</p>
                 </div>
                 <div class="card reveal">
                     <div class="icon-tile coral"><svg><use href="#i-pen"/></svg></div>
@@ -1607,7 +1607,7 @@
             <div class="sec-head reveal">
                 <span class="sec-eyebrow">Why HoverBoard</span>
                 <h2>vs. annotation-only overlays</h2>
-                <p>Presentify and similar apps are great at draw, cursor, and spotlight. HoverBoard adds a full teaching layer — freeze, timer, keystrokes, mindmap whiteboard, private Notes, and Sessions — with core tools free forever.</p>
+                <p>Presentify and similar apps are great at draw, cursor, and spotlight. HoverBoard adds a full teaching layer — freeze, timer, keystrokes, mindmap whiteboard, private Notes, and Sessions — with Spotlight and Timer free forever, plus a 60-second Draw trial.</p>
             </div>
             <div class="compare-wrap reveal">
                 <table>
@@ -1687,7 +1687,7 @@
                             <td class="col-other no"><svg><use href="#i-x"/></svg></td>
                         </tr>
                         <tr>
-                            <td>Draw / Spotlight / Timer free forever</td>
+                            <td>Spotlight / Timer free forever</td>
                             <td class="col-hb yes"><svg><use href="#i-check"/></svg></td>
                             <td class="col-peer partial">Paid / Setapp</td>
                             <td class="col-other na">—</td>
@@ -1765,7 +1765,7 @@
             <div class="sec-head reveal">
                 <span class="sec-eyebrow">Simple pricing</span>
                 <h2>Free forever. Pro once.</h2>
-                <p>Download the same app for everyone. <strong>Draw, Spotlight, and Break Timer stay free forever.</strong> Unlock Freeze, Whiteboard, Notes, Cursor Halo, Keystroke Display, Sessions, and more with a one-time Pro license — or try those tools for <strong>60 seconds</strong> anytime.</p>
+                <p>Download the same app for everyone. <strong>Spotlight and Break Timer stay free forever.</strong> Try Draw, Freeze, Whiteboard, Notes, Cursor Halo, Keystroke Display, Sessions, and more for <strong>60 seconds</strong>, then unlock the full workflow with a one-time Pro license.</p>
             </div>
             <div class="price-grid">
                 <div class="price-card reveal">
@@ -1844,7 +1844,7 @@
                 </details>
                 <details class="faq-item">
                     <summary>What's free without buying?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans"><strong>Draw, Spotlight, and Break Timer</strong> are free forever — no trial countdown. Freeze, Whiteboard, Cursor Halo, and Keystroke Display include a 60-second Pro trial each time you open them. See the <a href="/blog/how-to-use-hoverboard-complete-guide/">complete guide</a> for the full free vs Pro breakdown.</div>
+                    <div class="ans"><strong>Spotlight and Break Timer</strong> are free forever — no trial countdown. Draw, Freeze, Whiteboard, Cursor Halo, and Keystroke Display include a 60-second Pro trial each time you open them. See the <a href="/blog/how-to-use-hoverboard-complete-guide/">complete guide</a> for the full free vs Pro breakdown.</div>
                 </details>
                 <details class="faq-item">
                     <summary>Does my data stay private?<svg class="chev"><use href="#i-chev"/></svg></summary>
@@ -1868,7 +1868,7 @@
                 </details>
                 <details class="faq-item">
                     <summary>How does the 60-second Pro trial work?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">Freeze, Whiteboard, Cursor Halo, and Keystroke Display run at full power for 60 seconds each time you open them. A live countdown pill shows time remaining. When the trial ends, you can reopen for another preview or upgrade to Pro for unlimited use, Sessions, export/copy, command URLs, and launch at login. Draw, Spotlight, and Break Timer never start a trial.</div>
+                    <div class="ans">Draw, Freeze, Whiteboard, Cursor Halo, and Keystroke Display run at full power for 60 seconds each time you open them. A live countdown pill shows time remaining. When the trial ends, you can reopen for another preview or upgrade to Pro for unlimited use, Sessions, export/copy, command URLs, and launch at login. Spotlight and Break Timer never start a trial.</div>
                 </details>
                 <details class="faq-item">
                     <summary>Can I export my whiteboards?<svg class="chev"><use href="#i-chev"/></svg></summary>
@@ -1876,11 +1876,11 @@
                 </details>
                 <details class="faq-item">
                     <summary>What are HoverBoard Notes?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">Notes is a local Markdown workspace for speaker notes and presenter prompts, with live preview, Mermaid diagrams, folders, search, autosave, and PDF export. In 1.3.13 it can also record meetings, keep timestamped note entries, and connect them to local transcripts. It opens as a popup or full-screen presenter view and stays hidden from screen sharing by default until you choose <strong>Share</strong>.</div>
+                    <div class="ans">Notes is a local Markdown workspace for speaker notes and presenter prompts, with live preview, Mermaid diagrams, folders, search, autosave, and PDF export. In 1.3.14 it can also record meetings, keep timestamped note entries, and connect them to local transcripts. It opens as a popup or full-screen presenter view and stays hidden from screen sharing by default until you choose <strong>Share</strong>.</div>
                 </details>
                 <details class="faq-item">
                     <summary>Can HoverBoard record and transcribe meetings?<svg class="chev"><use href="#i-chev"/></svg></summary>
-                    <div class="ans">Yes. HoverBoard 1.3.13 records from Notes, transcribes English offline with WhisperKit, can label speakers in completed transcripts, and can create private key points, decisions, and action items with Apple Intelligence on supported Macs.</div>
+                    <div class="ans">Yes. HoverBoard 1.3.14 records from Notes, transcribes English offline with WhisperKit, can label speakers in completed transcripts, and can create private key points, decisions, and action items with Apple Intelligence on supported Macs.</div>
                 </details>
                 <details class="faq-item">
                     <summary>How do I learn all the tools?<svg class="chev"><use href="#i-chev"/></svg></summary>
