@@ -5,6 +5,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 import { marked } from 'marked';
@@ -44,6 +45,19 @@ function isoDate(d) {
 function isoDateTime(d) {
   const day = isoDate(d);
   return `${day}T00:00:00+00:00`;
+}
+
+function gitLastModified(relativePath, fallback) {
+  try {
+    const value = execFileSync(
+      'git',
+      ['log', '-1', '--format=%cs', '--', relativePath],
+      { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }
+    ).trim();
+    return value || fallback;
+  } catch {
+    return fallback;
+  }
 }
 
 function extractYoutubeId(input) {
@@ -517,13 +531,13 @@ ${items}
 
 /** Static product/legal URLs always present in sitemap; blog URLs injected by build. */
 const STATIC_SITEMAP_URLS = [
-  { loc: `${SITE}/`, priority: '1.0', changefreq: 'weekly' },
-  { loc: `${SITE}/meetly/`, priority: '0.9', changefreq: 'weekly' },
-  { loc: `${SITE}/hoverboard/`, priority: '0.9', changefreq: 'weekly' },
-  { loc: `${SITE}/meetly/privacy.html`, priority: '0.3', changefreq: 'yearly' },
-  { loc: `${SITE}/meetly/terms.html`, priority: '0.3', changefreq: 'yearly' },
-  { loc: `${SITE}/hoverboard/privacy.html`, priority: '0.3', changefreq: 'yearly' },
-  { loc: `${SITE}/hoverboard/terms.html`, priority: '0.3', changefreq: 'yearly' },
+  { loc: `${SITE}/`, source: 'index.html', fallbackLastmod: '2026-07-24', priority: '1.0', changefreq: 'weekly' },
+  { loc: `${SITE}/meetly/`, source: 'meetly/index.html', fallbackLastmod: '2026-07-23', priority: '0.9', changefreq: 'weekly' },
+  { loc: `${SITE}/hoverboard/`, source: 'hoverboard/index.html', fallbackLastmod: '2026-07-25', priority: '0.9', changefreq: 'weekly' },
+  { loc: `${SITE}/meetly/privacy.html`, source: 'meetly/privacy.html', fallbackLastmod: '2026-07-13', priority: '0.3', changefreq: 'yearly' },
+  { loc: `${SITE}/meetly/terms.html`, source: 'meetly/terms.html', fallbackLastmod: '2026-07-13', priority: '0.3', changefreq: 'yearly' },
+  { loc: `${SITE}/hoverboard/privacy.html`, source: 'hoverboard/privacy.html', fallbackLastmod: '2026-07-13', priority: '0.3', changefreq: 'yearly' },
+  { loc: `${SITE}/hoverboard/terms.html`, source: 'hoverboard/terms.html', fallbackLastmod: '2026-07-13', priority: '0.3', changefreq: 'yearly' },
 ];
 
 function renderSitemap(posts) {
@@ -544,7 +558,10 @@ function renderSitemap(posts) {
   ];
 
   const all = [
-    ...STATIC_SITEMAP_URLS.map((u) => ({ ...u, lastmod: u.lastmod || today })),
+    ...STATIC_SITEMAP_URLS.map((u) => ({
+      ...u,
+      lastmod: gitLastModified(u.source, u.fallbackLastmod),
+    })),
     ...blogUrls,
   ];
 

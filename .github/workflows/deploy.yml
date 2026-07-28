@@ -23,6 +23,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Sitemap lastmod values come from the latest commit that changed
+          # each static page, so the build needs more than a shallow clone.
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
