@@ -2,7 +2,7 @@
 title: How to Use HoverBoard Freeze & Explain — Pause the Screen and Teach Clearly
 description: Learn how HoverBoard Freeze captures a screen snapshot for calm step-by-step explanations, annotations, session capture, and live presenting on macOS.
 date: 2026-07-23
-updated: 2026-07-23
+updated: 2026-07-28
 tags: [hoverboard, macos, freeze, presentation, teaching, guide]
 image: ./assets/how-to-use-hoverboard-complete-guide/freeze.webp
 author: codeonholiday
@@ -64,7 +64,7 @@ You can move between modes with their global shortcuts, but close the active ove
 
 ## Trial and Pro access
 
-Freeze is a Pro feature with a 60-second trial each time you open it. A countdown pill shows the remaining preview time. Draw, Spotlight, and Break Timer remain free forever. Unlock Pro for unlimited Freeze use, Save to Session, exports, and the rest of the Pro tools.
+Freeze is a Pro feature with a 60-second trial each time you open it. A countdown pill shows the remaining preview time. Draw has the same 60-second Pro preview; Spotlight and Break Timer remain free forever. Unlock Pro for unlimited Freeze use, Save to Session, exports, and the rest of the Pro tools.
 
 ## Permission troubleshooting
 

@@ -2,7 +2,7 @@
 title: How to Use HoverBoard — A Complete Guide
 description: Install HoverBoard, use Draw, Spotlight, Freeze, Whiteboard, private Notes, Break Timer, Cursor Halo, Keystroke Display, and Sessions, learn hotkeys, free vs Pro, and Stream Deck URLs on macOS.
 date: 2026-07-17
-updated: 2026-07-17
+updated: 2026-07-28
 tags: [hoverboard, macos, guide, presentation, teaching]
 image: ./assets/how-to-use-hoverboard-complete-guide/og.png
 author: codeonholiday
@@ -76,7 +76,7 @@ flowchart LR
 
 Open any mode from the menu bar or with the **⌃⌥** leader key (Control + Option) plus a letter. Press **Esc** to close the current mode.
 
-### Draw — free forever
+### Draw — 60s Pro trial
 
 Read the dedicated [Draw guide](/blog/how-to-use-hoverboard-draw/) for the full tool and shortcut reference.
 
@@ -85,6 +85,8 @@ Annotate live over whatever is on screen: pen, arrow, rectangle, number markers,
 ![Draw mode annotations](./assets/how-to-use-hoverboard-complete-guide/draw.webp)
 
 Default hotkey: **⌃⌥D**
+
+Draw runs at full power for a 60-second preview each time you open it. Pro unlocks unlimited drawing and annotation.
 
 ### Spotlight — free forever
 
@@ -290,7 +292,7 @@ Apps like **Presentify** are excellent at annotate, cursor highlight, spotlight,
 - Live Keystroke Display
 - Teaching whiteboard (mindmap + collage widgets) with Excalidraw export
 - Sessions capture and PDF export
-- Draw, Spotlight, and Break Timer **free forever**
+- Spotlight and Break Timer **free forever**
 
 We do not claim competitor pricing (it changes). For a side-by-side matrix, see the [comparison table on the product page](/hoverboard/#compare).
 
@@ -318,7 +320,7 @@ Look in the overflow menu. Quit and relaunch from Applications. Confirm you are 
 
 ### Trial ended mid-demo
 
-Reopen the Pro tool for another 60-second preview, or unlock Pro. Draw / Spotlight / Timer never start a trial.
+Reopen the Pro tool for another 60-second preview, or unlock Pro. Spotlight and Break Timer never start a trial.
 
 ### Keystroke HUD not showing
 
@@ -326,7 +328,7 @@ Confirm you accepted the privacy alert, Accessibility is granted, and you used *
 
 ## Recommended teaching workflow
 
-1. **Install** and learn **⌃⌥D** (Draw) and **⌃⌥S** (Spotlight) — both free.
+1. **Install** and learn **⌃⌥D** (Draw, 60-second Pro preview) and **⌃⌥S** (Spotlight, free forever).
 2. Use **⌃⌥F** to freeze when a live UI is about to move.
 3. Keep **⌃⌥T** ready for workshop breaks.
 4. Open **Whiteboard** for digressions; Tab / Return for mindmaps; collage widgets for checklists and photos.

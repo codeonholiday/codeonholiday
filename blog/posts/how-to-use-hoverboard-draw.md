@@ -2,7 +2,7 @@
 title: How to Use HoverBoard Draw — Annotate Any Screen on macOS
 description: Learn how to use HoverBoard Draw for live annotations, arrows, shapes, number markers, colors, auto-fade, and click-through presenting on macOS.
 date: 2026-07-23
-updated: 2026-07-23
+updated: 2026-07-28
 tags: [hoverboard, macos, draw, annotation, presentation, guide]
 image: ./assets/how-to-use-hoverboard-complete-guide/draw.webp
 author: codeonholiday
@@ -76,7 +76,7 @@ Draw does not upload your screen or save drawings to a cloud service. It is a lo
 
 ## Draw and Pro
 
-Draw is free forever. You do not need a trial or a Pro license to annotate a screen, use colors, clear marks, or configure the drawing behavior. Pro adds tools such as Freeze, Whiteboard, Sessions, and other presentation modes; the core Draw workflow remains free.
+Draw is a Pro feature with a 60-second preview each time you open it. The preview includes the full drawing workflow: annotate the screen, choose colors, undo or clear marks, and configure drawing behavior. Upgrade to Pro for unlimited Draw use alongside Freeze, Whiteboard, Sessions, and the other Pro tools. Spotlight and Break Timer remain free forever.
 
 ## Troubleshooting
 

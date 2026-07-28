@@ -2,7 +2,7 @@
 title: How to Use HoverBoard Sessions — Build a Deck While You Present
 description: Learn how HoverBoard Sessions captures frames from Draw, Freeze, and Whiteboard, how to reorder and rename them, and how to export PNG sets or PDFs on macOS.
 date: 2026-07-23
-updated: 2026-07-23
+updated: 2026-07-28
 tags: [hoverboard, macos, sessions, export, presentation, guide]
 image: ./assets/how-to-use-hoverboard-complete-guide/sessions.webp
 author: codeonholiday
@@ -65,7 +65,7 @@ Frames, names, and exports are local data. HoverBoard does not send screen conte
 
 ## Pro access
 
-Sessions are a Pro feature. Freeze, Whiteboard, and other Pro tools can be previewed for 60 seconds, but unlimited Session capture and export require Pro. Draw, Spotlight, and Break Timer are free forever.
+Sessions are a Pro feature. Draw, Freeze, Whiteboard, and other Pro tools can be previewed for 60 seconds, but unlimited Session capture and export require Pro. Spotlight and Break Timer are free forever.
 
 ## Troubleshooting
 

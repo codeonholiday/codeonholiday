@@ -2,7 +2,7 @@
 title: How to Use HoverBoard Keystroke Display — Show Shortcuts Live
 description: Learn how HoverBoard Keystroke Display shows modifier chords and app shortcuts on screen, how to grant Input Monitoring permission, and how to present safely.
 date: 2026-07-23
-updated: 2026-07-23
+updated: 2026-07-28
 tags: [hoverboard, macos, keystroke-display, shortcuts, teaching, guide]
 image: ./assets/how-to-use-hoverboard-complete-guide/keystroke.webp
 author: codeonholiday
@@ -41,7 +41,7 @@ Use the mode only for demonstrations where showing the input is intentional. Tur
 
 ## Trial and Pro access
 
-Keystroke Display includes a 60-second Pro trial each time you open it. Pro unlocks unlimited use. Draw, Spotlight, and Break Timer remain free forever and never show a trial countdown.
+Keystroke Display includes a 60-second Pro trial each time you open it. Pro unlocks unlimited use. Draw also has a 60-second Pro preview; Spotlight and Break Timer remain free forever and never show a trial countdown.
 
 ## Troubleshooting
 

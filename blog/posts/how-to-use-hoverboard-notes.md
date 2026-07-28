@@ -2,7 +2,7 @@
 title: How to Use HoverBoard Notes — Private Markdown for Presenters
 description: Learn how HoverBoard Notes keeps speaker notes private by default with Markdown, live preview, Mermaid diagrams, search, folders, autosave, presenter mode, and PDF export on macOS.
 date: 2026-07-23
-updated: 2026-07-23
+updated: 2026-07-28
 tags: [hoverboard, macos, notes, markdown, mermaid, presentation, guide]
 image: /hoverboard/showcase-notes.webp
 author: codeonholiday
@@ -98,7 +98,7 @@ When a rendered note should become a handout or an archive, export it as a PDF f
 
 ## Trial and Pro access
 
-Notes is a Pro feature with a 60-second trial each time you open it. Pro unlocks unlimited Notes use and PDF export alongside Whiteboard, Freeze, Cursor Halo, Keystroke Display, Sessions, and other advanced tools. Draw, Spotlight, and Break Timer remain free forever.
+Notes is a Pro feature with a 60-second trial each time you open it. Pro unlocks unlimited Notes use and PDF export alongside Draw, Whiteboard, Freeze, Cursor Halo, Keystroke Display, Sessions, and other advanced tools. Spotlight and Break Timer remain free forever.
 
 ## Troubleshooting
 
