@@ -655,7 +655,7 @@
            ============================================================ */
         .showcase { padding: 90px 0; }
         .showcase-tabs {
-            display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 6px;
+            display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 6px;
             margin-bottom: 36px;
         }
         .tab {
@@ -1373,6 +1373,7 @@
                 <button class="tab" data-panel="p7"><svg><use href="#i-key"/></svg> Keystroke</button>
                 <button class="tab" data-panel="p8"><svg><use href="#i-stack"/></svg> Sessions</button>
                 <button class="tab" data-panel="p9"><svg><use href="#i-note"/></svg> Notes</button>
+                <button class="tab" data-panel="p10"><svg><use href="#i-note"/></svg> Recording</button>
             </div>
 
             <div class="showcase-stage reveal">
@@ -1537,6 +1538,25 @@
                         </div>
                         <div class="shot">
                             <img src="showcase-notes.webp" alt="HoverBoard Notes with Markdown editor, live preview, and Mermaid diagram" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 10: Recording, Transcript & Summary -->
+                <div class="panel" id="p10">
+                    <div class="panel-grid">
+                        <div class="panel-copy">
+                            <h3>Record once. Keep the useful parts.</h3>
+                            <p>Capture a meeting from Notes, then turn the recording into a searchable local transcript and a private summary with key points, decisions, and action items.</p>
+                            <ul>
+                                <li><svg><use href="#i-check"/></svg> Compact recording controls with timestamps</li>
+                                <li><svg><use href="#i-check"/></svg> Offline English transcription with speaker labels</li>
+                                <li><svg><use href="#i-check"/></svg> On-device summaries, decisions, and action items</li>
+                                <li><svg><use href="#i-check"/></svg> Recordings and transcripts stay on your Mac</li>
+                            </ul>
+                        </div>
+                        <div class="shot">
+                            <img src="showcase-recording.webp" alt="HoverBoard recording with a local summary and timestamped transcript" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
