@@ -1,9 +1,13 @@
 # Meetly 1.5.3
 
-## Có gì mới
+## What's New
 
-### Tùy chỉnh khoảng thời gian xem lịch
-Meetly giờ cho phép bạn chọn số ngày muốn xem trước trong phần Settings, từ 1 đến 30 ngày. Giá trị mặc định là 7 ngày.
+### Configurable agenda window
+Meetly now lets you choose how many days ahead to load in Settings, from 1 to 30 days. The default is 7 days.
+
+## Compatibility
+
+- Existing reminder timing, menu bar behavior, and calendar permissions are unchanged.
 
 ---
 
