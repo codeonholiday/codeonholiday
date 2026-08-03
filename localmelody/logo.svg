@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="LocalMelody orbit waveform logo">
+  <defs>
+    <radialGradient id="bg" cx="0" cy="0" r="1" gradientTransform="translate(470 430) rotate(52) scale(690)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#292050"/><stop offset=".5" stop-color="#101326"/><stop offset="1" stop-color="#06171e"/>
+    </radialGradient>
+    <linearGradient id="orbit" x1="208" y1="270" x2="830" y2="742" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#b46cff"/><stop offset=".5" stop-color="#7275ff"/><stop offset="1" stop-color="#31dfea"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="12" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect x="48" y="48" width="928" height="928" rx="224" fill="url(#bg)"/>
+  <ellipse cx="512" cy="512" rx="340" ry="220" transform="rotate(-24 512 512)" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="12"/>
+  <ellipse cx="512" cy="512" rx="340" ry="220" transform="rotate(24 512 512)" fill="none" stroke="#fff" stroke-opacity=".05" stroke-width="8"/>
+  <g fill="url(#orbit)" filter="url(#glow)">
+    <rect x="300" y="462" width="52" height="100" rx="26"/>
+    <rect x="378" y="380" width="52" height="264" rx="26"/>
+    <rect x="456" y="318" width="52" height="388" rx="26"/>
+    <rect x="534" y="398" width="52" height="228" rx="26"/>
+    <rect x="612" y="350" width="52" height="324" rx="26"/>
+    <rect x="690" y="442" width="52" height="140" rx="26"/>
+  </g>
+  <circle cx="784" cy="316" r="34" fill="#43deeb" filter="url(#glow)"/>
+  <circle cx="220" cy="690" r="20" fill="#af72ff" filter="url(#glow)"/>
+  <rect x="48" y="48" width="928" height="928" rx="224" fill="none" stroke="#fff" stroke-opacity=".09" stroke-width="4"/>
+</svg>

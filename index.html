@@ -82,6 +82,16 @@
                 "screenshot": "https://codeonholiday.com/hoverboard/showcase-draw.webp",
                 "description": "Present, teach, and demo without breaking your flow. Draw, freeze, whiteboard, take private notes, record meetings, transcribe offline, and create on-device summaries on macOS.",
                 "offers": { "@type": "Offer", "price": "15.99", "priceCurrency": "USD" }
+            },
+            {
+                "@type": "SoftwareApplication",
+                "name": "LocalMelody",
+                "applicationCategory": "MultimediaApplication",
+                "operatingSystem": "macOS 14+",
+                "url": "https://codeonholiday.com/localmelody/",
+                "screenshot": "https://codeonholiday.com/localmelody/logo.svg",
+                "description": "A private local music studio for Mac that turns prompts into music, lyrics and vocals.",
+                "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" }
             }
         ]
     }
@@ -109,6 +119,11 @@
             --h-orange:     #FF6B35;
             --h-pink:       #E01E5A;
             --h-grad:       linear-gradient(135deg, #FF6B35 0%, #E01E5A 100%);
+
+            /* LocalMelody accent — violet → cyan */
+            --l-purple:     #A16DFF;
+            --l-cyan:       #53E4ED;
+            --l-grad:       linear-gradient(135deg, #A16DFF 0%, #53E4ED 100%);
 
             --text:         #F8FBFF;
             --text-muted:   #93A1B5;
@@ -209,6 +224,8 @@
         }
         .product.meetly::before    { background: var(--m-grad); }
         .product.hoverboard::before{ background: var(--h-grad); }
+        .product.localmelody::before{ background: var(--l-grad); }
+        .product.localmelody { order: -1; border-color: rgba(83,228,237,0.34); box-shadow: 0 18px 55px -30px rgba(83,228,237,0.55); }
         .product:hover {
             transform: translateY(-6px);
             border-color: var(--border-strong);
@@ -216,6 +233,7 @@
         .product:hover::before { opacity: 0.32; }
         .product.meetly:hover     { box-shadow: 0 30px 70px -30px rgba(78,230,213,0.4); }
         .product.hoverboard:hover { box-shadow: 0 30px 70px -30px rgba(255,107,53,0.4); }
+        .product.localmelody:hover { box-shadow: 0 30px 70px -30px rgba(83,228,237,0.4); }
 
         .product > * { position: relative; z-index: 1; }
 
@@ -230,6 +248,7 @@
         .p-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .product.meetly .p-icon     { background: var(--m-grad); }
         .product.hoverboard .p-icon { background: var(--h-grad); }
+        .product.localmelody .p-icon { background: var(--l-grad); }
 
         .p-name { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; }
         .p-tag {
@@ -240,6 +259,7 @@
 
         .product.meetly .p-tag     { color: var(--m-teal); }
         .product.hoverboard .p-tag { color: var(--h-orange); }
+        .product.localmelody .p-tag { display: inline-flex; align-items: center; gap: 6px; padding: 5px 9px; border: 1px solid rgba(83,228,237,0.35); border-radius: 999px; color: var(--l-cyan); background: rgba(83,228,237,0.1); font-size: 10px; letter-spacing: .12em; }
 
         .p-pitch { font-size: 1.5rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 12px; }
         .product.meetly .p-pitch     { color: var(--text); }
@@ -261,6 +281,7 @@
         }
         .product.meetly .p-cta     { color: var(--m-teal); }
         .product.hoverboard .p-cta { color: var(--h-orange); }
+        .product.localmelody .p-cta { color: var(--l-cyan); }
         .p-cta svg { width: 16px; height: 16px; transition: transform 0.25s var(--ease); }
         .product:hover .p-cta svg { transform: translateX(4px); }
 
@@ -314,7 +335,7 @@
 
         <section class="hero">
             <h1>Small macOS apps,<br><span class="grad">made to be used.</span></h1>
-            <p>We build focused menu bar apps that do one thing exceptionally well — no bloat, no subscriptions for the sake of it, no features you'll never touch.</p>
+            <p>We build focused macOS apps that do one thing exceptionally well — no bloat, no subscriptions for the sake of it, no features you'll never touch.</p>
         </section>
 
         <section class="products">
@@ -348,6 +369,19 @@
                     <span class="dot"></span>
                     <span>No subscription</span>
                 </div>
+            </a>
+
+            <!-- LocalMelody -->
+            <a href="/localmelody/" class="product localmelody">
+                <div class="p-head">
+                    <div class="p-icon"><img src="localmelody/logo.svg" alt="LocalMelody icon" style="width:100%;height:100%;object-fit:cover;border-radius:14px"></div>
+                    <div><div class="p-name">LocalMelody</div><div class="p-tag">● Coming soon</div></div>
+                </div>
+                <div class="p-pitch">Make music. Keep it local.</div>
+                <p class="p-desc">A private music studio for your Mac — turn a spark of an idea into a complete song with music, lyrics, and vocals.</p>
+                <ul class="p-features"><li>Music + vocals</li><li>Lyrics generation</li><li>Apple Silicon</li><li>No cloud upload</li></ul>
+                <span class="p-cta">Join the waitlist <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                <div class="p-meta"><span>macOS 14+</span><span class="dot"></span><span>Coming soon</span><span class="dot"></span><span>Local-first</span></div>
             </a>
 
             <!-- HoverBoard -->
