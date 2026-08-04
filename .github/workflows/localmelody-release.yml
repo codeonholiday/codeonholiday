@@ -1,0 +1,71 @@
+name: LocalMelody Release
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'localmelody/releases/localmelody-latest.dmg'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve release metadata
+        id: release
+        shell: bash
+        run: |
+          set -euo pipefail
+          APPCAST=localmelody/releases/appcast.xml
+          VERSION=$(grep -oE '<sparkle:shortVersionString>[^<]+</sparkle:shortVersionString>' "$APPCAST" | head -1 | sed -E 's#</?sparkle:shortVersionString>##g')
+          BUILD=$(grep -oE '<sparkle:version>[^<]+</sparkle:version>' "$APPCAST" | head -1 | sed -E 's#</?sparkle:version>##g')
+          VERSIONED_DMG="localmelody/releases/localmelody-${VERSION}-${BUILD}.dmg"
+          CHECKSUM="${VERSIONED_DMG}.sha256"
+          NOTES="localmelody/releases/localmelody-${VERSION}-${BUILD}.md"
+          for file in "$VERSIONED_DMG" "$CHECKSUM" "$NOTES" localmelody/releases/localmelody-latest.dmg; do
+            test -f "$file" || { echo "Missing $file" >&2; exit 1; }
+          done
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "build=$BUILD" >> "$GITHUB_OUTPUT"
+          echo "tag=localmelody-v$VERSION" >> "$GITHUB_OUTPUT"
+          echo "versioned_dmg=$VERSIONED_DMG" >> "$GITHUB_OUTPUT"
+          echo "checksum=$CHECKSUM" >> "$GITHUB_OUTPUT"
+          echo "notes=$NOTES" >> "$GITHUB_OUTPUT"
+
+      - name: Create or safely resume GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.release.outputs.tag }}
+          VERSION: ${{ steps.release.outputs.version }}
+          VERSIONED_DMG: ${{ steps.release.outputs.versioned_dmg }}
+          CHECKSUM: ${{ steps.release.outputs.checksum }}
+          NOTES: ${{ steps.release.outputs.notes }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          LATEST_DMG=localmelody/releases/localmelody-latest.dmg
+          assets=("$VERSIONED_DMG" "$LATEST_DMG" "$CHECKSUM")
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            gh release create "$TAG" "${assets[@]}" \
+              --title "LocalMelody $VERSION" --notes-file "$NOTES" --latest=false
+            exit 0
+          fi
+
+          tmp=$(mktemp -d)
+          trap 'rm -rf "$tmp"' EXIT
+          for asset in "${assets[@]}"; do
+            name=${asset##*/}
+            if gh release download "$TAG" --pattern "$name" --dir "$tmp" >/dev/null 2>&1; then
+              cmp -s "$asset" "$tmp/$name" || {
+                echo "Release $TAG already contains a different $name" >&2
+                exit 1
+              }
+            else
+              gh release upload "$TAG" "$asset"
+            fi
+          done
