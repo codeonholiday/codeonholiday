@@ -537,10 +537,13 @@ const STATIC_SITEMAP_URLS = [
   { loc: `${SITE}/`, source: 'index.html', fallbackLastmod: '2026-07-24', priority: '1.0', changefreq: 'weekly' },
   { loc: `${SITE}/meetly/`, source: 'meetly/index.html', fallbackLastmod: '2026-07-23', priority: '0.9', changefreq: 'weekly' },
   { loc: `${SITE}/hoverboard/`, source: 'hoverboard/index.html', fallbackLastmod: '2026-07-25', priority: '0.9', changefreq: 'weekly' },
+  { loc: `${SITE}/localmelody/`, source: 'localmelody/index.html', fallbackLastmod: '2026-08-04', priority: '0.9', changefreq: 'weekly' },
   { loc: `${SITE}/meetly/privacy.html`, source: 'meetly/privacy.html', fallbackLastmod: '2026-07-13', priority: '0.3', changefreq: 'yearly' },
   { loc: `${SITE}/meetly/terms.html`, source: 'meetly/terms.html', fallbackLastmod: '2026-07-13', priority: '0.3', changefreq: 'yearly' },
   { loc: `${SITE}/hoverboard/privacy.html`, source: 'hoverboard/privacy.html', fallbackLastmod: '2026-07-13', priority: '0.3', changefreq: 'yearly' },
   { loc: `${SITE}/hoverboard/terms.html`, source: 'hoverboard/terms.html', fallbackLastmod: '2026-07-13', priority: '0.3', changefreq: 'yearly' },
+  { loc: `${SITE}/localmelody/privacy.html`, source: 'localmelody/privacy.html', fallbackLastmod: '2026-08-04', priority: '0.3', changefreq: 'yearly' },
+  { loc: `${SITE}/localmelody/terms.html`, source: 'localmelody/terms.html', fallbackLastmod: '2026-08-04', priority: '0.3', changefreq: 'yearly' },
 ];
 
 function renderSitemap(posts) {
