@@ -4,16 +4,16 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>LocalMelody</title>
         <item>
-            <title>1.0</title>
-            <pubDate>Tue, 04 Aug 2026 12:53:22 +0700</pubDate>
-            <sparkle:version>202608041244</sparkle:version>
-            <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
+            <title>1.0.1</title>
+            <pubDate>Tue, 04 Aug 2026 13:05:47 +0700</pubDate>
+            <sparkle:version>202608041303</sparkle:version>
+            <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink sparkle:edSignature="r2VBDvJEcYn2oxdrT498bHWpH3EjAlG5cxxxoEBr8IDwhxxdV9JyKE0RAPDIZZHL4gRLmN3aOOMAsJw4hmxkDg==" sparkle:length="271">https://codeonholiday.com/localmelody/releases/localmelody-1.0-202608041244.md</sparkle:releaseNotesLink>
-            <enclosure url="https://github.com/codeonholiday/codeonholiday/releases/download/localmelody-v1.0/localmelody-1.0-202608041244.dmg" length="12536228" type="application/octet-stream" sparkle:edSignature="2RrUgW/gVW1qAyQbooiMkI1h9pUDwtSNfEbhyE8za9uPHWDIkKiCWnq+RGv+Zi3WqD9CbUjDdJtY6Kp0PaaqBA=="></enclosure>
+            <sparkle:releaseNotesLink sparkle:edSignature="8S16peQVIyvoHbND42RWsSibmFnOtfv6+/lZlSwGoHCpf5kgVEaXq02yBuNNDbc6MRcmkVheJ2Gvsx3PVgowBA==" sparkle:length="345">https://codeonholiday.com/localmelody/releases/localmelody-1.0.1-202608041303.md</sparkle:releaseNotesLink>
+            <enclosure url="https://github.com/codeonholiday/codeonholiday/releases/download/localmelody-v1.0.1/localmelody-1.0.1-202608041303.dmg" length="12532268" type="application/octet-stream" sparkle:edSignature="fMVNZUaENyKPJ1zlKFqcXcIPChgVQV23E5z7xa+KmjQ1JDp1JhAGVDvc88QsSpyKZyrwRFiJwVuvsAPFfwOWDA=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: DFtwZkZMNMZWMi3kTngMrL+DwirrPCK0Yi6vpKGIDlArfXC0cl83/BLcTYQSjtwvK6eDM6xpe1pg9T6XCK71Cw==
-length: 1362
+edSignature: /SUq7JomLMCCjj9jhtZHym3TEBYBKu4PEWrcDfmyM9Re8D0oIW8+YZ5YBzRmyMjyCIpVIDe6PnQeJyWxq/l/CQ==
+length: 1372
 -->
