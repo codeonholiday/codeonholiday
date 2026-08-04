@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="yes"?><!-- sparkle-sign-warning:
+IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires re-signing this file with generate_appcast or sign_update! The signed signature will be embedded at the end of this file.
+--><rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>LocalMelody</title>
+        <item>
+            <title>1.0</title>
+            <pubDate>Tue, 04 Aug 2026 12:53:22 +0700</pubDate>
+            <sparkle:version>202608041244</sparkle:version>
+            <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:releaseNotesLink sparkle:edSignature="r2VBDvJEcYn2oxdrT498bHWpH3EjAlG5cxxxoEBr8IDwhxxdV9JyKE0RAPDIZZHL4gRLmN3aOOMAsJw4hmxkDg==" sparkle:length="271">https://codeonholiday.com/localmelody/releases/localmelody-1.0-202608041244.md</sparkle:releaseNotesLink>
+            <enclosure url="https://github.com/codeonholiday/codeonholiday/releases/download/localmelody-v1.0/localmelody-1.0-202608041244.dmg" length="12536228" type="application/octet-stream" sparkle:edSignature="2RrUgW/gVW1qAyQbooiMkI1h9pUDwtSNfEbhyE8za9uPHWDIkKiCWnq+RGv+Zi3WqD9CbUjDdJtY6Kp0PaaqBA=="></enclosure>
+        </item>
+    </channel>
+</rss><!-- sparkle-signatures:
+edSignature: DFtwZkZMNMZWMi3kTngMrL+DwirrPCK0Yi6vpKGIDlArfXC0cl83/BLcTYQSjtwvK6eDM6xpe1pg9T6XCK71Cw==
+length: 1362
+-->
