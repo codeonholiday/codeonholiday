@@ -333,6 +333,14 @@ function renderPostPage(post) {
   const dateLabel = isoDate(date);
   const tocDesktop = tocHtml(headings, 'toc-desktop');
   const tocMobile = tocHtml(headings, 'toc-mobile');
+  const relatedProduct = (tags || []).includes('meetly')
+    ? { name: 'Meetly', url: '/meetly/', guide: '/blog/how-to-use-meetly-complete-guide/' }
+    : (tags || []).includes('hoverboard')
+      ? { name: 'HoverBoard', url: '/hoverboard/', guide: '/blog/how-to-use-hoverboard-complete-guide/' }
+      : null;
+  const productCta = relatedProduct
+    ? `<aside class="article-cta"><strong>Ready to try ${relatedProduct.name}?</strong><p>See the product page for the download, pricing, and full feature list.</p><a href="${relatedProduct.url}">Explore ${relatedProduct.name} →</a> · <a href="${relatedProduct.guide}">Complete guide</a></aside>`
+    : '';
 
   return `<!DOCTYPE html>
 <html lang="${escapeHtml(lang || 'en')}">
@@ -355,7 +363,7 @@ function renderPostPage(post) {
     <meta property="article:published_time" content="${published}">
     <meta property="article:modified_time" content="${modified}">
     <meta property="article:author" content="${escapeHtml(author)}">
-    ${tagMetas}
+${tagMetas}
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@codeonholiday">
@@ -368,7 +376,7 @@ function renderPostPage(post) {
     <script type="application/ld+json">
 ${JSON.stringify(jsonLd, null, 4)}
     </script>
-    ${sharedHeadExtras()}
+${sharedHeadExtras()}
 </head>
 <body>
 ${siteHeader('blog')}
@@ -387,6 +395,7 @@ ${siteHeader('blog')}
           <div class="prose">
 ${html}
           </div>
+          ${productCta}
           <div class="article-footer">
             <a href="/blog/">← All posts</a>
             <a href="/">codeonholiday home</a>
@@ -398,7 +407,7 @@ ${html}
 ${siteFooter()}
     <script src="/events.js"></script>
     <script src="/blog/js/blog.js"></script>
-    ${mermaidScripts}
+${mermaidScripts}
 </body>
 </html>
 `;

@@ -262,6 +262,15 @@ a:hover { text-decoration: underline; }
 .article-footer a { color: var(--text-muted); font-weight: 600; }
 .article-footer a:hover { color: var(--accent); text-decoration: none; }
 
+.article-cta {
+    margin-top: 40px; padding: 22px 24px;
+    border: 1px solid rgba(78, 230, 213, 0.28);
+    border-radius: 14px; background: rgba(78, 230, 213, 0.06);
+}
+.article-cta strong { color: var(--text); }
+.article-cta p { margin: 6px 0 12px; color: var(--text-muted); }
+.article-cta a { color: var(--accent); font-weight: 700; }
+
 /* ---------- Footer ---------- */
 .site-footer { padding: 30px 0 50px; border-top: 1px solid var(--border); }
 .foot {

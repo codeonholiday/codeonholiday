@@ -12,6 +12,7 @@
         var p = location.pathname;
         if (p.indexOf('/meetly/') === 0 || p === '/meetly') return 'meetly';
         if (p.indexOf('/hoverboard/') === 0 || p === '/hoverboard') return 'hoverboard';
+        if (p.indexOf('/localmelody/') === 0 || p === '/localmelody') return 'localmelody';
         if (p.indexOf('/blog/') === 0 || p === '/blog') return 'blog';
         return 'home';
     })();
@@ -38,7 +39,7 @@
     //   "/hoverboard/releases/hoverboard-1.0-202606271055.zip" -> "1.0"
     // Returns '' if it doesn't look like a versioned release link.
     function extractVersion(href) {
-        var m = href.match(/-(\d+\.\d+(?:\.\d+)?)-\d{12}\.zip$/);
+        var m = href.match(/(?:v|[-_])(\d+\.\d+(?:\.\d+)?)(?:[-_]|\/)/);
         return m ? m[1] : '';
     }
 
@@ -50,6 +51,9 @@
         // Download / install intent: real GitHub release links.
         if (href.indexOf('github.com') !== -1 && href.indexOf('releases') !== -1) {
             return { name: 'download_click', label: 'download', version: extractVersion(href) };
+        }
+        if (href.indexOf('lemonsqueezy.com/checkout') !== -1) {
+            return { name: 'purchase_click', label: 'pro_checkout', version: '' };
         }
         // "#download" anchors (HoverBoard) — scroll intent to download section.
         if (href === '#download') {
