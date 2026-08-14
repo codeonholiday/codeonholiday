@@ -11,6 +11,13 @@ draft: false
 
 HoverBoard Draw turns your cursor into a presentation pen. It works over Keynote, PowerPoint, a browser, an IDE, a video call, or anything else visible on your Mac. You do not need to import a slide or switch apps: activate Draw, mark the screen, then dismiss it with `Esc`.
 
+## Watch Draw in action
+
+See the complete Draw workflow in this short video:
+
+:::youtube https://youtu.be/GCs7GidVw-8
+:::
+
 ## What Draw is good for
 
 Use Draw when the audience needs to look at a specific detail right now:

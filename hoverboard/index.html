@@ -706,6 +706,21 @@
             position: relative;
         }
         .shot img { width: 100%; height: auto; display: block; }
+        .video-poster {
+            display: block; width: 100%; padding: 0; border: 0; cursor: pointer;
+            position: relative; background: #0B0710; color: var(--text);
+        }
+        .video-poster img { transition: transform 0.35s var(--ease), filter 0.35s var(--ease); }
+        .video-poster:hover img { transform: scale(1.02); filter: brightness(0.72); }
+        .video-play {
+            position: absolute; inset: 50% auto auto 50%; transform: translate(-50%, -50%);
+            width: 68px; height: 68px; display: grid; place-items: center;
+            border-radius: 50%; background: var(--orange-2); color: #160b05;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.45); font-size: 25px;
+        }
+        .video-poster:focus-visible { outline: 3px solid var(--orange-2); outline-offset: -3px; }
+        .shot-video { position: relative; aspect-ratio: 16 / 9; background: #000; }
+        .shot-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
         /* ============================================================
            FEATURES BENTO
@@ -1383,6 +1398,7 @@
                         <div class="panel-copy">
                             <h3>Annotate in the moment</h3>
                             <p>Press a hotkey and your cursor becomes a pen. Draw freely, add arrows and rectangles, use the highlighter or laser pointer, and pick colors and stroke width. Set drawings to auto-fade or keep them until you dismiss.</p>
+                            <p><a href="/blog/how-to-use-hoverboard-draw/" style="color:var(--orange-2);font-weight:600">Read the Draw guide and watch the walkthrough →</a></p>
                             <ul>
                                 <li><svg><use href="#i-check"/></svg> Pen, highlighter, laser, arrows, shapes</li>
                                 <li><svg><use href="#i-check"/></svg> Auto-fade or persistent drawings</li>
@@ -1390,7 +1406,10 @@
                             </ul>
                         </div>
                         <div class="shot">
-                            <img src="showcase-draw.webp" alt="HoverBoard Draw mode with live annotations over a presentation slide" loading="lazy" decoding="async">
+                            <button class="video-poster" type="button" aria-label="Play HoverBoard Draw walkthrough" data-video-id="GCs7GidVw-8">
+                                <img src="showcase-draw.webp" alt="HoverBoard Draw mode with live annotations over a presentation slide" loading="lazy" decoding="async">
+                                <span class="video-play" aria-hidden="true">▶</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1401,6 +1420,7 @@
                         <div class="panel-copy">
                             <h3>Pause time</h3>
                             <p>Capture the current screen as a frozen image, then draw on top. Your audience sees the snapshot while you annotate and explain at your own pace — no more rushing while content changes underneath you.</p>
+                            <p><a href="/blog/how-to-use-hoverboard-freeze/" style="color:var(--orange-2);font-weight:600">Read the Freeze guide and watch the walkthrough →</a></p>
                             <ul>
                                 <li><svg><use href="#i-check"/></svg> One-key freeze of the live screen</li>
                                 <li><svg><use href="#i-check"/></svg> Numbered annotations for step-by-step walkthroughs</li>
@@ -1409,7 +1429,10 @@
                             </ul>
                         </div>
                         <div class="shot">
-                            <img src="showcase-freeze.webp" alt="HoverBoard Freeze and Explain mode with numbered annotations" loading="lazy" decoding="async">
+                            <button class="video-poster" type="button" aria-label="Play HoverBoard Freeze and Explain walkthrough" data-video-id="4o1RJV-VCu8">
+                                <img src="showcase-freeze.webp" alt="HoverBoard Freeze and Explain mode with numbered annotations" loading="lazy" decoding="async">
+                                <span class="video-play" aria-hidden="true">▶</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1420,6 +1443,7 @@
                         <div class="panel-copy">
                             <h3>Infinite canvas for teaching</h3>
                             <p>Open a private whiteboard without leaving your presentation. Build mindmaps, drop sticky notes and checklists, add media links, or sketch system design with architecture stencils. Export when you're done.</p>
+                            <p><a href="/blog/how-to-use-hoverboard-whiteboard/" style="color:var(--orange-2);font-weight:600">Read the Whiteboard guide and watch the walkthrough →</a></p>
                             <ul>
                                 <li><svg><use href="#i-check"/></svg> Mindmap trees — Tab child, Return sibling, ⌘⇧L arrange</li>
                                 <li><svg><use href="#i-check"/></svg> Sticky notes, checklists, frames, quotes, polaroids, media links</li>
@@ -1428,7 +1452,10 @@
                             </ul>
                         </div>
                         <div class="shot">
-                            <img src="showcase-whiteboard.webp" alt="HoverBoard Whiteboard with mindmap, sticky notes, checklist, and collage widgets" loading="lazy" decoding="async">
+                            <button class="video-poster" type="button" aria-label="Play HoverBoard Whiteboard walkthrough" data-video-id="l76PhL-KIf4">
+                                <img src="showcase-whiteboard.webp" alt="HoverBoard Whiteboard with mindmap, sticky notes, checklist, and collage widgets" loading="lazy" decoding="async">
+                                <span class="video-play" aria-hidden="true">▶</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1548,6 +1575,7 @@
                         <div class="panel-copy">
                             <h3>Record once. Keep the useful parts.</h3>
                             <p>Capture a meeting from Notes, then turn the recording into a searchable local transcript and a private summary with key points, decisions, and action items.</p>
+                            <p><a href="/blog/how-to-use-hoverboard-recording/" style="color:var(--orange-2);font-weight:600">Read the Recording guide and watch the walkthrough →</a></p>
                             <ul>
                                 <li><svg><use href="#i-check"/></svg> Compact recording controls with timestamps</li>
                                 <li><svg><use href="#i-check"/></svg> Offline English transcription with speaker labels</li>
@@ -1556,7 +1584,10 @@
                             </ul>
                         </div>
                         <div class="shot">
-                            <img src="showcase-recording.webp" alt="HoverBoard recording with a local summary and timestamped transcript" loading="lazy" decoding="async">
+                            <button class="video-poster" type="button" aria-label="Play HoverBoard Recording walkthrough" data-video-id="Lj75O2QCsJ8">
+                                <img src="showcase-recording.webp" alt="HoverBoard recording with a local summary and timestamped transcript" loading="lazy" decoding="async">
+                                <span class="video-play" aria-hidden="true">▶</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2046,6 +2077,17 @@
                 tabs.forEach(t => t.classList.toggle('active', t === tab));
                 panels.forEach(p => p.classList.toggle('active', p.id === target));
             });
+        });
+
+        // Load feature videos only after an explicit play, keeping the tabbed showcase light.
+        document.querySelectorAll('.video-poster').forEach(button => {
+            button.addEventListener('click', () => {
+                const id = button.dataset.videoId;
+                const frame = document.createElement('div');
+                frame.className = 'shot-video';
+                frame.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?rel=0&playsinline=1" title="HoverBoard feature walkthrough" allow="encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>`;
+                button.replaceWith(frame);
+            }, { once: true });
         });
 
         // FAQ: keep only one open

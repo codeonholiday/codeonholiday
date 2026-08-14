@@ -82,7 +82,7 @@ function expandYoutubeShortcodes(md) {
     (_, ref) => {
       const id = extractYoutubeId(ref);
       if (!id) return `\n<!-- invalid youtube: ${escapeHtml(ref)} -->\n`;
-      return `\n\n<div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/${id}" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>\n\n`;
+      return `\n\n<div class="video-embed"><iframe src="https://www.youtube.com/embed/${id}?rel=0&playsinline=1" title="YouTube video" allow="accelerometer; encrypted-media; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>\n\n`;
     }
   );
 }

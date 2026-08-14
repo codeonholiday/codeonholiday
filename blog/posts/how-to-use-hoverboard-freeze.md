@@ -11,6 +11,13 @@ draft: false
 
 Freeze & Explain captures the screen as a still image and lets you annotate that image while the audience sees a stable frame. It solves a common presentation problem: the interface changes, a page loads, or a cursor moves just as you begin explaining it.
 
+## Watch Freeze & Explain in action
+
+See how Freeze creates a stable frame for a calm walkthrough:
+
+:::youtube https://youtu.be/4o1RJV-VCu8
+:::
+
 ## When to use Freeze
 
 Freeze is especially useful for:

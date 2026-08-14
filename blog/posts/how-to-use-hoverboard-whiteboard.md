@@ -11,6 +11,13 @@ draft: false
 
 HoverBoard Whiteboard is a local infinite canvas for explaining ideas without leaving your presentation. It is separate from Freeze: Freeze holds a screen snapshot, while Whiteboard gives you a blank space for diagrams, mindmaps, lesson plans, system design, and visual notes.
 
+## Watch Whiteboard in action
+
+See how to build a board, connect ideas, and turn it into a useful visual explanation:
+
+:::youtube https://youtu.be/l76PhL-KIf4
+:::
+
 ## Open a board
 
 The default shortcut is **⌃⌥W**. Whiteboard opens from the menu bar or Settings as a Pro tool with a 60-second trial. Boards are stored locally and autosaved; there is no account, cloud workspace, or collaboration backend.

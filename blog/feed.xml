@@ -7,6 +7,13 @@
     <language>en</language>
     <atom:link href="https://codeonholiday.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>How to Use HoverBoard Recording — Transcribe and Summarize Meetings Locally</title>
+      <link>https://codeonholiday.com/blog/how-to-use-hoverboard-recording/</link>
+      <guid isPermaLink="true">https://codeonholiday.com/blog/how-to-use-hoverboard-recording/</guid>
+      <pubDate>Fri, 14 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Learn how to record a meeting in HoverBoard, follow a timestamped transcript with speaker labels, and create a private on-device summary with decisions and action items on macOS.</description>
+    </item>
+    <item>
       <title>Meetly vs MeetingBar — Which macOS Meeting App Should You Use?</title>
       <link>https://codeonholiday.com/blog/meetly-vs-meetingbar/</link>
       <guid isPermaLink="true">https://codeonholiday.com/blog/meetly-vs-meetingbar/</guid>
