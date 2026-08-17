@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Keep the site available to AI search and answer engines.
+User-agent: OAI-SearchBot
+Allow: /
+
 Sitemap: https://codeonholiday.com/sitemap.xml

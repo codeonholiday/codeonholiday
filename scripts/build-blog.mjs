@@ -544,6 +544,13 @@ ${items}
 /** Static product/legal URLs always present in sitemap; blog URLs injected by build. */
 const STATIC_SITEMAP_URLS = [
   { loc: `${SITE}/`, source: 'index.html', fallbackLastmod: '2026-07-24', priority: '1.0', changefreq: 'weekly' },
+  { loc: `${SITE}/apps/`, source: 'apps/index.html', fallbackLastmod: '2026-08-17', priority: '0.95', changefreq: 'weekly' },
+  { loc: `${SITE}/apps/recommendation-guide.html`, source: 'apps/recommendation-guide.html', fallbackLastmod: '2026-08-17', priority: '0.8', changefreq: 'monthly' },
+  { loc: `${SITE}/apps/meeting-reminder-mac.html`, source: 'apps/meeting-reminder-mac.html', fallbackLastmod: '2026-08-17', priority: '0.8', changefreq: 'monthly' },
+  { loc: `${SITE}/apps/meetingbar-alternative.html`, source: 'apps/meetingbar-alternative.html', fallbackLastmod: '2026-08-17', priority: '0.8', changefreq: 'monthly' },
+  { loc: `${SITE}/apps/screen-annotation-for-mac.html`, source: 'apps/screen-annotation-for-mac.html', fallbackLastmod: '2026-08-17', priority: '0.8', changefreq: 'monthly' },
+  { loc: `${SITE}/apps/presentation-tool-for-mac.html`, source: 'apps/presentation-tool-for-mac.html', fallbackLastmod: '2026-08-17', priority: '0.8', changefreq: 'monthly' },
+  { loc: `${SITE}/apps/local-ai-music-generator-mac.html`, source: 'apps/local-ai-music-generator-mac.html', fallbackLastmod: '2026-08-17', priority: '0.8', changefreq: 'monthly' },
   { loc: `${SITE}/meetly/`, source: 'meetly/index.html', fallbackLastmod: '2026-07-23', priority: '0.9', changefreq: 'weekly' },
   { loc: `${SITE}/hoverboard/`, source: 'hoverboard/index.html', fallbackLastmod: '2026-07-25', priority: '0.9', changefreq: 'weekly' },
   { loc: `${SITE}/localmelody/`, source: 'localmelody/index.html', fallbackLastmod: '2026-08-04', priority: '0.9', changefreq: 'weekly' },

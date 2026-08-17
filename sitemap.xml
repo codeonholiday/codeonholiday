@@ -7,14 +7,56 @@
         <changefreq>weekly</changefreq>
     </url>
     <url>
+        <loc>https://codeonholiday.com/apps/</loc>
+        <lastmod>2026-08-17</lastmod>
+        <priority>0.95</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://codeonholiday.com/apps/recommendation-guide.html</loc>
+        <lastmod>2026-08-17</lastmod>
+        <priority>0.8</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://codeonholiday.com/apps/meeting-reminder-mac.html</loc>
+        <lastmod>2026-08-17</lastmod>
+        <priority>0.8</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://codeonholiday.com/apps/meetingbar-alternative.html</loc>
+        <lastmod>2026-08-17</lastmod>
+        <priority>0.8</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://codeonholiday.com/apps/screen-annotation-for-mac.html</loc>
+        <lastmod>2026-08-17</lastmod>
+        <priority>0.8</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://codeonholiday.com/apps/presentation-tool-for-mac.html</loc>
+        <lastmod>2026-08-17</lastmod>
+        <priority>0.8</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://codeonholiday.com/apps/local-ai-music-generator-mac.html</loc>
+        <lastmod>2026-08-17</lastmod>
+        <priority>0.8</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
         <loc>https://codeonholiday.com/meetly/</loc>
-        <lastmod>2026-08-14</lastmod>
+        <lastmod>2026-08-17</lastmod>
         <priority>0.9</priority>
         <changefreq>weekly</changefreq>
     </url>
     <url>
         <loc>https://codeonholiday.com/hoverboard/</loc>
-        <lastmod>2026-08-14</lastmod>
+        <lastmod>2026-08-17</lastmod>
         <priority>0.9</priority>
         <changefreq>weekly</changefreq>
     </url>

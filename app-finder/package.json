@@ -1,0 +1,13 @@
+{
+  "name": "codeonholiday-app-finder",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "MCP app finder for codeonholiday macOS apps",
+  "scripts": {"start": "node src/index.mjs"},
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.0",
+    "express": "^5.1.0",
+    "zod": "^3.25.76"
+  }
+}

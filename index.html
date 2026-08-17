@@ -167,6 +167,7 @@
         .header-row {
             display: flex; align-items: center; justify-content: space-between; gap: 16px;
         }
+        .header-actions { display: flex; align-items: center; gap: 28px; }
         .brand {
             display: inline-flex; align-items: center; gap: 10px;
             font-size: 17px; font-weight: 800; letter-spacing: -0.01em;
@@ -182,6 +183,22 @@
             transition: color 0.2s;
         }
         .nav-blog:hover { color: var(--text); }
+        .nav-mobile { display: none; position: relative; }
+        .nav-mobile summary {
+            list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+            padding: 9px 12px; border: 1px solid var(--border-strong); border-radius: 10px;
+            color: var(--text); font-size: .9rem; font-weight: 700;
+        }
+        .nav-mobile summary::-webkit-details-marker { display: none; }
+        .nav-mobile summary::after { content: '☰'; font-size: 1.1rem; line-height: 1; }
+        .nav-mobile[open] summary::after { content: '×'; font-size: 1.35rem; }
+        .nav-mobile-links {
+            position: absolute; right: 0; top: calc(100% + 10px); min-width: 180px; z-index: 10;
+            display: grid; gap: 4px; padding: 8px; border: 1px solid var(--border-strong);
+            border-radius: 14px; background: rgba(20, 28, 42, .98); box-shadow: 0 18px 40px rgba(0,0,0,.35);
+        }
+        .nav-mobile-links a { padding: 10px 12px; border-radius: 8px; color: var(--text-muted); text-decoration: none; font-weight: 600; }
+        .nav-mobile-links a:hover { color: var(--text); background: rgba(120, 140, 170, .12); }
 
         /* ---------- Hero ---------- */
         .hero { padding: 90px 0 70px; text-align: center; }
@@ -322,6 +339,9 @@
         @media (max-width: 820px) {
             .products { grid-template-columns: 1fr; }
             .hero { padding: 60px 0 40px; }
+            .header-row { align-items: center; }
+            .header-actions > .nav-blog { display: none; }
+            .nav-mobile { display: block; }
         }
         @media (prefers-reduced-motion: reduce) {
             * { transition: none !important; }
@@ -336,7 +356,17 @@
                     <span class="brand-mark"></span>
                     codeonholiday
                 </a>
-                <a href="/blog/" class="nav-blog">Blog</a>
+                <div class="header-actions">
+                    <a href="/apps/" class="nav-blog">Find an app</a>
+                    <a href="/blog/" class="nav-blog">Blog</a>
+                    <details class="nav-mobile">
+                        <summary aria-label="Open navigation menu">Menu</summary>
+                        <nav class="nav-mobile-links" aria-label="Mobile navigation">
+                            <a href="/apps/">Find an app</a>
+                            <a href="/blog/">Blog</a>
+                        </nav>
+                    </details>
+                </div>
             </div>
         </header>
 
@@ -447,6 +477,7 @@
                         </a>
                     </nav>
                     <span>
+                        <a href="/apps/">Mac App Finder</a>
                         <a href="/blog/">Blog</a>
                         ·
                         <a href="mailto:hello@codeonholiday.com">hello@codeonholiday.com</a>
