@@ -115,6 +115,12 @@
         <changefreq>monthly</changefreq>
     </url>
     <url>
+        <loc>https://codeonholiday.com/blog/best-annotation-tool-macos/</loc>
+        <lastmod>2026-08-18</lastmod>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
         <loc>https://codeonholiday.com/blog/how-to-use-hoverboard-recording/</loc>
         <lastmod>2026-08-14</lastmod>
         <priority>0.7</priority>
