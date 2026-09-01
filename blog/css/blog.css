@@ -17,10 +17,20 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 *::selection { background: var(--accent); color: var(--bg); }
 
+/* Metric-matched fallback so Inter swap does not shift nav / headings. */
+@font-face {
+    font-family: 'Inter Fallback';
+    src: local('Arial');
+    size-adjust: 107.64%;
+    ascent-override: 90.49%;
+    descent-override: 22.45%;
+    line-gap-override: 0%;
+}
+
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: Inter, 'Inter Fallback', -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.6;
@@ -53,6 +63,7 @@ a:hover { text-decoration: underline; }
 .nav {
     max-width: 1080px; margin: 0 auto; padding: 16px 24px;
     display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    min-height: 58px;
 }
 .brand {
     display: inline-flex; align-items: center; gap: 10px;
@@ -65,10 +76,19 @@ a:hover { text-decoration: underline; }
     background: linear-gradient(135deg, #4EE6D5 0%, #1787FF 50%, #FF6B35 100%);
     flex-shrink: 0;
 }
-.nav-links { display: flex; align-items: center; gap: 20px; }
+.nav-links {
+    display: flex; align-items: center; gap: 20px;
+    flex-wrap: nowrap;
+    min-height: 1.4em;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.nav-links::-webkit-scrollbar { display: none; }
 .nav-links a {
     color: var(--text-muted); font-size: 0.92rem; font-weight: 500;
     text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 .nav-links a:hover { color: var(--text); }
 
@@ -262,6 +282,8 @@ a:hover { text-decoration: underline; }
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     box-shadow: 0 12px 40px -28px rgba(0, 0, 0, 0.55);
+    scrollbar-gutter: stable;
+    contain: layout;
 }
 .prose .table-scroll:focus-visible {
     outline: 2px solid var(--accent);
@@ -359,6 +381,7 @@ a:hover { text-decoration: underline; }
 @media (max-width: 720px) {
     .prose .table-scroll {
         overflow: visible;
+        scrollbar-gutter: auto;
         border: none;
         background: transparent;
         box-shadow: none;

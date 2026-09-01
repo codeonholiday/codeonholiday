@@ -155,8 +155,18 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         *::selection { background: #4EE6D5; color: #0A0D13; }
 
+        /* Metric-matched fallback so Inter swap does not shift the hero. */
+        @font-face {
+            font-family: 'Inter Fallback';
+            src: local('Arial');
+            size-adjust: 107.64%;
+            ascent-override: 90.49%;
+            descent-override: 22.45%;
+            line-gap-override: 0%;
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: Inter, 'Inter Fallback', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
@@ -222,7 +232,8 @@
             line-height: 1.04;
             letter-spacing: -0.03em;
             margin: 0 auto 24px;
-            max-width: 16ch;
+            max-width: 10em;
+            min-height: 2.08em;
         }
         .hero h1 .grad {
             background: linear-gradient(120deg, #4EE6D5 0%, #1787FF 40%, #FF6B35 90%);
