@@ -36,31 +36,60 @@
     <script type="application/ld+json">
 {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Meet HoverBoard — The Quiet Layer Between You and Your Screen",
-    "description": "HoverBoard is a native macOS menu bar app for presenting, teaching, and demoing without breaking your flow. Draw, explain, record, transcribe, and follow up from one hotkey-driven workspace.",
-    "datePublished": "2026-07-24T00:00:00+00:00",
-    "dateModified": "2026-07-28T00:00:00+00:00",
-    "author": {
-        "@type": "Organization",
-        "name": "codeonholiday",
-        "url": "https://codeonholiday.com/"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "codeonholiday",
-        "url": "https://codeonholiday.com/",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "https://codeonholiday.com/og-image.png"
+    "@graph": [
+        {
+            "@type": "BlogPosting",
+            "@id": "https://codeonholiday.com/blog/introducing-hoverboard/#article",
+            "headline": "Meet HoverBoard — The Quiet Layer Between You and Your Screen",
+            "description": "HoverBoard is a native macOS menu bar app for presenting, teaching, and demoing without breaking your flow. Draw, explain, record, transcribe, and follow up from one hotkey-driven workspace.",
+            "datePublished": "2026-07-24T00:00:00+00:00",
+            "dateModified": "2026-07-28T00:00:00+00:00",
+            "author": {
+                "@type": "Organization",
+                "name": "codeonholiday",
+                "url": "https://codeonholiday.com/"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "codeonholiday",
+                "url": "https://codeonholiday.com/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://codeonholiday.com/codeonholiday-logo.png"
+                }
+            },
+            "image": "https://codeonholiday.com/hoverboard/og-image.png",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://codeonholiday.com/blog/introducing-hoverboard/"
+            },
+            "keywords": "hoverboard, macos, presentation, teaching, indie-dev"
+        },
+        {
+            "@type": "BreadcrumbList",
+            "@id": "https://codeonholiday.com/blog/introducing-hoverboard/#breadcrumb",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://codeonholiday.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Blog",
+                    "item": "https://codeonholiday.com/blog/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Meet HoverBoard — The Quiet Layer Between You and Your Screen",
+                    "item": "https://codeonholiday.com/blog/introducing-hoverboard/"
+                }
+            ]
         }
-    },
-    "image": "https://codeonholiday.com/hoverboard/og-image.png",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://codeonholiday.com/blog/introducing-hoverboard/"
-    },
-    "keywords": "hoverboard, macos, presentation, teaching, indie-dev"
+    ]
 }
     </script>
 
@@ -89,8 +118,10 @@
       </a>
       <nav class="nav-links" aria-label="Primary">
         <a href="/blog/" aria-current="page">Blog</a>
+        <a href="/apps/">Apps</a>
         <a href="/meetly/">Meetly</a>
         <a href="/hoverboard/">HoverBoard</a>
+        <a href="/localmelody/">LocalMelody</a>
       </nav>
     </div>
   </header>

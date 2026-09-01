@@ -50,7 +50,7 @@
         "@type": "Organization",
         "name": "codeonholiday",
         "url": "https://codeonholiday.com/",
-        "logo": "https://codeonholiday.com/og-image.png",
+        "logo": "https://codeonholiday.com/codeonholiday-logo.png",
         "description": "codeonholiday makes small, focused macOS menu bar apps.",
         "email": "hello@codeonholiday.com",
         "sameAs": [
@@ -71,7 +71,17 @@
                 "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/v1.5.3/meetly-latest.zip?t=202607301629",
                 "screenshot": "https://codeonholiday.com/meetly/showcase-reminder.webp",
                 "description": "A macOS menu bar app that fires a fullscreen reminder before your meetings start, with Quick Panel, Apple Reminders, and iCloud sync.",
-                "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+                "offers": {
+                    "@type": "AggregateOffer",
+                    "lowPrice": "0",
+                    "highPrice": "9.99",
+                    "priceCurrency": "USD",
+                    "offerCount": "2",
+                    "offers": [
+                        { "@type": "Offer", "name": "Meetly Free", "price": "0", "priceCurrency": "USD" },
+                        { "@type": "Offer", "name": "Meetly Pro", "price": "9.99", "priceCurrency": "USD" }
+                    ]
+                }
             },
             {
                 "@type": "SoftwareApplication",
@@ -83,7 +93,10 @@
                 "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/v1.3.18/hoverboard-latest.zip?t=202607291100",
                 "screenshot": "https://codeonholiday.com/hoverboard/showcase-draw.webp",
                 "description": "Present, teach, and demo without breaking your flow. Draw, freeze, whiteboard, take private notes, record meetings, transcribe offline, and create on-device summaries on macOS.",
-                "offers": { "@type": "Offer", "price": "15.99", "priceCurrency": "USD" }
+                "offers": [
+                    { "@type": "Offer", "name": "HoverBoard Free", "price": "0", "priceCurrency": "USD" },
+                    { "@type": "Offer", "name": "HoverBoard Pro", "price": "15.99", "priceCurrency": "USD" }
+                ]
             },
             {
                 "@type": "SoftwareApplication",

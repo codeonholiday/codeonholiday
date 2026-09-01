@@ -1,0 +1,28 @@
+# codeonholiday
+
+> Small, focused macOS apps for people who use their Mac every day.
+
+codeonholiday makes native macOS menu bar apps: meeting reminders, screen annotation / presenting, and private local AI music. No bloated suites. Free cores with optional one-time Pro upgrades (no subscriptions).
+
+## Products
+
+- [Meetly](https://codeonholiday.com/meetly/): Fullscreen meeting reminders for macOS. Menu bar app with Quick Panel, one-click Zoom / Google Meet / Teams join, Apple Reminders (Pro), iCloud sync (Pro). Free forever + Pro $9.99 one-time.
+- [HoverBoard](https://codeonholiday.com/hoverboard/): Screen annotation and presentation tool for Mac. Draw, spotlight, freeze, whiteboard, keystroke display, private notes, local recording / transcription. Spotlight and Break Timer free; Pro $15.99 one-time.
+- [LocalMelody](https://codeonholiday.com/localmelody/): Private local AI music generator for Apple Silicon Macs. Music, lyrics, and vocals stay on-device after setup. Free + Pro lifetime $9.99.
+
+## Find an app
+
+- [Mac App Finder](https://codeonholiday.com/apps/): Catalog of all codeonholiday apps
+- [Which Mac app do I need?](https://codeonholiday.com/apps/recommendation-guide.html): Choose by job (meetings, presenting, local AI music)
+
+## Blog and guides
+
+- [Blog](https://codeonholiday.com/blog/): Comparisons, how-tos, and product stories
+- [RSS](https://codeonholiday.com/blog/feed.xml)
+- [Sitemap](https://codeonholiday.com/sitemap.xml)
+
+## Contact
+
+- Email: hello@codeonholiday.com
+- X: https://x.com/codeonholiday
+- Site: https://codeonholiday.com/

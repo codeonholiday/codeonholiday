@@ -35,31 +35,60 @@
     <script type="application/ld+json">
 {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Presenting Meant Switching Apps. So I Built HoverBoard.",
-    "description": "Annotating live on macOS meant quitting the share, opening another tool, and killing the room’s focus. Here’s why I built HoverBoard — draw, spotlight, freeze, and more, a hotkey away.",
-    "datePublished": "2026-07-14T00:00:00+00:00",
-    "dateModified": "2026-07-14T00:00:00+00:00",
-    "author": {
-        "@type": "Organization",
-        "name": "codeonholiday",
-        "url": "https://codeonholiday.com/"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "codeonholiday",
-        "url": "https://codeonholiday.com/",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "https://codeonholiday.com/og-image.png"
+    "@graph": [
+        {
+            "@type": "BlogPosting",
+            "@id": "https://codeonholiday.com/blog/presenting-meant-switching-apps-so-i-built-hoverboard/#article",
+            "headline": "Presenting Meant Switching Apps. So I Built HoverBoard.",
+            "description": "Annotating live on macOS meant quitting the share, opening another tool, and killing the room’s focus. Here’s why I built HoverBoard — draw, spotlight, freeze, and more, a hotkey away.",
+            "datePublished": "2026-07-14T00:00:00+00:00",
+            "dateModified": "2026-07-14T00:00:00+00:00",
+            "author": {
+                "@type": "Organization",
+                "name": "codeonholiday",
+                "url": "https://codeonholiday.com/"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "codeonholiday",
+                "url": "https://codeonholiday.com/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://codeonholiday.com/codeonholiday-logo.png"
+                }
+            },
+            "image": "https://codeonholiday.com/blog/posts/assets/presenting-meant-switching-apps-so-i-built-hoverboard/og.png",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://codeonholiday.com/blog/presenting-meant-switching-apps-so-i-built-hoverboard/"
+            },
+            "keywords": "hoverboard, macos, indie-dev, presentation"
+        },
+        {
+            "@type": "BreadcrumbList",
+            "@id": "https://codeonholiday.com/blog/presenting-meant-switching-apps-so-i-built-hoverboard/#breadcrumb",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://codeonholiday.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Blog",
+                    "item": "https://codeonholiday.com/blog/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Presenting Meant Switching Apps. So I Built HoverBoard.",
+                    "item": "https://codeonholiday.com/blog/presenting-meant-switching-apps-so-i-built-hoverboard/"
+                }
+            ]
         }
-    },
-    "image": "https://codeonholiday.com/blog/posts/assets/presenting-meant-switching-apps-so-i-built-hoverboard/og.png",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://codeonholiday.com/blog/presenting-meant-switching-apps-so-i-built-hoverboard/"
-    },
-    "keywords": "hoverboard, macos, indie-dev, presentation"
+    ]
 }
     </script>
 
@@ -88,8 +117,10 @@
       </a>
       <nav class="nav-links" aria-label="Primary">
         <a href="/blog/" aria-current="page">Blog</a>
+        <a href="/apps/">Apps</a>
         <a href="/meetly/">Meetly</a>
         <a href="/hoverboard/">HoverBoard</a>
+        <a href="/localmelody/">LocalMelody</a>
       </nav>
     </div>
   </header>

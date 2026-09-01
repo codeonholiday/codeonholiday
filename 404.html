@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page not found — codeonholiday</title>
+  <meta name="description" content="This page does not exist. Browse Meetly, HoverBoard, LocalMelody, or the codeonholiday blog.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/svg+xml" href="/codeonholiday-logo.svg?v=2">
+  <link rel="apple-touch-icon" href="/codeonholiday-logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="codeonholiday">
+  <meta property="og:title" content="Page not found — codeonholiday">
+  <meta property="og:description" content="This page does not exist. Browse our macOS apps or the blog.">
+  <meta property="og:image" content="https://codeonholiday.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    :root { --bg:#0a0d13; --text:#f8fbff; --muted:#9aa8bc; --a:#4ee6d5; --line:#27344a; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: grid; place-items: center;
+      background: radial-gradient(60% 50% at 50% 0%, #123038 0, transparent 55%), var(--bg);
+      color: var(--text); font: 16px/1.6 Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+      padding: 32px 24px;
+    }
+    main { max-width: 560px; text-align: center; }
+    .code { color: var(--a); font-weight: 800; letter-spacing: .12em; font-size: .85rem; text-transform: uppercase; }
+    h1 { font-size: clamp(2rem, 6vw, 3.2rem); letter-spacing: -.04em; line-height: 1.1; margin: 14px 0 16px; }
+    p { color: var(--muted); margin: 0 0 28px; }
+    .links { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    a.btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 10px 16px; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 14px;
+      border: 1px solid var(--line); color: var(--text);
+    }
+    a.btn:hover { border-color: var(--a); color: var(--a); }
+    a.primary { background: var(--a); color: #081218; border-color: transparent; }
+    a.primary:hover { color: #081218; filter: brightness(1.05); }
+    .home { display: inline-block; margin-top: 28px; color: var(--muted); text-decoration: none; font-size: 14px; }
+    .home:hover { color: var(--a); }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="code">404</div>
+    <h1>This page wandered off.</h1>
+    <p>The link may be outdated. Try one of these instead:</p>
+    <div class="links">
+      <a class="btn primary" href="/">Home</a>
+      <a class="btn" href="/apps/">Mac App Finder</a>
+      <a class="btn" href="/meetly/">Meetly</a>
+      <a class="btn" href="/hoverboard/">HoverBoard</a>
+      <a class="btn" href="/localmelody/">LocalMelody</a>
+      <a class="btn" href="/blog/">Blog</a>
+    </div>
+    <a class="home" href="/">← Back to codeonholiday</a>
+  </main>
+</body>
+</html>

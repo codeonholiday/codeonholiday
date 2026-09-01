@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use LocalMelody — A Complete Guide — codeonholiday</title>
+    <meta name="description" content="Install LocalMelody on Apple Silicon, set up Homebrew and Ollama, download models, generate music locally, and unlock Pro features without uploading your ideas.">
+    <link rel="canonical" href="https://codeonholiday.com/blog/how-to-use-localmelody-complete-guide/">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="codeonholiday">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="codeonholiday">
+    <meta property="og:url" content="https://codeonholiday.com/blog/how-to-use-localmelody-complete-guide/">
+    <meta property="og:title" content="How to Use LocalMelody — A Complete Guide">
+    <meta property="og:description" content="Install LocalMelody on Apple Silicon, set up Homebrew and Ollama, download models, generate music locally, and unlock Pro features without uploading your ideas.">
+    <meta property="og:image" content="https://codeonholiday.com/localmelody/og-image.png">
+    <meta property="og:image:alt" content="How to Use LocalMelody — A Complete Guide">
+    <meta property="article:published_time" content="2026-09-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-09-01T00:00:00+00:00">
+    <meta property="article:author" content="codeonholiday">
+<meta property="article:tag" content="localmelody">
+    <meta property="article:tag" content="macos">
+    <meta property="article:tag" content="guide">
+    <meta property="article:tag" content="ai-music">
+    <meta property="article:tag" content="privacy">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@codeonholiday">
+    <meta name="twitter:title" content="How to Use LocalMelody — A Complete Guide">
+    <meta name="twitter:description" content="Install LocalMelody on Apple Silicon, set up Homebrew and Ollama, download models, generate music locally, and unlock Pro features without uploading your ideas.">
+    <meta name="twitter:image" content="https://codeonholiday.com/localmelody/og-image.png">
+
+    <link rel="alternate" type="application/rss+xml" title="codeonholiday Blog" href="https://codeonholiday.com/blog/feed.xml">
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "BlogPosting",
+            "@id": "https://codeonholiday.com/blog/how-to-use-localmelody-complete-guide/#article",
+            "headline": "How to Use LocalMelody — A Complete Guide",
+            "description": "Install LocalMelody on Apple Silicon, set up Homebrew and Ollama, download models, generate music locally, and unlock Pro features without uploading your ideas.",
+            "datePublished": "2026-09-01T00:00:00+00:00",
+            "dateModified": "2026-09-01T00:00:00+00:00",
+            "author": {
+                "@type": "Organization",
+                "name": "codeonholiday",
+                "url": "https://codeonholiday.com/"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "codeonholiday",
+                "url": "https://codeonholiday.com/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://codeonholiday.com/codeonholiday-logo.png"
+                }
+            },
+            "image": "https://codeonholiday.com/localmelody/og-image.png",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://codeonholiday.com/blog/how-to-use-localmelody-complete-guide/"
+            },
+            "keywords": "localmelody, macos, guide, ai-music, privacy"
+        },
+        {
+            "@type": "BreadcrumbList",
+            "@id": "https://codeonholiday.com/blog/how-to-use-localmelody-complete-guide/#breadcrumb",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://codeonholiday.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Blog",
+                    "item": "https://codeonholiday.com/blog/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "How to Use LocalMelody — A Complete Guide",
+                    "item": "https://codeonholiday.com/blog/how-to-use-localmelody-complete-guide/"
+                }
+            ]
+        }
+    ]
+}
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="/codeonholiday-logo.svg?v=2">
+    <link rel="apple-touch-icon" href="/codeonholiday-logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/blog/css/blog.css">
+    <script defer data-domain="codeonholiday.com" src="https://plausible.io/js/script.js"></script>
+    <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSL5Z5MEBZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XSL5Z5MEBZ', { 'anonymize_ip': true });
+    </script>
+</head>
+<body>
+<header class="site-header">
+    <div class="nav">
+      <a href="/" class="brand" aria-label="codeonholiday home">
+        <span class="brand-mark"></span>
+        codeonholiday
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/blog/" aria-current="page">Blog</a>
+        <a href="/apps/">Apps</a>
+        <a href="/meetly/">Meetly</a>
+        <a href="/hoverboard/">HoverBoard</a>
+        <a href="/localmelody/">LocalMelody</a>
+      </nav>
+    </div>
+  </header>
+    <main class="wrap article-wrap">
+      <div class="article-layout">
+        <article>
+          <header class="article-header">
+            <div class="meta">
+              <time datetime="2026-09-01">2026-09-01</time>
+              <span class="dot"></span>
+              <span>codeonholiday</span>
+            </div>
+            <h1>How to Use LocalMelody — A Complete Guide</h1>
+          </header>
+          <details class="toc toc-mobile">
+      <summary>On this page</summary>
+      <nav aria-label="Table of contents"><a href="#see-it-in-action" class="toc-h2">See it in action</a>
+<a href="#what-you-need" class="toc-h2">What you need</a>
+<a href="#install-localmelody" class="toc-h2">Install LocalMelody</a>
+<a href="#first-time-setup-homebrew-ollama-models" class="toc-h2">First-time setup (Homebrew, Ollama, models)</a>
+<a href="#create-your-first-song" class="toc-h2">Create your first song</a>
+<a href="#shape-the-sound-pro" class="toc-h2">Shape the sound (Pro)</a>
+<a href="#free-vs-pro-at-a-glance" class="toc-h2">Free vs Pro at a glance</a>
+<a href="#privacy-what-stays-on-your-mac" class="toc-h2">Privacy: what stays on your Mac</a>
+<a href="#compare-to-cloud-ai-music" class="toc-h2">Compare to cloud AI music</a>
+<a href="#troubleshooting" class="toc-h2">Troubleshooting</a>
+<a href="#generation-is-slow-or-the-mac-fans-spin-hard" class="toc-h3">Generation is slow or the Mac fans spin hard</a>
+<a href="#models-will-not-download" class="toc-h3">Models will not download</a>
+<a href="#license-will-not-activate" class="toc-h3">License will not activate</a>
+<a href="#updates-missing" class="toc-h3">Updates missing</a>
+<a href="#next-steps" class="toc-h2">Next steps</a></nav>
+    </details>
+          <div class="prose">
+<p>LocalMelody is a native <strong>local AI music generator for Mac</strong>. After setup, it turns a prompt into music, lyrics, and vocals on your Apple Silicon machine. Prompts and generated audio are not sent to a codeonholiday backend.</p>
+<p>This guide covers requirements, install, first-time setup, daily generation, Free vs Pro, privacy, and troubleshooting. Download from the <a href="/localmelody/">LocalMelody page</a> when you are ready.</p>
+<h2 id="see-it-in-action">See it in action</h2>
+<div class="video-embed"><iframe src="https://www.youtube.com/embed/TPNFZ3LRSWw?rel=0&playsinline=1" title="YouTube video" allow="accelerometer; encrypted-media; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+
+
+
+<p><figure><img src="/localmelody/og-image.png" alt="LocalMelody private AI music studio for Mac" loading="lazy" decoding="async"><figcaption>LocalMelody private AI music studio for Mac</figcaption></figure>
+</p>
+<h2 id="what-you-need">What you need</h2>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Chip</td>
+<td>Apple Silicon (M1 / M2 / M3 / M4 and later)</td>
+</tr>
+<tr>
+<td>OS</td>
+<td>macOS 14 Sonoma or later</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>16 GB minimum; <strong>32 GB+ recommended</strong> for smoother, higher-quality generation</td>
+</tr>
+<tr>
+<td>Disk</td>
+<td>Space for the app, runtime, and models (models are large — plan for several GB)</td>
+</tr>
+<tr>
+<td>Network</td>
+<td>Needed for first-time runtime / model downloads, license activation, and updates</td>
+</tr>
+</tbody></table>
+<p>Intel Macs are not supported. Generation is built around on-device Apple Silicon workloads.</p>
+<h2 id="install-localmelody">Install LocalMelody</h2>
+<ol>
+<li>Download the latest <code>.dmg</code> from the <a href="/localmelody/">LocalMelody product page</a> or GitHub Releases.</li>
+<li>Open the disk image and drag <strong>LocalMelody</strong> into Applications.</li>
+<li>Launch the app. If macOS Gatekeeper warns about an unidentified developer, open <strong>System Settings → Privacy &amp; Security</strong> and allow the app, or right-click → <strong>Open</strong> the first time.</li>
+</ol>
+<h2 id="first-time-setup-homebrew-ollama-models">First-time setup (Homebrew, Ollama, models)</h2>
+<p>LocalMelody does not ship every model inside the DMG. On first launch you install supporting tools and download the runtime / models from inside the app:</p>
+<ol>
+<li>Install <strong>Homebrew</strong> if you do not already have it (the app points you at the standard install path).</li>
+<li>Install <strong>Ollama</strong> when prompted — LocalMelody uses it to manage local model downloads.</li>
+<li>Inside LocalMelody, download the <strong>runtime</strong> and the <strong>music / lyrics models</strong> you want to use.</li>
+<li>Wait for downloads to finish before generating. Large models take time and disk space.</li>
+</ol>
+<p>Internet is required for this step. After models are on disk, generation runs locally.</p>
+<h2 id="create-your-first-song">Create your first song</h2>
+<ol>
+<li>Open LocalMelody and start from a text prompt — a mood, genre, or short story.</li>
+<li>Choose whether you want <strong>instrumental</strong> (MusicGen-style workflow) or <strong>music with vocals</strong> (ACE-Step-style workflow), depending on what is available in your build.</li>
+<li>On <strong>Free</strong>, generations are capped at <strong>15 seconds</strong> with automatic sound controls.</li>
+<li>Play the result from the Library. Iterate on the prompt until the vibe is right.</li>
+</ol>
+<p>Keep prompts concrete: tempo, instruments, emotion, and structure (“lo-fi verse, warm pads, no drums”) usually work better than one vague adjective.</p>
+<h2 id="shape-the-sound-pro">Shape the sound (Pro)</h2>
+<p><strong>Pro Lifetime</strong> unlocks the full studio controls:</p>
+<ul>
+<li>Song length from <strong>15 to 240 seconds</strong></li>
+<li>Genre, mood, voice, BPM, and key controls</li>
+<li>Voice reference and lyrics refinement</li>
+<li>Export of audio and lyrics</li>
+</ul>
+<p>Buy Pro once through Lemon Squeezy from the <a href="/localmelody/#pricing">pricing section</a> or in-app upgrade. It is a <strong>one-time</strong> purchase, not a subscription.</p>
+<h2 id="free-vs-pro-at-a-glance">Free vs Pro at a glance</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Free</th>
+<th>Pro Lifetime</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Price</td>
+<td>$0</td>
+<td>$9.99 one-time</td>
+</tr>
+<tr>
+<td>Length</td>
+<td>15-second songs</td>
+<td>15–240 seconds</td>
+</tr>
+<tr>
+<td>Sound controls</td>
+<td>Automatic</td>
+<td>Genre, mood, voice, BPM, key</td>
+</tr>
+<tr>
+<td>Lyrics</td>
+<td>Generation</td>
+<td>Generation + refinement</td>
+</tr>
+<tr>
+<td>Voice reference</td>
+<td>—</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Export</td>
+<td>Local playback / Library</td>
+<td>Audio and lyrics export</td>
+</tr>
+</tbody></table>
+<h2 id="privacy-what-stays-on-your-mac">Privacy: what stays on your Mac</h2>
+<ul>
+<li>Prompts, lyrics, generated audio, and Library data live in macOS Application Support on your machine.</li>
+<li>LocalMelody does <strong>not</strong> operate a backend that stores your creative content.</li>
+<li>The app still contacts third parties for <strong>licensing</strong>, <strong>Sparkle updates</strong> (GitHub release assets), and <strong>model / runtime downloads</strong> (including Ollama / model providers).</li>
+<li>Payment is handled by <strong>Lemon Squeezy</strong>; codeonholiday does not store card details.</li>
+</ul>
+<p>Read the full <a href="/localmelody/privacy.html">Privacy Policy</a> if you need the legal detail.</p>
+<h2 id="compare-to-cloud-ai-music">Compare to cloud AI music</h2>
+<p>If you are choosing between cloud studios and a local Mac app:</p>
+<ul>
+<li><a href="/blog/localmelody-vs-suno/">LocalMelody vs Suno</a></li>
+<li><a href="/blog/localmelody-vs-udio/">LocalMelody vs Udio</a></li>
+<li><a href="/blog/suno-vs-udio-vs-localmelody/">Suno vs Udio vs LocalMelody</a></li>
+<li><a href="/blog/best-local-ai-music-generator-mac/">Best local AI music generator for Mac</a></li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="generation-is-slow-or-the-mac-fans-spin-hard">Generation is slow or the Mac fans spin hard</h3>
+<p>Local AI music is heavy. Close other memory-hungry apps, prefer 32 GB+ RAM when possible, and start with shorter Free generations while you learn the workflow.</p>
+<h3 id="models-will-not-download">Models will not download</h3>
+<p>Confirm you are online, Homebrew / Ollama finished installing, and you have enough free disk space. Retry the in-app download after a failed network blip.</p>
+<h3 id="license-will-not-activate">License will not activate</h3>
+<p>Pro activation needs network access to Lemon Squeezy. Check the key was pasted correctly and that the Mac clock is accurate.</p>
+<h3 id="updates-missing">Updates missing</h3>
+<p>LocalMelody uses Sparkle with GitHub-hosted releases. Open the app’s update check, or download the latest DMG from the product page.</p>
+<h2 id="next-steps">Next steps</h2>
+<ol>
+<li>Finish first-time setup and generate a 15-second Free track.</li>
+<li>Try a more specific prompt (genre + mood + instruments).</li>
+<li>Upgrade to Pro when you need longer songs, exports, or finer controls.</li>
+<li>Keep comparing <a href="/blog/suno-vs-udio-vs-localmelody/">cloud vs local</a> if you are still deciding where generation should run.</li>
+</ol>
+<p>Questions? Email <a href="mailto:hello@codeonholiday.com">hello@codeonholiday.com</a>.</p>
+
+          </div>
+          <aside class="article-cta"><strong>Ready to try LocalMelody?</strong><p>See the product page for the download, pricing, and full feature list.</p><a href="/localmelody/">Explore LocalMelody →</a> · <a href="/blog/how-to-use-localmelody-complete-guide/">Complete guide</a></aside>
+          <div class="article-footer">
+            <a href="/blog/">← All posts</a>
+            <a href="/">codeonholiday home</a>
+          </div>
+        </article>
+        <aside class="toc toc-desktop" aria-label="Table of contents">
+    <div class="toc-title">On this page</div>
+    <nav><a href="#see-it-in-action" class="toc-h2">See it in action</a>
+<a href="#what-you-need" class="toc-h2">What you need</a>
+<a href="#install-localmelody" class="toc-h2">Install LocalMelody</a>
+<a href="#first-time-setup-homebrew-ollama-models" class="toc-h2">First-time setup (Homebrew, Ollama, models)</a>
+<a href="#create-your-first-song" class="toc-h2">Create your first song</a>
+<a href="#shape-the-sound-pro" class="toc-h2">Shape the sound (Pro)</a>
+<a href="#free-vs-pro-at-a-glance" class="toc-h2">Free vs Pro at a glance</a>
+<a href="#privacy-what-stays-on-your-mac" class="toc-h2">Privacy: what stays on your Mac</a>
+<a href="#compare-to-cloud-ai-music" class="toc-h2">Compare to cloud AI music</a>
+<a href="#troubleshooting" class="toc-h2">Troubleshooting</a>
+<a href="#generation-is-slow-or-the-mac-fans-spin-hard" class="toc-h3">Generation is slow or the Mac fans spin hard</a>
+<a href="#models-will-not-download" class="toc-h3">Models will not download</a>
+<a href="#license-will-not-activate" class="toc-h3">License will not activate</a>
+<a href="#updates-missing" class="toc-h3">Updates missing</a>
+<a href="#next-steps" class="toc-h2">Next steps</a></nav>
+  </aside>
+      </div>
+    </main>
+<footer class="site-footer">
+    <div class="wrap">
+      <div class="foot">
+        <span>© 2026 codeonholiday</span>
+        <div class="foot-end">
+          <!-- Social URLs — replace placeholders as real links arrive -->
+          <nav class="social" aria-label="Social links">
+            <a href="https://x.com/codeonholiday" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@codeonholiday" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.16 16.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.73a8.2 8.2 0 0 0 4.79 1.52V6.84a4.84 4.84 0 0 1-1.04-.15z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/codeonholiday" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14C17.26 2.09 16.09 2 14.84 2 12.27 2 10.5 3.57 10.5 6.61V9.5H8v4h2.5V22h3.5z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/hungpv99/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.047c.476-.9 1.637-1.85 3.37-1.85 3.602 0 4.267 2.371 4.267 5.456v6.285zM5.337 7.433a2.063 2.063 0 1 1 0-4.126 2.063 2.063 0 0 1 0 4.126zM7.119 20.452H3.555V9h3.564v11.452z"/></svg>
+            </a>
+            <a href="https://www.reddit.com/user/hi_codeonholiday/" target="_blank" rel="noopener noreferrer" aria-label="Reddit">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12a1.75 1.75 0 0 1 2.541-1.562 8.796 8.796 0 0 1 4.66-1.49l.885-4.162a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.068l2.914.614a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.841 2.484.917 2.961.917.477 0 2.105-.079 2.961-.917a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+            </a>
+          </nav>
+          <span>
+            <a href="/blog/">Blog</a>
+            ·
+            <a href="/blog/feed.xml">RSS</a>
+            ·
+            <a href="mailto:hello@codeonholiday.com">hello@codeonholiday.com</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+    <script src="/events.js"></script>
+    <script src="/blog/js/blog.js"></script>
+
+</body>
+</html>

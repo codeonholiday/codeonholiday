@@ -201,8 +201,10 @@ function siteHeader(active) {
       </a>
       <nav class="nav-links" aria-label="Primary">
         <a href="/blog/"${active === 'blog' ? ' aria-current="page"' : ''}>Blog</a>
+        <a href="/apps/">Apps</a>
         <a href="/meetly/">Meetly</a>
         <a href="/hoverboard/">HoverBoard</a>
+        <a href="/localmelody/">LocalMelody</a>
       </nav>
     </div>
   </header>`;
@@ -278,31 +280,60 @@ function renderPostPage(post) {
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
-    headline: title,
-    description,
-    datePublished: published,
-    dateModified: modified,
-    author: {
-      '@type': 'Organization',
-      name: author,
-      url: SITE + '/',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'codeonholiday',
-      url: SITE + '/',
-      logo: {
-        '@type': 'ImageObject',
-        url: DEFAULT_OG,
+    '@graph': [
+      {
+        '@type': 'BlogPosting',
+        '@id': `${canonical}#article`,
+        headline: title,
+        description,
+        datePublished: published,
+        dateModified: modified,
+        author: {
+          '@type': 'Organization',
+          name: author,
+          url: SITE + '/',
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'codeonholiday',
+          url: SITE + '/',
+          logo: {
+            '@type': 'ImageObject',
+            url: `${SITE}/codeonholiday-logo.png`,
+          },
+        },
+        image: ogImage,
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': canonical,
+        },
+        keywords: (tags || []).join(', '),
       },
-    },
-    image: ogImage,
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': canonical,
-    },
-    keywords: (tags || []).join(', '),
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${canonical}#breadcrumb`,
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: `${SITE}/`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Blog',
+            item: `${SITE}/blog/`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: title,
+            item: canonical,
+          },
+        ],
+      },
+    ],
   };
 
   const mermaidScripts = hasMermaid
@@ -339,7 +370,9 @@ function renderPostPage(post) {
     ? { name: 'Meetly', url: '/meetly/', guide: '/blog/how-to-use-meetly-complete-guide/' }
     : (tags || []).includes('hoverboard')
       ? { name: 'HoverBoard', url: '/hoverboard/', guide: '/blog/how-to-use-hoverboard-complete-guide/' }
-      : null;
+      : (tags || []).includes('localmelody')
+        ? { name: 'LocalMelody', url: '/localmelody/', guide: '/blog/how-to-use-localmelody-complete-guide/' }
+        : null;
   const productCta = relatedProduct
     ? `<aside class="article-cta"><strong>Ready to try ${relatedProduct.name}?</strong><p>See the product page for the download, pricing, and full feature list.</p><a href="${relatedProduct.url}">Explore ${relatedProduct.name} →</a> · <a href="${relatedProduct.guide}">Complete guide</a></aside>`
     : '';
@@ -419,7 +452,7 @@ function renderListingPage(posts) {
   const canonical = `${SITE}/blog/`;
   const title = 'Blog — codeonholiday';
   const description =
-    'Notes on building small, focused macOS apps — Meetly, HoverBoard, and whatever comes next.';
+    'Notes on building small, focused macOS apps — Meetly, HoverBoard, LocalMelody, and whatever comes next.';
 
   const itemList = posts.map((p, i) => ({
     '@type': 'ListItem',
@@ -548,11 +581,7 @@ const STATIC_SITEMAP_URLS = [
   { loc: `${SITE}/`, source: 'index.html', fallbackLastmod: '2026-07-24', priority: '1.0', changefreq: 'weekly' },
   { loc: `${SITE}/apps/`, source: 'apps/index.html', fallbackLastmod: '2026-08-17', priority: '0.95', changefreq: 'weekly' },
   { loc: `${SITE}/apps/recommendation-guide.html`, source: 'apps/recommendation-guide.html', fallbackLastmod: '2026-08-17', priority: '0.8', changefreq: 'monthly' },
-  { loc: `${SITE}/apps/meeting-reminder-mac.html`, source: 'apps/meeting-reminder-mac.html', fallbackLastmod: '2026-08-17', priority: '0.8', changefreq: 'monthly' },
-  { loc: `${SITE}/apps/meetingbar-alternative.html`, source: 'apps/meetingbar-alternative.html', fallbackLastmod: '2026-08-17', priority: '0.8', changefreq: 'monthly' },
-  { loc: `${SITE}/apps/screen-annotation-for-mac.html`, source: 'apps/screen-annotation-for-mac.html', fallbackLastmod: '2026-08-17', priority: '0.8', changefreq: 'monthly' },
-  { loc: `${SITE}/apps/presentation-tool-for-mac.html`, source: 'apps/presentation-tool-for-mac.html', fallbackLastmod: '2026-08-17', priority: '0.8', changefreq: 'monthly' },
-  { loc: `${SITE}/apps/local-ai-music-generator-mac.html`, source: 'apps/local-ai-music-generator-mac.html', fallbackLastmod: '2026-08-17', priority: '0.8', changefreq: 'monthly' },
+  // Thin /apps/* intent satellites are noindex and canonical to blog posts — omit from sitemap.
   { loc: `${SITE}/meetly/`, source: 'meetly/index.html', fallbackLastmod: '2026-07-23', priority: '0.9', changefreq: 'weekly' },
   { loc: `${SITE}/hoverboard/`, source: 'hoverboard/index.html', fallbackLastmod: '2026-07-25', priority: '0.9', changefreq: 'weekly' },
   { loc: `${SITE}/localmelody/`, source: 'localmelody/index.html', fallbackLastmod: '2026-08-04', priority: '0.9', changefreq: 'weekly' },

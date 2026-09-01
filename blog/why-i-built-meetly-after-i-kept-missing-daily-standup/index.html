@@ -35,31 +35,60 @@
     <script type="application/ld+json">
 {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "I Kept Missing Daily Standup. So I Built Meetly.",
-    "description": "Calendar notifications weren’t enough. Here’s why I built Meetly — a macOS fullscreen meeting reminder that finally made daily standup unmissable.",
-    "datePublished": "2026-07-14T00:00:00+00:00",
-    "dateModified": "2026-07-14T00:00:00+00:00",
-    "author": {
-        "@type": "Organization",
-        "name": "codeonholiday",
-        "url": "https://codeonholiday.com/"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "codeonholiday",
-        "url": "https://codeonholiday.com/",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "https://codeonholiday.com/og-image.png"
+    "@graph": [
+        {
+            "@type": "BlogPosting",
+            "@id": "https://codeonholiday.com/blog/why-i-built-meetly-after-i-kept-missing-daily-standup/#article",
+            "headline": "I Kept Missing Daily Standup. So I Built Meetly.",
+            "description": "Calendar notifications weren’t enough. Here’s why I built Meetly — a macOS fullscreen meeting reminder that finally made daily standup unmissable.",
+            "datePublished": "2026-07-14T00:00:00+00:00",
+            "dateModified": "2026-07-14T00:00:00+00:00",
+            "author": {
+                "@type": "Organization",
+                "name": "codeonholiday",
+                "url": "https://codeonholiday.com/"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "codeonholiday",
+                "url": "https://codeonholiday.com/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://codeonholiday.com/codeonholiday-logo.png"
+                }
+            },
+            "image": "https://codeonholiday.com/blog/posts/assets/why-i-built-meetly-after-i-kept-missing-daily-standup/og.png",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://codeonholiday.com/blog/why-i-built-meetly-after-i-kept-missing-daily-standup/"
+            },
+            "keywords": "meetly, macos, indie-dev, productivity"
+        },
+        {
+            "@type": "BreadcrumbList",
+            "@id": "https://codeonholiday.com/blog/why-i-built-meetly-after-i-kept-missing-daily-standup/#breadcrumb",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://codeonholiday.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Blog",
+                    "item": "https://codeonholiday.com/blog/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "I Kept Missing Daily Standup. So I Built Meetly.",
+                    "item": "https://codeonholiday.com/blog/why-i-built-meetly-after-i-kept-missing-daily-standup/"
+                }
+            ]
         }
-    },
-    "image": "https://codeonholiday.com/blog/posts/assets/why-i-built-meetly-after-i-kept-missing-daily-standup/og.png",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://codeonholiday.com/blog/why-i-built-meetly-after-i-kept-missing-daily-standup/"
-    },
-    "keywords": "meetly, macos, indie-dev, productivity"
+    ]
 }
     </script>
 
@@ -88,8 +117,10 @@
       </a>
       <nav class="nav-links" aria-label="Primary">
         <a href="/blog/" aria-current="page">Blog</a>
+        <a href="/apps/">Apps</a>
         <a href="/meetly/">Meetly</a>
         <a href="/hoverboard/">HoverBoard</a>
+        <a href="/localmelody/">LocalMelody</a>
       </nav>
     </div>
   </header>
