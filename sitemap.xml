@@ -104,9 +104,75 @@
     </url>
     <url>
         <loc>https://codeonholiday.com/blog/</loc>
-        <lastmod>2026-08-18</lastmod>
+        <lastmod>2026-09-01</lastmod>
         <priority>0.8</priority>
         <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://codeonholiday.com/blog/suno-vs-udio-vs-localmelody/</loc>
+        <lastmod>2026-09-01</lastmod>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://codeonholiday.com/blog/meetly-vs-meety/</loc>
+        <lastmod>2026-09-01</lastmod>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://codeonholiday.com/blog/meetly-vs-in-your-face/</loc>
+        <lastmod>2026-09-01</lastmod>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://codeonholiday.com/blog/loom-screen-studio-alternative-macos/</loc>
+        <lastmod>2026-09-01</lastmod>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://codeonholiday.com/blog/localmelody-vs-udio/</loc>
+        <lastmod>2026-09-01</lastmod>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://codeonholiday.com/blog/localmelody-vs-suno/</loc>
+        <lastmod>2026-09-01</lastmod>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://codeonholiday.com/blog/keycastr-alternative-macos/</loc>
+        <lastmod>2026-09-01</lastmod>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://codeonholiday.com/blog/hoverboard-vs-cleanshot-x/</loc>
+        <lastmod>2026-09-01</lastmod>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://codeonholiday.com/blog/best-screen-annotation-zoom-mac/</loc>
+        <lastmod>2026-09-01</lastmod>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://codeonholiday.com/blog/best-local-ai-music-generator-mac/</loc>
+        <lastmod>2026-09-01</lastmod>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://codeonholiday.com/blog/best-fullscreen-calendar-reminder-macos/</loc>
+        <lastmod>2026-09-01</lastmod>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://codeonholiday.com/blog/best-meeting-reminder-app-macos/</loc>
