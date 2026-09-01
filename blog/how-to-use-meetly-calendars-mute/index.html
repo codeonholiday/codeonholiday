@@ -185,26 +185,16 @@
 <p>A <strong>Muted</strong> tag appears on the event. Press <strong>⌘ U</strong> to unmute.</p>
 <p><figure><img src="/blog/posts/assets/why-i-built-meetly-after-i-kept-missing-daily-standup/mute.webp" alt="Muted meeting with Mute tag in the Meetly panel" loading="lazy" decoding="async"><figcaption>Muted meeting with Mute tag in the Meetly panel</figcaption></figure>
 </p>
-<table>
-<thead>
-<tr>
-<th>Action</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>Mute (⌘ M)</strong></td>
-<td>Skip the fullscreen reminder for this occurrence</td>
-</tr>
-<tr>
-<td><strong>Snooze</strong></td>
-<td>Delay the current overlay</td>
-</tr>
-<tr>
-<td><strong>Dismiss</strong></td>
-<td>Clear the current overlay</td>
-</tr>
-</tbody></table>
+<div class="table-scroll" role="region" aria-label="Data table" tabindex="0">
+<table class="blog-table table-kv">
+<thead><tr><th scope="col" class="col-label">Action</th><th scope="col">Meaning</th></tr></thead>
+<tbody>
+<tr><th scope="row" class="row-label"><strong>Mute (⌘ M)</strong></th><td data-label="Meaning">Skip the fullscreen reminder for this occurrence</td></tr>
+<tr><th scope="row" class="row-label"><strong>Snooze</strong></th><td data-label="Meaning">Delay the current overlay</td></tr>
+<tr><th scope="row" class="row-label"><strong>Dismiss</strong></th><td data-label="Meaning">Clear the current overlay</td></tr>
+</tbody>
+</table>
+</div>
 <p>Mute is not the same as deleting the event from Calendar. The meeting still shows in the list; Meetly simply will not interrupt you for it.</p>
 <p>On <strong>Pro</strong>, mute state syncs across your Macs through <strong>your iCloud</strong> — not a codeonholiday server.</p>
 <h2 id="only-remind-meetings-with-a-join-link">Only remind meetings with a join link</h2>

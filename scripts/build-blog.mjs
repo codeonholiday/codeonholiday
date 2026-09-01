@@ -150,6 +150,51 @@ function createRenderer(slug, headingCollect, state) {
     return `<a href="${escapeHtml(href || '')}"${titleAttr}${rel}${target}>${body}</a>`;
   };
 
+  // Readable comparison / key-value tables: wrap + data-label for mobile cards.
+  renderer.table = function (token) {
+    const headers = token.header.map((cell) => {
+      const html = this.parser.parseInline(cell.tokens);
+      const plain = String(cell.text || html.replace(/<[^>]+>/g, '')).trim();
+      return { html, plain, align: cell.align };
+    });
+    const colCount = headers.length;
+
+    const headCells = headers
+      .map((h, i) => {
+        const align = h.align ? ` align="${h.align}"` : '';
+        const scope = i === 0 ? ' scope="col" class="col-label"' : ' scope="col"';
+        return `<th${scope}${align}>${h.html}</th>`;
+      })
+      .join('');
+
+    const bodyRows = token.rows
+      .map((row) => {
+        const cells = row
+          .map((cell, i) => {
+            const html = this.parser.parseInline(cell.tokens);
+            const align = cell.align ? ` align="${cell.align}"` : '';
+            if (i === 0) {
+              return `<th scope="row" class="row-label"${align}>${html}</th>`;
+            }
+            const label = escapeHtml(headers[i]?.plain || `Column ${i + 1}`);
+            return `<td data-label="${label}"${align}>${html}</td>`;
+          })
+          .join('');
+        return `<tr>${cells}</tr>`;
+      })
+      .join('\n');
+
+    const kind = colCount <= 2 ? 'table-kv' : 'table-compare';
+    return `<div class="table-scroll" role="region" aria-label="Data table" tabindex="0">
+<table class="blog-table ${kind}">
+<thead><tr>${headCells}</tr></thead>
+<tbody>
+${bodyRows}
+</tbody>
+</table>
+</div>\n`;
+  };
+
   return renderer;
 }
 

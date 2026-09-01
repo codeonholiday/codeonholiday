@@ -238,26 +238,16 @@
 <p>You can reopen onboarding anytime from <strong>Settings → Open Onboarding</strong>.</p>
 <h2 id="where-meetly-lives-the-menu-bar">Where Meetly lives: the menu bar</h2>
 <p>Click the calendar icon to open the menu bar panel. On <strong>Today</strong> you will see:</p>
-<table>
-<thead>
-<tr>
-<th>Section</th>
-<th>What it shows</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>NOW</strong></td>
-<td>Meetings happening right now</td>
-</tr>
-<tr>
-<td><strong>NEXT</strong></td>
-<td>The next meeting today (with countdown — e.g. <code>in 1:12</code> when more than an hour away)</td>
-</tr>
-<tr>
-<td><strong>UPCOMING</strong></td>
-<td>Later meetings today</td>
-</tr>
-</tbody></table>
+<div class="table-scroll" role="region" aria-label="Data table" tabindex="0">
+<table class="blog-table table-kv">
+<thead><tr><th scope="col" class="col-label">Section</th><th scope="col">What it shows</th></tr></thead>
+<tbody>
+<tr><th scope="row" class="row-label"><strong>NOW</strong></th><td data-label="What it shows">Meetings happening right now</td></tr>
+<tr><th scope="row" class="row-label"><strong>NEXT</strong></th><td data-label="What it shows">The next meeting today (with countdown — e.g. <code>in 1:12</code> when more than an hour away)</td></tr>
+<tr><th scope="row" class="row-label"><strong>UPCOMING</strong></th><td data-label="What it shows">Later meetings today</td></tr>
+</tbody>
+</table>
+</div>
 <p>Use the <strong>‹ ›</strong> arrows to browse the next six days. Each day shows a flat list of that day’s events.</p>
 <p>Footer actions:</p>
 <ul>
@@ -281,26 +271,16 @@
 </p>
 <p>The overlay auto-dismisses after a few minutes (default <strong>3 minutes</strong>) if you do not act. Joining from the overlay always dismisses it. Joining early from the menu bar can optionally dismiss it too — see Settings → Alerts.</p>
 <h3 id="keyboard-shortcuts-on-the-overlay">Keyboard shortcuts on the overlay</h3>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>← →</strong> or <strong>↑ ↓</strong></td>
-<td>Move focus between Join, Snooze, Dismiss</td>
-</tr>
-<tr>
-<td><strong>Return</strong></td>
-<td>Activate the focused button</td>
-</tr>
-<tr>
-<td><strong>Esc</strong></td>
-<td>Dismiss</td>
-</tr>
-</tbody></table>
+<div class="table-scroll" role="region" aria-label="Data table" tabindex="0">
+<table class="blog-table table-kv">
+<thead><tr><th scope="col" class="col-label">Key</th><th scope="col">Action</th></tr></thead>
+<tbody>
+<tr><th scope="row" class="row-label"><strong>← →</strong> or <strong>↑ ↓</strong></th><td data-label="Action">Move focus between Join, Snooze, Dismiss</td></tr>
+<tr><th scope="row" class="row-label"><strong>Return</strong></th><td data-label="Action">Activate the focused button</td></tr>
+<tr><th scope="row" class="row-label"><strong>Esc</strong></th><td data-label="Action">Dismiss</td></tr>
+</tbody>
+</table>
+</div>
 <p>If two meetings overlap, the overlay lists both. Use arrow keys to pick which one to join.</p>
 <h3 id="one-click-join">One-click join</h3>
 <p>If the calendar event has a conferencing URL, Meetly surfaces <strong>Join now</strong> on that same overlay — no digging through Calendar notes. Zoom, Google Meet, Teams, and similar links are detected automatically.</p>
@@ -310,38 +290,19 @@
 <p>Press <strong>Control + Option + M</strong> (default) from any app to summon the <strong>Quick Panel</strong> at your cursor. It shows the same meeting list as the menu bar, without clicking the icon.</p>
 <p><figure><img src="/blog/posts/assets/why-i-built-meetly-after-i-kept-missing-daily-standup/quickpanel.gif" alt="Meetly Quick Panel — browse days and join from the keyboard" loading="lazy" decoding="async"><figcaption>Meetly Quick Panel — browse days and join from the keyboard</figcaption></figure>
 </p>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>← →</strong> or <strong>⌘ H / ⌘ L</strong></td>
-<td>Change day</td>
-</tr>
-<tr>
-<td><strong>↑ ↓</strong> or <strong>⌘ K / ⌘ J</strong></td>
-<td>Select a meeting</td>
-</tr>
-<tr>
-<td><strong>Return</strong></td>
-<td>Join / copy location / open link</td>
-</tr>
-<tr>
-<td><strong>⌘ M</strong></td>
-<td>Mute selected meeting (skip fullscreen reminder)</td>
-</tr>
-<tr>
-<td><strong>⌘ U</strong></td>
-<td>Unmute selected meeting</td>
-</tr>
-<tr>
-<td><strong>Esc</strong></td>
-<td>Close panel</td>
-</tr>
-</tbody></table>
+<div class="table-scroll" role="region" aria-label="Data table" tabindex="0">
+<table class="blog-table table-kv">
+<thead><tr><th scope="col" class="col-label">Key</th><th scope="col">Action</th></tr></thead>
+<tbody>
+<tr><th scope="row" class="row-label"><strong>← →</strong> or <strong>⌘ H / ⌘ L</strong></th><td data-label="Action">Change day</td></tr>
+<tr><th scope="row" class="row-label"><strong>↑ ↓</strong> or <strong>⌘ K / ⌘ J</strong></th><td data-label="Action">Select a meeting</td></tr>
+<tr><th scope="row" class="row-label"><strong>Return</strong></th><td data-label="Action">Join / copy location / open link</td></tr>
+<tr><th scope="row" class="row-label"><strong>⌘ M</strong></th><td data-label="Action">Mute selected meeting (skip fullscreen reminder)</td></tr>
+<tr><th scope="row" class="row-label"><strong>⌘ U</strong></th><td data-label="Action">Unmute selected meeting</td></tr>
+<tr><th scope="row" class="row-label"><strong>Esc</strong></th><td data-label="Action">Close panel</td></tr>
+</tbody>
+</table>
+</div>
 <p><strong>Vim-style:</strong> <strong>⌘ H</strong> previous day, <strong>⌘ L</strong> next day, <strong>⌘ K</strong> up, <strong>⌘ J</strong> down — same as the arrow keys while the panel is open.</p>
 <p>Change the shortcut in <strong>Settings → General → Quick Panel Shortcut</strong>. You can record any key combo the recorder accepts.</p>
 <h2 id="mute-and-unmute-meetings">Mute and unmute meetings</h2>
@@ -392,42 +353,20 @@
 <p><figure><img src="/blog/posts/assets/why-i-built-meetly-after-i-kept-missing-daily-standup/settings-reminders.webp" alt="Meetly Settings — Apple Reminders lists and rules" loading="lazy" decoding="async"><figcaption>Meetly Settings — Apple Reminders lists and rules</figcaption></figure>
 </p>
 <h3 id="alerts">Alerts</h3>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>What it does</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>Remind before</strong></td>
-<td>10s, 30s, 1 min, or 5 min</td>
-</tr>
-<tr>
-<td><strong>Auto dismiss overlay</strong></td>
-<td>1, 3, or 5 minutes</td>
-</tr>
-<tr>
-<td><strong>Only remind meetings with a join link</strong></td>
-<td>Skip in-person / room-only events</td>
-</tr>
-<tr>
-<td><strong>Dismiss when joining from menu bar</strong></td>
-<td>On = early join skips overlay; Off = safer if you join early then get distracted</td>
-</tr>
-<tr>
-<td><strong>Quiet hours (Pro)</strong></td>
-<td>Mute fullscreen reminders overnight</td>
-</tr>
-<tr>
-<td><strong>Hide during screen share (Pro)</strong></td>
-<td>Overlay visible to you, hidden from Zoom/Meet/Teams viewers</td>
-</tr>
-<tr>
-<td><strong>Test reminders</strong></td>
-<td>Create 30s test meetings or show overlay instantly</td>
-</tr>
-</tbody></table>
+<div class="table-scroll" role="region" aria-label="Data table" tabindex="0">
+<table class="blog-table table-kv">
+<thead><tr><th scope="col" class="col-label">Setting</th><th scope="col">What it does</th></tr></thead>
+<tbody>
+<tr><th scope="row" class="row-label"><strong>Remind before</strong></th><td data-label="What it does">10s, 30s, 1 min, or 5 min</td></tr>
+<tr><th scope="row" class="row-label"><strong>Auto dismiss overlay</strong></th><td data-label="What it does">1, 3, or 5 minutes</td></tr>
+<tr><th scope="row" class="row-label"><strong>Only remind meetings with a join link</strong></th><td data-label="What it does">Skip in-person / room-only events</td></tr>
+<tr><th scope="row" class="row-label"><strong>Dismiss when joining from menu bar</strong></th><td data-label="What it does">On = early join skips overlay; Off = safer if you join early then get distracted</td></tr>
+<tr><th scope="row" class="row-label"><strong>Quiet hours (Pro)</strong></th><td data-label="What it does">Mute fullscreen reminders overnight</td></tr>
+<tr><th scope="row" class="row-label"><strong>Hide during screen share (Pro)</strong></th><td data-label="What it does">Overlay visible to you, hidden from Zoom/Meet/Teams viewers</td></tr>
+<tr><th scope="row" class="row-label"><strong>Test reminders</strong></th><td data-label="What it does">Create 30s test meetings or show overlay instantly</td></tr>
+</tbody>
+</table>
+</div>
 <p><figure><img src="/blog/posts/assets/why-i-built-meetly-after-i-kept-missing-daily-standup/settings-alerts.webp" alt="Meetly Settings — Alerts, quiet hours, screen-share privacy" loading="lazy" decoding="async"><figcaption>Meetly Settings — Alerts, quiet hours, screen-share privacy</figcaption></figure>
 </p>
 <h2 id="meetly-pro">Meetly Pro</h2>

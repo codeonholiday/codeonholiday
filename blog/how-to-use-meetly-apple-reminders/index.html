@@ -173,26 +173,16 @@
 </ol>
 <p>Put high-stakes personal or work tasks on a dedicated list (“Due today”, “Ship blockers”) and leave shopping lists unmonitored.</p>
 <h2 id="due-time-vs-date-only-tasks">Due time vs date-only tasks</h2>
-<table>
-<thead>
-<tr>
-<th>Task type</th>
-<th>Meetly behavior</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Due date <strong>and</strong> time</td>
-<td>Overlay fires before that time (using your global remind-before setting)</td>
-</tr>
-<tr>
-<td>Due date, <strong>no</strong> time</td>
-<td>Treated as the default time (9:00 AM unless you change it)</td>
-</tr>
-<tr>
-<td>No due date</td>
-<td>Ignored for overlays</td>
-</tr>
-</tbody></table>
+<div class="table-scroll" role="region" aria-label="Data table" tabindex="0">
+<table class="blog-table table-kv">
+<thead><tr><th scope="col" class="col-label">Task type</th><th scope="col">Meetly behavior</th></tr></thead>
+<tbody>
+<tr><th scope="row" class="row-label">Due date <strong>and</strong> time</th><td data-label="Meetly behavior">Overlay fires before that time (using your global remind-before setting)</td></tr>
+<tr><th scope="row" class="row-label">Due date, <strong>no</strong> time</th><td data-label="Meetly behavior">Treated as the default time (9:00 AM unless you change it)</td></tr>
+<tr><th scope="row" class="row-label">No due date</th><td data-label="Meetly behavior">Ignored for overlays</td></tr>
+</tbody>
+</table>
+</div>
 <p>Keep times on anything that must interrupt you. Date-only tasks are easy to flood the morning with if every list is monitored.</p>
 <h2 id="same-overlay-same-join-dismiss-habits">Same overlay, same join / dismiss habits</h2>
 <p>When a Reminders due fires, you get the familiar fullscreen UI: countdown, dismiss, snooze. There is usually no Zoom join button — these are tasks, not calls — but the interruption model matches meetings so muscle memory stays intact.</p>

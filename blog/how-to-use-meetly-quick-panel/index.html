@@ -162,38 +162,19 @@
 <p><figure><img src="/blog/posts/assets/why-i-built-meetly-after-i-kept-missing-daily-standup/quickpanel.gif" alt="Meetly Quick Panel — browse days and join from the keyboard" loading="lazy" decoding="async"><figcaption>Meetly Quick Panel — browse days and join from the keyboard</figcaption></figure>
 </p>
 <h2 id="keyboard-shortcuts">Keyboard shortcuts</h2>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>← →</strong> or <strong>⌘ H / ⌘ L</strong></td>
-<td>Change day</td>
-</tr>
-<tr>
-<td><strong>↑ ↓</strong> or <strong>⌘ K / ⌘ J</strong></td>
-<td>Select a meeting</td>
-</tr>
-<tr>
-<td><strong>Return</strong></td>
-<td>Join / copy location / open link</td>
-</tr>
-<tr>
-<td><strong>⌘ M</strong></td>
-<td>Mute selected meeting (skip fullscreen reminder)</td>
-</tr>
-<tr>
-<td><strong>⌘ U</strong></td>
-<td>Unmute selected meeting</td>
-</tr>
-<tr>
-<td><strong>Esc</strong></td>
-<td>Close panel</td>
-</tr>
-</tbody></table>
+<div class="table-scroll" role="region" aria-label="Data table" tabindex="0">
+<table class="blog-table table-kv">
+<thead><tr><th scope="col" class="col-label">Key</th><th scope="col">Action</th></tr></thead>
+<tbody>
+<tr><th scope="row" class="row-label"><strong>← →</strong> or <strong>⌘ H / ⌘ L</strong></th><td data-label="Action">Change day</td></tr>
+<tr><th scope="row" class="row-label"><strong>↑ ↓</strong> or <strong>⌘ K / ⌘ J</strong></th><td data-label="Action">Select a meeting</td></tr>
+<tr><th scope="row" class="row-label"><strong>Return</strong></th><td data-label="Action">Join / copy location / open link</td></tr>
+<tr><th scope="row" class="row-label"><strong>⌘ M</strong></th><td data-label="Action">Mute selected meeting (skip fullscreen reminder)</td></tr>
+<tr><th scope="row" class="row-label"><strong>⌘ U</strong></th><td data-label="Action">Unmute selected meeting</td></tr>
+<tr><th scope="row" class="row-label"><strong>Esc</strong></th><td data-label="Action">Close panel</td></tr>
+</tbody>
+</table>
+</div>
 <p><strong>Vim-style navigation</strong> (<strong>⌘ H J K L</strong>) mirrors the arrow keys while the panel is focused. That matters when you live in the terminal or an editor and do not want to reach for the mouse.</p>
 <h2 id="join-a-call-in-one-press">Join a call in one press</h2>
 <p>Highlight a meeting that has a Zoom, Google Meet, or Teams link, then press <strong>Return</strong>. Meetly opens the join URL the same way the menu bar and fullscreen overlay do.</p>
@@ -202,30 +183,17 @@
 <p>Optional syncs and standups you are skipping should not interrupt deep work. Select the event and press <strong>⌘ M</strong>. A <strong>Muted</strong> tag appears. <strong>⌘ U</strong> turns reminders back on.</p>
 <p>Mute means “do not fire the fullscreen reminder for this occurrence.” It is separate from snooze or dismiss. On <strong>Pro</strong>, mute state syncs across your Macs via iCloud. More detail: <a href="/blog/how-to-use-meetly-calendars-mute/">How to mute meetings and manage calendars in Meetly</a>.</p>
 <h2 id="when-to-use-quick-panel-vs-the-menu-bar">When to use Quick Panel vs the menu bar</h2>
-<table>
-<thead>
-<tr>
-<th>Situation</th>
-<th>Prefer</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Hands already on the keyboard</td>
-<td>Quick Panel (⌃⌥M)</td>
-</tr>
-<tr>
-<td>Glancing at the clock area</td>
-<td>Menu bar icon</td>
-</tr>
-<tr>
-<td>Multi-day browse while coding</td>
-<td>Quick Panel + ⌘ H / L</td>
-</tr>
-<tr>
-<td>Opening Settings / Health Check</td>
-<td>Menu bar → gear</td>
-</tr>
-</tbody></table>
+<div class="table-scroll" role="region" aria-label="Data table" tabindex="0">
+<table class="blog-table table-kv">
+<thead><tr><th scope="col" class="col-label">Situation</th><th scope="col">Prefer</th></tr></thead>
+<tbody>
+<tr><th scope="row" class="row-label">Hands already on the keyboard</th><td data-label="Prefer">Quick Panel (⌃⌥M)</td></tr>
+<tr><th scope="row" class="row-label">Glancing at the clock area</th><td data-label="Prefer">Menu bar icon</td></tr>
+<tr><th scope="row" class="row-label">Multi-day browse while coding</th><td data-label="Prefer">Quick Panel + ⌘ H / L</td></tr>
+<tr><th scope="row" class="row-label">Opening Settings / Health Check</th><td data-label="Prefer">Menu bar → gear</td></tr>
+</tbody>
+</table>
+</div>
 <p>Both surfaces share the same meeting list, mute shortcuts, and join behavior. Pick the one that keeps your flow.</p>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <h3 id="shortcut-does-nothing">Shortcut does nothing</h3>

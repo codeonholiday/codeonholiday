@@ -253,6 +253,203 @@ a:hover { text-decoration: underline; }
     border-radius: 12px; text-align: center; overflow-x: auto;
 }
 
+/* ---------- Tables ---------- */
+.prose .table-scroll {
+    margin: 1.6em 0 1.8em;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--card);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: 0 12px 40px -28px rgba(0, 0, 0, 0.55);
+}
+.prose .table-scroll:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.prose table.blog-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    min-width: 0;
+}
+
+.prose .blog-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: linear-gradient(180deg, #182233 0%, #141c2a 100%);
+    border-bottom: 1px solid rgba(78, 230, 213, 0.28);
+    white-space: nowrap;
+}
+.prose .blog-table thead th[align="right"],
+.prose .blog-table thead th[align="center"] {
+    text-align: inherit;
+}
+.prose .blog-table thead th.col-label {
+    color: var(--text-dim);
+}
+
+.prose .blog-table tbody th,
+.prose .blog-table tbody td {
+    padding: 13px 16px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-muted);
+    text-align: left;
+}
+.prose .blog-table tbody tr:last-child th,
+.prose .blog-table tbody tr:last-child td {
+    border-bottom: none;
+}
+.prose .blog-table tbody tr:nth-child(even) th,
+.prose .blog-table tbody tr:nth-child(even) td {
+    background: rgba(255, 255, 255, 0.025);
+}
+.prose .blog-table tbody tr:hover th,
+.prose .blog-table tbody tr:hover td {
+    background: rgba(78, 230, 213, 0.05);
+}
+
+.prose .blog-table .row-label {
+    font-weight: 700;
+    color: var(--text);
+    width: 34%;
+    min-width: 9.5rem;
+}
+.prose .blog-table.table-kv .row-label {
+    width: 38%;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.88em;
+    font-weight: 700;
+    color: #e8f0fa;
+    white-space: nowrap;
+}
+.prose .blog-table.table-compare tbody td {
+    font-weight: 600;
+    color: #d5e0ef;
+    text-align: left !important;
+}
+.prose .blog-table.table-compare thead th {
+    text-align: left !important;
+}
+.prose .blog-table tbody td[align="right"],
+.prose .blog-table tbody th[align="right"] {
+    text-align: right;
+}
+.prose .blog-table tbody td[align="center"],
+.prose .blog-table tbody th[align="center"] {
+    text-align: center;
+}
+.prose .blog-table strong {
+    color: var(--text);
+}
+
+/* Mobile: stack rows as labeled cards (uses data-label from build) */
+@media (max-width: 720px) {
+    .prose .table-scroll {
+        overflow: visible;
+        border: none;
+        background: transparent;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    .prose table.blog-table {
+        display: block;
+        min-width: 0;
+    }
+    .prose .blog-table thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+    .prose .blog-table tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .prose .blog-table tbody tr {
+        display: grid;
+        gap: 0;
+        padding: 4px 14px 6px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--card);
+        box-shadow: 0 10px 28px -24px rgba(0, 0, 0, 0.7);
+    }
+    .prose .blog-table tbody tr:nth-child(even) th,
+    .prose .blog-table tbody tr:nth-child(even) td,
+    .prose .blog-table tbody tr:hover th,
+    .prose .blog-table tbody tr:hover td {
+        background: transparent;
+    }
+    .prose .blog-table tbody th,
+    .prose .blog-table tbody td {
+        display: grid;
+        grid-template-columns: minmax(7rem, 38%) 1fr;
+        gap: 10px 14px;
+        align-items: start;
+        width: 100%;
+        padding: 11px 0;
+        border-bottom: 1px solid var(--border);
+        text-align: left !important;
+    }
+    .prose .blog-table tbody tr > :last-child {
+        border-bottom: none;
+    }
+    .prose .blog-table .row-label {
+        width: auto;
+        min-width: 0;
+        white-space: normal;
+        grid-column: 1 / -1;
+        padding-bottom: 12px;
+        margin-bottom: 2px;
+        border-bottom: 1px solid rgba(78, 230, 213, 0.22);
+        font-family: inherit;
+        font-size: 1rem;
+        letter-spacing: -0.01em;
+    }
+    .prose .blog-table tbody td::before {
+        content: attr(data-label);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--text-dim);
+        padding-top: 0.15em;
+    }
+    .prose .blog-table.table-kv tbody td {
+        grid-template-columns: 1fr;
+    }
+    .prose .blog-table.table-kv tbody td::before {
+        display: none;
+    }
+    .prose .blog-table.table-kv .row-label {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.9em;
+        color: #e8f0fa;
+        border-bottom-color: var(--border);
+        padding-bottom: 8px;
+        margin-bottom: 0;
+    }
+}
+
 .article-footer {
     margin-top: 48px; padding-top: 28px;
     border-top: 1px solid var(--border);
