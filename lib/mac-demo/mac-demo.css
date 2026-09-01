@@ -1,0 +1,734 @@
+/**
+ * mac-demo — macOS-accurate shell for landing page interactive demos.
+ * Structure: screen → menu bar (top) → desktop (wallpaper) → window (title bar + content).
+ */
+
+.mac-demo-root {
+    /* Product accent — scenes override buttons/highlights only */
+    --mac-demo-accent: #0a84ff;
+    --mac-demo-accent-2: #0066cc;
+
+    /* macOS dark appearance tokens (Sonoma / Sequoia) */
+    --mac-sys-bg: #1e1e1e;
+    --mac-sys-bg-elevated: #2a2a2a;
+    --mac-sys-bg-secondary: #323232;
+    --mac-sys-text: rgba(255, 255, 255, 0.92);
+    --mac-sys-text-secondary: rgba(255, 255, 255, 0.55);
+    --mac-sys-text-tertiary: rgba(255, 255, 255, 0.35);
+    --mac-sys-separator: rgba(255, 255, 255, 0.1);
+    --mac-sys-fill: rgba(255, 255, 255, 0.08);
+    --mac-sys-fill-secondary: rgba(255, 255, 255, 0.05);
+    --mac-menubar-bg: rgba(22, 22, 22, 0.72);
+    --mac-window-shadow:
+        0 0 0 0.5px rgba(0, 0, 0, 0.65),
+        0 8px 24px rgba(0, 0, 0, 0.45),
+        0 22px 70px rgba(0, 0, 0, 0.35);
+    --mac-wallpaper:
+        radial-gradient(ellipse 120% 80% at 20% 10%, #3d2b6e 0%, transparent 55%),
+        radial-gradient(ellipse 90% 70% at 85% 20%, #1a4a7a 0%, transparent 50%),
+        radial-gradient(ellipse 100% 90% at 50% 100%, #0d2137 0%, transparent 60%),
+        linear-gradient(160deg, #1a1030 0%, #0b1628 45%, #061018 100%);
+    --mac-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", sans-serif;
+    --mac-font-mono: ui-monospace, "SF Mono", "Menlo", "Monaco", monospace;
+    --mac-radius-window: 10px;
+    --mac-radius-panel: 10px;
+    --mac-radius-btn: 6px;
+
+    position: relative;
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    font-family: var(--mac-font);
+    font-size: 13px;
+    color: var(--mac-sys-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "kern" 1, "liga" 1;
+}
+
+.mac-demo-root.is-light {
+    --mac-sys-bg: #ececec;
+    --mac-sys-bg-elevated: #ffffff;
+    --mac-sys-bg-secondary: #f5f5f5;
+    --mac-sys-text: rgba(0, 0, 0, 0.85);
+    --mac-sys-text-secondary: rgba(0, 0, 0, 0.55);
+    --mac-sys-text-tertiary: rgba(0, 0, 0, 0.35);
+    --mac-sys-separator: rgba(0, 0, 0, 0.12);
+    --mac-sys-fill: rgba(0, 0, 0, 0.06);
+    --mac-sys-fill-secondary: rgba(0, 0, 0, 0.04);
+    --mac-menubar-bg: rgba(246, 246, 246, 0.78);
+    --mac-wallpaper:
+        radial-gradient(ellipse 120% 80% at 20% 10%, #c4b5fd 0%, transparent 55%),
+        radial-gradient(ellipse 90% 70% at 85% 20%, #93c5fd 0%, transparent 50%),
+        linear-gradient(160deg, #ddd6fe 0%, #bfdbfe 45%, #e0e7ff 100%);
+}
+
+.mac-demo-root * {
+    box-sizing: border-box;
+}
+
+/* ── Simulated Mac screen ─────────────────────────────────────────── */
+
+.mac-demo-screen {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+    background: #000;
+    transition: opacity 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.mac-demo-root.is-hidden .mac-demo-screen {
+    opacity: 0;
+    transform: scale(0.97) translateY(6px);
+    pointer-events: none;
+}
+
+/* ── macOS menu bar (screen top — NOT inside window) ─────────────── */
+
+.mac-demo-menubar {
+    display: flex;
+    align-items: center;
+    height: 25px;
+    padding: 0 8px 0 12px;
+    background: var(--mac-menubar-bg);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 0.5px solid var(--mac-sys-separator);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    user-select: none;
+    position: relative;
+    z-index: 30;
+}
+
+.mac-demo-menubar-left {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    min-width: 0;
+    flex: 1;
+}
+
+.mac-demo-apple {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 25px;
+    margin-left: -4px;
+    margin-right: 2px;
+    opacity: 0.92;
+}
+
+.mac-demo-apple svg {
+    width: 13px;
+    height: 16px;
+    fill: currentColor;
+}
+
+.mac-demo-menu-item {
+    padding: 0 10px;
+    height: 25px;
+    line-height: 25px;
+    white-space: nowrap;
+    color: var(--mac-sys-text);
+    cursor: default;
+    border-radius: 4px;
+}
+
+.mac-demo-menu-item:first-of-type {
+    font-weight: 600;
+}
+
+.mac-demo-menu-item:hover {
+    background: var(--mac-sys-fill);
+}
+
+.mac-demo-menubar-right {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
+}
+
+.mac-demo-status-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 25px;
+    opacity: 0.85;
+    color: var(--mac-sys-text);
+}
+
+.mac-demo-status-icon svg {
+    width: 15px;
+    height: 15px;
+    fill: currentColor;
+}
+
+.mac-demo-accessory {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    height: 22px;
+    padding: 0 8px;
+    margin: 0 4px;
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+    color: #ff453a;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+}
+
+.mac-demo-accessory:hover {
+    background: var(--mac-sys-fill);
+}
+
+.mac-demo-accessory.is-pulse::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #ff453a;
+    animation: mac-demo-pulse 1.4s ease-in-out infinite;
+}
+
+.mac-demo-clock {
+    padding: 0 8px 0 6px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 13px;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+    color: var(--mac-sys-text);
+    white-space: nowrap;
+}
+
+/* ── Desktop (wallpaper area) ────────────────────────────────────── */
+
+.mac-demo-desktop-area {
+    position: relative;
+    min-height: 680px;
+    background: var(--mac-wallpaper);
+    padding: 28px 24px 24px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* ── App window ──────────────────────────────────────────────────── */
+
+.mac-demo-window {
+    width: 100%;
+    max-width: 520px;
+    border-radius: var(--mac-radius-window);
+    background: var(--mac-sys-bg);
+    box-shadow: var(--mac-window-shadow);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Title bar — macOS unified toolbar style */
+.mac-demo-titlebar {
+    display: grid;
+    grid-template-columns: 78px 1fr 78px;
+    align-items: center;
+    height: 52px;
+    padding: 0 16px;
+    background: var(--mac-sys-bg-elevated);
+    border-bottom: 0.5px solid var(--mac-sys-separator);
+    position: relative;
+}
+
+.mac-demo-traffic {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+}
+
+.mac-demo-dot {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 0.5px solid rgba(0, 0, 0, 0.12);
+    padding: 0;
+    cursor: default;
+    transition: filter 0.1s;
+}
+
+.mac-demo-dot::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: 800;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.12s;
+}
+
+.mac-demo-traffic:hover .mac-demo-dot::after {
+    opacity: 1;
+}
+
+.mac-demo-dot--close {
+    background: #ff5f57;
+    cursor: pointer;
+}
+.mac-demo-dot--close::after { content: '×'; font-size: 10px; margin-top: -1px; }
+
+.mac-demo-dot--min { background: #febc2e; }
+.mac-demo-dot--min::after { content: '−'; font-size: 11px; margin-top: -2px; }
+
+.mac-demo-dot--max { background: #28c840; }
+.mac-demo-dot--max::after {
+    content: '';
+    width: 4px;
+    height: 4px;
+    margin: 3px auto 0;
+    border: 1.5px solid rgba(0, 0, 0, 0.45);
+    border-radius: 1px;
+    opacity: 0;
+}
+.mac-demo-traffic:hover .mac-demo-dot--max::after { opacity: 1; }
+
+.mac-demo-title {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--mac-sys-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 8px;
+}
+
+.mac-demo-titlebar-spacer {
+    width: 78px;
+}
+
+/* Toolbar strip below title (optional tabs / toolbar) */
+.mac-demo-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    height: 38px;
+    padding: 0 12px;
+    background: var(--mac-sys-bg-secondary);
+    border-bottom: 0.5px solid var(--mac-sys-separator);
+}
+
+.mac-demo-tab {
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    padding: 4px 12px;
+    height: 26px;
+    border-radius: 6px;
+    border: none;
+    background: transparent;
+    color: var(--mac-sys-text-secondary);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+
+.mac-demo-tab:hover {
+    background: var(--mac-sys-fill);
+    color: var(--mac-sys-text);
+}
+
+.mac-demo-tab.is-active {
+    background: var(--mac-sys-fill);
+    color: var(--mac-sys-text);
+    font-weight: 600;
+}
+
+/* ── Window body ─────────────────────────────────────────────────── */
+
+.mac-demo-body {
+    position: relative;
+    min-height: 260px;
+    background: var(--mac-sys-bg);
+}
+
+.mac-demo-desktop {
+    position: relative;
+    min-height: 260px;
+    padding: 16px;
+    z-index: 1;
+}
+
+/* ── Layers ──────────────────────────────────────────────────────── */
+
+.mac-demo-overlay {
+    position: absolute;
+    z-index: 10;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(24px) saturate(120%);
+    -webkit-backdrop-filter: blur(24px) saturate(120%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.22s ease, visibility 0.22s;
+}
+
+.mac-demo-overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.mac-demo-panel {
+    position: absolute;
+    top: 25px;
+    right: auto;
+    left: 50%;
+    z-index: 40;
+    width: min(280px, calc(100% - 24px));
+    border-radius: var(--mac-radius-panel);
+    border: 0.5px solid var(--mac-sys-separator);
+    background: var(--mac-menubar-bg);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    box-shadow:
+        0 0 0 0.5px rgba(0, 0, 0, 0.3),
+        0 8px 32px rgba(0, 0, 0, 0.45);
+    transform: translateX(-50%) scale(0.96) translateY(-4px);
+    transform-origin: top center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.18s, visibility 0.18s, transform 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.mac-demo-panel.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) scale(1) translateY(0);
+}
+
+/* Fullscreen overlay — covers entire simulated Mac screen */
+.mac-demo-screen-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.22s ease, visibility 0.22s;
+}
+
+.mac-demo-screen-overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.mac-demo-toast-wrap {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 60;
+    pointer-events: none;
+}
+
+.mac-demo-toast {
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: var(--mac-menubar-bg);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border: 0.5px solid var(--mac-sys-separator);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--mac-sys-text);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.mac-demo-toast.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Hint (outside window, on desktop) ───────────────────────────── */
+
+.mac-demo-hint {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.45);
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(8px);
+    white-space: nowrap;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.mac-demo-desktop-area:has(.mac-demo-dock) .mac-demo-hint {
+    bottom: 64px;
+}
+
+/* ── Drag & drop ─────────────────────────────────────────────────── */
+
+.mac-demo-drag {
+    touch-action: none;
+    cursor: grab;
+    user-select: none;
+}
+
+.mac-demo-drag.is-dragging {
+    cursor: grabbing;
+    opacity: 0.35;
+}
+
+.mac-demo-dropzone {
+    border: 1.5px dashed var(--mac-sys-separator);
+    border-radius: 8px;
+    background: var(--mac-sys-fill-secondary);
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.mac-demo-dropzone.is-over {
+    border-color: var(--mac-demo-accent);
+    background: rgba(10, 132, 255, 0.08);
+}
+
+.mac-demo-ghost {
+    position: fixed;
+    z-index: 99999;
+    pointer-events: none;
+    opacity: 0.88;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.4));
+}
+
+/* ── macOS UI primitives ─────────────────────────────────────────── */
+
+.mac-demo-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-height: 28px;
+    padding: 4px 14px;
+    border-radius: var(--mac-radius-btn);
+    border: 0.5px solid var(--mac-sys-separator);
+    background: var(--mac-sys-fill);
+    color: var(--mac-sys-text);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    transition: background 0.12s, filter 0.12s;
+    box-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.06) inset;
+}
+
+.mac-demo-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.mac-demo-btn:active {
+    filter: brightness(0.92);
+}
+
+.mac-demo-btn--primary {
+    background: var(--mac-demo-accent);
+    border-color: rgba(0, 0, 0, 0.15);
+    color: #fff;
+    font-weight: 500;
+    box-shadow:
+        0 0.5px 0 rgba(255, 255, 255, 0.25) inset,
+        0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.mac-demo-btn--primary:hover {
+    background: color-mix(in srgb, var(--mac-demo-accent) 88%, white);
+}
+
+.mac-demo-btn--destructive {
+    color: #ff453a;
+}
+
+.mac-demo-card {
+    padding: 16px;
+    border-radius: 10px;
+    border: 0.5px solid var(--mac-sys-separator);
+    background: var(--mac-sys-bg-elevated);
+}
+
+.mac-demo-groupbox {
+    border: 0.5px solid var(--mac-sys-separator);
+    border-radius: 8px;
+    background: var(--mac-sys-fill-secondary);
+}
+
+/* Finder-style file row */
+.mac-demo-file {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: var(--mac-sys-text);
+    transition: background 0.12s;
+}
+
+.mac-demo-file:hover {
+    background: var(--mac-sys-fill);
+}
+
+.mac-demo-file-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 7px;
+    background: linear-gradient(180deg, #5ac8fa 0%, #007aff 100%);
+    display: grid;
+    place-items: center;
+    font-size: 9px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+/* Terminal-style content block */
+.mac-demo-terminal {
+    margin: 0;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: #1a1a1a;
+    border: 0.5px solid rgba(255, 255, 255, 0.08);
+    font-family: var(--mac-font-mono);
+    font-size: 11.5px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.mac-demo-terminal .prompt { color: #30d158; }
+.mac-demo-terminal .muted { color: rgba(255, 255, 255, 0.35); }
+
+/* Dock (optional decoration on desktop) */
+.mac-demo-dock {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
+    z-index: 4;
+}
+
+.mac-demo-dock-icon {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.mac-demo-dock-icon img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.mac-demo-dock-icon.is-active::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 4px;
+    height: 4px;
+    margin-left: -2px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.88);
+}
+
+.mac-demo-dock-icon.is-active {
+    transform: scale(1.06);
+}
+
+/* ── Animations ──────────────────────────────────────────────────── */
+
+@keyframes mac-demo-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+}
+
+@keyframes mac-demo-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.mac-demo-root.is-floating .mac-demo-screen {
+    animation: mac-demo-float 6s ease-in-out infinite;
+}
+
+/* ── Reduced motion ──────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+    .mac-demo-root.is-floating .mac-demo-screen,
+    .mac-demo-accessory.is-pulse::before {
+        animation: none !important;
+    }
+
+    .mac-demo-screen,
+    .mac-demo-overlay,
+    .mac-demo-panel,
+    .mac-demo-toast,
+    .mac-demo-root.is-hidden .mac-demo-screen {
+        transition: none !important;
+    }
+}

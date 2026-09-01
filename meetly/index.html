@@ -47,7 +47,8 @@
     <meta name="twitter:description" content="Fullscreen meeting reminders for macOS. Free forever; Pro $9.99 one-time. No subscription.">
     <meta name="twitter:image" content="https://codeonholiday.com/meetly/og-image.png">
 
-    <!-- Plausible Analytics (Privacy-Friendly) -->
+    <link rel="stylesheet" href="/lib/mac-demo/mac-demo.css">
+    <link rel="stylesheet" href="/lib/mac-demo/meetly-ui.css">
     <script defer data-domain="codeonholiday.com" src="https://plausible.io/js/script.js"></script>
     <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 
@@ -551,6 +552,58 @@
             line-height: 1.5;
         }
         .hero-video-caption a { color: var(--teal); font-weight: 600; }
+
+        /* Interactive macOS demo (below hero) */
+        .interactive-demo {
+            padding: 8px 0 80px;
+        }
+        .interactive-demo .demo-stage {
+            position: relative;
+            z-index: 1;
+        }
+        .interactive-demo .mac-demo-root {
+            margin: 0 auto;
+        }
+        .interactive-demo kbd {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 5px;
+            border: 1px solid var(--border-strong);
+            background: rgba(255, 255, 255, 0.04);
+            font-family: var(--font-mono, ui-monospace, monospace);
+            font-size: 0.85em;
+        }
+        .demo-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: -8px auto 20px;
+            max-width: 720px;
+        }
+        .demo-controls button {
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--border-strong);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text);
+            cursor: pointer;
+            transition: background 0.15s ease, border-color 0.15s ease;
+        }
+        .demo-controls button:hover {
+            background: rgba(78, 230, 213, 0.08);
+            border-color: rgba(78, 230, 213, 0.35);
+        }
+        .demo-note {
+            margin-top: 16px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-dim);
+            line-height: 1.55;
+        }
         .shot-video {
             position: relative;
             width: 100%;
@@ -1422,6 +1475,27 @@
     </section>
 
     <!-- ============================================================
+         INTERACTIVE DEMO
+         ============================================================ -->
+    <section class="interactive-demo" id="try-demo">
+        <div class="container">
+            <div class="sec-head reveal">
+                <span class="sec-eyebrow">Try it live</span>
+                <h2>Click the menu bar icon.<br>Hover a meeting.</h2>
+                <p>Same panel as the real app — keyboard shortcuts, Quick Panel <kbd>⌃⌥M</kbd>, share free time, mute with <kbd>⌘M</kbd>.</p>
+            </div>
+            <div class="demo-controls reveal">
+                <button type="button" id="demo-btn-panel">Toggle menu bar panel</button>
+                <button type="button" id="demo-btn-quick">Quick Panel (⌃⌥M)</button>
+                <button type="button" id="demo-btn-share">Share free time</button>
+                <button type="button" id="demo-btn-overlay">Fullscreen reminder</button>
+            </div>
+            <div class="demo-stage reveal" id="meetly-interactive-demo" aria-label="Interactive Meetly demo"></div>
+            <p class="demo-note reveal">Matched to Meetly Swift UI · ESC: detail → panel → overlay · Icon: green = NOW, orange = SOON, white = idle</p>
+        </div>
+    </section>
+
+    <!-- ============================================================
          TRUST BAR
          ============================================================ -->
     <section class="trustbar">
@@ -1948,6 +2022,44 @@
             item.addEventListener('toggle', () => {
                 if (item.open) faqItems.forEach(o => { if (o !== item) o.open = false; });
             });
+        });
+    </script>
+    <script src="/lib/mac-demo/mac-demo.js" defer></script>
+    <script src="/lib/mac-demo/meetly-demo.js" defer></script>
+    <script defer>
+        document.addEventListener('DOMContentLoaded', function () {
+            var mountEl = document.getElementById('meetly-interactive-demo');
+            if (!mountEl || !globalThis.MacDemo || !globalThis.MeetlyDemo) return;
+
+            var demo = MacDemo.mount(mountEl, MeetlyDemo.config);
+            var ctx = demo.ctx;
+
+            var btnPanel = document.getElementById('demo-btn-panel');
+            var btnQuick = document.getElementById('demo-btn-quick');
+            var btnShare = document.getElementById('demo-btn-share');
+            var btnOverlay = document.getElementById('demo-btn-overlay');
+
+            if (btnPanel) {
+                btnPanel.addEventListener('click', function () {
+                    if (ctx.isPanelOpen()) ctx.closePanel();
+                    else ctx.openPanel();
+                });
+            }
+            if (btnQuick) {
+                btnQuick.addEventListener('click', function () {
+                    if (ctx.meetly) ctx.meetly.toggleQuick();
+                });
+            }
+            if (btnShare) {
+                btnShare.addEventListener('click', function () {
+                    if (ctx.meetly) ctx.meetly.openShare();
+                });
+            }
+            if (btnOverlay) {
+                btnOverlay.addEventListener('click', function () {
+                    MeetlyDemo.fireOverlay(ctx);
+                });
+            }
         });
     </script>
     <script src="events.js"></script>

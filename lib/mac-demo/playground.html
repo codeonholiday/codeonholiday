@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Meetly — interactive demo playground</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mac-demo.css">
+    <link rel="stylesheet" href="meetly-ui.css">
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0d13;
+            color: #f8fbff;
+            -webkit-font-smoothing: antialiased;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(60% 50% at 15% 0%, rgba(78, 230, 213, 0.1) 0%, transparent 60%),
+                radial-gradient(55% 45% at 95% 10%, rgba(255, 111, 111, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .pg-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px 64px;
+            position: relative;
+            z-index: 1;
+        }
+        .pg-head { text-align: center; margin-bottom: 28px; }
+        .pg-head h1 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 900;
+            letter-spacing: -0.025em;
+            margin: 0 0 10px;
+        }
+        .pg-head h1 span {
+            background: linear-gradient(120deg, #fff 0%, #4ee6d5 55%, #1787ff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .pg-head p {
+            color: #93a1b5;
+            font-size: 14px;
+            max-width: 560px;
+            margin: 0 auto;
+            line-height: 1.55;
+        }
+        .pg-controls {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+        .pg-controls button {
+            font-family: inherit;
+            font-size: 12.5px;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(120, 140, 170, 0.28);
+            background: rgba(255, 255, 255, 0.04);
+            color: #f8fbff;
+            cursor: pointer;
+        }
+        .pg-controls button:hover { background: rgba(255, 255, 255, 0.08); }
+        .pg-note {
+            text-align: center;
+            margin-top: 14px;
+            font-size: 12px;
+            color: #64748b;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="pg-wrap">
+        <header class="pg-head">
+            <h1><span>Meetly</span> interactive demo</h1>
+            <p>Full macOS shell demo — click the menu bar icon, hover meetings for detail, use keyboard shortcuts, Quick Panel <kbd>⌃⌥M</kbd>, Share free time, mute with <kbd>⌘M</kbd>.</p>
+            <div class="pg-controls">
+                <button type="button" id="btn-panel">Toggle menu bar panel</button>
+                <button type="button" id="btn-quick">Quick Panel (⌃⌥M)</button>
+                <button type="button" id="btn-share">Share free time</button>
+                <button type="button" id="btn-overlay">Fullscreen reminder</button>
+            </div>
+        </header>
+
+        <div id="meetly-demo"></div>
+
+        <p class="pg-note">Matched to Meetly Swift UI · ESC: detail → panel → overlay · Icon: green=NOW, orange=SOON, white=idle</p>
+    </div>
+
+    <script src="mac-demo.js"></script>
+    <script src="meetly-demo.js"></script>
+    <script>
+        var demo = MacDemo.mount(document.getElementById('meetly-demo'), MeetlyDemo.config);
+
+        document.getElementById('btn-panel').onclick = function () {
+            if (demo.ctx.isPanelOpen()) demo.ctx.closePanel();
+            else demo.ctx.openPanel();
+        };
+
+        document.getElementById('btn-quick').onclick = function () {
+            if (demo.ctx.meetly) demo.ctx.meetly.toggleQuick();
+        };
+
+        document.getElementById('btn-share').onclick = function () {
+            if (demo.ctx.meetly) demo.ctx.meetly.openShare();
+        };
+
+        document.getElementById('btn-overlay').onclick = function () {
+            MeetlyDemo.fireOverlay(demo.ctx);
+        };
+    </script>
+</body>
+</html>
