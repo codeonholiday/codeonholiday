@@ -636,6 +636,7 @@ const STATIC_SITEMAP_URLS = [
   { loc: `${SITE}/hoverboard/terms.html`, source: 'hoverboard/terms.html', fallbackLastmod: '2026-07-13', priority: '0.3', changefreq: 'yearly' },
   { loc: `${SITE}/localmelody/privacy.html`, source: 'localmelody/privacy.html', fallbackLastmod: '2026-08-04', priority: '0.3', changefreq: 'yearly' },
   { loc: `${SITE}/localmelody/terms.html`, source: 'localmelody/terms.html', fallbackLastmod: '2026-08-04', priority: '0.3', changefreq: 'yearly' },
+  { loc: `${SITE}/llms.txt`, source: 'llms.txt', fallbackLastmod: '2026-09-01', priority: '0.6', changefreq: 'weekly' },
 ];
 
 function renderSitemap(posts) {

@@ -52,3 +52,11 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # IndexNow (Bing + Amazon) — ask crawlers to recrawl sitemap URLs.
+      # Runs after Pages is live so they can fetch /{key}.txt for ownership.
+      - name: Notify IndexNow crawlers
+        continue-on-error: true
+        run: |
+          sleep 20
+          node scripts/submit-indexnow.mjs

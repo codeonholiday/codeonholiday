@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build:blog": "node scripts/build-blog.mjs"
+    "build:blog": "node scripts/build-blog.mjs",
+    "indexnow": "node scripts/submit-indexnow.mjs"
   },
   "devDependencies": {
     "gray-matter": "^4.0.3",

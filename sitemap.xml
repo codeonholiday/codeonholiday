@@ -73,6 +73,12 @@
         <changefreq>yearly</changefreq>
     </url>
     <url>
+        <loc>https://codeonholiday.com/llms.txt</loc>
+        <lastmod>2026-09-01</lastmod>
+        <priority>0.6</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
         <loc>https://codeonholiday.com/blog/</loc>
         <lastmod>2026-09-01</lastmod>
         <priority>0.8</priority>
