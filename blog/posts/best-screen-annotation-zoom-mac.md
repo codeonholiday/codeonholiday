@@ -3,7 +3,7 @@ title: Best Screen Annotation for Zoom and Google Meet on Mac — HoverBoard
 description: Looking for the best screen annotation app for Zoom or Google Meet on Mac? Compare HoverBoard, Presentify, Zoom built-in tools, and ScreenBrush for live teaching and demos.
 date: 2026-09-01
 updated: 2026-09-01
-tags: [hoverboard, zoom, google-meet, screen-annotation, macos, presentation, comparison]
+tags: [hoverboard, zoom, google-meet, screen-annotation, screenshot, screen-record, macos, presentation, comparison]
 image: /hoverboard/og-image.png
 author: codeonholiday
 draft: false
@@ -25,7 +25,7 @@ This guide compares **HoverBoard**, **Presentify**, **Zoom’s built-in annotati
 
 ## HoverBoard: best all-round annotation toolkit for Mac calls
 
-[HoverBoard](/hoverboard/) is a native menu bar overlay for presenting and teaching. Hotkeys open Draw, Spotlight, Freeze, Whiteboard, Cursor Halo, Keystroke Display, Notes, Break Timer, and Sessions. It works over Zoom, Google Meet, Microsoft Teams, and desktop apps because it annotates the Mac screen itself — not only a vendor toolbar.
+[HoverBoard](/hoverboard/) is a native menu bar overlay for presenting and teaching. Hotkeys open Draw, Spotlight, Freeze, Whiteboard, Cursor Halo, Keystroke Display, Notes, Break Timer, and Sessions. **Screenshot** and **Screen Record** are free forever — capture stills or MP4 without leaving the app. It works over Zoom, Google Meet, Microsoft Teams, and desktop apps because it annotates the Mac screen itself — not only a vendor toolbar.
 
 **Highlights for Zoom / Meet**
 
@@ -33,9 +33,9 @@ This guide compares **HoverBoard**, **Presentify**, **Zoom’s built-in annotati
 - Freeze & Explain when demos move too fast
 - Cursor Halo and Spotlight for remote visibility
 - Whiteboard with export options when discussion takes over
-- Spotlight and Break Timer free forever; Pro **$15.99** one-time
+- Screenshot and Screen Record free forever; Pro **$15.99** one-time
 
-Guides: [complete HoverBoard guide](/blog/how-to-use-hoverboard-complete-guide/), [vs Presentify](/blog/hoverboard-vs-presentify/), [best annotation tool for macOS](/blog/best-annotation-tool-macos/).
+Guides: [complete HoverBoard guide](/blog/how-to-use-hoverboard-complete-guide/), [free screenshot](/blog/best-free-screenshot-tool-macos/), [free screen recorder](/blog/best-free-screen-recorder-macos/), [vs Presentify](/blog/hoverboard-vs-presentify/), [best annotation tool for macOS](/blog/best-annotation-tool-macos/).
 
 ## Presentify: best focused lightweight overlay
 

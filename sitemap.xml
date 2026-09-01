@@ -181,6 +181,18 @@
         <changefreq>monthly</changefreq>
     </url>
     <url>
+        <loc>https://codeonholiday.com/blog/best-free-screenshot-tool-macos/</loc>
+        <lastmod>2026-09-01</lastmod>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://codeonholiday.com/blog/best-free-screen-recorder-macos/</loc>
+        <lastmod>2026-09-01</lastmod>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
         <loc>https://codeonholiday.com/blog/best-meeting-reminder-app-macos/</loc>
         <lastmod>2026-08-18</lastmod>
         <priority>0.7</priority>
@@ -188,7 +200,7 @@
     </url>
     <url>
         <loc>https://codeonholiday.com/blog/best-annotation-tool-macos/</loc>
-        <lastmod>2026-08-18</lastmod>
+        <lastmod>2026-09-01</lastmod>
         <priority>0.7</priority>
         <changefreq>monthly</changefreq>
     </url>

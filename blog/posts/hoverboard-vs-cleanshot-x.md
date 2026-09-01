@@ -11,7 +11,7 @@ draft: false
 
 Looking for a **CleanShot X alternative** because you present, teach, or demo on Mac every day? Be careful what you replace. [CleanShot X](https://cleanshot.com/) is one of the best screenshot and capture utilities on macOS. [HoverBoard](/hoverboard/) is a live presentation and screen-annotation toolkit. They overlap on “something is on my screen,” not on the same job.
 
-If you need scrolling capture, annotate-after-capture, OCR, and a polished screenshot history, CleanShot X remains the specialist. If you need to **draw, spotlight, freeze, whiteboard, and show keystrokes while the screen is already shared**, HoverBoard is the better CleanShot alternative *for presenting* — not a clone of CleanShot’s capture suite.
+If you need scrolling capture, annotate-after-capture, OCR, and a polished screenshot history, CleanShot X remains the specialist. If you need to **draw, spotlight, freeze, whiteboard, screenshot, screen record, and show keystrokes while the screen is already shared**, HoverBoard is the better CleanShot alternative *for presenting* — with **Screenshot and Screen Record free forever**, not a clone of CleanShot’s full capture suite.
 
 ![HoverBoard Draw mode](/hoverboard/showcase-draw.webp)
 
@@ -25,7 +25,7 @@ HoverBoard wins at explaining what is happening live over Zoom, Meet, Teams, Key
 |---|---|---|
 | Primary job | Screenshots, recording, capture tools | Live annotation & teaching overlays |
 | Draw while presenting | Annotate captures; not the core live overlay suite | Draw / Freeze / Whiteboard over any app |
-| Pricing | Check CleanShot (license + updates) | Free Spotlight & Break Timer; Pro **$15.99** one-time |
+| Pricing | Check CleanShot (license + updates) | Screenshot, Screen Record, Spotlight & Break Timer free; Pro **$15.99** one-time |
 
 Do not buy HoverBoard expecting CleanShot’s screenshot workflow. Do not buy CleanShot expecting HoverBoard’s Freeze & Explain teaching loop.
 
@@ -55,19 +55,26 @@ When a UI moves too fast, Freeze captures the frame so you can annotate and talk
 
 ![HoverBoard Freeze](/hoverboard/showcase-freeze.webp)
 
+### Screenshot & Screen Record (free)
+
+HoverBoard 1.4 adds **region / full-display screenshots** with Copy, Save, and markup (**⌃⌥G**) and **screen recording** with mic/system audio, a record pill, and trim/speed export (**⌃⌥V**). Both are **free forever** — useful when you teach live and need a still or MP4 without opening CleanShot or QuickTime.
+
+See [best free screenshot tool for Mac](/blog/best-free-screenshot-tool-macos/) and [best free screen recorder for Mac](/blog/best-free-screen-recorder-macos/).
+
 ### Whiteboard, Cursor Halo, Keystrokes, Sessions
 
 Infinite whiteboard with export options, cursor halo and click effects, live keystroke display for tutorials, private Markdown notes, Sessions for saving frames, and local recording workflows on supported Macs. Spotlight and Break Timer stay free forever; other tools include a 60-second Pro trial.
 
 ![HoverBoard Whiteboard](/hoverboard/showcase-whiteboard.webp)
 
-HoverBoard does **not** try to replace CleanShot’s scrolling screenshots, OCR, or capture history. Those remain CleanShot’s home turf.
+HoverBoard does **not** try to replace CleanShot’s scrolling screenshots, OCR, or capture history. Basic screenshot and screen record are free; advanced capture remains CleanShot’s home turf.
 
 ## Feature comparison (honest categories)
 
 | Capability | CleanShot X | HoverBoard |
 |---|---:|---:|
-| Screenshots & capture toolkit | Excellent | Not the focus |
+| Screenshots & capture toolkit | Excellent | Region/full + markup (free); not scrolling/OCR |
+| Screen record + trim / speed | Strong | Full/Selection/Window + editor (free) |
 | OCR / scrolling capture | Yes | — |
 | Live draw over any app while presenting | Limited / different | Yes |
 | Freeze live UI to explain | — | Yes |
@@ -89,7 +96,7 @@ Choose **both** if you capture async *and* teach live. That is a common, rationa
 
 CleanShot X documents the screen. HoverBoard teaches with the screen.
 
-HoverBoard Pro is **$15.99 one-time**. Spotlight and Break Timer are free forever.
+HoverBoard Pro is **$15.99 one-time**. Screenshot, Screen Record, Spotlight, and Break Timer are free forever.
 
 [Try HoverBoard](/hoverboard/) for the next live demo — keep CleanShot for the next bug report.
 

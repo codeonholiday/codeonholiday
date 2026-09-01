@@ -1,9 +1,9 @@
 ---
 title: How to Use HoverBoard Screenshot — Capture a Region or Full Display
-description: Learn how to take a screenshot with HoverBoard — drag a region, capture the full display with Space or Enter, then copy, save, or edit on macOS.
+description: Learn how to take a screenshot with HoverBoard — free Mac screenshot tool. Drag a region, capture the full display with Space or Enter, then copy, save, or edit on macOS.
 date: 2026-09-01
 updated: 2026-09-01
-tags: [hoverboard, macos, screenshot, capture, presentation, guide]
+tags: [hoverboard, macos, screenshot, free, screen-capture, capture, presentation, guide]
 image: /hoverboard/showcase-screenshot.webp
 author: codeonholiday
 draft: false
@@ -47,4 +47,4 @@ Screenshot does not start the 60-second Pro preview and does not require a licen
 
 If **⌃⌥G** does nothing, grant **Accessibility** to HoverBoard and check Settings → Hotkeys for conflicts. If capture fails, confirm **Screen Recording** is allowed for HoverBoard in System Settings → Privacy & Security. If Space/Enter does not capture the full display, click the overlay once so it has focus, then try again.
 
-For the full cheat sheet, see the [complete HoverBoard guide](/blog/how-to-use-hoverboard-complete-guide/).
+For the full cheat sheet, see the [complete HoverBoard guide](/blog/how-to-use-hoverboard-complete-guide/). SEO picks: [best free screenshot tool for Mac](/blog/best-free-screenshot-tool-macos/).

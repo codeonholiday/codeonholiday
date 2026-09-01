@@ -9,7 +9,7 @@ author: codeonholiday
 draft: false
 ---
 
-Looking for a **Loom alternative** or **Screen Studio alternative** on Mac because demos and teaching eat your week? Clarify the job first. [Loom](https://www.loom.com/) and [Screen Studio](https://www.screen.studio/) optimize for **recorded, shareable video**. [HoverBoard](/hoverboard/) optimizes for **live explanation** while your screen is already shared — with optional local recording on supported workflows.
+Looking for a **Loom alternative** or **Screen Studio alternative** on Mac because demos and teaching eat your week? Clarify the job first. [Loom](https://www.loom.com/) and [Screen Studio](https://www.screen.studio/) optimize for **recorded, shareable video**. [HoverBoard](/hoverboard/) optimizes for **live explanation** while your screen is already shared — and adds **free Screen Record** (MP4 with trim/speed) plus optional Pro meeting transcription.
 
 If you need cinematic cursor zooms, automatic captions marketing, and a link you paste in Slack, Loom or Screen Studio are still the category leaders. If you need to draw, freeze, whiteboard, and show keystrokes *during* a Zoom class or customer demo, HoverBoard is the alternative that matches that moment.
 
@@ -21,7 +21,7 @@ If you need cinematic cursor zooms, automatic captions marketing, and a link you
 |---|---|
 | Async polished video for teammates | Loom / Screen Studio |
 | Live teach / demo overlays | HoverBoard |
-| Simple local meeting capture + explain | HoverBoard (recording is secondary) |
+| Simple local screen capture + explain | HoverBoard Screen Record (free) |
 
 HoverBoard is **not** a full Loom replacement for async video culture. It is a live presentation layer that can also record locally — without trying to be a cloud video workspace.
 
@@ -43,10 +43,11 @@ HoverBoard is a native macOS menu bar overlay for the live call:
 - Whiteboard when slides are the wrong canvas
 - Keystroke Display for shortcut lessons
 - Break Timer for workshops
+- **Screen Record (free):** Full Screen, Selection, or Window → MP4 with mic/system audio, trim, speed, crop
 - Sessions to capture frames into a local library
-- Local recording, English transcription, and on-device summaries in supported Pro workflows
+- Local meeting recording, English transcription, and on-device summaries in Pro workflows
 
-Pricing: Spotlight and Break Timer free forever; Pro **$15.99 one-time** with 60-second trials on Draw and other Pro tools.
+Pricing: Spotlight, Break Timer, **Screenshot**, and **Screen Record** free forever; Pro **$15.99** one-time with 60-second trials on Draw and other Pro tools.
 
 ## Honest limits
 
@@ -70,4 +71,4 @@ Loom and Screen Studio publish the demo. HoverBoard runs the demo.
 
 [Try HoverBoard](/hoverboard/) for your next live walkthrough. Keep Loom or Screen Studio for the polished follow-up.
 
-Related: [HoverBoard vs Presentify](/blog/hoverboard-vs-presentify/), [HoverBoard vs CleanShot X](/blog/hoverboard-vs-cleanshot-x/), [Best annotation tool for macOS](/blog/best-annotation-tool-macos/).
+Related: [HoverBoard vs Presentify](/blog/hoverboard-vs-presentify/), [HoverBoard vs CleanShot X](/blog/hoverboard-vs-cleanshot-x/), [Best free screen recorder for Mac](/blog/best-free-screen-recorder-macos/), [Best annotation tool for macOS](/blog/best-annotation-tool-macos/).

@@ -1,9 +1,9 @@
 ---
 title: How to Use HoverBoard Screen Record — Capture Video with Mic and System Audio
-description: Learn how to record your screen in HoverBoard with Full Screen, Selection, or Window modes, mic and system audio toggles, and a post-record editor on macOS.
+description: Learn how to record your screen on Mac for free with HoverBoard — Full Screen, Selection, or Window modes, mic and system audio, trim, speed up to 10x, and MP4 export.
 date: 2026-09-01
 updated: 2026-09-01
-tags: [hoverboard, macos, screen-record, video, presentation, guide]
+tags: [hoverboard, macos, screen-record, free, screen-recording, video, presentation, guide]
 image: /hoverboard/showcase-screen-record.webp
 author: codeonholiday
 draft: false
@@ -61,4 +61,4 @@ If **⌃⌥V** does nothing, grant **Accessibility** to HoverBoard. If video is 
 
 If **Split** or **Delete** on the timeline seems to do nothing, remember that blue ranges are what you **keep** — Split divides a range; Delete removes the selected blue range. Watch **Out** duration shrink before you Save.
 
-For the full cheat sheet, see the [complete HoverBoard guide](/blog/how-to-use-hoverboard-complete-guide/).
+For the full cheat sheet, see the [complete HoverBoard guide](/blog/how-to-use-hoverboard-complete-guide/). Compare options: [best free screen recorder for Mac](/blog/best-free-screen-recorder-macos/).

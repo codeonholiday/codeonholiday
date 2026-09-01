@@ -1,9 +1,9 @@
 ---
 title: "Best Annotation Tool for macOS: HoverBoard vs Presentify and More"
-description: "Looking for the best annotation tool for macOS? Compare HoverBoard, Presentify, ScreenBrush, and built-in Zoom annotation for drawing, spotlight, freeze, whiteboard, teaching, and screen sharing."
+description: "Looking for the best annotation tool for macOS? Compare HoverBoard, Presentify, ScreenBrush, and Zoom annotation — plus free screenshot and screen record in HoverBoard 1.4."
 date: 2026-08-18
-updated: 2026-08-18
-tags: [hoverboard, annotation, screen-annotation, presentify, screenbrush, macos, presentation, screen-sharing, comparison]
+updated: 2026-09-01
+tags: [hoverboard, annotation, screen-annotation, screenshot, screen-record, presentify, screenbrush, macos, presentation, screen-sharing, comparison]
 image: /hoverboard/og-image.png
 author: codeonholiday
 draft: false
@@ -11,7 +11,7 @@ draft: false
 
 If you teach online, present software, run workshops, or record tutorials, the best annotation tool for macOS should do more than draw a quick arrow. It should help people follow your cursor, understand a changing interface, pause a complicated moment, and keep the explanation moving while you share your screen.
 
-This guide compares **HoverBoard**, **Presentify**, **ScreenBrush**, and the annotation tools built into Zoom. The short version is simple: Presentify and ScreenBrush are good focused overlays, and Zoom is convenient when you only need to annotate inside a call. HoverBoard is the strongest all-round **screen annotation app for Mac** because it adds Freeze, Spotlight, Cursor Halo, Keystroke Display, Whiteboard, Notes, Sessions, and local recording around the core drawing workflow.
+This guide compares **HoverBoard**, **Presentify**, **ScreenBrush**, and the annotation tools built into Zoom. The short version is simple: Presentify and ScreenBrush are good focused overlays, and Zoom is convenient when you only need to annotate inside a call. HoverBoard is the strongest all-round **screen annotation app for Mac** because it adds Freeze, Spotlight, free **Screenshot** and **Screen Record**, Cursor Halo, Keystroke Display, Whiteboard, Notes, Sessions, and local meeting recording around the core drawing workflow.
 
 ![HoverBoard Draw mode annotating a presentation on macOS](/hoverboard/showcase-draw.webp)
 
@@ -22,7 +22,7 @@ Before comparing apps, it helps to separate four common needs:
 - **Draw on screen:** arrows, highlights, shapes, text, and freehand marks over Keynote, PowerPoint, a browser, an IDE, or a video call
 - **Direct attention:** spotlight an area, make the cursor visible, or show clicks and keystrokes
 - **Explain a moment:** freeze a live screen, open a whiteboard, or keep a private presenter note visible only to you
-- **Keep the result:** save annotated frames, export a whiteboard, record the session, or create follow-up notes
+- **Screenshot and screen record:** capture stills or MP4 while presenting — both free forever in HoverBoard 1.4
 
 Many Mac annotation apps solve the first need. The important difference is what happens when drawing is not enough.
 
@@ -43,7 +43,9 @@ Drawings can auto-fade or stay visible until you dismiss them. That makes HoverB
 - Keep private Markdown presenter notes beside the presentation
 - Capture Draw, Freeze, and Whiteboard frames into Sessions
 - Export annotated frames, PNG sets, PDFs, SVG, and Excalidraw files where supported
-- Record meetings locally, create English transcripts, and generate on-device summaries on supported Macs
+- Screenshot a region or full display, then copy, save, or mark up (**free forever**)
+- Screen record with mic/system audio, trim, and speed export (**free forever**)
+- Record meetings locally, create English transcripts, and generate on-device summaries on supported Macs (Pro)
 - Use global hotkeys instead of switching between apps
 - No account, cloud workspace, or telemetry on screen contents
 
@@ -95,7 +97,9 @@ HoverBoard works over the applications you already use and is independent of the
 | Infinite whiteboard and mindmaps | Yes | Basic whiteboard workflow | No | Meeting whiteboard |
 | Private presenter notes | Yes | No | No | No |
 | Sessions and export workflow | Yes | No | No | Meeting-dependent |
-| Local recording and transcription | Yes | No | No | Separate Zoom workflow |
+| Screenshot (region / full) | Yes (free) | No | No | No |
+| Screen record + trim / speed | Yes (free) | No | No | No |
+| Local meeting recording and transcription | Yes (Pro) | No | No | Separate Zoom workflow |
 | Works across Zoom, Meet, Teams, and local apps | Yes | Yes | Yes | Zoom only |
 | One-time purchase option | Yes | Yes | Check current plan | Part of Zoom plan |
 
@@ -117,7 +121,9 @@ The best screen annotation tool depends on how much of the presentation workflow
 
 You need to slow down a changing demo, sketch a diagram, show a shortcut, keep a private prompt, capture the explanation, and share the result afterwards. HoverBoard brings those steps into one native macOS menu bar app, with no subscription and no cloud workspace required.
 
-Spotlight and Break Timer are free forever. Draw, Freeze, Whiteboard, Cursor Halo, Keystroke Display, Sessions, and advanced export features are available through the Pro upgrade, which is a one-time purchase. HoverBoard supports macOS 14 and later.
+Spotlight, Break Timer, **Screenshot**, and **Screen Record** are free forever. Draw, Freeze, Whiteboard, Cursor Halo, Keystroke Display, Sessions, and advanced export features are available through the Pro upgrade, which is a one-time purchase. HoverBoard supports macOS 14 and later.
+
+Related: [Best free screenshot tool for Mac](/blog/best-free-screenshot-tool-macos/) · [Best free screen recorder for Mac](/blog/best-free-screen-recorder-macos/)
 
 [Try HoverBoard for macOS](/hoverboard/) if you want a screen annotation app that can stay with you from the first arrow to the final exported explanation.
 

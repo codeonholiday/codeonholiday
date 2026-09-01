@@ -1,9 +1,9 @@
 ---
 title: How to Use HoverBoard — A Complete Guide
-description: Install HoverBoard, use Draw, Spotlight, Freeze, Whiteboard, Screenshot, Screen Record, private Notes, Break Timer, Cursor Halo, Keystroke Display, and Sessions, learn hotkeys, free vs Pro, and Stream Deck URLs on macOS.
+description: Install HoverBoard, use Draw, Spotlight, Freeze, Whiteboard, free Screenshot, free Screen Record, private Notes, Break Timer, Cursor Halo, Keystroke Display, and Sessions, learn hotkeys, free vs Pro, and Stream Deck URLs on macOS.
 date: 2026-07-17
 updated: 2026-09-01
-tags: [hoverboard, macos, guide, presentation, teaching]
+tags: [hoverboard, macos, guide, presentation, teaching, screenshot, screen-record, free]
 image: ./assets/how-to-use-hoverboard-complete-guide/og.png
 author: codeonholiday
 draft: false

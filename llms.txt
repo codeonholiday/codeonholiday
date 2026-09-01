@@ -4,20 +4,128 @@
 
 codeonholiday makes native macOS menu bar apps: meeting reminders, screen annotation / presenting, and private local AI music. No bloated suites. Free cores with optional one-time Pro upgrades (no subscriptions).
 
-## Products
+## Products (summary)
 
-- [Meetly](https://codeonholiday.com/meetly/): Fullscreen meeting reminders for macOS. Menu bar app with Quick Panel, one-click Zoom / Google Meet / Teams join, Apple Reminders (Pro), iCloud sync (Pro). Free forever + Pro $9.99 one-time.
-- [HoverBoard](https://codeonholiday.com/hoverboard/): Screen annotation and presentation tool for Mac. Draw, spotlight, freeze, whiteboard, screenshot, screen record, keystroke display, private notes, local meeting recording / transcription. Spotlight, Break Timer, Screenshot, and Screen Record free; Pro $15.99 one-time.
-- [LocalMelody](https://codeonholiday.com/localmelody/): Private local AI music generator for Apple Silicon Macs. Music, lyrics, and vocals stay on-device after setup. Free + Pro lifetime $9.99.
+- [Meetly](https://codeonholiday.com/meetly/): Fullscreen meeting reminders. **Free forever** (one calendar, fullscreen alerts, Quick Panel). Pro **$9.99 one-time**.
+- [LocalMelody](https://codeonholiday.com/localmelody/): Private local AI music on Apple Silicon. **Free** (15s songs). Pro Lifetime **$9.99 one-time**.
+- [HoverBoard](https://codeonholiday.com/hoverboard/): Present / annotate / capture on Mac. **Free forever:** Spotlight, Break Timer, Screenshot, Screen Record. Pro **$15.99 one-time**.
 
 ## Find an app
 
 - [Mac App Finder](https://codeonholiday.com/apps/): Catalog of all codeonholiday apps
 - [Which Mac app do I need?](https://codeonholiday.com/apps/recommendation-guide.html): Choose by job (meetings, presenting, local AI music)
 
-## Blog and guides
+---
 
-- [Blog](https://codeonholiday.com/blog/): Comparisons, how-tos, and product stories
+## Meetly — free (no Pro license)
+
+Native menu bar app. Reads calendars already in macOS Calendar (Google, Outlook, iCloud, Exchange, etc.). No backend server for calendar data.
+
+- **Fullscreen reminder** — covers all connected displays before a meeting; Join / Snooze / Dismiss; auto-detects Zoom, Meet, Teams links
+- **Menu bar schedule** — NOW / NEXT / UPCOMING; browse six days ahead
+- **Quick Panel** — **⌃⌥M** (default): summon schedule at cursor; vim-style **⌘ H/J/K/L** navigation; **⌘ M** mute / **⌘ U** unmute
+- **One calendar** monitored on Free
+- **Mute per meeting** — skip fullscreen alert for one occurrence without dismissing the event
+
+Download (same app for Free and Pro): https://github.com/codeonholiday/codeonholiday/releases/download/v1.5.4/meetly-latest.zip
+
+### Meetly — feature guides
+
+- [Complete guide](https://codeonholiday.com/blog/how-to-use-meetly-complete-guide/): Install, onboarding, overlay shortcuts, settings, Free vs Pro, troubleshooting
+- [Quick Panel](https://codeonholiday.com/blog/how-to-use-meetly-quick-panel/): **⌃⌥M**, keyboard navigation, join from anywhere
+- [Calendars and mute](https://codeonholiday.com/blog/how-to-use-meetly-calendars-mute/): Which calendars to watch; mute/unmute meetings
+
+### Meetly — Pro only ($9.99 one-time)
+
+- Unlimited calendars
+- [Apple Reminders](https://codeonholiday.com/blog/how-to-use-meetly-apple-reminders/) — due-date tasks fire like meetings; per-list rules
+- Per-calendar reminder rules (overlay on/off, sound, repeat)
+- iCloud sync of dismiss / join / snooze / mute across Macs
+- Quiet hours; hide overlay from screen-share viewers (you still see it)
+- Sound repeat limits per calendar
+
+### Meetly — comparisons and SEO
+
+- [Why I built Meetly](https://codeonholiday.com/blog/why-i-built-meetly-after-i-kept-missing-daily-standup/)
+- [Best meeting reminder app for macOS](https://codeonholiday.com/blog/best-meeting-reminder-app-macos/)
+- [Best fullscreen calendar reminder for Mac](https://codeonholiday.com/blog/best-fullscreen-calendar-reminder-macos/)
+- [vs In Your Face](https://codeonholiday.com/blog/meetly-vs-in-your-face/)
+- [vs MeetingBar](https://codeonholiday.com/blog/meetly-vs-meetingbar/)
+- [vs Meety](https://codeonholiday.com/blog/meetly-vs-meety/)
+
+---
+
+## LocalMelody — free
+
+Private **local AI music generator** for **Apple Silicon** Macs (macOS 14+). Prompts and generated audio are not stored on a codeonholiday backend. Internet needed for first-time Homebrew / Ollama / model downloads and license activation; generation runs locally after setup.
+
+- **15-second songs** on Free with automatic sound controls
+- **Lyrics generation** on Free
+- **Library** playback on device
+- **Instrumental or vocals** workflows depending on downloaded models
+- Requires **16 GB RAM minimum**; **32 GB+ recommended**
+
+Download: https://github.com/codeonholiday/codeonholiday/releases/download/localmelody-v1.0.7/localmelody-latest.dmg
+
+### LocalMelody — Pro Lifetime ($9.99 one-time)
+
+- Song length **15–240 seconds**
+- Genre, mood, voice, BPM, key controls
+- Voice reference and lyrics refinement
+- Export audio and lyrics
+
+### LocalMelody — guides and comparisons
+
+- [Complete guide](https://codeonholiday.com/blog/how-to-use-localmelody-complete-guide/): Apple Silicon requirements, Homebrew + Ollama setup, models, Free vs Pro, privacy, troubleshooting
+- [Best local AI music generator for Mac](https://codeonholiday.com/blog/best-local-ai-music-generator-mac/)
+- [vs Suno](https://codeonholiday.com/blog/localmelody-vs-suno/)
+- [vs Udio](https://codeonholiday.com/blog/localmelody-vs-udio/)
+- [Suno vs Udio vs LocalMelody](https://codeonholiday.com/blog/suno-vs-udio-vs-localmelody/)
+- [Privacy Policy](https://codeonholiday.com/localmelody/privacy.html)
+
+---
+
+## HoverBoard — free tools (no Pro license)
+
+Default hotkeys use **Control+Option** leader (remappable).
+
+- [Screenshot](https://codeonholiday.com/blog/how-to-use-hoverboard-screenshot/) — **⌃⌥G**. Region or full display; Copy, Save, Edit
+- [Screen Record](https://codeonholiday.com/blog/how-to-use-hoverboard-screen-record/) — **⌃⌥V**. Full Screen / Selection / Window; mic + system audio; trim, speed, crop; MP4 export. Not Notes meeting recording
+- [Spotlight](https://codeonholiday.com/blog/how-to-use-hoverboard-spotlight/) — **⌃⌥S**
+- [Break Timer](https://codeonholiday.com/blog/how-to-use-hoverboard-break-timer/) — **⌃⌥T**
+
+Download: https://github.com/codeonholiday/codeonholiday/releases/download/v1.4.0/hoverboard-latest.zip
+
+### HoverBoard — Pro tools (60s trial per open, or Pro license)
+
+- [Draw](https://codeonholiday.com/blog/how-to-use-hoverboard-draw/) — **⌃⌥D**
+- [Freeze & Explain](https://codeonholiday.com/blog/how-to-use-hoverboard-freeze/) — **⌃⌥F**
+- [Whiteboard](https://codeonholiday.com/blog/how-to-use-hoverboard-whiteboard/) — **⌃⌥W**
+- [Cursor Halo](https://codeonholiday.com/blog/how-to-use-hoverboard-cursor-halo/) — **⌃⌥H**
+- [Keystroke Display](https://codeonholiday.com/blog/how-to-use-hoverboard-keystroke-display/) — **⌃⌥K**
+- [Notes](https://codeonholiday.com/blog/how-to-use-hoverboard-notes/) — **⌃⌥N**
+- [Sessions](https://codeonholiday.com/blog/how-to-use-hoverboard-sessions/)
+- [Meeting recording](https://codeonholiday.com/blog/how-to-use-hoverboard-recording/) — from Notes; transcription + summaries (Pro)
+
+### HoverBoard — guides and comparisons
+
+- [Complete guide](https://codeonholiday.com/blog/how-to-use-hoverboard-complete-guide/)
+- [Introducing HoverBoard](https://codeonholiday.com/blog/introducing-hoverboard/)
+- [Origin story](https://codeonholiday.com/blog/presenting-meant-switching-apps-so-i-built-hoverboard/)
+- [Best free screenshot tool for Mac](https://codeonholiday.com/blog/best-free-screenshot-tool-macos/)
+- [Best free screen recorder for Mac](https://codeonholiday.com/blog/best-free-screen-recorder-macos/)
+- [vs Presentify](https://codeonholiday.com/blog/hoverboard-vs-presentify/)
+- [vs CleanShot X](https://codeonholiday.com/blog/hoverboard-vs-cleanshot-x/)
+- [vs Loom / Screen Studio](https://codeonholiday.com/blog/loom-screen-studio-alternative-macos/)
+- [KeyCastr alternative](https://codeonholiday.com/blog/keycastr-alternative-macos/)
+- [Best annotation tool for macOS](https://codeonholiday.com/blog/best-annotation-tool-macos/)
+- [Best screen annotation for Zoom / Meet](https://codeonholiday.com/blog/best-screen-annotation-zoom-mac/)
+
+---
+
+## Blog and feeds
+
+- [Blog index](https://codeonholiday.com/blog/)
 - [RSS](https://codeonholiday.com/blog/feed.xml)
 - [Sitemap](https://codeonholiday.com/sitemap.xml)
 
