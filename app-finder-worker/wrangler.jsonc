@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "codeonholiday-app-finder",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-17",
+  "routes": [
+    { "pattern": "mcp.codeonholiday.com", "custom_domain": true }
+  ],
+  "observability": { "enabled": true }
+}
