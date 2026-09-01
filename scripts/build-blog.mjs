@@ -430,6 +430,7 @@ function renderPostPage(post) {
     <title>${escapeHtml(pageTitle)}</title>
     <meta name="description" content="${escapeHtml(description)}">
     <link rel="canonical" href="${canonical}">
+    <link rel="describedby" href="${SITE}/llms.txt" type="text/markdown" title="llms.txt">
     <meta name="robots" content="index, follow">
     <meta name="author" content="${escapeHtml(author)}">
 
@@ -554,6 +555,7 @@ ${posts
     <title>${title}</title>
     <meta name="description" content="${escapeHtml(description)}">
     <link rel="canonical" href="${canonical}">
+    <link rel="describedby" href="${SITE}/llms.txt" type="text/markdown" title="llms.txt">
     <meta name="robots" content="index, follow">
     <meta name="author" content="codeonholiday">
 
