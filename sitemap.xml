@@ -145,6 +145,18 @@
         <changefreq>monthly</changefreq>
     </url>
     <url>
+        <loc>https://codeonholiday.com/blog/how-to-use-hoverboard-screenshot/</loc>
+        <lastmod>2026-09-01</lastmod>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://codeonholiday.com/blog/how-to-use-hoverboard-screen-record/</loc>
+        <lastmod>2026-09-01</lastmod>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
         <loc>https://codeonholiday.com/blog/hoverboard-vs-cleanshot-x/</loc>
         <lastmod>2026-09-01</lastmod>
         <priority>0.7</priority>
@@ -260,7 +272,7 @@
     </url>
     <url>
         <loc>https://codeonholiday.com/blog/how-to-use-hoverboard-complete-guide/</loc>
-        <lastmod>2026-07-28</lastmod>
+        <lastmod>2026-09-01</lastmod>
         <priority>0.7</priority>
         <changefreq>monthly</changefreq>
     </url>

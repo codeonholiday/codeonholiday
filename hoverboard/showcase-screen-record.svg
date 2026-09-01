@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1024" viewBox="0 0 1536 1024" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1536" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#120E18"/>
+      <stop offset="1" stop-color="#1E1630"/>
+    </linearGradient>
+    <linearGradient id="slide" x1="180" y1="160" x2="1180" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2A2140"/>
+      <stop offset="1" stop-color="#171223"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#000" flood-opacity="0.42"/>
+    </filter>
+  </defs>
+  <rect width="1536" height="1024" fill="url(#bg)"/>
+  <rect x="180" y="160" width="1000" height="620" rx="18" fill="url(#slide)" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+  <rect x="180" y="160" width="1000" height="42" rx="18" fill="rgba(0,0,0,0.25)"/>
+  <circle cx="210" cy="181" r="6" fill="#FF6B35" opacity="0.9"/>
+  <circle cx="232" cy="181" r="6" fill="#F5B544" opacity="0.9"/>
+  <circle cx="254" cy="181" r="6" fill="#E01E5A" opacity="0.9"/>
+  <rect x="430" y="172" width="500" height="18" rx="9" fill="rgba(255,255,255,0.08)"/>
+  <rect x="240" y="240" width="360" height="24" rx="10" fill="rgba(255,255,255,0.12)"/>
+  <rect x="240" y="290" width="520" height="14" rx="7" fill="rgba(255,255,255,0.08)"/>
+  <rect x="240" y="322" width="460" height="14" rx="7" fill="rgba(255,255,255,0.06)"/>
+  <rect x="240" y="354" width="500" height="14" rx="7" fill="rgba(255,255,255,0.06)"/>
+  <path d="M620 520 C700 470, 760 560, 860 500" stroke="#FF8B5C" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <path d="M860 500 L930 460 L990 520 L930 580 Z" stroke="#FF6B35" stroke-width="4" fill="rgba(255,107,53,0.12)"/>
+  <circle cx="760" cy="430" r="28" fill="none" stroke="#E01E5A" stroke-width="4"/>
+  <g filter="url(#shadow)">
+    <rect x="520" y="72" width="320" height="54" rx="27" fill="rgba(28,24,38,0.94)" stroke="rgba(255,255,255,0.12)"/>
+    <circle cx="548" cy="99" r="5" fill="#FF2D2D"/>
+    <text x="590" y="104" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="600">01:24</text>
+    <line x1="650" y1="88" x2="650" y2="110" stroke="rgba(255,255,255,0.15)"/>
+    <rect x="664" y="84" width="34" height="30" rx="10" fill="rgba(255,107,53,0.22)" stroke="rgba(255,107,53,0.45)"/>
+    <path d="M674 104 C674 98, 688 98, 688 104 V108 C688 114, 674 114, 674 108 Z M681 104 V108" stroke="#FFB088" stroke-width="1.5" stroke-linecap="round"/>
+    <rect x="706" y="84" width="34" height="30" rx="10" fill="rgba(255,107,53,0.22)" stroke="rgba(255,107,53,0.45)"/>
+    <path d="M716 108 C718 104, 726 104, 728 108 M720 108 V112 C720 114, 724 114, 724 112" stroke="#FFB088" stroke-width="1.5" stroke-linecap="round"/>
+    <rect x="748" y="84" width="34" height="30" rx="10" fill="#FF2D2D"/>
+    <rect x="759" y="93" width="12" height="12" rx="2" fill="#FFFFFF"/>
+  </g>
+  <g filter="url(#shadow)" opacity="0.96">
+    <rect x="1120" y="220" width="300" height="330" rx="16" fill="rgba(28,24,38,0.94)" stroke="rgba(255,255,255,0.10)"/>
+    <text x="1144" y="256" fill="#FFFFFF" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700">Screen Record</text>
+    <text x="1144" y="282" fill="rgba(255,255,255,0.55)" font-family="Inter, system-ui, sans-serif" font-size="12">Full Screen / Selection / Window</text>
+    <rect x="1144" y="304" width="252" height="58" rx="10" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)"/>
+    <text x="1178" y="330" fill="#FFFFFF" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600">Full Screen</text>
+    <text x="1178" y="348" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="11">Record the display under your pointer</text>
+    <rect x="1144" y="372" width="252" height="58" rx="10" fill="rgba(255,107,53,0.10)" stroke="rgba(255,107,53,0.35)"/>
+    <text x="1178" y="398" fill="#FFFFFF" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600">Selection</text>
+    <text x="1178" y="416" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="11">Drag a region to capture</text>
+    <rect x="1144" y="440" width="252" height="58" rx="10" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)"/>
+    <text x="1178" y="466" fill="#FFFFFF" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600">Window</text>
+    <text x="1178" y="484" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="11">Pick one window from a list</text>
+  </g>
+  <text x="768" y="980" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="500">Screen Record</text>
+</svg>

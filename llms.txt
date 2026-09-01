@@ -7,7 +7,7 @@ codeonholiday makes native macOS menu bar apps: meeting reminders, screen annota
 ## Products
 
 - [Meetly](https://codeonholiday.com/meetly/): Fullscreen meeting reminders for macOS. Menu bar app with Quick Panel, one-click Zoom / Google Meet / Teams join, Apple Reminders (Pro), iCloud sync (Pro). Free forever + Pro $9.99 one-time.
-- [HoverBoard](https://codeonholiday.com/hoverboard/): Screen annotation and presentation tool for Mac. Draw, spotlight, freeze, whiteboard, keystroke display, private notes, local recording / transcription. Spotlight and Break Timer free; Pro $15.99 one-time.
+- [HoverBoard](https://codeonholiday.com/hoverboard/): Screen annotation and presentation tool for Mac. Draw, spotlight, freeze, whiteboard, screenshot, screen record, keystroke display, private notes, local meeting recording / transcription. Spotlight, Break Timer, Screenshot, and Screen Record free; Pro $15.99 one-time.
 - [LocalMelody](https://codeonholiday.com/localmelody/): Private local AI music generator for Apple Silicon Macs. Music, lyrics, and vocals stay on-device after setup. Free + Pro lifetime $9.99.
 
 ## Find an app

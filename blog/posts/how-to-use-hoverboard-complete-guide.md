@@ -1,8 +1,8 @@
 ---
 title: How to Use HoverBoard — A Complete Guide
-description: Install HoverBoard, use Draw, Spotlight, Freeze, Whiteboard, private Notes, Break Timer, Cursor Halo, Keystroke Display, and Sessions, learn hotkeys, free vs Pro, and Stream Deck URLs on macOS.
+description: Install HoverBoard, use Draw, Spotlight, Freeze, Whiteboard, Screenshot, Screen Record, private Notes, Break Timer, Cursor Halo, Keystroke Display, and Sessions, learn hotkeys, free vs Pro, and Stream Deck URLs on macOS.
 date: 2026-07-17
-updated: 2026-07-28
+updated: 2026-09-01
 tags: [hoverboard, macos, guide, presentation, teaching]
 image: ./assets/how-to-use-hoverboard-complete-guide/og.png
 author: codeonholiday
@@ -34,6 +34,8 @@ A quick tour of the overlay in a real presenting flow:
 - Open an infinite local whiteboard (mindmap, sticky notes, checklists, polaroids, and more)
 - Run a break timer overlay
 - Highlight the cursor and show live keystrokes
+- Take a region or full-display screenshot with copy, save, and markup
+- Record the screen to MP4 with mic/system audio and a post-record editor
 - Keep private Markdown notes with live preview and Mermaid diagrams
 - Capture frames into Sessions and export PNG / PDF (Pro)
 
@@ -59,7 +61,8 @@ flowchart LR
 - **macOS 14 (Sonoma) or later**
 - Enough disk for a lightweight native app (not Electron)
 - **Accessibility** permission for global hotkeys and Keystroke Display (macOS will prompt when needed)
-- **Screen Recording** permission for Freeze (and related capture flows)
+- **Screen Recording** permission for Freeze, Screenshot, and Screen Record
+- **Microphone** permission when Screen Record captures your mic
 
 ## Install and first launch
 
@@ -127,6 +130,22 @@ Countdown overlay for breaks. Fullscreen or minimal, custom message, optional ch
 ![Break Timer overlay](./assets/how-to-use-hoverboard-complete-guide/break-timer.webp)
 
 Default hotkey: **⌃⌥T**
+
+### Screenshot — free forever
+
+Read the dedicated [Screenshot guide](/blog/how-to-use-hoverboard-screenshot/) for region capture, full-display shortcuts, and the editor.
+
+Drag a region or press Space/Enter for the full display. After capture, use **Copy**, **Save**, or **Edit** (crop, pen, arrow, rectangle, text) from the HUD.
+
+Default hotkey: **⌃⌥G**
+
+### Screen Record — free forever
+
+Read the dedicated [Screen Record guide](/blog/how-to-use-hoverboard-screen-record/) for capture modes, the record pill, and the trim/speed editor.
+
+Choose **Full Screen**, **Selection**, or **Window**, then record with mic and system audio toggles on the floating pill. **Finish** opens the editor — trim with Keep/Split/Delete, change speed (up to 10×), crop, then Save or Save As. This is screen capture to MP4, not [Notes meeting recording](/blog/how-to-use-hoverboard-recording/).
+
+Default hotkey: **⌃⌥V**
 
 ### Cursor Halo — 60s Pro trial
 
@@ -218,10 +237,12 @@ Default leader is **⌃⌥** (remappable modifiers in Settings) + letter:
 | **F** | Freeze |
 | **W** | Whiteboard |
 | **T** | Break Timer |
+| **G** | Screenshot |
+| **V** | Screen Record |
 | **H** | Cursor Halo |
 | **K** | Keystroke Display |
 | **N** | Notes |
-| **Esc** | Close current mode |
+| **Esc** | Close current mode (does not stop an active Screen Record — use **Finish** on the pill) |
 
 ### In Draw / Freeze
 
@@ -254,6 +275,8 @@ Default leader is **⌃⌥** (remappable modifiers in Settings) + letter:
 | Draw | Yes | — |
 | Spotlight | Yes | — |
 | Break Timer | Yes | — |
+| Screenshot | Yes | — |
+| Screen Record | Yes | — |
 | Freeze | — | Trial, then Pro |
 | Whiteboard | — | Trial, then Pro |
 | Cursor Halo | — | Trial, then Pro |
@@ -275,13 +298,17 @@ open "hoverboard://activate/spotlight"
 open "hoverboard://activate/freeze"
 open "hoverboard://activate/whiteboard"
 open "hoverboard://activate/timer"
+open "hoverboard://activate/screenshot"
+open "hoverboard://activate/record"
 open "hoverboard://activate/halo"
 open "hoverboard://activate/keys"
 open "hoverboard://activate/notes"
+open "hoverboard://toggle/screenshot"
+open "hoverboard://toggle/record"
 open "hoverboard://stop"
 ```
 
-Tool and color actions also exist (`hoverboard://action/tool/pen`, `…/color/red`, undo, clear, timer-pause, and more). Full list: see the app’s COMMANDS docs or Settings. Command URLs are a **Pro** capability.
+Tool and color actions also exist (`hoverboard://action/tool/pen`, `…/color/red`, undo, clear, timer-pause, and more). Full list: see the app’s COMMANDS docs or Settings. **Screenshot** and **Screen Record** URLs work on the free tier; most other command URLs require **Pro** (or an active 60-second trial while an overlay is open).
 
 ## HoverBoard vs Presentify-class tools
 
@@ -292,6 +319,7 @@ Apps like **Presentify** are excellent at annotate, cursor highlight, spotlight,
 - Live Keystroke Display
 - Teaching whiteboard (mindmap + collage widgets) with Excalidraw export
 - Sessions capture and PDF export
+- Screenshot and Screen Record **free forever**
 - Spotlight and Break Timer **free forever**
 
 We do not claim competitor pricing (it changes). For a side-by-side matrix, see the [comparison table on the product page](/hoverboard/#compare).
@@ -310,9 +338,13 @@ We do not claim competitor pricing (it changes). For a side-by-side matrix, see 
 2. Check Settings that the leader key and mode shortcuts are enabled.
 3. Another app may own the same combo — remapping usually fixes it.
 
-### Freeze asks for Screen Recording
+### Freeze, Screenshot, or Screen Record asks for Screen Recording
 
-Allow Screen Recording for HoverBoard, then try Freeze again.
+Allow Screen Recording for HoverBoard in System Settings, then try again. Screen Record also needs **Microphone** when the mic toggle is on.
+
+### Screen Record will not stop with Esc
+
+Use **Finish** on the floating record pill. Esc closes other modes but does not end an active capture.
 
 ### Menu bar icon missing
 
@@ -320,7 +352,7 @@ Look in the overflow menu. Quit and relaunch from Applications. Confirm you are 
 
 ### Trial ended mid-demo
 
-Reopen the Pro tool for another 60-second preview, or unlock Pro. Spotlight and Break Timer never start a trial.
+Reopen the Pro tool for another 60-second preview, or unlock Pro. Spotlight, Break Timer, Screenshot, and Screen Record never start a trial.
 
 ### Keystroke HUD not showing
 
@@ -329,12 +361,13 @@ Confirm you accepted the privacy alert, Accessibility is granted, and you used *
 ## Recommended teaching workflow
 
 1. **Install** and learn **⌃⌥D** (Draw, 60-second Pro preview) and **⌃⌥S** (Spotlight, free forever).
-2. Use **⌃⌥F** to freeze when a live UI is about to move.
-3. Keep **⌃⌥T** ready for workshop breaks.
-4. Open **Whiteboard** for digressions; Tab / Return for mindmaps; collage widgets for checklists and photos.
-5. Enable **Keystroke Display** only when demoing shortcuts.
-6. On Pro, **Save to Session** as you teach, then export a PDF after class.
-7. Optionally wire Stream Deck to `hoverboard://activate/…`.
+2. Use **⌃⌥G** for quick screenshots and **⌃⌥V** when you need a screen recording with trim and speed controls.
+3. Use **⌃⌥F** to freeze when a live UI is about to move.
+4. Keep **⌃⌥T** ready for workshop breaks.
+5. Open **Whiteboard** for digressions; Tab / Return for mindmaps; collage widgets for checklists and photos.
+6. Enable **Keystroke Display** only when demoing shortcuts.
+7. On Pro, **Save to Session** as you teach, then export a PDF after class.
+8. Optionally wire Stream Deck to `hoverboard://activate/…` (Screenshot and Screen Record URLs work without Pro).
 
 ## Get help
 
