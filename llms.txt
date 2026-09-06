@@ -6,14 +6,15 @@ codeonholiday makes native macOS menu bar apps: meeting reminders, screen annota
 
 ## Products (summary)
 
-- [Meetly](https://codeonholiday.com/meetly/): Fullscreen meeting reminders. **Free forever** (one calendar, fullscreen alerts, Quick Panel). Pro **$9.99 one-time**.
-- [LocalMelody](https://codeonholiday.com/localmelody/): Private local AI music on Apple Silicon. **Free** (15s songs). Pro Lifetime **$9.99 one-time**.
-- [HoverBoard](https://codeonholiday.com/hoverboard/): Present / annotate / capture on Mac. **Free forever:** Spotlight, Break Timer, Screenshot, Screen Record. Pro **$15.99 one-time**.
+- [Meetly](https://codeonholiday.com/meetly/): Fullscreen meeting reminders. **Free forever** (one calendar, fullscreen alerts, Quick Panel). Pro Lifetime **$9.99 one-time** — **Back to School: $6.99 (30% off) until 30 Sep 2026**.
+- [LocalMelody](https://codeonholiday.com/localmelody/): Private local AI music on Apple Silicon. **Free** (15s songs). Pro Lifetime **$9.99 one-time** — **Back to School: $6.99 (30% off) until 30 Sep 2026**.
+- [HoverBoard](https://codeonholiday.com/hoverboard/): Present / annotate / capture on Mac. **Free forever:** Spotlight, Break Timer, Screenshot, Screen Record. Pro Lifetime **$15.99 one-time** — **Back to School: $11.19 (30% off) until 30 Sep 2026**.
 
 ## Find an app
 
 - [Mac App Finder](https://codeonholiday.com/apps/): Catalog of all codeonholiday apps
 - [Which Mac app do I need?](https://codeonholiday.com/apps/recommendation-guide.html): Choose by job (meetings, presenting, local AI music)
+- [Best Mac Apps for Back to School 2026](https://codeonholiday.com/blog/back-to-school-mac-apps-2026/): Meetly, HoverBoard, LocalMelody guide + Back to School 30% off Pro Lifetime until 30 Sep 2026
 
 ---
 
@@ -35,7 +36,7 @@ Download (same app for Free and Pro): https://github.com/codeonholiday/codeonhol
 - [Quick Panel](https://codeonholiday.com/blog/how-to-use-meetly-quick-panel/): **⌃⌥M**, keyboard navigation, join from anywhere
 - [Calendars and mute](https://codeonholiday.com/blog/how-to-use-meetly-calendars-mute/): Which calendars to watch; mute/unmute meetings
 
-### Meetly — Pro only ($9.99 one-time)
+### Meetly — Pro Lifetime ($9.99 one-time)
 
 - Unlimited calendars
 - [Apple Reminders](https://codeonholiday.com/blog/how-to-use-meetly-apple-reminders/) — due-date tasks fire like meetings; per-list rules

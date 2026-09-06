@@ -2,49 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://codeonholiday.com/</loc>
-        <lastmod>2026-09-01</lastmod>
+        <lastmod>2026-09-06</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
     </url>
     <url>
         <loc>https://codeonholiday.com/apps/</loc>
-        <lastmod>2026-09-01</lastmod>
+        <lastmod>2026-09-06</lastmod>
         <priority>0.95</priority>
         <changefreq>weekly</changefreq>
     </url>
     <url>
         <loc>https://codeonholiday.com/apps/recommendation-guide.html</loc>
-        <lastmod>2026-09-01</lastmod>
+        <lastmod>2026-09-06</lastmod>
         <priority>0.8</priority>
         <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://codeonholiday.com/meetly/</loc>
-        <lastmod>2026-09-01</lastmod>
+        <lastmod>2026-09-06</lastmod>
         <priority>0.9</priority>
         <changefreq>weekly</changefreq>
     </url>
     <url>
         <loc>https://codeonholiday.com/hoverboard/</loc>
-        <lastmod>2026-09-01</lastmod>
+        <lastmod>2026-09-06</lastmod>
         <priority>0.9</priority>
         <changefreq>weekly</changefreq>
     </url>
     <url>
         <loc>https://codeonholiday.com/localmelody/</loc>
-        <lastmod>2026-09-01</lastmod>
+        <lastmod>2026-09-06</lastmod>
         <priority>0.9</priority>
         <changefreq>weekly</changefreq>
     </url>
     <url>
         <loc>https://codeonholiday.com/meetly/privacy.html</loc>
-        <lastmod>2026-08-17</lastmod>
+        <lastmod>2026-09-01</lastmod>
         <priority>0.3</priority>
         <changefreq>yearly</changefreq>
     </url>
     <url>
         <loc>https://codeonholiday.com/meetly/terms.html</loc>
-        <lastmod>2026-08-17</lastmod>
+        <lastmod>2026-09-01</lastmod>
         <priority>0.3</priority>
         <changefreq>yearly</changefreq>
     </url>
@@ -80,9 +80,15 @@
     </url>
     <url>
         <loc>https://codeonholiday.com/blog/</loc>
-        <lastmod>2026-09-01</lastmod>
+        <lastmod>2026-09-06</lastmod>
         <priority>0.8</priority>
         <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://codeonholiday.com/blog/back-to-school-mac-apps-2026/</loc>
+        <lastmod>2026-09-06</lastmod>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
     </url>
     <url>
         <loc>https://codeonholiday.com/blog/suno-vs-udio-vs-localmelody/</loc>
