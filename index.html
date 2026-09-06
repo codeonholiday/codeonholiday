@@ -75,12 +75,12 @@
                 "offers": {
                     "@type": "AggregateOffer",
                     "lowPrice": "0",
-                    "highPrice": "9.99",
+                    "highPrice": "6.99",
                     "priceCurrency": "USD",
                     "offerCount": "2",
                     "offers": [
                         { "@type": "Offer", "name": "Meetly Free", "price": "0", "priceCurrency": "USD" },
-                        { "@type": "Offer", "name": "Meetly Pro", "price": "9.99", "priceCurrency": "USD" }
+                        { "@type": "Offer", "name": "Meetly Pro", "price": "6.99", "priceCurrency": "USD", "priceValidUntil": "2026-09-30" }
                     ]
                 }
             },
@@ -96,7 +96,7 @@
                 "description": "Present, teach, and demo without breaking your flow. Draw, freeze, whiteboard, take private notes, record meetings, transcribe offline, and create on-device summaries on macOS.",
                 "offers": [
                     { "@type": "Offer", "name": "HoverBoard Free", "price": "0", "priceCurrency": "USD" },
-                    { "@type": "Offer", "name": "HoverBoard Pro", "price": "15.99", "priceCurrency": "USD" }
+                    { "@type": "Offer", "name": "HoverBoard Pro", "price": "11.19", "priceCurrency": "USD", "priceValidUntil": "2026-09-30" }
                 ]
             },
             {
@@ -111,7 +111,7 @@
                 "downloadUrl": "https://github.com/codeonholiday/codeonholiday/releases/download/localmelody-v1.0.7/localmelody-latest.dmg",
                 "offers": [
                     { "@type": "Offer", "name": "LocalMelody Free", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
-                    { "@type": "Offer", "name": "LocalMelody Pro Lifetime", "price": "9.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+                    { "@type": "Offer", "name": "LocalMelody Pro Lifetime", "price": "6.99", "priceCurrency": "USD", "priceValidUntil": "2026-09-30", "availability": "https://schema.org/InStock" }
                 ]
             }
         ]
@@ -121,6 +121,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/campaign.css">
 
     <style>
         :root {
@@ -427,7 +428,7 @@
                 <div class="p-meta">
                     <span>macOS 14+</span>
                     <span class="dot"></span>
-                    <span>Free + Pro $9.99</span>
+                    <span>Free + Pro $6.99 (was $9.99)</span>
                     <span class="dot"></span>
                     <span>No subscription</span>
                 </div>
@@ -443,7 +444,7 @@
                 <p class="p-desc">A private music studio for your Mac — turn a spark of an idea into a complete song with music, lyrics, and vocals.</p>
                 <ul class="p-features"><li>Music + vocals</li><li>Lyrics generation</li><li>Apple Silicon</li><li>No cloud upload</li></ul>
                 <span class="p-cta">Download for Mac <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-                <div class="p-meta"><span>macOS 14+</span><span class="dot"></span><span>Free + Pro $9.99</span><span class="dot"></span><span>Local-first</span></div>
+                <div class="p-meta"><span>macOS 14+</span><span class="dot"></span><span>Free + Pro $6.99 (was $9.99)</span><span class="dot"></span><span>Local-first</span></div>
             </a>
 
             <!-- HoverBoard -->
@@ -472,7 +473,7 @@
                 <div class="p-meta">
                     <span>macOS 14+</span>
                     <span class="dot"></span>
-                    <span>Free download · 60s Pro trial · $15.99</span>
+                    <span>Free download · 60s Pro trial · $11.19 (was $15.99)</span>
                     <span class="dot"></span>
                     <span>No subscription</span>
                 </div>
@@ -512,5 +513,6 @@
         </footer>
     </div>
     <script src="events.js"></script>
+    <script src="/campaign.js"></script>
 </body>
 </html>
