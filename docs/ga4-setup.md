@@ -32,7 +32,7 @@ Admin → Data streams → your web stream → Enhanced measurement — enable:
 
 Admin → Data display → Events — mark as key events / conversions:
 
-- `download_click` (GitHub release zip/dmg; param `app` = which product)
+- `download_click` (installer zip/dmg served from this domain; param `app` = which product)
 - `purchase_click` (Lemon Squeezy checkout; param `app` = which product)
 
 ## Explorations
@@ -56,7 +56,7 @@ Suggested steps:
 
 | Event | Meaning | Key params |
 |---|---|---|
-| `download_click` | Click real GitHub release asset | `app`, `version`, `page_type` |
+| `download_click` | Click a real installer asset (`/<app>/releases/…zip|dmg`) | `app`, `version`, `page_type` |
 | `purchase_click` | Lemon Squeezy Pro checkout | `app`, `page_type` |
 | `product_open` | Open product from home card or `/apps/` card | `app`, `page_type` |
 | `promo_click` | Back to School promo bar | `page_type` |

@@ -115,8 +115,8 @@
             };
         }
 
-        // Download / install intent: real GitHub release links.
-        if (hrefLower.indexOf('github.com') !== -1 && hrefLower.indexOf('releases') !== -1) {
+        // Download / install intent: a real installer asset, on either host.
+        if (isReleaseAsset(hrefLower)) {
             return {
                 name: 'download_click',
                 label: 'download',
@@ -163,7 +163,7 @@
         if (/\bbtn-primary\b/.test(cls) || /\bbtn-download\b/.test(cls) || /\bbtn primary\b/.test(cls) || cls === 'btn primary' || /(^|\s)primary(\s|$)/.test(cls) && /\bbtn\b/.test(cls)) {
             if (text.indexOf('download') !== -1) {
                 // Only count as download_click if href is a real release; else CTA.
-                if (hrefLower.indexOf('github.com') !== -1 && hrefLower.indexOf('releases') !== -1) {
+                if (isReleaseAsset(hrefLower)) {
                     return {
                         name: 'download_click',
                         label: 'cta',
@@ -197,6 +197,68 @@
         return null;
     }
 
+    /**
+     * An installer link — /<app>/releases/<app>-<ver>-<build>.zip|.dmg on this domain,
+     * or a GitHub release asset. Matches the asset itself, never the release page.
+     */
+    var RELEASE_ASSET_RE = /\/releases\/[^/?#]+\.(?:zip|dmg)(?:$|[?#])/i;
+
+    function isReleaseAsset(href) {
+        return RELEASE_ASSET_RE.test(String(href || ''));
+    }
+
+    /**
+     * A download shows almost no browser UI until bytes arrive, so a slow host makes
+     * the button look dead. Confirm the click, and offer GitHub Releases as a mirror:
+     * installers are served from this domain, which is fast but has thinner reputation
+     * with Chrome Safe Browsing than GitHub if a fresh build ever gets flagged.
+     * Never preventDefault — the real navigation must still happen.
+     */
+    var GITHUB_RELEASES = 'https://github.com/codeonholiday/codeonholiday/releases';
+    var toastTimer = 0;
+
+    function injectToastStyles() {
+        if (document.getElementById('coh-dl-style')) return;
+        var style = document.createElement('style');
+        style.id = 'coh-dl-style';
+        style.textContent =
+            '#coh-dl{position:fixed;left:50%;bottom:24px;z-index:2147483000;' +
+            'transform:translate(-50%,14px);max-width:min(420px,calc(100vw - 32px));' +
+            'padding:13px 17px;border-radius:13px;border:1px solid rgba(255,255,255,.14);' +
+            'background:rgba(12,16,24,.93);backdrop-filter:blur(12px);color:#f8fbff;' +
+            'font:500 14px/1.45 Inter,-apple-system,BlinkMacSystemFont,sans-serif;' +
+            'box-shadow:0 18px 48px rgba(0,0,0,.42);opacity:0;' +
+            'transition:opacity .2s ease,transform .2s ease}' +
+            '#coh-dl.is-on{opacity:1;transform:translate(-50%,0)}' +
+            '#coh-dl a{color:#4ee6d5;font-weight:700;text-decoration:underline;text-underline-offset:2px}' +
+            'a[aria-busy="true"]{opacity:.7}';
+        document.head.appendChild(style);
+    }
+
+    function confirmDownload(anchor) {
+        injectToastStyles();
+
+        anchor.setAttribute('aria-busy', 'true');
+        window.setTimeout(function () { anchor.removeAttribute('aria-busy'); }, 4000);
+
+        var toast = document.getElementById('coh-dl');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'coh-dl';
+            toast.setAttribute('role', 'status');
+            document.body.appendChild(toast);
+        }
+        toast.innerHTML =
+            'Download starting — check your Downloads folder.' +
+            '<br>Not working? <a href="' + GITHUB_RELEASES + '" target="_blank" rel="noopener noreferrer">Get it from GitHub</a>';
+        toast.classList.add('is-on');
+
+        window.clearTimeout(toastTimer);
+        toastTimer = window.setTimeout(function () {
+            toast.classList.remove('is-on');
+        }, 9000);
+    }
+
     document.addEventListener('click', function (e) {
         var node = e.target;
         while (node && node !== document.body) {
@@ -204,6 +266,9 @@
             node = node.parentNode;
         }
         if (!node || node.tagName !== 'A') return;
+
+        var href = node.getAttribute('href') || '';
+        if (isReleaseAsset(href)) confirmDownload(node);
 
         var info = classify(node);
         if (!info) return;
@@ -214,7 +279,7 @@
             label: info.label,
             version: info.version || '',
             link_text: (node.textContent || '').trim().slice(0, 60),
-            href: node.getAttribute('href') || ''
+            href: href
         };
         if (info.app) params.app = info.app;
 
