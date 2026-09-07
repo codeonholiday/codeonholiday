@@ -3,84 +3,172 @@
  * Tracks CTA / download clicks to BOTH Google Analytics (GA4) and Plausible,
  * using event delegation (one listener on document, no per-button wiring).
  *
- * Loads after gtag + Plausible. Safe if either is missing.
+ * Loads after gtag + Plausible (+ analytics.js). Safe if either is missing.
+ *
+ * download_click / purchase_click use `app` from the link href (which product),
+ * not from the current page path. `page_type` is where the click happened.
  */
 (function () {
     'use strict';
 
+    var CHECKOUT_APP = {
+        'c3bc2ae8-d06d-42c6-a915-ccc6806c0a20': 'meetly',
+        '304518b9-5fa8-4a1a-97b3-4b743fadedf8': 'hoverboard',
+        '665ba1ad-0aa2-4f0b-a297-b6e9294f12bc': 'localmelody'
+    };
+
+    var PAGE_TYPE = (function () {
+        var p = location.pathname;
+        if (p.indexOf('/apps/') === 0 || p === '/apps') return 'apps';
+        if (p.indexOf('/blog/') === 0 || p === '/blog') return 'blog';
+        if (/\/(privacy|terms)\.html$/.test(p)) return 'legal';
+        if (p.indexOf('/meetly') === 0 || p.indexOf('/hoverboard') === 0 || p.indexOf('/localmelody') === 0) {
+            return 'product';
+        }
+        if (p === '/' || p === '/index.html' || p === '') return 'home';
+        return 'other';
+    })();
+
+    // Legacy page-context product (kept for non-download events).
     var PRODUCT = (function () {
         var p = location.pathname;
         if (p.indexOf('/meetly/') === 0 || p === '/meetly') return 'meetly';
         if (p.indexOf('/hoverboard/') === 0 || p === '/hoverboard') return 'hoverboard';
         if (p.indexOf('/localmelody/') === 0 || p === '/localmelody') return 'localmelody';
         if (p.indexOf('/blog/') === 0 || p === '/blog') return 'blog';
+        if (p.indexOf('/apps/') === 0 || p === '/apps') return 'apps';
         return 'home';
     })();
 
     function send(name, params) {
-        // GA4 — gtag('event', name, {...})
         if (typeof window.gtag === 'function') {
             window.gtag('event', name, params);
         }
-        // Plausible — plausible('event', name, { props: {...} })
         if (typeof window.plausible === 'function') {
             try {
                 window.plausible('event', name, { props: params });
             } catch (e) { /* noop */ }
         }
-        // Visible in dev so you can verify in the console.
         if (location.hostname === 'localhost' || location.protocol === 'file:') {
             console.log('[track]', name, params);
         }
     }
 
-    // Extract semver from a release zip href, e.g.
-    //   "/meetly/releases/meetly-0.1.3-202606272129.zip"  -> "0.1.3"
-    //   "/hoverboard/releases/hoverboard-1.0-202606271055.zip" -> "1.0"
-    // Returns '' if it doesn't look like a versioned release link.
     function extractVersion(href) {
-        var m = href.match(/(?:v|[-_])(\d+\.\d+(?:\.\d+)?)(?:[-_]|\/)/);
+        var m = href.match(/(?:v|[-_])(\d+\.\d+(?:\.\d+)?)(?:[-_]|\/|\?|$)/);
         return m ? m[1] : '';
     }
 
+    /** Resolve which app a download / checkout / product link targets. */
+    function appFromHref(href) {
+        var h = (href || '').toLowerCase();
+
+        // GitHub release filenames (most reliable for downloads)
+        if (h.indexOf('meetly-latest') !== -1) return 'meetly';
+        if (h.indexOf('hoverboard-latest') !== -1) return 'hoverboard';
+        if (h.indexOf('localmelody-latest') !== -1) return 'localmelody';
+
+        // Lemon Squeezy checkout UUID
+        var m = h.match(/checkout\/buy\/([0-9a-f-]{36})/);
+        if (m && CHECKOUT_APP[m[1]]) return CHECKOUT_APP[m[1]];
+
+        // Internal product page paths
+        if (/(^|\/)meetly(\/|$|\?|#)/.test(h)) return 'meetly';
+        if (/(^|\/)hoverboard(\/|$|\?|#)/.test(h)) return 'hoverboard';
+        if (/(^|\/)localmelody(\/|$|\?|#)/.test(h)) return 'localmelody';
+
+        return '';
+    }
+
     function classify(el) {
-        var href = (el.getAttribute('href') || '').toLowerCase();
+        var href = (el.getAttribute('href') || '');
+        var hrefLower = href.toLowerCase();
         var cls = (el.className || '').toLowerCase();
         var text = (el.textContent || el.innerText || '').trim().toLowerCase();
 
         // Download / install intent: real GitHub release links.
-        if (href.indexOf('github.com') !== -1 && href.indexOf('releases') !== -1) {
-            return { name: 'download_click', label: 'download', version: extractVersion(href) };
+        if (hrefLower.indexOf('github.com') !== -1 && hrefLower.indexOf('releases') !== -1) {
+            return {
+                name: 'download_click',
+                label: 'download',
+                version: extractVersion(hrefLower),
+                app: appFromHref(hrefLower)
+            };
         }
-        if (href.indexOf('lemonsqueezy.com/checkout') !== -1) {
-            return { name: 'purchase_click', label: 'pro_checkout', version: '' };
+        if (hrefLower.indexOf('lemonsqueezy.com/checkout') !== -1) {
+            return {
+                name: 'purchase_click',
+                label: 'pro_checkout',
+                version: '',
+                app: appFromHref(hrefLower)
+            };
         }
-        // "#download" anchors (HoverBoard) — scroll intent to download section.
-        if (href === '#download') {
-            return { name: 'download_click', label: 'download_section', version: '' };
+        // Section anchors — intent only, NOT a download.
+        if (hrefLower === '#download' || hrefLower === '#pricing' || hrefLower === '#features') {
+            return {
+                name: 'section_view',
+                label: hrefLower.slice(1),
+                version: '',
+                app: PRODUCT === 'meetly' || PRODUCT === 'hoverboard' || PRODUCT === 'localmelody' ? PRODUCT : ''
+            };
+        }
+        // Promo bar Back to School.
+        if (el.closest && el.closest('.coh-promo')) {
+            return { name: 'promo_click', label: text.slice(0, 40) || 'promo', version: '', app: '' };
         }
         // Product Hunt upvote / featured badge.
-        if (href.indexOf('producthunt.com') !== -1) {
-            return { name: 'producthunt_click', label: 'upvote', version: '' };
+        if (hrefLower.indexOf('producthunt.com') !== -1) {
+            return { name: 'producthunt_click', label: 'upvote', version: '', app: PRODUCT === 'blog' || PRODUCT === 'home' || PRODUCT === 'apps' ? '' : PRODUCT };
         }
-        // Product card on home page.
-        if (cls.indexOf('product') !== -1) {
-            return { name: 'product_open', label: href.replace(/\/$/, '').split('/').pop() || 'home', version: '' };
+        // Product card on home page OR /apps/ finder cards.
+        if (cls.indexOf('product') !== -1 || (PAGE_TYPE === 'apps' && /\bcard\b/.test(cls))) {
+            var app = appFromHref(hrefLower);
+            return {
+                name: 'product_open',
+                label: app || href.replace(/\/$/, '').split('/').pop() || 'home',
+                version: '',
+                app: app
+            };
         }
         // Primary CTA buttons (e.g. "Download Free", "Download for macOS").
-        if (/\bbtn-primary\b/.test(cls) || /\bbtn-download\b/.test(cls)) {
-            if (text.indexOf('download') !== -1) return { name: 'download_click', label: 'cta', version: extractVersion(href) };
-            return { name: 'cta_click', label: text.slice(0, 40), version: '' };
+        if (/\bbtn-primary\b/.test(cls) || /\bbtn-download\b/.test(cls) || /\bbtn primary\b/.test(cls) || cls === 'btn primary' || /(^|\s)primary(\s|$)/.test(cls) && /\bbtn\b/.test(cls)) {
+            if (text.indexOf('download') !== -1) {
+                // Only count as download_click if href is a real release; else CTA.
+                if (hrefLower.indexOf('github.com') !== -1 && hrefLower.indexOf('releases') !== -1) {
+                    return {
+                        name: 'download_click',
+                        label: 'cta',
+                        version: extractVersion(hrefLower),
+                        app: appFromHref(hrefLower)
+                    };
+                }
+                return {
+                    name: 'cta_click',
+                    label: text.slice(0, 40),
+                    version: '',
+                    app: appFromHref(hrefLower) || (PRODUCT === 'meetly' || PRODUCT === 'hoverboard' || PRODUCT === 'localmelody' ? PRODUCT : '')
+                };
+            }
+            return {
+                name: 'cta_click',
+                label: text.slice(0, 40),
+                version: '',
+                app: appFromHref(hrefLower) || (PRODUCT === 'meetly' || PRODUCT === 'hoverboard' || PRODUCT === 'localmelody' ? PRODUCT : '')
+            };
         }
         // Secondary / ghost buttons.
-        if (/\bbtn-secondary\b/.test(cls) || /\bbtn-ghost\b/.test(cls)) {
-            return { name: 'secondary_click', label: text.slice(0, 40), version: '' };
+        if (/\bbtn-secondary\b/.test(cls) || /\bbtn-ghost\b/.test(cls) || /\bbtn ghost\b/.test(cls)) {
+            return {
+                name: 'secondary_click',
+                label: text.slice(0, 40),
+                version: '',
+                app: appFromHref(hrefLower) || (PRODUCT === 'meetly' || PRODUCT === 'hoverboard' || PRODUCT === 'localmelody' ? PRODUCT : '')
+            };
         }
         return null;
     }
 
     document.addEventListener('click', function (e) {
-        // Walk up from the click target to the nearest anchor.
         var node = e.target;
         while (node && node !== document.body) {
             if (node.tagName === 'A') break;
@@ -91,12 +179,16 @@
         var info = classify(node);
         if (!info) return;
 
-        send(info.name, {
+        var params = {
+            page_type: PAGE_TYPE,
             product: PRODUCT,
             label: info.label,
             version: info.version || '',
             link_text: (node.textContent || '').trim().slice(0, 60),
             href: node.getAttribute('href') || ''
-        });
+        };
+        if (info.app) params.app = info.app;
+
+        send(info.name, params);
     }, { passive: true });
 })();
