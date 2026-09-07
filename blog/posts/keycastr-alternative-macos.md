@@ -2,7 +2,7 @@
 title: KeyCastr Alternative for Mac — HoverBoard Keystroke Display
 description: Looking for a KeyCastr alternative for Mac tutorials? Compare HoverBoard Keystroke Display for live shortcut HUDs, privacy prompts, and presenting while you teach code or software.
 date: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-07
 tags: [hoverboard, keycastr, macos, keystroke-display, tutorials, comparison]
 image: /hoverboard/og-image.png
 author: codeonholiday
@@ -18,7 +18,7 @@ If all you need is a free, focused key HUD, KeyCastr remains an excellent utilit
 | | KeyCastr | HoverBoard Keystroke Display |
 |---|---|---|
 | Job | Show keystrokes on screen | Show keystrokes + full present toolkit |
-| Price | Free / open source | Keystroke is Pro-trialable; Spotlight & Break Timer free; Pro **$15.99** |
+| Price | Free / open source | Keystroke is Pro-trialable; Spotlight & Break Timer free; Pro Lifetime **$11.19** (was $15.99) |
 | Best for | Minimal key HUD | Tutorials + annotation + freeze |
 
 ## What KeyCastr does well
@@ -61,6 +61,6 @@ Choose **KeyCastr** if you want a free, open-source, keystroke-only HUD.
 
 Choose **HoverBoard** if you want a **KeyCastr alternative for Mac** that covers keystrokes and the surrounding teaching workflow in one native app.
 
-Pro is **$15.99 one-time**, with a 60-second trial on Keystroke Display and other Pro tools each time you open them.
+Pro Lifetime is **$11.19** (was $15.99) one-time until 30 Sep 2026, with a 60-second trial on Keystroke Display and other Pro tools each time you open them.
 
 [Download HoverBoard](/hoverboard/) and press **⌃⌥K** the next time a shortcut is the lesson.

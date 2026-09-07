@@ -2,7 +2,7 @@
 title: Meety Alternative for Mac — Meetly vs Meety
 description: Looking for a Meety alternative for Mac? Compare Meetly and Meety for Google Calendar, fullscreen reminders, alert levels, Quick Panel, privacy, and pricing. Note the similar names.
 date: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-07
 tags: [meetly, meety, macos, google-calendar, meeting-reminder, comparison]
 image: /meetly/og-image.png
 author: codeonholiday
@@ -34,7 +34,7 @@ Meetly is a strong choice when missing the meeting is the pain, you use multiple
 |---|---|---|
 | Calendar center of gravity | Google Calendar–first | Any calendar in macOS Calendar |
 | Hard / fullscreen style alerts | Hard Alert and levels | Fullscreen across displays |
-| Pricing | Check Meety’s current plans | Free + Pro **$9.99 one-time** |
+| Pricing | Check Meety’s current plans | Free + Pro Lifetime **$6.99** (was $9.99) one-time until 30 Sep 2026 |
 
 ## What Meety does well
 
@@ -80,7 +80,7 @@ The pinned Quick Panel helps between meetings. Pro adds Apple Reminders due date
 | Share free time | — | Yes |
 | Apple Reminders | — | Pro |
 | Quiet hours / screen-share privacy | Per-calendar alert controls | Pro |
-| Free + one-time Pro | Check Meety pricing | Yes ($9.99) |
+| Free + one-time Pro | Check Meety pricing | Yes ($6.99, was $9.99) |
 
 ## Which one should you choose?
 
@@ -95,7 +95,7 @@ Choose **Meetly** if you want:
 - A **Meety alternative** focused on fullscreen meeting attention
 - Multiple calendar providers through macOS Calendar
 - Quick Panel planning, free-time sharing, and local-first Pro controls
-- A free core plan and **$9.99 one-time** Pro
+- A free core plan and **$6.99** (was $9.99) one-time Pro Lifetime
 
 ## When not to switch
 

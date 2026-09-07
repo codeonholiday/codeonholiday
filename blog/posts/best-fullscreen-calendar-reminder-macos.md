@@ -2,7 +2,7 @@
 title: Best Fullscreen Calendar Reminder for Mac — Meetly and Alternatives
 description: Looking for the best fullscreen calendar reminder for Mac? Compare Meetly, In Your Face, Meety Hard Alert, and macOS Calendar notifications for multi-display deep work.
 date: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-07
 tags: [meetly, macos, fullscreen, meeting-reminder, calendar, comparison]
 image: /meetly/og-image.png
 author: codeonholiday
@@ -32,7 +32,7 @@ This guide compares **Meetly**, **In Your Face**, **Meety**’s Hard Alert, and 
 - Fullscreen attention is the product, not a theme
 - One-click join for common meeting links
 - Calendars via macOS Calendar (Google, Outlook, iCloud, Exchange, …)
-- Free plan for the core workflow; Pro **$9.99 one-time** for unlimited calendars, Apple Reminders, quiet hours, screen-share privacy, and Mac↔Mac iCloud state sync
+- Free plan for the core workflow; Pro Lifetime **$6.99** (was $9.99) one-time until 30 Sep 2026 for unlimited calendars, Apple Reminders, quiet hours, screen-share privacy, and Mac↔Mac iCloud state sync
 
 Deep comparisons: [Meetly vs In Your Face](/blog/meetly-vs-in-your-face/), [Meetly vs Meety](/blog/meetly-vs-meety/), [Best meeting reminder app for macOS](/blog/best-meeting-reminder-app-macos/).
 
@@ -52,7 +52,7 @@ Built-in banners and timed alerts are free and integrated. They lose when Focus 
 
 | Option | Fullscreen / hard alert | Meeting workflow extras | Pricing sketch |
 |---|---:|---:|---|
-| Meetly | Yes | Quick Panel, join, Pro privacy | Free + $9.99 Pro |
+| Meetly | Yes | Quick Panel, join, Pro privacy | Free + $6.99 Pro Lifetime (was $9.99) |
 | In Your Face | Yes | Broad alert customization | Check App Store |
 | Meety | Hard Alert + levels | Google-centric calendar UX | Check Meety plans |
 | Calendar.app | Banners / alerts | Native only | Free |

@@ -2,7 +2,7 @@
 title: Udio Alternative for Mac — LocalMelody vs Udio
 description: Looking for a Udio alternative that keeps music private on Mac? Compare LocalMelody and Udio for local generation, privacy, pricing, and creative control.
 date: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-07
 tags: [localmelody, udio, ai-music, macos, privacy, comparison]
 image: /localmelody/og-image.png
 author: codeonholiday
@@ -19,7 +19,7 @@ Udio is a cloud AI music product known for strong vocals and polished tracks. Lo
 
 Udio is a cloud studio: fast, often excellent sounding, and tied to online accounts, plans, and uploads.
 
-LocalMelody is a **local AI music generator for Mac**: free to try, Pro at **$9.99 one-time**, with generation on-device and no codeonholiday music backend for your prompts or audio.
+LocalMelody is a **local AI music generator for Mac**: free to try, Pro Lifetime at **$6.99** (was $9.99) one-time until 30 Sep 2026, with generation on-device and no codeonholiday music backend for your prompts or audio.
 
 | | Udio | LocalMelody |
 |---|---|---|
@@ -64,7 +64,7 @@ Cloud AI music often meters usage. LocalMelody Free covers short trials; Pro Lif
 | Instrumental options | Yes | Yes |
 | Local generation | No | Yes |
 | Native macOS app | No | Yes |
-| One-time license option | Uncommon | Pro $9.99 |
+| One-time license option | Uncommon | Pro Lifetime $6.99 (was $9.99) |
 | Works on underpowered Macs | Yes (cloud) | Needs capable Apple Silicon |
 
 ## Which should you choose?

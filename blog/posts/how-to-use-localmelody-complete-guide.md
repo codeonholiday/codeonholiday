@@ -2,7 +2,7 @@
 title: How to Use LocalMelody — A Complete Guide
 description: Install LocalMelody on Apple Silicon, set up Homebrew and Ollama, download models, generate music locally, and unlock Pro features without uploading your ideas.
 date: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-07
 tags: [localmelody, macos, guide, ai-music, privacy]
 image: /localmelody/og-image.png
 author: codeonholiday
@@ -73,7 +73,7 @@ Buy Pro once through Lemon Squeezy from the [pricing section](/localmelody/#pric
 
 | | Free | Pro Lifetime |
 | --- | --- | --- |
-| Price | $0 | $9.99 one-time |
+| Price | $0 | $6.99 (was $9.99) one-time until 30 Sep 2026 |
 | Length | 15-second songs | 15–240 seconds |
 | Sound controls | Automatic | Genre, mood, voice, BPM, key |
 | Lyrics | Generation | Generation + refinement |

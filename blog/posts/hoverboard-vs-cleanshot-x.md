@@ -2,7 +2,7 @@
 title: CleanShot X Alternative for Presenting — HoverBoard vs CleanShot X
 description: Looking for a CleanShot X alternative for presenting on Mac? Compare HoverBoard and CleanShot X for live annotation, freeze, whiteboard, screenshots, and recording workflows.
 date: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-07
 tags: [hoverboard, cleanshot, macos, presentation, screen-annotation, comparison]
 image: /hoverboard/og-image.png
 author: codeonholiday
@@ -25,7 +25,7 @@ HoverBoard wins at explaining what is happening live over Zoom, Meet, Teams, Key
 |---|---|---|
 | Primary job | Screenshots, recording, capture tools | Live annotation & teaching overlays |
 | Draw while presenting | Annotate captures; not the core live overlay suite | Draw / Freeze / Whiteboard over any app |
-| Pricing | Check CleanShot (license + updates) | Screenshot, Screen Record, Spotlight & Break Timer free; Pro **$15.99** one-time |
+| Pricing | Check CleanShot (license + updates) | Screenshot, Screen Record, Spotlight & Break Timer free; Pro Lifetime **$11.19** (was $15.99) one-time until 30 Sep 2026 |
 
 Do not buy HoverBoard expecting CleanShot’s screenshot workflow. Do not buy CleanShot expecting HoverBoard’s Freeze & Explain teaching loop.
 
@@ -82,7 +82,7 @@ HoverBoard does **not** try to replace CleanShot’s scrolling screenshots, OCR,
 | Cursor halo / keystroke HUD | — | Yes |
 | Break timer overlay | — | Free |
 | Local presentation Sessions / PDF export | Capture-oriented | Sessions (Pro) |
-| One-time purchase style | License model | Pro $15.99 |
+| One-time purchase style | License model | Pro Lifetime $11.19 (was $15.99) |
 
 ## Which one should you choose?
 
@@ -96,7 +96,7 @@ Choose **both** if you capture async *and* teach live. That is a common, rationa
 
 CleanShot X documents the screen. HoverBoard teaches with the screen.
 
-HoverBoard Pro is **$15.99 one-time**. Screenshot, Screen Record, Spotlight, and Break Timer are free forever.
+HoverBoard Pro Lifetime is **$11.19** (was $15.99) one-time until 30 Sep 2026. Screenshot, Screen Record, Spotlight, and Break Timer are free forever.
 
 [Try HoverBoard](/hoverboard/) for the next live demo — keep CleanShot for the next bug report.
 

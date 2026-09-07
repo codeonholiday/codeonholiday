@@ -2,7 +2,7 @@
 title: In Your Face Alternative for Mac — Meetly vs In Your Face
 description: Looking for an In Your Face alternative for Mac? Compare Meetly and In Your Face for fullscreen meeting reminders, Quick Panel, calendars, joining, privacy, and pricing.
 date: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-07
 tags: [meetly, in-your-face, macos, meeting-reminder, calendar, comparison]
 image: /meetly/og-image.png
 author: codeonholiday
@@ -23,7 +23,7 @@ If you searched for “In Your Face app” because you keep missing standups, bo
 
 In Your Face specializes in prominent full-screen event alerts, broad video-link detection, customization, and a footprint that extends beyond the Mac.
 
-Meetly is a native macOS menu bar meeting reminder: fullscreen alerts across displays, live countdown, Join / Snooze / Dismiss, pinned Quick Panel, and a free core plan with Pro at **$9.99 one-time**.
+Meetly is a native macOS menu bar meeting reminder: fullscreen alerts across displays, live countdown, Join / Snooze / Dismiss, pinned Quick Panel, and a free core plan with Pro Lifetime at **$6.99** (was $9.99) one-time until 30 Sep 2026.
 
 | | In Your Face | Meetly |
 |---|---|---|
@@ -88,7 +88,7 @@ Meetly Pro adds Apple Reminders with due dates, quiet hours, screen-share privac
 | Quiet hours / screen-share privacy | Check current features | Pro |
 | Cross-device (iPhone / Watch) | Strong focus | Mac-first; Pro Mac↔Mac iCloud state |
 | Free core plan | Check store | Yes |
-| One-time Pro option | Check store | $9.99 |
+| One-time Pro option | Check store | $6.99 (was $9.99) |
 
 ## Which one should you choose?
 
@@ -105,7 +105,7 @@ Choose **Meetly** if you want:
 - Fullscreen alerts plus Quick Panel planning and one-click join
 - Mixed calendars through macOS Calendar
 - Local-first privacy with optional iCloud state sync on Macs
-- A free download and a **$9.99 one-time** Pro unlock instead of another subscription decision
+- A free download and a **$6.99** (was $9.99) one-time Pro Lifetime unlock until 30 Sep 2026 instead of another subscription decision
 
 ## When Meetly is not the better alternative
 
@@ -125,7 +125,7 @@ Meetly answers:
 
 Both respect the same painful Mac truth: banner notifications lose to deep work. Meetly’s bet is that the interrupt should sit inside a complete meeting utility.
 
-Meetly is free for macOS 14+. Pro is **$9.99 one-time** with a 14-day money-back guarantee.
+Meetly is free for macOS 14+. Pro Lifetime is **$6.99** (was $9.99) one-time until 30 Sep 2026 with a 14-day money-back guarantee.
 
 [Try Meetly](/meetly/) and see whether a fullscreen reminder plus Quick Panel replaces the meetings you keep missing.
 

@@ -2,7 +2,7 @@
 title: Meet HoverBoard — The Quiet Layer Between You and Your Screen
 description: HoverBoard is a native macOS menu bar app for presenting, teaching, and demoing without breaking your flow. Draw, explain, record, transcribe, and follow up from one hotkey-driven workspace.
 date: 2026-07-24
-updated: 2026-07-28
+updated: 2026-09-07
 tags: [hoverboard, macos, presentation, teaching, indie-dev]
 image: /hoverboard/og-image.png
 author: codeonholiday
@@ -75,7 +75,7 @@ The core presentation layer is free forever:
 
 Pro tools include a 60-second trial so you can test them in a real workflow. Pro unlocks unlimited Draw, Freeze, Whiteboard, Cursor Halo, Keystroke Display, Notes, Sessions, meeting recording, offline transcription, exports, and more.
 
-Pro is a **$15.99 one-time purchase**. There is no subscription and no separate download — install the same app, then paste the license key from your email when you are ready.
+Pro Lifetime is **$11.19** (was $15.99) one-time until 30 Sep 2026. There is no subscription and no separate download — install the same app, then paste the license key from your email when you are ready.
 
 ## Who is HoverBoard for?
 

@@ -47,7 +47,13 @@
 }
 
 body.coh-promo-on {
-  /* bar is sticky in flow; no extra padding needed when first in body */
+  --coh-promo-h: 44px;
+}
+
+/* Keep fixed/sticky site nav below the sale bar */
+body.coh-promo-on header,
+body.coh-promo-on .site-header {
+  top: var(--coh-promo-h) !important;
 }
 
 @media (max-width: 600px) {
@@ -55,5 +61,8 @@ body.coh-promo-on {
     font-size: 12.5px;
     padding: 9px 12px;
     gap: 6px;
+  }
+  body.coh-promo-on {
+    --coh-promo-h: 56px;
   }
 }

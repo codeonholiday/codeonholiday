@@ -13,9 +13,17 @@
     path.indexOf('/meetly') === 0 ||
     path.indexOf('/hoverboard') === 0 ||
     path.indexOf('/localmelody') === 0;
+  var isBlog = path.indexOf('/blog') === 0;
 
-  var href = isProduct ? '#pricing' : '/apps/';
-  var linkLabel = isProduct ? 'See pricing' : 'Browse apps';
+  var href = '/apps/';
+  var linkLabel = 'Browse apps';
+  if (isProduct) {
+    href = '#pricing';
+    linkLabel = 'See pricing';
+  } else if (isBlog) {
+    href = '/blog/back-to-school-mac-apps-2026/';
+    linkLabel = 'Sale details';
+  }
 
   var bar = document.createElement('div');
   bar.className = 'coh-promo is-active';
@@ -27,4 +35,10 @@
 
   document.body.insertBefore(bar, document.body.firstChild);
   document.body.classList.add('coh-promo-on');
+
+  function syncPromoHeight() {
+    document.body.style.setProperty('--coh-promo-h', bar.offsetHeight + 'px');
+  }
+  syncPromoHeight();
+  window.addEventListener('resize', syncPromoHeight);
 })();

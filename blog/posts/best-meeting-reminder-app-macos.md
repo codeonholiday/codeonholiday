@@ -2,7 +2,7 @@
 title: "Best Meeting Reminder App for macOS: Meetly vs Meety vs MeetingBar vs In Your Face"
 description: "Looking for the best meeting reminder app for macOS? Compare Meetly, Meety, MeetingBar, and In Your Face for fullscreen alerts, calendars, quick join, privacy, and pricing."
 date: 2026-08-18
-updated: 2026-08-18
+updated: 2026-09-07
 tags: [meetly, meety, meetingbar, in-your-face, macos, meeting-reminder, mac-apps, calendar, comparison]
 image: /meetly/og-image.png
 author: codeonholiday
@@ -58,7 +58,7 @@ Meetly’s biggest advantage is that the fullscreen alert is the center of the p
 - Quiet hours and screen-share privacy controls on Pro
 - Optional iCloud sync across Macs
 - Local-first calendar privacy with no Meetly backend for event content
-- Free core plan and a $9.99 one-time Pro purchase, rather than a subscription
+- Free core plan and a $6.99 (was $9.99) one-time Pro Lifetime purchase until 30 Sep 2026, rather than a subscription
 
 Meetly is the best fit if your real problem is attention. You do not need a bigger calendar; you need a reliable signal that can break through a focused work session at the right time.
 
@@ -136,6 +136,6 @@ There is no universal winner for every Mac user. MeetingBar is excellent at keep
 
 That is the reason Meetly feels different from a normal calendar notification. It lets you stay focused until the meeting matters, then gives you a clear interruption with the information and action you need immediately.
 
-Meetly is free to download for macOS 14 or later. The free plan includes the core meeting reminder workflow for one calendar, while Pro adds unlimited calendars, Apple Reminders, quiet hours, screen-share privacy, and iCloud sync. Pro is a **$9.99 one-time purchase** with a 14-day money-back guarantee.
+Meetly is free to download for macOS 14 or later. The free plan includes the core meeting reminder workflow for one calendar, while Pro adds unlimited calendars, Apple Reminders, quiet hours, screen-share privacy, and iCloud sync. Pro Lifetime is **$6.99** (was $9.99) one-time until 30 Sep 2026 with a 14-day money-back guarantee.
 
 [Try Meetly for macOS](/meetly/) if you want a meeting reminder that does more than sit quietly in the corner of your screen.

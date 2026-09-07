@@ -2,7 +2,7 @@
 title: Suno vs Udio vs LocalMelody — Cloud AI Music or Private on Mac
 description: "Compare Suno vs Udio vs LocalMelody for AI music generation: cloud quality and credits versus private local creation on Apple Silicon Macs, pricing, and privacy."
 date: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-07
 tags: [localmelody, suno, udio, ai-music, macos, privacy, comparison]
 image: /localmelody/og-image.png
 author: codeonholiday
@@ -22,7 +22,7 @@ draft: false
 | Where audio is generated | Cloud | Cloud | Your Apple Silicon Mac |
 | Upload prompts for each render | Yes | Yes | No music SaaS upload for generation |
 | Typical access | Web / apps | Web / apps | Native macOS 14+ |
-| Pricing shape | Subscription / credits | Subscription / credits | Free + Pro **$9.99 one-time** |
+| Pricing shape | Subscription / credits | Subscription / credits | Free + Pro Lifetime **$6.99** (was $9.99) one-time until 30 Sep 2026 |
 | Setup | Account + plan | Account + plan | Models/runtime download; 16 GB RAM min |
 | Best at | Fast popular cloud songs | Strong cloud vocals / polish | Private local drafts on Mac |
 

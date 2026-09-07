@@ -2,7 +2,7 @@
 title: MeetingBar App Alternative for Mac — Meetly vs MeetingBar
 description: Looking for a MeetingBar app alternative? Compare Meetly and MeetingBar for macOS calendars, one-click joining, fullscreen reminders, privacy, and pricing.
 date: 2026-08-11
-updated: 2026-08-17
+updated: 2026-09-07
 tags: [meetly, meetingbar, macos, calendar, meetings, comparison]
 image: /meetly/og-image.png
 author: codeonholiday
@@ -32,7 +32,7 @@ Meetly is a native macOS meeting reminder built around attention. It keeps the n
 The pricing is different too:
 
 - MeetingBar: **free and open source**, with optional support and App Store purchases
-- Meetly: **free version**, with Meetly Pro at **$9.99 one-time**
+- Meetly: **free version**, with Meetly Pro Lifetime at **$6.99** (was $9.99) one-time until 30 Sep 2026
 
 ## What MeetingBar does well
 
@@ -120,7 +120,7 @@ Meetly’s privacy model is local-first: calendar data stays on your Mac, while 
 | iCloud sync across Macs | — | Pro |
 | Open source | Yes | No |
 | Price | Free | Free + Pro |
-| Pro price | — | $9.99 one-time |
+| Pro price | — | $6.99 (was $9.99) one-time |
 
 This is not a claim that one app replaces the other for every person. MeetingBar has a strong advantage if open source, broad meeting-service coverage, and a free menu bar utility are your priorities.
 
@@ -162,7 +162,7 @@ If you already have a reliable system for checking your calendar, MeetingBar may
 
 If you regularly miss meetings while deep in code, design, writing, or research, Meetly is built for that exact failure mode. The fullscreen reminder is the product’s central idea, not an afterthought.
 
-Meetly is free to download, with fullscreen reminders on one calendar available at no cost. Pro is a **$9.99 one-time purchase** with a 14-day money-back guarantee.
+Meetly is free to download, with fullscreen reminders on one calendar available at no cost. Pro Lifetime is **$6.99** (was $9.99) one-time until 30 Sep 2026 with a 14-day money-back guarantee.
 
 [Try Meetly for macOS](/meetly/) and see whether a stronger interrupt helps you protect your schedule without turning your calendar into another full-time task.
 

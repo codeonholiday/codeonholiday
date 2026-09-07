@@ -2,7 +2,7 @@
 title: "Best Local AI Music Generator for Mac: LocalMelody and Realistic Options"
 description: Looking for the best local or offline AI music generator for Mac? Compare LocalMelody, DIY MusicGen setups, cloud tools, and GarageBand — and when local privacy wins.
 date: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-07
 tags: [localmelody, ai-music, macos, local-ai, offline, comparison]
 image: /localmelody/og-image.png
 author: codeonholiday
@@ -37,7 +37,7 @@ Before ranking tools, separate four jobs:
 - Native macOS app instead of a Jupyter notebook
 - Generation on-device; no codeonholiday backend for prompts or audio
 - Free tier for 15-second trials
-- Pro Lifetime at **$9.99 one-time** for longer songs, sound controls, voice reference, lyrics refinement, and export
+- Pro Lifetime at **$6.99** (was $9.99) one-time until 30 Sep 2026 for longer songs, sound controls, voice reference, lyrics refinement, and export
 - Instrumental (MusicGen) and vocal (ACE-Step) style workflows
 - Clear hardware guidance: 16 GB RAM minimum, 32 GB+ recommended
 
@@ -88,4 +88,4 @@ Use them when you already have a melody, a performance, or stems to edit. Pair t
 
 The best local AI music generator for Mac is the one that matches your constraint. If the constraint is **privacy and on-device generation**, LocalMelody is built for that job. If the constraint is **zero setup**, use the cloud and accept the upload. If the constraint is **musical control**, use a DAW.
 
-[Download LocalMelody](/localmelody/) for Apple Silicon, try Free, and upgrade to Pro only when longer local songs are worth **$9.99 once**.
+[Download LocalMelody](/localmelody/) for Apple Silicon, try Free, and upgrade to Pro only when longer local songs are worth **$6.99** once (was $9.99; Back to School until 30 Sep 2026).

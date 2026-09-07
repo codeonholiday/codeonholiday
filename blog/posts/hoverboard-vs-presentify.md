@@ -2,7 +2,7 @@
 title: Presentify Alternative for Mac — HoverBoard Screen Annotation Tool
 description: Looking for a Presentify alternative or a screen annotation tool for Mac? Compare HoverBoard and Presentify for drawing, cursor spotlight, freeze, whiteboard, teaching, and pricing.
 date: 2026-08-11
-updated: 2026-08-17
+updated: 2026-09-07
 tags: [hoverboard, presentify, macos, presentation, screen-sharing, comparison]
 image: /hoverboard/og-image.png
 author: codeonholiday
@@ -30,7 +30,7 @@ HoverBoard includes those core workflows and adds tools such as Freeze & Explain
 The price difference is small:
 
 - Presentify: **$14.99 one-time**
-- HoverBoard: **$15.99 one-time**
+- HoverBoard: **$11.19** (was $15.99) one-time until 30 Sep 2026
 
 For one dollar more, HoverBoard is designed to cover much more of the presentation workflow.
 
@@ -118,9 +118,9 @@ HoverBoard also includes private Markdown presenter notes, local meeting recordi
 | Sessions and PDF export | — | Yes |
 | Private presenter notes | — | Yes |
 | Local recording and transcription | — | Yes |
-| One-time purchase | $14.99 | $15.99 |
+| One-time purchase | $14.99 | $11.19 (was $15.99) |
 
-The table is not meant to dismiss Presentify. Presentify does the focused annotation job well. The point is that HoverBoard is aimed at a wider use case, and the price difference is only one dollar.
+The table is not meant to dismiss Presentify. Presentify does the focused annotation job well. The point is that HoverBoard is aimed at a wider use case — and during Back to School, Pro Lifetime is **$11.19** (was $15.99) versus Presentify’s $14.99 list.
 
 ## Which one should you choose?
 
@@ -132,9 +132,9 @@ The comparison becomes especially straightforward at these prices:
 
 > Presentify costs $14.99 for focused screen annotation.
 >
-> HoverBoard costs $15.99 and adds a much broader presentation toolkit.
+> HoverBoard Pro Lifetime costs $11.19 (was $15.99) until 30 Sep 2026 and adds a much broader presentation toolkit.
 
-That extra dollar is not buying a different way to draw an arrow. It is buying the surrounding workflow: freeze the moment, explain it, sketch the idea, keep the group on schedule, show every click, and save the useful parts for later.
+That Back to School price is not buying a different way to draw an arrow. It is buying the surrounding workflow: freeze the moment, explain it, sketch the idea, keep the group on schedule, show every click, and save the useful parts for later.
 
 ## No subscription, no cloud workspace
 
@@ -144,4 +144,4 @@ HoverBoard supports macOS 14 and later and works over Zoom, Google Meet, Microso
 
 If you only need annotations, Presentify remains a strong choice. If you want one app that can support the whole presentation — from the first annotation to the final exported session — [try HoverBoard](/hoverboard/).
 
-**Same category. Almost the same price. A much broader toolkit for presenting on Mac.**
+**Same category. A lower Back to School price for HoverBoard. A much broader toolkit for presenting on Mac.**

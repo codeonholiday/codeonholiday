@@ -2,7 +2,7 @@
 title: Suno Alternative for Mac — LocalMelody vs Suno
 description: Looking for a Suno alternative that stays private? Compare LocalMelody and Suno for local AI music on Mac, privacy, offline generation, pricing, and when each tool fits.
 date: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-07
 tags: [localmelody, suno, ai-music, macos, privacy, comparison]
 image: /localmelody/og-image.png
 author: codeonholiday
@@ -30,7 +30,7 @@ LocalMelody is a **local AI music generator for Mac**. It is strong when privacy
 | Where generation runs | Cloud | On your Apple Silicon Mac |
 | Upload prompts to a music backend | Yes | No codeonholiday backend for prompts or audio |
 | Platform | Web / apps | Native macOS 14+ (Apple Silicon) |
-| Pricing model | Subscription / credits (check current plans) | Free + Pro **$9.99 one-time** |
+| Pricing model | Subscription / credits (check current plans) | Free + Pro Lifetime **$6.99** (was $9.99) one-time until 30 Sep 2026 |
 | Best for | Fast cloud songs and iteration | Private local creation on Mac |
 
 Pricing and commercial terms for Suno change often — treat their site as the source of truth before you buy.
@@ -65,7 +65,7 @@ LocalMelody is a macOS app for Apple Silicon, not a thin wrapper around a websit
 
 ### One-time Pro instead of endless credits
 
-LocalMelody Free lets you try 15-second generations with automatic controls. Pro Lifetime is a **$9.99 one-time** purchase through Lemon Squeezy and unlocks longer songs (up to several minutes), genre/mood/voice/BPM/key controls, voice reference, lyrics refinement, and export.
+LocalMelody Free lets you try 15-second generations with automatic controls. Pro Lifetime is a **$6.99** (was $9.99) one-time purchase through Lemon Squeezy until 30 Sep 2026 and unlocks longer songs (up to several minutes), genre/mood/voice/BPM/key controls, voice reference, lyrics refinement, and export.
 
 That is a different economic model from monthly AI music subscriptions. You pay for the app once; you do not buy another batch of cloud credits every time inspiration hits.
 
@@ -86,7 +86,7 @@ If you want zero setup and maximum cloud polish, Suno still wins. If you want ow
 | Works offline for generation after models are installed | No | Yes (generation local; updates/licensing may need net) |
 | Native macOS app | Web-first | Yes |
 | Free trial / free tier | Plan-dependent | Yes (15s Free) |
-| One-time lifetime unlock | Typically no | Pro $9.99 |
+| One-time lifetime unlock | Typically no | Pro Lifetime $6.99 (was $9.99) |
 | Needs strong Apple Silicon Mac | No | Yes |
 
 ## Which one should you choose?
@@ -128,7 +128,7 @@ LocalMelody answers:
 
 Both can be useful in the same creative life. Many people sketch privately on LocalMelody, then use a cloud tool only when they deliberately choose to. Others never want the upload step at all.
 
-LocalMelody Free is available for Apple Silicon Macs on macOS 14+. Pro is **$9.99 one-time**.
+LocalMelody Free is available for Apple Silicon Macs on macOS 14+. Pro Lifetime is **$6.99** (was $9.99) one-time until 30 Sep 2026.
 
 [Try LocalMelody](/localmelody/) if your next song should start on your Mac — not in someone else’s upload queue.
 

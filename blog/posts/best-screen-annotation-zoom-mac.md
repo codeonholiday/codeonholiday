@@ -2,7 +2,7 @@
 title: Best Screen Annotation for Zoom and Google Meet on Mac — HoverBoard
 description: Looking for the best screen annotation app for Zoom or Google Meet on Mac? Compare HoverBoard, Presentify, Zoom built-in tools, and ScreenBrush for live teaching and demos.
 date: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-07
 tags: [hoverboard, zoom, google-meet, screen-annotation, screenshot, screen-record, macos, presentation, comparison]
 image: /hoverboard/og-image.png
 author: codeonholiday
@@ -33,7 +33,7 @@ This guide compares **HoverBoard**, **Presentify**, **Zoom’s built-in annotati
 - Freeze & Explain when demos move too fast
 - Cursor Halo and Spotlight for remote visibility
 - Whiteboard with export options when discussion takes over
-- Screenshot and Screen Record free forever; Pro **$15.99** one-time
+- Screenshot and Screen Record free forever; Pro Lifetime **$11.19** (was $15.99) one-time until 30 Sep 2026
 
 Guides: [complete HoverBoard guide](/blog/how-to-use-hoverboard-complete-guide/), [free screenshot](/blog/best-free-screenshot-tool-macos/), [free screen recorder](/blog/best-free-screen-recorder-macos/), [vs Presentify](/blog/hoverboard-vs-presentify/), [best annotation tool for macOS](/blog/best-annotation-tool-macos/).
 

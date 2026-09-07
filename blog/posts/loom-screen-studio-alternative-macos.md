@@ -2,7 +2,7 @@
 title: Loom and Screen Studio Alternative for Live Mac Demos — HoverBoard
 description: Looking for a Loom or Screen Studio alternative for live Mac demos? Compare HoverBoard for real-time annotation and teaching versus polished async video recording.
 date: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-07
 tags: [hoverboard, loom, screen-studio, macos, presentation, recording, comparison]
 image: /hoverboard/og-image.png
 author: codeonholiday
@@ -47,7 +47,7 @@ HoverBoard is a native macOS menu bar overlay for the live call:
 - Sessions to capture frames into a local library
 - Local meeting recording, English transcription, and on-device summaries in Pro workflows
 
-Pricing: Spotlight, Break Timer, **Screenshot**, and **Screen Record** free forever; Pro **$15.99** one-time with 60-second trials on Draw and other Pro tools.
+Pricing: Spotlight, Break Timer, **Screenshot**, and **Screen Record** free forever; Pro Lifetime **$11.19** (was $15.99) one-time until 30 Sep 2026 with 60-second trials on Draw and other Pro tools.
 
 ## Honest limits
 
