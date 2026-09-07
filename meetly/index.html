@@ -1118,6 +1118,19 @@
             flex-wrap: wrap;
             gap: 10px;
         }
+        .soft-close-note {
+            width: 100%;
+            margin: 4px 0 0;
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+        .soft-close-note a {
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 650;
+        }
+        .soft-close-note a:hover { text-decoration: underline; }
 
         /* ============================================================
            PRICING
@@ -1901,7 +1914,7 @@
     </section>
 
     <!-- Soft close -->
-    <section class="soft-close">
+    <section class="soft-close" id="request-feature">
         <div class="container">
             <div class="soft-close-inner reveal">
                 <p>Ready to stop missing standups?</p>
@@ -1910,6 +1923,7 @@
                     <a href="#pricing" class="btn btn-ghost">Get Pro — $6.99</a>
                     <a href="/blog/how-to-use-meetly-complete-guide/" class="btn btn-ghost">Guide</a>
                 </div>
+                <p class="soft-close-note">Missing something? <a class="feature-request" data-feature-source="section" href="mailto:hello@codeonholiday.com?subject=Feature%20request%20%E2%80%94%20Meetly&body=App%3A%20Meetly%0A%0AWhat%20do%20you%20want%3F%0A%0A%0AMac%20%2F%20macOS%20version%3A%0A">Request a feature</a></p>
             </div>
         </div>
     </section>
@@ -1973,6 +1987,8 @@
                         <a href="/meetly/privacy.html">Privacy Policy</a>
                         <a href="/meetly/terms.html">Terms of Service</a>
                         <a href="mailto:hello@codeonholiday.com">Support</a>
+                        <a class="feature-request" data-feature-source="footer"
+                           href="mailto:hello@codeonholiday.com?subject=Feature%20request%20%E2%80%94%20Meetly&body=App%3A%20Meetly%0A%0AWhat%20do%20you%20want%3F%0A%0A%0AMac%20%2F%20macOS%20version%3A%0A">Request a feature</a>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="/codeonholiday-logo.svg?v=2">
+  <link rel="apple-touch-icon" href="/codeonholiday-logo.png">
+  <title>Request a feature — codeonholiday</title>
+  <meta name="description" content="Suggest a feature for Meetly, HoverBoard, or LocalMelody. Pick an app and email your idea.">
+  <link rel="canonical" href="https://codeonholiday.com/request-feature/">
+  <link rel="describedby" href="https://codeonholiday.com/llms.txt" type="text/markdown" title="llms.txt">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="codeonholiday">
+  <meta property="og:url" content="https://codeonholiday.com/request-feature/">
+  <meta property="og:title" content="Request a feature — codeonholiday">
+  <meta property="og:description" content="Suggest a feature for Meetly, HoverBoard, or LocalMelody.">
+  <meta property="og:image" content="https://codeonholiday.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@codeonholiday">
+  <meta name="twitter:title" content="Request a feature — codeonholiday">
+  <meta name="twitter:description" content="Suggest a feature for Meetly, HoverBoard, or LocalMelody.">
+  <meta name="twitter:image" content="https://codeonholiday.com/og-image.png">
+  <style>
+    :root {
+      --bg: #0a0d13;
+      --card: #141c2a;
+      --line: #27344a;
+      --text: #f8fbff;
+      --muted: #9aa8bc;
+      --a: #4ee6d5;
+      --b: #1787ff;
+      --o: #ff6b35;
+      --p: #a16dff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(70% 50% at 20% 0%, #123038 0, transparent 55%), var(--bg);
+      color: var(--text);
+      font: 16px/1.6 Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    main { max-width: 880px; margin: auto; padding: 28px 24px 80px; }
+    a { color: inherit; }
+    .back { color: var(--muted); text-decoration: none; }
+    .back:hover { color: var(--a); }
+    .hero { text-align: center; padding: 72px 0 40px; }
+    .eyebrow {
+      color: var(--a);
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-size: .78rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      line-height: 1.05;
+      letter-spacing: -.04em;
+      margin: 16px auto 14px;
+      max-width: 640px;
+    }
+    .hero p {
+      max-width: 520px;
+      color: var(--muted);
+      margin: auto;
+      font-size: 1.1rem;
+    }
+    .apps {
+      display: grid;
+      gap: 16px;
+      margin-top: 12px;
+    }
+    .app {
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      gap: 18px;
+      align-items: center;
+      padding: 20px 22px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(20, 28, 42, .9);
+      scroll-margin-top: 96px;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .app.is-highlight {
+      border-color: var(--a);
+      box-shadow: 0 0 0 1px rgba(78, 230, 213, .25);
+    }
+    .app img {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      object-fit: cover;
+    }
+    .app h2 { margin: 0 0 4px; font-size: 1.25rem; }
+    .app p { margin: 0; color: var(--muted); font-size: .95rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      background: var(--a);
+      color: #081218;
+      white-space: nowrap;
+    }
+    .btn:hover { filter: brightness(1.05); }
+    .app-meetly .btn { background: var(--a); }
+    .app-hoverboard .btn { background: var(--o); color: #1a0c06; }
+    .app-localmelody .btn { background: var(--p); color: #12091f; }
+    .note {
+      margin-top: 36px;
+      text-align: center;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+    .note a { color: var(--a); }
+    @media (max-width: 640px) {
+      .app {
+        grid-template-columns: 48px 1fr;
+        grid-template-rows: auto auto;
+      }
+      .app .btn {
+        grid-column: 1 / -1;
+        justify-self: stretch;
+        text-align: center;
+      }
+      .hero { padding-top: 48px; }
+    }
+  </style>
+  <link rel="stylesheet" href="/campaign.css">
+</head>
+<body>
+  <main>
+    <a class="back" href="/">← codeonholiday</a>
+    <header class="hero">
+      <div class="eyebrow">Feedback</div>
+      <h1>Request a feature</h1>
+      <p>Pick an app. Your email app opens with a short template — tell us what would make it more useful.</p>
+    </header>
+
+    <section class="apps" aria-label="Choose an app">
+      <article class="app app-meetly" id="app-meetly">
+        <img src="/meetly/og-image.png" alt="Meetly">
+        <div>
+          <h2>Meetly</h2>
+          <p>Fullscreen meeting reminders and Quick Panel.</p>
+        </div>
+        <a class="btn feature-request"
+           data-feature-source="hub"
+           href="mailto:hello@codeonholiday.com?subject=Feature%20request%20%E2%80%94%20Meetly&body=App%3A%20Meetly%0A%0AWhat%20do%20you%20want%3F%0A%0A%0AMac%20%2F%20macOS%20version%3A%0A">Request a feature</a>
+      </article>
+
+      <article class="app app-hoverboard" id="app-hoverboard">
+        <img src="/hoverboard/icon.png" alt="HoverBoard">
+        <div>
+          <h2>HoverBoard</h2>
+          <p>Present, annotate, screenshot, and screen record.</p>
+        </div>
+        <a class="btn feature-request"
+           data-feature-source="hub"
+           href="mailto:hello@codeonholiday.com?subject=Feature%20request%20%E2%80%94%20HoverBoard&body=App%3A%20HoverBoard%0A%0AWhat%20do%20you%20want%3F%0A%0A%0AMac%20%2F%20macOS%20version%3A%0A">Request a feature</a>
+      </article>
+
+      <article class="app app-localmelody" id="app-localmelody">
+        <img src="/localmelody/icon.png" alt="LocalMelody">
+        <div>
+          <h2>LocalMelody</h2>
+          <p>Private local AI music on Apple Silicon.</p>
+        </div>
+        <a class="btn feature-request"
+           data-feature-source="hub"
+           href="mailto:hello@codeonholiday.com?subject=Feature%20request%20%E2%80%94%20LocalMelody&body=App%3A%20LocalMelody%0A%0AWhat%20do%20you%20want%3F%0A%0A%0AMac%20%2F%20macOS%20version%3A%0A">Request a feature</a>
+      </article>
+    </section>
+
+    <p class="note">Prefer browsing first? <a href="/apps/">Mac App Finder</a> · Or email <a href="mailto:hello@codeonholiday.com">hello@codeonholiday.com</a></p>
+  </main>
+  <script src="/analytics.js"></script>
+  <script src="/events.js"></script>
+  <script src="/campaign.js"></script>
+  <script>
+    (function () {
+      var params = new URLSearchParams(location.search);
+      var app = (params.get('app') || '').toLowerCase();
+      if (!app) return;
+      var el = document.getElementById('app-' + app);
+      if (!el) return;
+      el.classList.add('is-highlight');
+      if (typeof el.scrollIntoView === 'function') {
+        el.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -19,6 +19,7 @@
 
     var PAGE_TYPE = (function () {
         var p = location.pathname;
+        if (p.indexOf('/request-feature') === 0) return 'request_feature';
         if (p.indexOf('/apps/') === 0 || p === '/apps') return 'apps';
         if (p.indexOf('/blog/') === 0 || p === '/blog') return 'blog';
         if (/\/(privacy|terms)\.html$/.test(p)) return 'legal';
@@ -63,6 +64,13 @@
     function appFromHref(href) {
         var h = (href || '').toLowerCase();
 
+        // Feature-request mailto subjects
+        if (h.indexOf('feature%20request') !== -1 || h.indexOf('feature request') !== -1) {
+            if (h.indexOf('meetly') !== -1) return 'meetly';
+            if (h.indexOf('hoverboard') !== -1) return 'hoverboard';
+            if (h.indexOf('localmelody') !== -1) return 'localmelody';
+        }
+
         // GitHub release filenames (most reliable for downloads)
         if (h.indexOf('meetly-latest') !== -1) return 'meetly';
         if (h.indexOf('hoverboard-latest') !== -1) return 'hoverboard';
@@ -80,11 +88,32 @@
         return '';
     }
 
+    function featureSource(el) {
+        var src = el.getAttribute('data-feature-source');
+        if (src) return src;
+        if (PAGE_TYPE === 'request_feature') return 'hub';
+        if (el.closest && (el.closest('.soft-close') || el.closest('.final-cta') || el.closest('.coming'))) return 'section';
+        if (el.closest && el.closest('footer')) return 'footer';
+        return 'other';
+    }
+
     function classify(el) {
         var href = (el.getAttribute('href') || '');
         var hrefLower = href.toLowerCase();
         var cls = (el.className || '').toLowerCase();
         var text = (el.textContent || el.innerText || '').trim().toLowerCase();
+
+        // Feature request mailto (before generic CTAs).
+        if (hrefLower.indexOf('mailto:') === 0 &&
+            (hrefLower.indexOf('feature%20request') !== -1 || hrefLower.indexOf('feature request') !== -1 ||
+             /\bfeature-request\b/.test(cls) || text.indexOf('request a feature') !== -1)) {
+            return {
+                name: 'feature_request_click',
+                label: featureSource(el),
+                version: '',
+                app: appFromHref(hrefLower) || (PRODUCT === 'meetly' || PRODUCT === 'hoverboard' || PRODUCT === 'localmelody' ? PRODUCT : '')
+            };
+        }
 
         // Download / install intent: real GitHub release links.
         if (hrefLower.indexOf('github.com') !== -1 && hrefLower.indexOf('releases') !== -1) {
