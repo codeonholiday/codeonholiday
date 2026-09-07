@@ -235,7 +235,8 @@ function sharedHeadExtras() {
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-XSL5Z5MEBZ', { 'anonymize_ip': true });
-    </script>`;
+    </script>
+    <script src="/analytics.js"></script>`;
 }
 
 function siteHeader(active) {
@@ -631,6 +632,7 @@ const STATIC_SITEMAP_URLS = [
   { loc: `${SITE}/`, source: 'index.html', fallbackLastmod: '2026-07-24', priority: '1.0', changefreq: 'weekly' },
   { loc: `${SITE}/apps/`, source: 'apps/index.html', fallbackLastmod: '2026-08-17', priority: '0.95', changefreq: 'weekly' },
   { loc: `${SITE}/apps/recommendation-guide.html`, source: 'apps/recommendation-guide.html', fallbackLastmod: '2026-08-17', priority: '0.8', changefreq: 'monthly' },
+  { loc: `${SITE}/request-feature/`, source: 'request-feature/index.html', fallbackLastmod: '2026-09-07', priority: '0.7', changefreq: 'monthly' },
   // Thin /apps/* intent satellites are noindex and canonical to blog posts — omit from sitemap.
   { loc: `${SITE}/meetly/`, source: 'meetly/index.html', fallbackLastmod: '2026-07-23', priority: '0.9', changefreq: 'weekly' },
   { loc: `${SITE}/hoverboard/`, source: 'hoverboard/index.html', fallbackLastmod: '2026-07-25', priority: '0.9', changefreq: 'weekly' },
