@@ -7,3 +7,6 @@
 
 # Node (blog build)
 node_modules/
+
+# Cloudflare Pages upload tree (generated)
+dist/

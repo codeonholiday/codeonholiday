@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy site
 
 on:
   push:
@@ -9,6 +9,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  deployments: write
 
 # Allow one concurrent deployment.
 concurrency:
@@ -36,15 +37,15 @@ jobs:
       - name: Build blog
         run: npm ci && npm run build:blog
 
-      # Site lives at repo root (index.html, meetly/, hoverboard/, blog/).
-      # .nojekyll is committed so GitHub Pages serves files as-is.
-      # `enablement: true` creates the Pages site on first run if missing.
+      # ── GitHub Pages (apex codeonholiday.com until CF cutover) ──────────
+      # Full tree including historical zip/dmg. Cloudflare gets a filtered
+      # dist/ in the step below.
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
           enablement: true
 
-      - name: Upload artifact
+      - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
@@ -54,9 +55,24 @@ jobs:
         uses: actions/deploy-pages@v4
 
       # IndexNow (Bing + Amazon) — ask crawlers to recrawl sitemap URLs.
-      # Runs after Pages is live so they can fetch /{key}.txt for ownership.
+      # Runs after GitHub Pages is live (still the apex origin in Phase 1).
       - name: Notify IndexNow crawlers
         continue-on-error: true
         run: |
           sleep 20
           node scripts/submit-indexnow.mjs
+
+      # ── Cloudflare Pages (codeonholiday.pages.dev) ──────────────────────
+      # Filtered dist/: site + current installers only. Requires repo secrets
+      # CLOUDFLARE_API_TOKEN (Account → Cloudflare Pages → Edit) and
+      # CLOUDFLARE_ACCOUNT_ID. See docs/cloudflare-pages.md.
+      - name: Prepare Cloudflare Pages dist
+        run: node scripts/prepare-pages.mjs
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=codeonholiday --branch=main
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
