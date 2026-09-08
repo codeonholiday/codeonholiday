@@ -38,11 +38,9 @@ Dashboard → Workers & Pages (or zone Overview) → right sidebar **API** →
 
 On every push to `main` ([`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml)):
 
-1. `npm run build:blog`
-2. **GitHub Pages** — upload `path: .` (full tree, including old installers)
-3. IndexNow against the live apex
-4. `node scripts/prepare-pages.mjs` → `dist/`
-5. `wrangler pages deploy dist --project-name=codeonholiday --branch=main`
+1. Job **build** — `npm run build:blog`, stage full tree for GitHub Pages, `prepare-pages.mjs` → `dist/`
+2. Job **deploy-github** — upload Pages artifact (name includes `run_attempt` so re-runs don’t collide) → GitHub Pages → IndexNow
+3. Job **deploy-cloudflare** — `wrangler pages deploy dist` (runs even if GitHub Pages fails)
 
 `prepare-pages.mjs` copies the site but only installer binaries named in each
 app’s `*/releases/appcast.xml` plus `*-latest.zip|dmg`. It also writes
