@@ -50,7 +50,6 @@ body.coh-promo-on {
   --coh-promo-h: 44px;
 }
 
-/* Keep fixed/sticky site nav below the sale bar */
 body.coh-promo-on header,
 body.coh-promo-on .site-header {
   top: var(--coh-promo-h) !important;
@@ -65,4 +64,739 @@ body.coh-promo-on .site-header {
   body.coh-promo-on {
     --coh-promo-h: 56px;
   }
+}
+
+/* =============================================================================
+   Mid-Autumn Festival (Trung Thu) 2026 — cinematic visual theme
+   Active 11 Sep – 25 Sep 2026 (Asia/Ho_Chi_Minh). Preview: ?trungthu=1
+   Does NOT restyle .coh-promo / Back to School banner.
+   ============================================================================= */
+
+body.coh-trungthu-on {
+  --coh-tt-night: #050814;
+  --coh-tt-night-2: #0e1426;
+  --coh-tt-gold: #f6c445;
+  --coh-tt-gold-soft: #ffe9b0;
+  --coh-tt-ember: #ff8a3d;
+  --coh-tt-coral: #e4572e;
+  --coh-tt-border: rgba(246, 196, 69, 0.2);
+  --coh-tt-border-strong: rgba(246, 196, 69, 0.42);
+  --bg: var(--coh-tt-night) !important;
+  --bg-2: var(--coh-tt-night-2) !important;
+  --bg2: var(--coh-tt-night-2) !important;
+  --card: #16132a !important;
+  --border: var(--coh-tt-border) !important;
+  --border-strong: var(--coh-tt-border-strong) !important;
+  --line: var(--coh-tt-border) !important;
+  --accent: var(--coh-tt-gold) !important;
+  --accent-2: var(--coh-tt-ember) !important;
+  --a: var(--coh-tt-gold) !important;
+  --text: #fff8ea !important;
+  --text-muted: #cdb990 !important;
+  --text-dim: #918266 !important;
+  --muted: #cdb990 !important;
+  --teal: #f6c445 !important;
+  --teal-2: #ffe9b0 !important;
+  --orange: #ff8a3d !important;
+  --pink: #e4572e !important;
+  --purple: #f6c445 !important;
+  --cyan: #ffe9b0 !important;
+  --grad: linear-gradient(135deg, #fff0c8 0%, #f6c445 40%, #ff8a3d 100%) !important;
+  --grad-teal: linear-gradient(135deg, #fff0c8 0%, #f6c445 55%, #ff8a3d 100%) !important;
+  --grad-brand: linear-gradient(135deg, #ff8a3d 0%, #e4572e 100%) !important;
+  --m-grad: linear-gradient(135deg, #fff0c8 0%, #f6c445 50%, #ff8a3d 100%) !important;
+  --h-grad: linear-gradient(135deg, #ff8a3d 0%, #e4572e 100%) !important;
+  --l-grad: linear-gradient(135deg, #fff0c8 0%, #f6c445 45%, #ff8a3d 100%) !important;
+  background: var(--coh-tt-night) !important;
+  color: #fff8ea !important;
+}
+
+body.coh-trungthu-on::before {
+  content: '' !important;
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(42% 40% at 88% 8%, rgba(255, 236, 180, 0.34) 0%, transparent 58%),
+    radial-gradient(50% 46% at 6% 20%, rgba(255, 110, 45, 0.18) 0%, transparent 62%),
+    radial-gradient(70% 55% at 50% 115%, rgba(170, 30, 50, 0.22) 0%, transparent 55%),
+    radial-gradient(28% 24% at 70% 30%, rgba(255, 200, 90, 0.1) 0%, transparent 70%),
+    linear-gradient(180deg, #03050f 0%, #0a1020 38%, #1a0e1c 100%) !important;
+}
+
+/* ---- Decor stage ---- */
+.coh-trungthu-decor {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+
+body.coh-trungthu-ready .coh-trungthu-decor {
+  opacity: 1;
+}
+
+.coh-tt-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, transparent 42%, rgba(0, 0, 0, 0.45) 100%);
+}
+
+.coh-tt-aurora {
+  position: absolute;
+  inset: -20%;
+  background:
+    conic-gradient(from 210deg at 80% 12%, rgba(255, 180, 70, 0.08), transparent 28%, rgba(255, 90, 50, 0.07), transparent 55%, rgba(255, 220, 140, 0.05), transparent 80%);
+  filter: blur(48px);
+  opacity: 0.85;
+}
+
+.coh-tt-rays {
+  position: absolute;
+  top: -5%;
+  right: -2%;
+  width: min(520px, 70vw);
+  height: min(520px, 70vw);
+  background: repeating-conic-gradient(
+    from 0deg at 55% 40%,
+    rgba(255, 230, 160, 0.07) 0deg 8deg,
+    transparent 8deg 22deg
+  );
+  mask-image: radial-gradient(circle at 55% 40%, #000 0%, transparent 58%);
+  -webkit-mask-image: radial-gradient(circle at 55% 40%, #000 0%, transparent 58%);
+  opacity: 0.55;
+}
+
+/* Moon — hero of the scene */
+.coh-tt-moon-wrap {
+  position: absolute;
+  top: max(56px, 4vh);
+  right: max(18px, 4vw);
+  width: min(240px, 32vw);
+  height: min(240px, 32vw);
+  z-index: 2;
+}
+
+.coh-tt-moon-ring {
+  position: absolute;
+  inset: -18%;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 233, 176, 0.18);
+  box-shadow: 0 0 0 18px rgba(255, 233, 176, 0.03);
+}
+
+.coh-tt-moon-glow {
+  position: absolute;
+  inset: -48%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(255, 244, 200, 0.55) 0%, rgba(255, 200, 90, 0.18) 35%, transparent 68%);
+}
+
+.coh-tt-moon {
+  position: absolute;
+  inset: 14%;
+  border-radius: 50%;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 30% 28%, #fffef9 0%, #ffe9b0 34%, #f0c14a 68%, #c99220 100%);
+  box-shadow:
+    0 0 40px 14px rgba(255, 233, 176, 0.45),
+    0 0 120px 40px rgba(246, 196, 69, 0.22),
+    inset -14px -12px 28px rgba(160, 100, 10, 0.28);
+}
+
+.coh-tt-rabbit {
+  position: absolute;
+  width: 42%;
+  height: 42%;
+  right: 18%;
+  top: 28%;
+  opacity: 0.9;
+}
+
+/* Hanging lanterns */
+.coh-tt-lantern-wrap {
+  position: absolute;
+  transform-origin: 50% 0;
+  filter: drop-shadow(0 10px 24px rgba(255, 120, 40, 0.35));
+  z-index: 3;
+}
+
+.coh-tt-lantern-svg,
+.coh-tt-sky-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.coh-tt-hang-a { top: 10%; left: 2%; width: min(62px, 9vw); }
+.coh-tt-hang-b { top: 22%; right: 1.5%; width: min(50px, 7.5vw); }
+.coh-tt-hang-c { bottom: 16%; left: 5%; width: min(56px, 8vw); }
+.coh-tt-hang-d { top: 42%; left: 1%; width: min(40px, 6vw); opacity: 0.9; }
+.coh-tt-hang-e { top: 55%; right: 5%; width: min(44px, 6.5vw); opacity: 0.88; }
+
+/* Rising sky lanterns */
+.coh-tt-rising {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.coh-tt-sky {
+  position: absolute;
+  bottom: -12%;
+  width: min(54px, 8vw);
+  opacity: 0;
+  filter: drop-shadow(0 0 16px rgba(255, 170, 60, 0.45));
+}
+
+.coh-tt-sky-0 { left: 8%; width: min(46px, 7vw); }
+.coh-tt-sky-1 { left: 22%; width: min(58px, 9vw); }
+.coh-tt-sky-2 { left: 38%; width: min(40px, 6vw); }
+.coh-tt-sky-3 { left: 52%; width: min(64px, 10vw); }
+.coh-tt-sky-4 { left: 68%; width: min(44px, 7vw); }
+.coh-tt-sky-5 { left: 80%; width: min(52px, 8vw); }
+.coh-tt-sky-6 { left: 92%; width: min(36px, 5.5vw); }
+
+/* Mist */
+.coh-tt-mist {
+  position: absolute;
+  height: 90px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(255, 236, 190, 0.1), transparent);
+  filter: blur(12px);
+  z-index: 1;
+}
+
+.coh-tt-mist-a { top: 18%; left: -15%; width: 50vw; }
+.coh-tt-mist-b { top: 48%; right: -12%; width: 42vw; height: 70px; }
+.coh-tt-mist-c { bottom: 8%; left: 10%; width: 60vw; height: 60px; opacity: 0.6; }
+
+/* Starfield */
+.coh-tt-stars {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.coh-tt-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #fff6d6;
+  box-shadow: 0 0 6px 1px rgba(255, 236, 180, 0.7);
+}
+
+.coh-tt-star-0 { top: 6%; left: 8%; }
+.coh-tt-star-1 { top: 9%; left: 18%; width: 3px; height: 3px; }
+.coh-tt-star-2 { top: 4%; left: 28%; }
+.coh-tt-star-3 { top: 12%; left: 36%; }
+.coh-tt-star-4 { top: 7%; left: 48%; width: 2.5px; height: 2.5px; }
+.coh-tt-star-5 { top: 15%; left: 55%; }
+.coh-tt-star-6 { top: 5%; left: 62%; }
+.coh-tt-star-7 { top: 11%; left: 72%; width: 3px; height: 3px; }
+.coh-tt-star-8 { top: 8%; left: 82%; }
+.coh-tt-star-9 { top: 18%; left: 90%; }
+.coh-tt-star-10 { top: 22%; left: 12%; }
+.coh-tt-star-11 { top: 26%; left: 24%; width: 2.5px; height: 2.5px; }
+.coh-tt-star-12 { top: 20%; left: 42%; }
+.coh-tt-star-13 { top: 28%; left: 58%; }
+.coh-tt-star-14 { top: 24%; left: 76%; width: 3px; height: 3px; }
+.coh-tt-star-15 { top: 32%; left: 6%; }
+.coh-tt-star-16 { top: 36%; left: 32%; }
+.coh-tt-star-17 { top: 30%; left: 68%; }
+.coh-tt-star-18 { top: 40%; left: 14%; width: 2.5px; height: 2.5px; }
+.coh-tt-star-19 { top: 44%; left: 46%; }
+.coh-tt-star-20 { top: 38%; left: 84%; }
+.coh-tt-star-21 { top: 52%; left: 20%; }
+.coh-tt-star-22 { top: 56%; left: 64%; width: 3px; height: 3px; }
+.coh-tt-star-23 { top: 60%; left: 8%; }
+.coh-tt-star-24 { top: 64%; left: 38%; }
+.coh-tt-star-25 { top: 58%; left: 78%; }
+.coh-tt-star-26 { top: 70%; left: 26%; width: 2.5px; height: 2.5px; }
+.coh-tt-star-27 { top: 74%; left: 52%; }
+.coh-tt-star-28 { top: 68%; left: 88%; }
+.coh-tt-star-29 { top: 80%; left: 16%; }
+.coh-tt-star-30 { top: 84%; left: 44%; width: 3px; height: 3px; }
+.coh-tt-star-31 { top: 78%; left: 70%; }
+.coh-tt-star-32 { top: 88%; left: 30%; }
+.coh-tt-star-33 { top: 90%; left: 60%; }
+.coh-tt-star-34 { top: 14%; left: 4%; width: 3px; height: 3px; }
+.coh-tt-star-35 { top: 48%; left: 94%; }
+
+/* Fireflies */
+.coh-tt-fireflies {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.coh-tt-firefly {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #ffe9b0;
+  box-shadow: 0 0 12px 3px rgba(255, 200, 90, 0.75);
+  opacity: 0;
+}
+
+.coh-tt-firefly-0 { left: 10%; top: 70%; }
+.coh-tt-firefly-1 { left: 18%; top: 55%; }
+.coh-tt-firefly-2 { left: 28%; top: 75%; }
+.coh-tt-firefly-3 { left: 36%; top: 48%; }
+.coh-tt-firefly-4 { left: 46%; top: 68%; }
+.coh-tt-firefly-5 { left: 54%; top: 42%; }
+.coh-tt-firefly-6 { left: 62%; top: 72%; }
+.coh-tt-firefly-7 { left: 70%; top: 50%; }
+.coh-tt-firefly-8 { left: 78%; top: 66%; }
+.coh-tt-firefly-9 { left: 86%; top: 40%; }
+.coh-tt-firefly-10 { left: 14%; top: 35%; }
+.coh-tt-firefly-11 { left: 42%; top: 28%; }
+.coh-tt-firefly-12 { left: 58%; top: 82%; }
+.coh-tt-firefly-13 { left: 74%; top: 30%; }
+.coh-tt-firefly-14 { left: 24%; top: 88%; }
+.coh-tt-firefly-15 { left: 90%; top: 58%; }
+
+/* ---- Motion ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .coh-tt-aurora {
+    animation: coh-tt-aurora-spin 48s linear infinite;
+  }
+
+  .coh-tt-rays {
+    animation: coh-tt-rays-spin 70s linear infinite;
+  }
+
+  .coh-tt-moon-glow {
+    animation: coh-tt-moon-breathe 4.8s ease-in-out infinite;
+  }
+
+  .coh-tt-moon-wrap {
+    animation: coh-tt-moon-float 10s ease-in-out infinite;
+  }
+
+  .coh-tt-moon-ring {
+    animation: coh-tt-ring-pulse 6s ease-in-out infinite;
+  }
+
+  .coh-tt-hang-a { animation: coh-tt-sway 4.6s ease-in-out infinite; }
+  .coh-tt-hang-b { animation: coh-tt-sway-alt 5.4s ease-in-out infinite; animation-delay: -1.2s; }
+  .coh-tt-hang-c { animation: coh-tt-sway 5s ease-in-out infinite; animation-delay: -2.4s; }
+  .coh-tt-hang-d { animation: coh-tt-sway-alt 6s ease-in-out infinite; animation-delay: -0.6s; }
+  .coh-tt-hang-e { animation: coh-tt-sway 5.8s ease-in-out infinite; animation-delay: -3s; }
+
+  .coh-tt-sky-0 { animation: coh-tt-rise 18s linear infinite; animation-delay: 0s; }
+  .coh-tt-sky-1 { animation: coh-tt-rise 22s linear infinite; animation-delay: -4s; }
+  .coh-tt-sky-2 { animation: coh-tt-rise 16s linear infinite; animation-delay: -8s; }
+  .coh-tt-sky-3 { animation: coh-tt-rise 24s linear infinite; animation-delay: -2s; }
+  .coh-tt-sky-4 { animation: coh-tt-rise 19s linear infinite; animation-delay: -11s; }
+  .coh-tt-sky-5 { animation: coh-tt-rise 21s linear infinite; animation-delay: -6s; }
+  .coh-tt-sky-6 { animation: coh-tt-rise 17s linear infinite; animation-delay: -13s; }
+
+  .coh-tt-mist-a { animation: coh-tt-drift 32s linear infinite; }
+  .coh-tt-mist-b { animation: coh-tt-drift-rev 38s linear infinite; }
+  .coh-tt-mist-c { animation: coh-tt-drift 44s linear infinite; animation-delay: -16s; }
+
+  .coh-tt-star-1,
+  .coh-tt-star-7,
+  .coh-tt-star-14,
+  .coh-tt-star-22,
+  .coh-tt-star-30,
+  .coh-tt-star-34 { animation: coh-tt-twinkle 2.4s ease-in-out infinite; }
+  .coh-tt-star-4,
+  .coh-tt-star-11,
+  .coh-tt-star-18,
+  .coh-tt-star-26 { animation: coh-tt-twinkle 3.2s ease-in-out infinite; animation-delay: -1s; }
+  .coh-tt-star-0,
+  .coh-tt-star-9,
+  .coh-tt-star-19,
+  .coh-tt-star-28 { animation: coh-tt-twinkle 2.8s ease-in-out infinite; animation-delay: -1.6s; }
+
+  .coh-tt-firefly-0 { animation: coh-tt-fly-a 9s ease-in-out infinite; }
+  .coh-tt-firefly-1 { animation: coh-tt-fly-b 11s ease-in-out infinite; animation-delay: -1s; }
+  .coh-tt-firefly-2 { animation: coh-tt-fly-a 10s ease-in-out infinite; animation-delay: -3s; }
+  .coh-tt-firefly-3 { animation: coh-tt-fly-b 12s ease-in-out infinite; animation-delay: -2s; }
+  .coh-tt-firefly-4 { animation: coh-tt-fly-a 8.5s ease-in-out infinite; animation-delay: -4s; }
+  .coh-tt-firefly-5 { animation: coh-tt-fly-b 13s ease-in-out infinite; animation-delay: -1.5s; }
+  .coh-tt-firefly-6 { animation: coh-tt-fly-a 9.5s ease-in-out infinite; animation-delay: -5s; }
+  .coh-tt-firefly-7 { animation: coh-tt-fly-b 11.5s ease-in-out infinite; animation-delay: -2.5s; }
+  .coh-tt-firefly-8 { animation: coh-tt-fly-a 10.5s ease-in-out infinite; animation-delay: -6s; }
+  .coh-tt-firefly-9 { animation: coh-tt-fly-b 12.5s ease-in-out infinite; animation-delay: -0.5s; }
+  .coh-tt-firefly-10 { animation: coh-tt-fly-a 14s ease-in-out infinite; animation-delay: -7s; }
+  .coh-tt-firefly-11 { animation: coh-tt-fly-b 9s ease-in-out infinite; animation-delay: -3.5s; }
+  .coh-tt-firefly-12 { animation: coh-tt-fly-a 11s ease-in-out infinite; animation-delay: -8s; }
+  .coh-tt-firefly-13 { animation: coh-tt-fly-b 10s ease-in-out infinite; animation-delay: -4.5s; }
+  .coh-tt-firefly-14 { animation: coh-tt-fly-a 13s ease-in-out infinite; animation-delay: -1.8s; }
+  .coh-tt-firefly-15 { animation: coh-tt-fly-b 8s ease-in-out infinite; animation-delay: -5.5s; }
+
+  body.coh-trungthu-on h1,
+  body.coh-trungthu-on .hero h1 {
+    background-image: linear-gradient(
+      110deg,
+      #fff8ea 0%,
+      #ffe9b0 28%,
+      #f6c445 48%,
+      #ffe9b0 68%,
+      #fff8ea 100%
+    );
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    animation: coh-tt-shimmer 7s ease-in-out infinite;
+  }
+
+  body.coh-trungthu-on h1 span,
+  body.coh-trungthu-on .hero h1 span {
+    background: linear-gradient(110deg, #fff6d6, #f6c445 40%, #ff8a3d) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    animation: none;
+  }
+
+  body.coh-trungthu-on .btn.primary,
+  body.coh-trungthu-on .btn-primary,
+  body.coh-trungthu-on .btn-download,
+  body.coh-trungthu-on a.primary {
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease, filter 0.28s ease;
+  }
+
+  body.coh-trungthu-on .btn.primary:hover,
+  body.coh-trungthu-on .btn-primary:hover,
+  body.coh-trungthu-on .btn-download:hover,
+  body.coh-trungthu-on a.primary:hover {
+    transform: translateY(-3px) scale(1.02);
+    filter: brightness(1.06);
+    box-shadow: 0 18px 48px rgba(255, 138, 61, 0.42) !important;
+  }
+}
+
+@keyframes coh-tt-aurora-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes coh-tt-rays-spin {
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes coh-tt-moon-breathe {
+  0%, 100% { opacity: 0.7; transform: scale(0.94); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+@keyframes coh-tt-moon-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes coh-tt-ring-pulse {
+  0%, 100% { opacity: 0.45; transform: scale(0.98); }
+  50% { opacity: 0.9; transform: scale(1.04); }
+}
+
+@keyframes coh-tt-sway {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(7deg); }
+}
+
+@keyframes coh-tt-sway-alt {
+  0%, 100% { transform: rotate(6deg); }
+  50% { transform: rotate(-7deg); }
+}
+
+@keyframes coh-tt-rise {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.7) rotate(-4deg);
+    opacity: 0;
+  }
+  8% { opacity: 0.85; }
+  70% { opacity: 0.7; }
+  100% {
+    transform: translate3d(40px, -120vh, 0) scale(1.15) rotate(8deg);
+    opacity: 0;
+  }
+}
+
+@keyframes coh-tt-drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(20vw); }
+}
+
+@keyframes coh-tt-drift-rev {
+  from { transform: translateX(0); }
+  to { transform: translateX(-18vw); }
+}
+
+@keyframes coh-tt-twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.75); }
+  50% { opacity: 1; transform: scale(1.35); }
+}
+
+@keyframes coh-tt-fly-a {
+  0% { transform: translate(0, 0) scale(0.7); opacity: 0; }
+  15% { opacity: 1; }
+  50% { transform: translate(50px, -80px) scale(1.1); opacity: 0.9; }
+  85% { opacity: 0.7; }
+  100% { transform: translate(-20px, -140px) scale(0.6); opacity: 0; }
+}
+
+@keyframes coh-tt-fly-b {
+  0% { transform: translate(0, 0) scale(0.6); opacity: 0; }
+  20% { opacity: 1; }
+  55% { transform: translate(-60px, -70px) scale(1.15); opacity: 0.95; }
+  100% { transform: translate(30px, -150px) scale(0.5); opacity: 0; }
+}
+
+@keyframes coh-tt-shimmer {
+  0%, 100% { background-position: 100% 50%; }
+  50% { background-position: 0% 50%; }
+}
+
+@media (max-width: 700px) {
+  .coh-tt-moon-wrap {
+    width: min(140px, 34vw);
+    height: min(140px, 34vw);
+    top: max(58px, 4vh);
+    right: 2vw;
+  }
+  .coh-tt-hang-b,
+  .coh-tt-hang-d,
+  .coh-tt-hang-e,
+  .coh-tt-mist-b,
+  .coh-tt-sky-2,
+  .coh-tt-sky-4,
+  .coh-tt-sky-6 {
+    display: none;
+  }
+  .coh-tt-hang-a { width: 46px; left: 1%; top: 12%; }
+  .coh-tt-hang-c { width: 42px; left: 3%; bottom: 12%; }
+  .coh-tt-rays { opacity: 0.35; }
+  .coh-tt-firefly-10,
+  .coh-tt-firefly-11,
+  .coh-tt-firefly-12,
+  .coh-tt-firefly-13,
+  .coh-tt-firefly-14,
+  .coh-tt-firefly-15 {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coh-tt-rising,
+  .coh-tt-fireflies,
+  .coh-tt-rays {
+    display: none;
+  }
+  .coh-trungthu-decor {
+    opacity: 1;
+    transition: none;
+  }
+}
+
+/* ---- UI overrides ---- */
+body.coh-trungthu-on a {
+  color: var(--coh-tt-gold-soft);
+}
+
+body.coh-trungthu-on .brand-mark {
+  background: linear-gradient(135deg, #ffe9b0 0%, #f6c445 45%, #ff8a3d 100%) !important;
+  box-shadow: 0 0 0 1px rgba(246, 196, 69, 0.3), 0 0 20px rgba(246, 196, 69, 0.28);
+}
+
+body.coh-trungthu-on .logo img {
+  box-shadow: 0 0 0 1px rgba(246, 196, 69, 0.22), 0 0 18px rgba(246, 196, 69, 0.18);
+}
+
+/* Glass bar only for full-bleed sticky/fixed navs — not homepage header-in-.wrap */
+body.coh-trungthu-on .site-header,
+body.coh-trungthu-on header#header,
+body.coh-trungthu-on header:has(.site-nav) {
+  background: rgba(5, 8, 20, 0.72) !important;
+  border-bottom-color: var(--coh-tt-border) !important;
+  backdrop-filter: blur(20px) saturate(160%);
+}
+
+/* Homepage in-flow header must stay transparent so lanterns/sky show through */
+body.coh-trungthu-on .wrap > header {
+  background: transparent !important;
+  border-bottom: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+/* Match Meetly/HoverBoard: no opaque hero slab covering seasonal decor */
+body.coh-trungthu-on .hero {
+  isolation: auto !important;
+  background: transparent !important;
+}
+
+body.coh-trungthu-on .hero::before,
+body.coh-trungthu-on .hero:before {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+
+body.coh-trungthu-on .card,
+body.coh-trungthu-on .feature,
+body.coh-trungthu-on .plan,
+body.coh-trungthu-on .box,
+body.coh-trungthu-on .note,
+body.coh-trungthu-on .pricing-card,
+body.coh-trungthu-on .bento-card,
+body.coh-trungthu-on .testimonial,
+body.coh-trungthu-on .video-card,
+body.coh-trungthu-on .hero-art,
+body.coh-trungthu-on .coming {
+  border-color: var(--coh-tt-border) !important;
+  background: linear-gradient(165deg, rgba(36, 28, 58, 0.94), rgba(14, 14, 30, 0.92)) !important;
+  box-shadow:
+    0 22px 60px -30px rgba(0, 0, 0, 0.65),
+    inset 0 1px 0 rgba(255, 233, 176, 0.08);
+}
+
+body.coh-trungthu-on .card:hover,
+body.coh-trungthu-on a.card:hover {
+  border-color: var(--coh-tt-border-strong) !important;
+  box-shadow:
+    0 26px 64px -22px rgba(255, 138, 61, 0.28),
+    inset 0 1px 0 rgba(255, 233, 176, 0.12);
+}
+
+body.coh-trungthu-on .btn.primary,
+body.coh-trungthu-on .btn-primary,
+body.coh-trungthu-on .btn-download,
+body.coh-trungthu-on a.primary,
+body.coh-trungthu-on .primary {
+  color: #1a1006 !important;
+  background: linear-gradient(135deg, #fff0c8 0%, #f6c445 46%, #ff8a3d 100%) !important;
+  border-color: transparent !important;
+  box-shadow: 0 14px 36px rgba(255, 138, 61, 0.34) !important;
+}
+
+body.coh-trungthu-on .btn.ghost,
+body.coh-trungthu-on .btn-secondary,
+body.coh-trungthu-on .btn-ghost,
+body.coh-trungthu-on a.ghost,
+body.coh-trungthu-on .ghost {
+  border-color: var(--coh-tt-border-strong) !important;
+  color: #fff8ea !important;
+  background: rgba(255, 233, 176, 0.05) !important;
+}
+
+body.coh-trungthu-on .pill,
+body.coh-trungthu-on .eyebrow,
+body.coh-trungthu-on .code {
+  color: var(--coh-tt-gold) !important;
+  border-color: rgba(246, 196, 69, 0.38) !important;
+}
+
+body.coh-trungthu-on .pill {
+  background: rgba(246, 196, 69, 0.12) !important;
+  box-shadow: 0 0 24px rgba(246, 196, 69, 0.16);
+}
+
+body.coh-trungthu-on .plan.pro,
+body.coh-trungthu-on .pricing-card.featured {
+  border-color: rgba(246, 196, 69, 0.48) !important;
+  background: linear-gradient(160deg, rgba(246, 196, 69, 0.16), rgba(14, 14, 30, 0.95) 55%) !important;
+}
+
+body.coh-trungthu-on .plan-tag,
+body.coh-trungthu-on .plan.pro .plan-tag {
+  background: linear-gradient(135deg, #fff0c8, #f6c445, #ff8a3d) !important;
+  color: #1a1006 !important;
+}
+
+body.coh-trungthu-on .gradient-text {
+  background: linear-gradient(110deg, #fff6d6, #f6c445 45%, #ff8a3d) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+body.coh-trungthu-on footer {
+  background: rgba(6, 8, 18, 0.96) !important;
+  border-top-color: var(--coh-tt-border) !important;
+  color: #cdb990 !important;
+}
+
+body.coh-trungthu-on *::selection {
+  background: #f6c445 !important;
+  color: #1a1006 !important;
+}
+
+body.coh-trungthu-on .toc a.active {
+  color: var(--coh-tt-gold) !important;
+  border-left-color: var(--coh-tt-gold) !important;
+}
+
+body.coh-trungthu-on .tag,
+body.coh-trungthu-on .tags .tag {
+  border-color: var(--coh-tt-border) !important;
+  color: #cdb990 !important;
+  background: rgba(246, 196, 69, 0.08) !important;
+}
+
+body.coh-trungthu-on .prose a {
+  color: var(--coh-tt-gold-soft) !important;
+}
+
+/* Content above decor; never demote fixed/sticky site navs below main */
+body.coh-trungthu-on .wrap,
+body.coh-trungthu-on main,
+body.coh-trungthu-on .pg-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+body.coh-trungthu-on main .container,
+body.coh-trungthu-on .wrap .container {
+  position: relative;
+  z-index: 1;
+}
+
+body.coh-trungthu-on .site-header,
+body.coh-trungthu-on header#header,
+body.coh-trungthu-on header:has(.site-nav) {
+  z-index: 40 !important;
+}
+
+/* Isolate Back to School bar */
+body.coh-trungthu-on .coh-promo {
+  z-index: 10000;
+  color: #081218 !important;
+  background: linear-gradient(110deg, #4EE6D5 0%, #A16DFF 48%, #FF6B35 100%) !important;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.22) !important;
+}
+
+body.coh-trungthu-on .coh-promo a {
+  color: #081218 !important;
+  font-weight: 800 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+}
+
+body.coh-trungthu-on .coh-promo a:hover {
+  opacity: 0.85 !important;
+}
+
+body.coh-trungthu-on .coh-promo .coh-promo-badge {
+  background: rgba(8, 18, 24, 0.18) !important;
+  color: inherit !important;
+}
+
+body.coh-trungthu-on .coh-promo *::selection {
+  background: rgba(8, 18, 24, 0.2) !important;
+  color: #081218 !important;
 }
