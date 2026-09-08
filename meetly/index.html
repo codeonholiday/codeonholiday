@@ -6,7 +6,6 @@
       1. Download links point at GitHub Releases (auto-created by
          .github/workflows/meetly-release.yml when meetly-latest.zip is pushed).
          Scripts/release.sh still maintains appcast.xml + .md here on Pages.
-      2. Update Plausible analytics domain (data-domain="meetly.app") if needed.
       3. Update version badge (v0.1.0) on release.
       4. Replace the CSS product mockups with real screenshots where you find:
       5. Fill in real testimonials.
@@ -50,17 +49,6 @@
     <link rel="stylesheet" href="/lib/mac-demo/mac-demo.css">
     <link rel="stylesheet" href="/lib/mac-demo/meetly-ui.css">
     <link rel="stylesheet" href="/campaign.css">
-    <script defer data-domain="codeonholiday.com" src="https://plausible.io/js/script.js"></script>
-    <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
-
-    <!-- Google Analytics (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSL5Z5MEBZ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-XSL5Z5MEBZ', { 'anonymize_ip': true });
-    </script>
 
     <!-- Structured data: Meetly app + FAQ -->
     <script type="application/ld+json">
@@ -195,10 +183,7 @@
         ]
     }
     </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/fonts/inter.css">
 
     <style>
         /* ============================================================
@@ -2082,7 +2067,7 @@
             }
         });
     </script>
-    <script src="/analytics.js"></script>
+    <script defer src="/analytics.js"></script>
     <script src="/events.js"></script>
     <script src="/campaign.js"></script>
 </body>

@@ -66,4 +66,8 @@ Suggested steps:
 
 ## Clarity
 
-Project ID `yei24sjpvi` is loaded from `analytics.js`. After deploy, confirm sessions appear at https://clarity.microsoft.com for `codeonholiday.com`.
+Project ID `yei24sjpvi` is loaded from `analytics.js` **after idle** (`requestIdleCallback`, or 2s after `load`). Do not also embed Clarity inline.
+
+## Do not double-load GA4
+
+Pages should use **either** `/analytics.js` **or** an inline `gtag` snippet — not both. Prefer `/analytics.js` (GA4 + deferred Clarity).

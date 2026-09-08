@@ -130,10 +130,14 @@ function writeHeaders(distRoot) {
   Content-Type: application/octet-stream
 
 # Static assets
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
 /*.js
   Cache-Control: public, max-age=86400
 /*.css
   Cache-Control: public, max-age=86400
+/fonts/inter.css
+  Cache-Control: public, max-age=604800
 /*.svg
   Cache-Control: public, max-age=604800
 /*.png

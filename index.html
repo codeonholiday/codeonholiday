@@ -31,18 +31,6 @@
     <meta name="twitter:description" content="Meetly, HoverBoard and LocalMelody — focused macOS apps made for people who use their Mac every day.">
     <meta name="twitter:image" content="https://codeonholiday.com/og-image.png">
 
-    <!-- Plausible Analytics (Privacy-Friendly) -->
-    <script defer data-domain="codeonholiday.com" src="https://plausible.io/js/script.js"></script>
-    <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
-
-    <!-- Google Analytics (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSL5Z5MEBZ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-XSL5Z5MEBZ', { 'anonymize_ip': true });
-    </script>
 
     <!-- Structured data: Organization + products (helps Google rich results) -->
     <script type="application/ld+json">
@@ -117,10 +105,7 @@
         ]
     }
     </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/fonts/inter.css">
     <link rel="stylesheet" href="/campaign.css">
 
     <style>
@@ -513,7 +498,7 @@
             </div>
         </footer>
     </div>
-    <script src="/analytics.js"></script>
+    <script defer src="/analytics.js"></script>
     <script src="/events.js"></script>
     <script src="/campaign.js"></script>
 </body>

@@ -1,9 +1,9 @@
 /**
  * codeonholiday — click event tracking
- * Tracks CTA / download clicks to BOTH Google Analytics (GA4) and Plausible,
+ * Tracks CTA / download clicks to Google Analytics (GA4),
  * using event delegation (one listener on document, no per-button wiring).
  *
- * Loads after gtag + Plausible (+ analytics.js). Safe if either is missing.
+ * Loads after gtag (+ analytics.js). Safe if gtag is missing.
  *
  * download_click / purchase_click use `app` from the link href (which product),
  * not from the current page path. `page_type` is where the click happened.
@@ -44,11 +44,6 @@
     function send(name, params) {
         if (typeof window.gtag === 'function') {
             window.gtag('event', name, params);
-        }
-        if (typeof window.plausible === 'function') {
-            try {
-                window.plausible('event', name, { props: params });
-            } catch (e) { /* noop */ }
         }
         if (location.hostname === 'localhost' || location.protocol === 'file:') {
             console.log('[track]', name, params);
