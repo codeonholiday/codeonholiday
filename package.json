@@ -4,12 +4,10 @@
   "type": "module",
   "scripts": {
     "build:blog": "node scripts/build-blog.mjs",
-    "build:pages": "npm run build:blog && node scripts/prepare-pages.mjs",
     "indexnow": "node scripts/submit-indexnow.mjs"
   },
   "devDependencies": {
     "gray-matter": "^4.0.3",
-    "marked": "^15.0.7",
-    "wrangler": "^4.28.0"
+    "marked": "^15.0.7"
   }
 }

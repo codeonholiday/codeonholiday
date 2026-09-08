@@ -12,11 +12,15 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # ── Shared build ──────────────────────────────────────────────────────────
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     permissions:
       contents: read
+      pages: write
+      id-token: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -32,56 +36,19 @@ jobs:
       - name: Build blog
         run: npm ci && npm run build:blog
 
-      # GitHub Pages: full site minus build junk (keeps historical zip/dmg).
-      - name: Stage GitHub Pages tree
+      - name: Stage site
         run: |
           set -euo pipefail
-          mkdir -p gh-site
+          mkdir -p site
           rsync -a \
             --exclude '.git/' \
             --exclude '.github/' \
             --exclude 'node_modules/' \
             --exclude 'dist/' \
-            --exclude 'gh-site/' \
+            --exclude 'site/' \
             --exclude 'app-finder-worker/' \
             --exclude '.DS_Store' \
-            ./ gh-site/
-
-      - name: Upload GitHub Pages tree
-        uses: actions/upload-artifact@v4
-        with:
-          name: gh-site
-          path: gh-site
-          retention-days: 1
-
-      # Cloudflare Pages: filtered dist/ (current installers only).
-      - name: Prepare Cloudflare Pages dist
-        run: node scripts/prepare-pages.mjs
-
-      - name: Upload Cloudflare Pages dist
-        uses: actions/upload-artifact@v4
-        with:
-          name: cf-dist
-          path: dist
-          retention-days: 1
-
-  # ── GitHub Pages (apex until CF cutover) ─────────────────────────────────
-  deploy-github:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    steps:
-      - name: Download GitHub Pages tree
-        uses: actions/download-artifact@v4
-        with:
-          name: gh-site
-          path: gh-site
+            ./ site/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -93,7 +60,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: gh-site
+          path: site
           name: github-pages-${{ github.run_attempt }}
 
       - name: Deploy to GitHub Pages
@@ -102,44 +69,8 @@ jobs:
         with:
           artifact_name: github-pages-${{ github.run_attempt }}
 
-      - name: Setup Node (IndexNow)
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Checkout (IndexNow script + sitemap)
-        uses: actions/checkout@v4
-        with:
-          sparse-checkout: |
-            scripts/submit-indexnow.mjs
-            sitemap.xml
-          sparse-checkout-cone-mode: false
-
       - name: Notify IndexNow crawlers
         continue-on-error: true
         run: |
           sleep 20
           node scripts/submit-indexnow.mjs
-
-  # ── Cloudflare Pages (codeonholiday.pages.dev) ───────────────────────────
-  # Independent of GitHub Pages so a GH artifact glitch cannot skip CF.
-  deploy-cloudflare:
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      deployments: write
-    steps:
-      - name: Download Cloudflare Pages dist
-        uses: actions/download-artifact@v4
-        with:
-          name: cf-dist
-          path: dist
-
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=codeonholiday --branch=main
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
