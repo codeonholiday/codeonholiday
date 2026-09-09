@@ -13,7 +13,7 @@ Looking for an **In Your Face alternative** for Mac — or wondering whether Mee
 
 In Your Face built its reputation on an unapologetic promise: when something is about to start, it takes the screen. That is exactly the right product idea if your failure mode is dismissing a tiny notification without thinking.
 
-Meetly shares that attention-first design, then connects the reminder to a native menu bar meeting workflow: Quick Panel, one-click join, free-time sharing, Apple Reminders on Pro, quiet hours, screen-share privacy, and optional iCloud sync of reminder state across Macs.
+Meetly shares that attention-first design, then connects the reminder to a native menu bar meeting workflow: one-click join, plus Quick Panel, free-time sharing, Apple Reminders, quiet hours, screen-share privacy, and optional iCloud sync of reminder state across Macs on Pro.
 
 If you searched for “In Your Face app” because you keep missing standups, both tools deserve a look. The choice depends on whether you want a dedicated full-screen event alerter across Apple devices, or a Mac meeting reminder that also helps you plan and join the day.
 
@@ -23,13 +23,13 @@ If you searched for “In Your Face app” because you keep missing standups, bo
 
 In Your Face specializes in prominent full-screen event alerts, broad video-link detection, customization, and a footprint that extends beyond the Mac.
 
-Meetly is a native macOS menu bar meeting reminder: fullscreen alerts across displays, live countdown, Join / Snooze / Dismiss, pinned Quick Panel, and a free core plan with Pro Lifetime at **$6.99** (was $9.99) one-time until 30 Sep 2026.
+Meetly is a native macOS menu bar meeting reminder: the free core includes fullscreen alerts across displays, live countdown, and Join / Snooze / Dismiss. Pro adds the pinned Quick Panel and is **$6.99** (was $9.99) one-time until 30 Sep 2026.
 
 | | In Your Face | Meetly |
 |---|---|---|
 | Core job | Full-screen event alerts | Meeting reminder + menu bar workflow |
 | Fullscreen interrupt | Yes | Yes |
-| Menu bar schedule + Quick Panel | Check current app | Yes |
+| Menu bar schedule + Quick Panel | Check current app | Free menu / Pro Quick Panel |
 | Pricing model | Check App Store / site (often subscription-oriented) | Free + Pro one-time |
 
 Always verify In Your Face’s current pricing and platforms on its App Store page before buying.
@@ -61,7 +61,7 @@ When a meeting approaches, Meetly shows a fullscreen reminder with title, time, 
 
 ### Quick Panel for the hours between calls
 
-Missing meetings is problem one. Problem two is planning around them. Meetly’s pinned Quick Panel keeps upcoming events and countdowns visible without opening Calendar.
+Missing meetings is problem one. Problem two is planning around them. On Pro, Meetly’s pinned Quick Panel keeps upcoming events and countdowns visible without opening Calendar.
 
 ![Meetly Quick Panel](/meetly/showcase-quickpanel.webp)
 
@@ -71,7 +71,7 @@ Meetly reads calendars visible in macOS Calendar — Google, Outlook, iCloud, Ex
 
 ### Pro controls for real workdays
 
-Meetly Pro adds Apple Reminders with due dates, quiet hours, screen-share privacy, and iCloud sync of meeting actions across Macs using your own iCloud container. Calendar contents stay local-first; Meetly does not run a cloud calendar database of your events.
+Meetly Pro adds Quick Panel, free-time sharing, post-meeting action items, Apple Reminders with due dates, quiet hours, screen-share privacy, and iCloud sync of meeting actions across Macs using your own iCloud container. Calendar contents stay local-first; Meetly does not run a cloud calendar database of your events.
 
 ## Meetly vs In Your Face feature comparison
 
@@ -81,8 +81,9 @@ Meetly Pro adds Apple Reminders with due dates, quiet hours, screen-share privac
 | macOS menu bar app | Yes | Yes |
 | Live countdown | Yes | Yes |
 | One-click video join | Yes (broad detection) | Yes (common meeting links) |
-| Pinned Quick Panel / day planning | Limited / different UX | Yes |
-| Share free time | — | Yes |
+| Pinned Quick Panel / day planning | Limited / different UX | Pro |
+| Share free time | — | Pro |
+| Post-meeting action items | Check current features | Pro |
 | Multiple calendars via macOS Calendar | Via Apple Calendar | Free one / Pro unlimited |
 | Apple Reminders | Yes | Pro |
 | Quiet hours / screen-share privacy | Check current features | Pro |
@@ -102,7 +103,7 @@ Choose **In Your Face** if you want:
 Choose **Meetly** if you want:
 
 - An **In Your Face alternative for Mac** centered on meetings
-- Fullscreen alerts plus Quick Panel planning and one-click join
+- Fullscreen alerts and one-click join, plus Quick Panel planning on Pro
 - Mixed calendars through macOS Calendar
 - Local-first privacy with optional iCloud state sync on Macs
 - A free download and a **$6.99** (was $9.99) one-time Pro Lifetime unlock until 30 Sep 2026 instead of another subscription decision
@@ -127,6 +128,6 @@ Both respect the same painful Mac truth: banner notifications lose to deep work.
 
 Meetly is free for macOS 14+. Pro Lifetime is **$6.99** (was $9.99) one-time until 30 Sep 2026 with a 14-day money-back guarantee.
 
-[Try Meetly](/meetly/) and see whether a fullscreen reminder plus Quick Panel replaces the meetings you keep missing.
+[Try Meetly](/meetly/) and see whether a fullscreen reminder — plus Quick Panel on Pro — replaces the meetings you keep missing.
 
 **In Your Face made the alert famous. Meetly makes the meeting workflow hard to miss.**

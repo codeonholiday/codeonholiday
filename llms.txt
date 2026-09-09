@@ -6,7 +6,7 @@ codeonholiday makes native macOS menu bar apps: meeting reminders, screen annota
 
 ## Products (summary)
 
-- [Meetly](https://codeonholiday.com/meetly/): Fullscreen meeting reminders. **Free forever** (one calendar, fullscreen alerts, Quick Panel). Pro Lifetime **$9.99 one-time** — **Back to School: $6.99 (30% off) until 30 Sep 2026**.
+- [Meetly](https://codeonholiday.com/meetly/): Fullscreen meeting reminders. **Free forever** (one calendar, fullscreen alerts, menu bar join). Pro Lifetime **$9.99 one-time** — **Back to School: $6.99 (30% off) until 30 Sep 2026**.
 - [LocalMelody](https://codeonholiday.com/localmelody/): Private local AI music on Apple Silicon. **Free** (15s songs). Pro Lifetime **$9.99 one-time** — **Back to School: $6.99 (30% off) until 30 Sep 2026**.
 - [HoverBoard](https://codeonholiday.com/hoverboard/): Present / annotate / capture on Mac. **Free forever:** Spotlight, Break Timer, Screenshot, Screen Record. Pro Lifetime **$15.99 one-time** — **Back to School: $11.19 (30% off) until 30 Sep 2026**.
 
@@ -24,27 +24,30 @@ codeonholiday makes native macOS menu bar apps: meeting reminders, screen annota
 Native menu bar app. Reads calendars already in macOS Calendar (Google, Outlook, iCloud, Exchange, etc.). No backend server for calendar data.
 
 - **Fullscreen reminder** — covers all connected displays before a meeting; Join / Snooze / Dismiss; auto-detects Zoom, Meet, Teams links
-- **Menu bar schedule** — NOW / NEXT / UPCOMING; browse six days ahead
-- **Quick Panel** — **⌃⌥M** (default): summon schedule at cursor; vim-style **⌘ H/J/K/L** navigation; **⌘ M** mute / **⌘ U** unmute
+- **Menu bar schedule** — NOW / NEXT / UPCOMING; browse today and tomorrow; vim-style **⌘ H/J/K/L** navigation
 - **One calendar** monitored on Free
-- **Mute per meeting** — skip fullscreen alert for one occurrence without dismissing the event
+- **Mute per meeting** — **⌘ M** mute / **⌘ U** unmute; skip fullscreen alert for one occurrence without dismissing the event
+- **Per-calendar overlay and sound** toggles
 
 Download (same app for Free and Pro): https://github.com/codeonholiday/codeonholiday/releases/download/v1.5.4/meetly-latest.zip
 
 ### Meetly — feature guides
 
 - [Complete guide](https://codeonholiday.com/blog/how-to-use-meetly-complete-guide/): Install, onboarding, overlay shortcuts, settings, Free vs Pro, troubleshooting
-- [Quick Panel](https://codeonholiday.com/blog/how-to-use-meetly-quick-panel/): **⌃⌥M**, keyboard navigation, join from anywhere
+- [Quick Panel (Pro)](https://codeonholiday.com/blog/how-to-use-meetly-quick-panel/): **⌃⌥M**, keyboard navigation, join from anywhere
 - [Calendars and mute](https://codeonholiday.com/blog/how-to-use-meetly-calendars-mute/): Which calendars to watch; mute/unmute meetings
 
 ### Meetly — Pro Lifetime ($9.99 one-time)
 
-- Unlimited calendars
+- **Quick Panel** — **⌃⌥M** (default): summon schedule at cursor from any app; pin above other apps and drag when pinned
+- **Share free time** — pick free 30m / 1h slots, convert timezone, copy a booking message
+- **Post-meeting action items** — capture and copy notes after you join through Meetly
+- Unlimited calendars; agenda window configurable 1–30 days (Free shows today and tomorrow)
 - [Apple Reminders](https://codeonholiday.com/blog/how-to-use-meetly-apple-reminders/) — due-date tasks fire like meetings; per-list rules
-- Per-calendar reminder rules (overlay on/off, sound, repeat)
+- Advanced per-calendar rules — meetings-only vs all events, sound repeat count
+- Only remind meetings with a join link
 - iCloud sync of dismiss / join / snooze / mute across Macs
 - Quiet hours; hide overlay from screen-share viewers (you still see it)
-- Sound repeat limits per calendar
 
 ### Meetly — comparisons and SEO
 

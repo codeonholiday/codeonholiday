@@ -9,7 +9,7 @@ author: codeonholiday
 draft: false
 ---
 
-Looking for a **Meety alternative** for Mac — or confused because **Meetly** and **Meety** look almost identical in search results? They are different apps. [Meety](https://getmeety.app/) is a Google Calendar–centric menu bar calendar with configurable alert intensity. [Meetly](/meetly/) is a native macOS meeting reminder built around fullscreen alerts, a Quick Panel, and calendars already visible in Apple Calendar.
+Looking for a **Meety alternative** for Mac — or confused because **Meetly** and **Meety** look almost identical in search results? They are different apps. [Meety](https://getmeety.app/) is a Google Calendar–centric menu bar calendar with configurable alert intensity. [Meetly](/meetly/) is a native macOS meeting reminder built around fullscreen alerts, a Pro Quick Panel, and calendars already visible in Apple Calendar.
 
 This page exists because branded searches collide. If you typed “Meety app Mac” and landed here, use the short version below to pick the right product — then keep reading only if you want a full comparison.
 
@@ -20,7 +20,7 @@ This page exists because branded searches collide. If you typed “Meety app Mac
 | Name | What it is |
 |---|---|
 | **Meety** (`getmeety.app`) | Menu bar calendar aimed heavily at Google Calendar users, with alert levels including a Hard Alert |
-| **Meetly** (`codeonholiday.com/meetly`) | Fullscreen meeting reminder + menu bar Quick Panel; works with calendars shown in macOS Calendar |
+| **Meetly** (`codeonholiday.com/meetly`) | Fullscreen meeting reminder + menu bar schedule + Pro Quick Panel; works with calendars shown in macOS Calendar |
 
 They are not the same company and not spelling variants of one product.
 
@@ -62,7 +62,7 @@ Meetly reads events from calendars that already appear in macOS Calendar: Google
 
 ### Quick Panel, free time, and Pro privacy controls
 
-The pinned Quick Panel helps between meetings. Pro adds Apple Reminders due dates, quiet hours, screen-share privacy, and iCloud sync of reminder actions across Macs. Event content stays local-first.
+Pro adds the pinned Quick Panel, free-time sharing, post-meeting action items, Apple Reminders due dates, quiet hours, screen-share privacy, and iCloud sync of reminder actions across Macs. Event content stays local-first.
 
 ![Meetly Quick Panel](/meetly/showcase-quickpanel.webp)
 
@@ -75,9 +75,11 @@ The pinned Quick Panel helps between meetings. Pro adds Apple Reminders due date
 | Strong / hard-to-miss alerts | Hard Alert + levels | Fullscreen reminders |
 | Google Calendar | Core focus | Via macOS Calendar |
 | Outlook / iCloud / Exchange | More limited / setup-dependent | Via macOS Calendar |
-| Day / Week / Month agenda | Yes | Quick Panel + menu (different UX) |
+| Day / Week / Month agenda | Yes | Free today + tomorrow; Pro 1–30 days |
 | One-click join | Meet, Zoom, Teams | Common meeting links |
-| Share free time | — | Yes |
+| Quick Panel | — | Pro |
+| Share free time | — | Pro |
+| Post-meeting action items | — | Pro |
 | Apple Reminders | — | Pro |
 | Quiet hours / screen-share privacy | Per-calendar alert controls | Pro |
 | Free + one-time Pro | Check Meety pricing | Yes ($6.99, was $9.99) |
@@ -94,7 +96,7 @@ Choose **Meetly** if you want:
 
 - A **Meety alternative** focused on fullscreen meeting attention
 - Multiple calendar providers through macOS Calendar
-- Quick Panel planning, free-time sharing, and local-first Pro controls
+- Quick Panel planning, free-time sharing, post-meeting action items, and local-first controls on Pro
 - A free core plan and **$6.99** (was $9.99) one-time Pro Lifetime
 
 ## When not to switch
@@ -107,6 +109,6 @@ Meety dials alert strength inside a Google-centric calendar app. Meetly makes th
 
 More options in the roundup: [Best meeting reminder app for macOS](/blog/best-meeting-reminder-app-macos/). Also compare [Meetly vs MeetingBar](/blog/meetly-vs-meetingbar/) and [Meetly vs In Your Face](/blog/meetly-vs-in-your-face/).
 
-[Try Meetly for macOS](/meetly/) if fullscreen reminders plus a Quick Panel match the meetings you keep missing.
+[Try Meetly for macOS](/meetly/) if fullscreen reminders plus a Pro Quick Panel match the meetings you keep missing.
 
 **Similar names. Different centers of gravity: Google Calendar levels vs Mac fullscreen attention.**

@@ -1,6 +1,6 @@
 ---
 title: How to Use Meetly — A Complete Guide
-description: Install Meetly, set up calendars, use the fullscreen reminder, Quick Panel, keyboard shortcuts, mute, and Pro features. Everything you need to never miss a meeting on macOS.
+description: Install Meetly, set up calendars, use the fullscreen reminder, keyboard shortcuts, mute, and Pro features including Quick Panel. Never miss a meeting on macOS.
 date: 2026-07-16
 updated: 2026-07-16
 tags: [meetly, macos, guide, productivity]
@@ -28,7 +28,7 @@ Building something silly in OpenCode — then Meetly goes **Wake up, sleepy geni
 
 - Show a fullscreen overlay before a meeting starts
 - Surface one-click join links for Zoom, Google Meet, Teams, and similar
-- Live in the menu bar with a quick glance at today and the week ahead
+- Live in the menu bar with a quick glance at today and tomorrow (up to 30 days on Pro)
 - Let you mute specific meetings, snooze, or dismiss from the keyboard
 
 **Meetly does not:**
@@ -42,7 +42,7 @@ flowchart LR
   Cal[macOS Calendar] --> Meetly[Meetly menu bar]
   Rem[Apple Reminders Pro] --> Meetly
   Meetly --> Overlay[Fullscreen reminder]
-  Meetly --> Panel[Quick Panel]
+  Meetly --> Panel[Quick Panel Pro]
   Overlay --> Join[One-click join]
 ```
 
@@ -94,7 +94,7 @@ Click the calendar icon to open the menu bar panel. On **Today** you will see:
 | **NEXT** | The next meeting today (with countdown — e.g. `in 1:12` when more than an hour away) |
 | **UPCOMING** | Later meetings today |
 
-Use the **‹ ›** arrows to browse the next six days. Each day shows a flat list of that day’s events.
+Use the **‹ ›** arrows to browse today and tomorrow on Free. Pro makes the agenda configurable from 1–30 days and enables navigation beyond tomorrow. Each day shows a flat list of that day’s events.
 
 Footer actions:
 
@@ -102,7 +102,7 @@ Footer actions:
 - **Settings** — calendars, alerts, shortcuts, Pro
 - **Quit** — exit Meetly (it will not remind you until you launch it again)
 
-The same keyboard shortcuts as Quick Panel work here too — arrows or **⌘ H / J / K / L** to navigate, **⌘ M** / **⌘ U** to mute/unmute.
+The same keyboard shortcuts as Quick Panel (Pro) work here too — arrows or **⌘ H / J / K / L** to navigate, **⌘ M** / **⌘ U** to mute/unmute.
 
 ![Meetly menu bar — NOW and UPCOMING meetings](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/menubar-upcoming.webp)
 
@@ -139,7 +139,7 @@ If the calendar event has a conferencing URL, Meetly surfaces **Join now** on th
 
 ## Quick Panel — your schedule from anywhere
 
-Press **Control + Option + M** (default) from any app to summon the **Quick Panel** at your cursor. It shows the same meeting list as the menu bar, without clicking the icon.
+On **Pro**, press **Control + Option + M** (default) from any app to summon the **Quick Panel** at your cursor. It shows the same meeting list as the menu bar, without clicking the icon.
 
 ![Meetly Quick Panel — browse days and join from the keyboard](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/quickpanel.gif)
 
@@ -160,7 +160,7 @@ Change the shortcut in **Settings → General → Quick Panel Shortcut**. You ca
 
 Sometimes you want to skip the fullscreen alert for one meeting — standup you are intentionally skipping, an optional sync, a duplicate invite.
 
-1. Open the menu bar panel or Quick Panel.
+1. Open the menu bar panel or Quick Panel (Pro).
 2. Select the meeting.
 3. Press **⌘ M** to mute.
 
@@ -178,7 +178,7 @@ Open **Settings** from the menu bar panel (gear icon). There are four tabs.
 
 - **Meetly Pro** — license and upgrade
 - **Launch at login**
-- **Quick Panel shortcut** — enable/disable and customize
+- **Quick Panel shortcut (Pro)** — enable/disable and customize
 - **Health Check** — permissions, monitored calendars, next reminder, sync status
 - **Software Update** — Sparkle auto-update
 
@@ -188,8 +188,8 @@ Open **Settings** from the menu bar panel (gear icon). There are four tabs.
 
 - **Request Calendar Access** if permission was denied
 - **Monitored Calendars** — toggle which calendars to watch
-- **Reminder Rules (Pro)** — per calendar:
-  - Meetings only vs all events
+- **Reminder Rules** — per calendar:
+  - Meetings only vs all events (Pro)
   - Show overlay on/off
   - Play sound on/off
   - Sound repeat count (Pro)
@@ -203,7 +203,7 @@ Watch **Apple Reminders** lists with due dates:
 - Select which lists to monitor
 - Tasks with a due **time** fire like meetings
 - Tasks with a date but **no time** default to **9:00 AM** (configurable)
-- Per-list overlay and sound rules, synced via iCloud
+- Per-list overlay and sound rules
 
 ![Meetly Settings — Apple Reminders lists and rules](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/settings-reminders.webp)
 
@@ -211,9 +211,9 @@ Watch **Apple Reminders** lists with due dates:
 
 | Setting | What it does |
 |---------|----------------|
-| **Remind before** | 10s, 30s, 1 min, or 5 min |
+| **Remind before** | 10s, 30s, 1 min, 2 min, 3 min, or 5 min |
 | **Auto dismiss overlay** | 1, 3, or 5 minutes |
-| **Only remind meetings with a join link** | Skip in-person / room-only events |
+| **Only remind meetings with a join link (Pro)** | Skip in-person / room-only events |
 | **Dismiss when joining from menu bar** | On = early join skips overlay; Off = safer if you join early then get distracted |
 | **Quiet hours (Pro)** | Mute fullscreen reminders overnight |
 | **Hide during screen share (Pro)** | Overlay visible to you, hidden from Zoom/Meet/Teams viewers |
@@ -223,13 +223,16 @@ Watch **Apple Reminders** lists with due dates:
 
 ## Meetly Pro
 
-Free covers one calendar, fullscreen reminders, Quick Panel, and mute shortcuts — enough for many people.
+Free covers one calendar, fullscreen reminders, a today-and-tomorrow agenda, one-click join, and mute shortcuts — enough for many people.
 
 **Pro** (one-time purchase, no subscription) adds:
 
+- Quick Panel with its global shortcut, pinning, and dragging
+- Share free time and post-meeting action item capture
 - Unlimited calendars
+- Configurable 1–30 day agenda and navigation beyond tomorrow
 - Apple Reminders integration
-- Per-calendar and per-list reminder rules
+- Advanced per-calendar and per-list reminder rules
 - iCloud sync for dismiss, join, snooze, and mute across Macs
 - Quiet hours
 - Hide overlay during screen sharing
@@ -257,7 +260,7 @@ Meetly creates one overlay window per display. As of **v1.4.6**, the fullscreen 
 3. Is the meeting on a monitored calendar?
 4. Is the meeting muted (Muted tag in the list)?
 5. Are **quiet hours** enabled (Pro)?
-6. Is **Only remind meetings with a join link** on, but the event has no URL?
+6. Is **Only remind meetings with a join link** on (Pro), but the event has no URL?
 7. Did you dismiss or snooze this occurrence already?
 
 ### Calendar permission denied
@@ -270,7 +273,7 @@ Update to **v1.4.6** or later. Older builds had a multi-monitor sizing bug.
 
 ### Quick Panel shortcut does nothing
 
-Check **Settings → General → Enable global shortcut** is on. Another app may have claimed the same combo — record a different shortcut.
+Confirm **Meetly Pro** is active, then check **Settings → General → Enable global shortcut** is on. Another app may have claimed the same combo — record a different shortcut.
 
 ### Double reminders on two Macs
 
@@ -281,7 +284,7 @@ Upgrade to **Pro** and sign into iCloud on both machines. Dismiss on one Mac sho
 1. **Install** and finish onboarding with your main work calendar.
 2. **Enable launch at login.**
 3. **Run a test reminder** so you know what the overlay feels like.
-4. **Learn ⌃⌥ M** for Quick Panel and **⌘ M** to mute optional meetings.
+4. **On Pro, learn ⌃⌥ M** for Quick Panel; use **⌘ M** to mute optional meetings on either plan.
 5. **Upgrade to Pro** if you use multiple calendars, Reminders, or more than one Mac.
 
 ## Get help

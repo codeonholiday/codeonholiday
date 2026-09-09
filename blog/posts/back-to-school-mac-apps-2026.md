@@ -33,7 +33,7 @@ The sale ends **30 September 2026**. After that, list prices return. Download fr
 
 That matters in a back-to-school rhythm: lecture blocks, office hours, group projects, parent meetings, and client calls all compete with headphones-on deep work. A corner banner is easy to miss. A fullscreen interrupt is hard to ignore.
 
-Meetly also includes a pinnable **Quick Panel**, one-click join for Zoom, Google Meet, and Microsoft Teams, free-time sharing for booking messages, and (on Pro) Apple Reminders with due dates, unlimited calendars, quiet hours, screen-share privacy, and iCloud sync across Macs.
+Meetly also includes one-click join for Zoom, Google Meet, and Microsoft Teams. Pro adds a pinnable **Quick Panel**, free-time sharing for booking messages, post-meeting action items, Apple Reminders with due dates, unlimited calendars, quiet hours, screen-share privacy, and iCloud sync across Macs.
 
 ![Meetly fullscreen meeting reminder on macOS](/meetly/showcase-reminder.webp)
 
@@ -83,7 +83,7 @@ During the sale, LocalMelody Pro Lifetime is **$6.99** (was $9.99). Compare clou
 
 | If your problem is… | Start with | Why |
 |---|---|---|
-| Missing classes, standups, or office hours | [Meetly](/meetly/) | Fullscreen reminders + Quick Panel + one-click join |
+| Missing classes, standups, or office hours | [Meetly](/meetly/) | Fullscreen reminders + one-click join + Pro Quick Panel |
 | Teaching, presenting, or demoing on screen share | [HoverBoard](/hoverboard/) | Annotate, spotlight, freeze, screenshot, and record in one app |
 | Making music without uploading every idea | [LocalMelody](/localmelody/) | Local AI music on Apple Silicon after setup |
 
@@ -93,11 +93,11 @@ You do not need all three. Pick the job that is currently costing you grades, cl
 
 codeonholiday apps are designed so free is useful forever:
 
-- **Meetly Free** — fullscreen reminders and Quick Panel for one calendar
+- **Meetly Free** — fullscreen reminders, one-click join, and a today-and-tomorrow agenda for one calendar
 - **HoverBoard Free** — Spotlight, Break Timer, Screenshot, Screen Record forever; 60s Pro tool trials
 - **LocalMelody Free** — 15-second local generations to try the studio
 
-**Pro Lifetime** unlocks the deeper workflow (extra calendars and Reminders, unlimited presentation tools, longer music exports) with a **one-time** purchase on every app — pay once, keep the license. The Back to School discount brings those unlocks to **$6.99 / $11.19 / $6.99** until **30 September 2026**. After the sale, prices return to $9.99, $15.99, and $9.99.
+**Pro Lifetime** unlocks the deeper workflow (Meetly Quick Panel, free-time sharing, action items, extra calendars, and Reminders; unlimited presentation tools; longer music exports) with a **one-time** purchase on every app — pay once, keep the license. The Back to School discount brings those unlocks to **$6.99 / $11.19 / $6.99** until **30 September 2026**. After the sale, prices return to $9.99, $15.99, and $9.99.
 
 ## FAQ
 

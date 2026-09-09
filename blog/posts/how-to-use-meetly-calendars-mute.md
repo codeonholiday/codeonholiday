@@ -1,6 +1,6 @@
 ---
 title: How to Use Meetly Calendars and Mute — Control Which Meetings Interrupt You
-description: Choose which macOS calendars Meetly watches, set Pro reminder rules, and mute or unmute individual meetings so fullscreen alerts stay useful.
+description: Choose which macOS calendars Meetly watches, set per-calendar reminder rules, and mute or unmute individual meetings so fullscreen alerts stay useful.
 date: 2026-09-01
 updated: 2026-09-01
 tags: [meetly, macos, guide, calendar, productivity]
@@ -9,7 +9,7 @@ author: codeonholiday
 draft: false
 ---
 
-Meetly only works well when it watches the right calendars and stays quiet for the meetings you intentionally skip. This guide covers **Calendar access**, **monitored calendars**, **Pro reminder rules**, and **mute / unmute**.
+Meetly only works well when it watches the right calendars and stays quiet for the meetings you intentionally skip. This guide covers **Calendar access**, **monitored calendars**, **per-calendar reminder rules**, and **mute / unmute**.
 
 Download Meetly from the [product page](/meetly/), or read the [complete guide](/blog/how-to-use-meetly-complete-guide/) for install and first launch.
 
@@ -35,12 +35,12 @@ Meetly reads events that already appear in **macOS Calendar** — Google, Outloo
 
 ## Pro reminder rules per calendar
 
-On Pro, each monitored calendar has rules:
+Each monitored calendar has basic controls, with advanced rules on Pro:
 
-- Meetings only vs all events
+- Meetings only vs all events (Pro)
 - Show overlay on / off
 - Play sound on / off
-- Sound repeat count
+- Sound repeat count (Pro)
 
 Use this when one calendar is “must interrupt” (customer calls) and another is “glance only” (optional social). Pair rules with [Alert settings](/blog/how-to-use-meetly-complete-guide/) such as remind-before timing and quiet hours.
 
@@ -48,7 +48,7 @@ Use this when one calendar is “must interrupt” (customer calls) and another 
 
 Mute is for one occurrence you do not want a fullscreen reminder for — an optional sync, a duplicate invite, or a standup you are skipping.
 
-1. Open the **menu bar panel** or [Quick Panel](/blog/how-to-use-meetly-quick-panel/) (⌃⌥M).
+1. Open the **menu bar panel** or [Quick Panel](/blog/how-to-use-meetly-quick-panel/) (Pro, ⌃⌥M).
 2. Select the meeting.
 3. Press **⌘ M**.
 
@@ -68,7 +68,7 @@ On **Pro**, mute state syncs across your Macs through **your iCloud** — not a 
 
 ## Only remind meetings with a join link
 
-In **Settings → Alerts**, enable **Only remind meetings with a join link** if in-person or room-only events should stay silent. That filter works together with mute and calendar rules.
+On **Pro**, enable **Only remind meetings with a join link** in **Settings → Alerts** if in-person or room-only events should stay silent. That filter works together with mute and calendar rules.
 
 ## Troubleshooting empty or wrong reminders
 
@@ -80,7 +80,7 @@ In **Settings → Alerts**, enable **Only remind meetings with a join link** if 
 
 ## Related Meetly guides
 
-- [Quick Panel keyboard workflow](/blog/how-to-use-meetly-quick-panel/)
+- [Quick Panel keyboard workflow (Pro)](/blog/how-to-use-meetly-quick-panel/)
 - [Apple Reminders on Pro](/blog/how-to-use-meetly-apple-reminders/)
 - [Complete Meetly guide](/blog/how-to-use-meetly-complete-guide/)
 - [Best meeting reminder apps for macOS](/blog/best-meeting-reminder-app-macos/)

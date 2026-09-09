@@ -1,6 +1,6 @@
 ---
 title: How to Use Meetly Quick Panel — Your Schedule From Any App
-description: Open Meetly’s Quick Panel with a global shortcut, browse days, join Zoom/Meet/Teams, and mute meetings without leaving the keyboard on macOS.
+description: Use Meetly Pro’s Quick Panel to open your schedule with a global shortcut, browse days, join Zoom/Meet/Teams, and mute meetings from the keyboard on macOS.
 date: 2026-09-01
 updated: 2026-09-01
 tags: [meetly, macos, guide, productivity, quick-panel]
@@ -9,7 +9,7 @@ author: codeonholiday
 draft: false
 ---
 
-Meetly’s **Quick Panel** is the fastest way to see today’s meetings without hunting for the menu bar icon. Press a global shortcut from any app and the same schedule list appears at your cursor — ready to join, mute, or browse another day.
+Meetly’s **Quick Panel** is a **Pro feature** and the fastest way to see today’s meetings without hunting for the menu bar icon. Press a global shortcut from any app and the same schedule list appears at your cursor — ready to join, mute, or browse another day.
 
 If you are new to Meetly, start with the [complete Meetly guide](/blog/how-to-use-meetly-complete-guide/) or download from the [Meetly page](/meetly/).
 

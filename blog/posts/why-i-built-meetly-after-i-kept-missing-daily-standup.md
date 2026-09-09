@@ -73,7 +73,7 @@ Between meetings, Meetly sits quietly in the menu bar — what’s next, when it
 
 ### Quick Panel for the day ahead
 
-When you want the bigger picture without opening Calendar, Quick Panel shows what’s coming up so you can plan deep work around the hard edges of your schedule.
+On Pro, when you want the bigger picture without opening Calendar, Quick Panel shows what’s coming up so you can plan deep work around the hard edges of your schedule.
 
 ![Meetly Quick Panel](./assets/why-i-built-meetly-after-i-kept-missing-daily-standup/quickpanel.webp)
 
@@ -90,11 +90,11 @@ flowchart TD
   Cal[macOS Calendar] --> Meetly[Meetly menu bar]
   Rem[Apple Reminders] --> Meetly
   Meetly --> Overlay[Fullscreen reminder]
-  Meetly --> Panel[Quick Panel]
+  Meetly --> Panel[Quick Panel Pro]
   Overlay --> Join[One-click join]
 ```
 
-If it shows up in Calendar — Google, Outlook, iCloud, Exchange — Meetly can watch it. Pro unlocks more calendars, Apple Reminders with due dates, and iCloud sync for settings across Macs. Free stays useful on its own: one calendar, fullscreen reminders, no subscription treadmill.
+If it shows up in Calendar — Google, Outlook, iCloud, Exchange — Meetly can watch it. Pro unlocks Quick Panel, free-time sharing, post-meeting action items, unlimited calendars, Apple Reminders with due dates, and iCloud sync for reminder state across Macs. Free stays useful on its own: one calendar, fullscreen reminders, and a today-and-tomorrow agenda with no subscription treadmill.
 
 ## What changed after I started using it
 
@@ -117,6 +117,6 @@ If your standup never slipped, you might not need this. If it has — you’ll r
 
 ## Try it
 
-[Meetly is free to download](/meetly/). Fullscreen reminders on one calendar cost nothing. Upgrade to Pro if you need more calendars, Reminders, or sync across machines — one-time, no subscription.
+[Meetly is free to download](/meetly/). Fullscreen reminders on one calendar cost nothing. Upgrade to Pro if you need Quick Panel, free-time sharing, action items, more calendars, Reminders, or sync across machines — one-time, no subscription.
 
 I built it because I kept missing daily standup. I kept shipping it because the interrupt turned out to be useful for *every* meeting I actually care about — not just the recurring fifteen minutes that started it all.

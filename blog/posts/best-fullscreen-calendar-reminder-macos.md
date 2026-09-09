@@ -25,14 +25,14 @@ This guide compares **Meetly**, **In Your Face**, **Meety**’s Hard Alert, and 
 
 ## Meetly: best all-round fullscreen meeting reminder for Mac
 
-[Meetly](/meetly/) is built around the moment before a meeting starts. It shows a fullscreen reminder across displays, with live countdown and actions to join, snooze, or dismiss. The same app keeps a menu bar schedule and a pinned Quick Panel for the rest of the day.
+[Meetly](/meetly/) is built around the moment before a meeting starts. It shows a fullscreen reminder across displays, with live countdown and actions to join, snooze, or dismiss. The same app keeps a menu bar schedule, with a pinned Quick Panel on Pro for the rest of the day.
 
 **Why it ranks first for many Mac users**
 
 - Fullscreen attention is the product, not a theme
 - One-click join for common meeting links
 - Calendars via macOS Calendar (Google, Outlook, iCloud, Exchange, …)
-- Free plan for the core workflow; Pro Lifetime **$6.99** (was $9.99) one-time until 30 Sep 2026 for unlimited calendars, Apple Reminders, quiet hours, screen-share privacy, and Mac↔Mac iCloud state sync
+- Free plan for the core workflow; Pro Lifetime **$6.99** (was $9.99) one-time until 30 Sep 2026 for Quick Panel, free-time sharing, post-meeting action items, unlimited calendars, Apple Reminders, privacy controls, and Mac↔Mac iCloud state sync
 
 Deep comparisons: [Meetly vs In Your Face](/blog/meetly-vs-in-your-face/), [Meetly vs Meety](/blog/meetly-vs-meety/), [Best meeting reminder app for macOS](/blog/best-meeting-reminder-app-macos/).
 
@@ -52,7 +52,7 @@ Built-in banners and timed alerts are free and integrated. They lose when Focus 
 
 | Option | Fullscreen / hard alert | Meeting workflow extras | Pricing sketch |
 |---|---:|---:|---|
-| Meetly | Yes | Quick Panel, join, Pro privacy | Free + $6.99 Pro Lifetime (was $9.99) |
+| Meetly | Yes | Join; Pro Quick Panel + privacy | Free + $6.99 Pro Lifetime (was $9.99) |
 | In Your Face | Yes | Broad alert customization | Check App Store |
 | Meety | Hard Alert + levels | Google-centric calendar UX | Check Meety plans |
 | Calendar.app | Banners / alerts | Native only | Free |

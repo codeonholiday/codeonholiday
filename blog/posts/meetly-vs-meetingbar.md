@@ -27,7 +27,7 @@ The right choice depends on whether you want a quiet meeting launcher, or a meet
 
 MeetingBar is a mature, open-source menu bar app for keeping upcoming calendar meetings and join links close at hand. It supports a wide range of meeting services and is a strong choice if you mainly want a lightweight agenda and one-click joining workflow.
 
-Meetly is a native macOS meeting reminder built around attention. It keeps the next meeting in the menu bar, but also provides fullscreen reminders, a pinned Quick Panel, one-click joining, share-free-time tools, quiet hours, screen-share privacy, Apple Reminders support, and iCloud sync across Macs.
+Meetly is a native macOS meeting reminder built around attention. The free core provides the menu bar schedule, fullscreen reminders, and one-click joining. Pro adds the pinned Quick Panel, share-free-time tools, post-meeting action items, quiet hours, screen-share privacy, Apple Reminders support, and iCloud sync across Macs.
 
 The pricing is different too:
 
@@ -72,15 +72,15 @@ The goal is not to interrupt you constantly. It is to make the important interru
 
 ### One-click joining from the reminder
 
-When an event contains a Zoom, Google Meet, Microsoft Teams, or other supported meeting link, Meetly surfaces it directly in the reminder and Quick Panel.
+When an event contains a Zoom, Google Meet, Microsoft Teams, or other supported meeting link, Meetly surfaces it directly in the reminder and, on Pro, Quick Panel.
 
 You do not need to open Calendar, expand the event, search through notes, or decide which browser tab contains the right link.
 
 ### Quick Panel for the day ahead
 
-The menu bar icon is useful for a quick glance. The pinned Quick Panel gives you a larger view of what is coming up without opening Calendar.
+The menu bar icon is useful for a quick glance. On Pro, the pinned Quick Panel gives you a larger view of what is coming up without opening Calendar.
 
-It is designed for planning around meetings: see the next call, inspect the rest of the day, and share your free time when someone asks when you are available.
+It is designed for planning around meetings: see the next call, inspect the rest of the day, and use the Pro share-free-time tool when someone asks when you are available.
 
 ![Meetly Quick Panel showing upcoming meetings](/meetly/showcase-quickpanel.webp)
 
@@ -96,7 +96,7 @@ Not every meeting deserves the same interruption. Meetly Pro includes quiet hour
 
 ### Sync state across Macs
 
-If you use more than one Mac, Meetly Pro can sync settings and meeting actions through your own iCloud container. Dismiss, join, snooze, and mute state can follow you between Macs without Meetly operating a cloud calendar backend.
+If you use more than one Mac, Meetly Pro can sync meeting actions through your own iCloud container. Dismiss, join, snooze, and mute state can follow you between Macs without Meetly operating a cloud calendar backend.
 
 Meetly’s privacy model is local-first: calendar data stays on your Mac, while optional sync uses your own iCloud. Meetly does not upload event titles, attendees, locations, notes, or reminder content to codeonholiday.
 
@@ -112,8 +112,9 @@ Meetly’s privacy model is local-first: calendar data stays on your Mac, while 
 | Support for many meeting services | 50+ services | Common meeting links and apps |
 | Fullscreen meeting reminder | — | Yes |
 | Join, snooze, and dismiss from reminder | — | Yes |
-| Pinned daily Quick Panel | — | Yes |
-| Share free time | — | Yes |
+| Pinned daily Quick Panel | — | Pro |
+| Share free time | — | Pro |
+| Post-meeting action items | — | Pro |
 | Apple Reminders integration | — | Pro |
 | Quiet hours | — | Pro |
 | Screen-share privacy controls | — | Pro |
@@ -141,11 +142,11 @@ Choose Meetly if you want:
 - Fullscreen reminders that are hard to miss
 - A clear countdown before important meetings
 - Join, snooze, and dismiss actions from the reminder
-- A pinned Quick Panel for the day
-- Free-time sharing and schedule planning
-- Apple Reminders alongside calendar events
-- Quiet hours and screen-share privacy
-- iCloud sync across multiple Macs
+- A pinned Quick Panel for the day (Pro)
+- Free-time sharing and post-meeting action items (Pro)
+- Apple Reminders alongside calendar events (Pro)
+- Quiet hours and screen-share privacy (Pro)
+- iCloud sync across multiple Macs (Pro)
 - A one-time Pro purchase instead of a subscription
 
 ## The real difference is attention

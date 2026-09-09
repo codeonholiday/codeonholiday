@@ -11,7 +11,7 @@ draft: false
 
 Meetings are not the only thing that disappears behind a coding session. **Meetly Pro** can watch **Apple Reminders** lists with due dates and fire the same **fullscreen overlay** you already use for calendar events.
 
-This is a Pro feature. Free still covers one calendar, the overlay, and [Quick Panel](/blog/how-to-use-meetly-quick-panel/). Upgrade from the [Meetly pricing section](/meetly/#pricing) when you are ready.
+This is a Pro feature. Free still covers one calendar, the overlay, and the today-and-tomorrow menu bar agenda. Quick Panel also requires Pro. Upgrade from the [Meetly pricing section](/meetly/#pricing) when you are ready.
 
 ## What Reminders integration does
 
@@ -80,6 +80,6 @@ Pro iCloud sync covers state; both Macs still need the same lists monitored and 
 ## Related guides
 
 - [Complete Meetly guide](/blog/how-to-use-meetly-complete-guide/)
-- [Quick Panel](/blog/how-to-use-meetly-quick-panel/)
+- [Quick Panel (Pro)](/blog/how-to-use-meetly-quick-panel/)
 - [Calendars and mute](/blog/how-to-use-meetly-calendars-mute/)
 - [Fullscreen calendar reminder roundup](/blog/best-fullscreen-calendar-reminder-macos/)

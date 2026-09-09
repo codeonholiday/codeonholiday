@@ -13,7 +13,7 @@ If you spend your day in code, design, writing, or research, a small calendar ba
 
 This guide compares four practical options for Mac: Meetly, Meety, MeetingBar, and In Your Face. It also covers the most common searches behind this decision, including a **fullscreen meeting reminder for Mac**, a **MeetingBar alternative**, a **Meety alternative**, and a way to join Zoom, Google Meet, or Microsoft Teams without digging through Calendar.
 
-The most useful options today solve slightly different problems. **MeetingBar** is a lightweight menu bar meeting launcher. **Meety** focuses on Google Calendar, live countdowns, and configurable alert levels. **In Your Face** specializes in full-screen event alerts and one-click video-call joining. **Meetly** combines a native menu bar workflow with fullscreen reminders, a Quick Panel, multiple calendar sources, and one-click joining.
+The most useful options today solve slightly different problems. **MeetingBar** is a lightweight menu bar meeting launcher. **Meety** focuses on Google Calendar, live countdowns, and configurable alert levels. **In Your Face** specializes in full-screen event alerts and one-click video-call joining. **Meetly** combines a native menu bar workflow with fullscreen reminders, one-click joining, multiple calendar sources, and a Quick Panel on Pro.
 
 Here is the short answer: if you only need to glance at your next meeting, MeetingBar may be enough. If your entire schedule lives in Google Calendar and you want adjustable alert intensity, Meety is worth a look. If you want a dedicated full-screen alert with broad video-service detection, In Your Face is a strong option. If you want a meeting reminder that is genuinely difficult to miss across multiple calendars and displays, plus a full planning workflow, Meetly is the strongest all-round choice.
 
@@ -35,7 +35,7 @@ The key distinction is between **finding a meeting** and **not missing a meeting
 
 ## Is Meetly the best meeting reminder app for Mac?
 
-For users who want one app for meetings and reminders, Meetly is a strong candidate. It combines a menu bar calendar, fullscreen meeting alerts, Quick Panel planning, one-click join, and Apple Reminders due-date alerts. The free plan covers the core workflow, while Pro adds unlimited calendars, quiet hours, screen-share privacy, and iCloud sync across Macs.
+For users who want one app for meetings and reminders, Meetly is a strong candidate. The free plan combines a menu bar calendar, fullscreen meeting alerts, and one-click join for one calendar. Pro adds Quick Panel planning, free-time sharing, post-meeting action items, unlimited calendars, Apple Reminders due-date alerts, quiet hours, screen-share privacy, and iCloud sync across Macs.
 
 That makes Meetly more than a simple **MeetingBar alternative** or fullscreen alarm. It is a focused macOS meeting and task reminder that works with the calendar accounts already shown in Apple Calendar.
 
@@ -50,13 +50,13 @@ Meetly’s biggest advantage is that the fullscreen alert is the center of the p
 ### Why Meetly stands out
 
 - Fullscreen reminders across displays
-- Quick Panel with pinned events and live countdowns
+- Quick Panel with pinned events and live countdowns on Pro
 - One-click joining for Zoom, Google Meet, Microsoft Teams, and other supported links
 - Calendars from Google, Outlook, iCloud, Exchange, and other providers shown in macOS Calendar
-- Free-time sharing and optional meeting muting
+- Free-time sharing and post-meeting action items on Pro; meeting muting on either plan
 - Apple Reminders with due dates on Pro
 - Quiet hours and screen-share privacy controls on Pro
-- Optional iCloud sync across Macs
+- Optional iCloud sync across Macs on Pro
 - Local-first calendar privacy with no Meetly backend for event content
 - Free core plan and a $6.99 (was $9.99) one-time Pro Lifetime purchase until 30 Sep 2026, rather than a subscription
 
@@ -74,7 +74,7 @@ Meety is a good choice when Google Calendar is the center of your workflow and y
 
 Meetly is designed to work with the calendar accounts that appear in macOS Calendar, rather than assuming one calendar ecosystem. That makes it a better fit for people combining Google, Outlook, iCloud, Exchange, work, client, and personal calendars.
 
-Meetly also puts more emphasis on the complete pre-meeting workflow: a reminder across displays, Quick Panel planning, free-time sharing, post-meeting action items, Apple Reminders, screen-share privacy, and optional cross-Mac state sync. In other words, Meety is especially compelling for Google Calendar alert control; Meetly is broader for a mixed-calendar Mac workflow.
+Meetly also puts more emphasis on the complete pre-meeting workflow: a reminder across displays, plus Quick Panel planning, free-time sharing, post-meeting action items, Apple Reminders, screen-share privacy, and optional cross-Mac state sync on Pro. In other words, Meety is especially compelling for Google Calendar alert control; Meetly is broader for a mixed-calendar Mac workflow.
 
 ## In Your Face: best for unapologetic full-screen alerts
 
@@ -84,9 +84,9 @@ In Your Face is a strong fit if you want the reminder itself to be the product. 
 
 ### Where Meetly has an edge over In Your Face
 
-Meetly and In Your Face overlap most on fullscreen alerts, so the choice depends on workflow. Meetly is more focused on a unified meetings-and-tasks workflow: the alert is connected to its menu bar schedule, pinned Quick Panel, live countdown, quick join, free-time sharing, meeting muting, Apple Reminders due dates, and post-meeting action items.
+Meetly and In Your Face overlap most on fullscreen alerts, so the choice depends on workflow. Meetly is more focused on a unified meetings-and-tasks workflow: the alert is connected to its menu bar schedule, live countdown, quick join, and meeting muting, plus pinned Quick Panel, free-time sharing, Apple Reminders due dates, and post-meeting action items on Pro.
 
-Meetly is also positioned as a local-first Mac utility with optional iCloud sync of reminder state across Macs. For users who want a lightweight Mac workflow with a free core plan and one-time Pro upgrade, that can be simpler than choosing a cross-device subscription. In Your Face is the better fit when iPhone, iPad, Apple Watch, custom reminders, and visual customization are priorities.
+Meetly is also positioned as a local-first Mac utility with optional Pro iCloud sync of reminder state across Macs. For users who want a lightweight Mac workflow with a free core plan and one-time Pro upgrade, that can be simpler than choosing a cross-device subscription. In Your Face is the better fit when iPhone, iPad, Apple Watch, custom reminders, and visual customization are priorities.
 
 ## MeetingBar: best for a free, open-source meeting launcher
 
@@ -96,7 +96,7 @@ MeetingBar’s strength is simplicity and breadth. If your desired workflow is �
 
 ### Where Meetly has an edge over MeetingBar
 
-MeetingBar is primarily a meeting launcher and agenda utility. Meetly adds a stronger attention layer: fullscreen reminders, live countdowns, join/snooze/dismiss actions, a pinnable Quick Panel, and controls for quiet hours and screen sharing.
+MeetingBar is primarily a meeting launcher and agenda utility. Meetly adds a stronger attention layer: fullscreen reminders, live countdowns, and join/snooze/dismiss actions, plus a pinnable Quick Panel and controls for quiet hours and screen sharing on Pro.
 
 That difference matters when the problem is not locating the meeting link. It is noticing that the meeting is about to begin while you are already focused on something else.
 
@@ -110,7 +110,7 @@ That difference matters when the problem is not locating the meeting link. It is
 | One-click meeting join | Yes | Meet, Zoom, Teams | Yes, with broad service support |
 | Google Calendar | Via macOS Calendar | Core focus | Via calendar integrations |
 | Outlook, iCloud, Exchange calendars | Yes, via macOS Calendar | More limited / setup-dependent | macOS calendar support |
-| Quick Panel / agenda view | Pinned Quick Panel | Day, Week, Month, Agenda | Upcoming events menu |
+| Quick Panel / agenda view | Pro Quick Panel; Free today + tomorrow | Day, Week, Month, Agenda | Upcoming events menu |
 | Apple Reminders and due-date alerts | Pro | No | No | Yes |
 | Quiet hours | Pro | Per-calendar alert controls | Limited |
 | Screen-share privacy | Pro | Available in its workflow | Not a core feature |
@@ -128,7 +128,7 @@ Choose **Meety** if you are primarily a Google Calendar user and want configurab
 
 Choose **In Your Face** if you want a dedicated full-screen event reminder, broad video-service detection, custom sounds and themes, and support across Mac, iPhone, iPad, and Apple Watch.
 
-Choose **Meetly** if you want fullscreen reminders that are hard to miss, support for multiple calendars through macOS Calendar, one-click joining, a Quick Panel, Apple Reminders, privacy controls, and a one-time Pro purchase instead of another recurring subscription.
+Choose **Meetly** if you want fullscreen reminders that are hard to miss, one-click joining, and support for a calendar through macOS Calendar, with Pro options for unlimited calendars, Quick Panel, Apple Reminders, privacy controls, and a one-time purchase instead of another recurring subscription.
 
 ## The best meeting reminder is the one that matches your failure mode
 
@@ -136,6 +136,6 @@ There is no universal winner for every Mac user. MeetingBar is excellent at keep
 
 That is the reason Meetly feels different from a normal calendar notification. It lets you stay focused until the meeting matters, then gives you a clear interruption with the information and action you need immediately.
 
-Meetly is free to download for macOS 14 or later. The free plan includes the core meeting reminder workflow for one calendar, while Pro adds unlimited calendars, Apple Reminders, quiet hours, screen-share privacy, and iCloud sync. Pro Lifetime is **$6.99** (was $9.99) one-time until 30 Sep 2026 with a 14-day money-back guarantee.
+Meetly is free to download for macOS 14 or later. The free plan includes the core meeting reminder workflow for one calendar, while Pro adds Quick Panel, free-time sharing, post-meeting action items, unlimited calendars, Apple Reminders, quiet hours, screen-share privacy, and iCloud sync. Pro Lifetime is **$6.99** (was $9.99) one-time until 30 Sep 2026 with a 14-day money-back guarantee.
 
 [Try Meetly for macOS](/meetly/) if you want a meeting reminder that does more than sit quietly in the corner of your screen.
