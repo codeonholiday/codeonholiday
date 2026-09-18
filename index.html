@@ -132,6 +132,11 @@
             --l-cyan:       #53E4ED;
             --l-grad:       linear-gradient(135deg, #A16DFF 0%, #53E4ED 100%);
 
+            /* LiveQR accent — purple → green */
+            --q-purple:     #9B7CFF;
+            --q-green:      #5EE5A2;
+            --q-grad:       linear-gradient(135deg, #9B7CFF 0%, #5EE5A2 100%);
+
             --text:         #F8FBFF;
             --text-muted:   #93A1B5;
             --text-dim:     #64748B;
@@ -260,6 +265,7 @@
         .product.meetly::before    { background: var(--m-grad); }
         .product.hoverboard::before{ background: var(--h-grad); }
         .product.localmelody::before{ background: var(--l-grad); }
+        .product.liveqr::before     { background: var(--q-grad); }
         .product.localmelody { order: -1; border-color: rgba(83,228,237,0.34); box-shadow: 0 18px 55px -30px rgba(83,228,237,0.55); }
         .product:hover {
             transform: translateY(-6px);
@@ -269,6 +275,7 @@
         .product.meetly:hover     { box-shadow: 0 30px 70px -30px rgba(78,230,213,0.4); }
         .product.hoverboard:hover { box-shadow: 0 30px 70px -30px rgba(255,107,53,0.4); }
         .product.localmelody:hover { box-shadow: 0 30px 70px -30px rgba(83,228,237,0.4); }
+        .product.liveqr:hover      { box-shadow: 0 30px 70px -30px rgba(155,124,255,0.4); }
 
         .product > * { position: relative; z-index: 1; }
 
@@ -284,6 +291,7 @@
         .product.meetly .p-icon     { background: var(--m-grad); }
         .product.hoverboard .p-icon { background: var(--h-grad); }
         .product.localmelody .p-icon { background: var(--l-grad); }
+        .product.liveqr .p-icon      { background: var(--q-grad); }
 
         .p-name { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; }
         .p-tag {
@@ -295,6 +303,7 @@
         .product.meetly .p-tag     { color: var(--m-teal); }
         .product.hoverboard .p-tag { color: var(--h-orange); }
         .product.localmelody .p-tag { display: inline-flex; align-items: center; gap: 6px; padding: 5px 9px; border: 1px solid rgba(83,228,237,0.35); border-radius: 999px; color: var(--l-cyan); background: rgba(83,228,237,0.1); font-size: 10px; letter-spacing: .12em; }
+        .product.liveqr .p-tag      { color: var(--q-green); }
 
         .p-pitch { font-size: 1.5rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 12px; }
         .product.meetly .p-pitch     { color: var(--text); }
@@ -317,6 +326,7 @@
         .product.meetly .p-cta     { color: var(--m-teal); }
         .product.hoverboard .p-cta { color: var(--h-orange); }
         .product.localmelody .p-cta { color: var(--l-cyan); }
+        .product.liveqr .p-cta      { color: var(--q-green); }
         .p-cta svg { width: 16px; height: 16px; transition: transform 0.25s var(--ease); }
         .product:hover .p-cta svg { transform: translateX(4px); }
 
@@ -430,6 +440,38 @@
                 <ul class="p-features"><li>Music + vocals</li><li>Lyrics generation</li><li>Apple Silicon</li><li>No cloud upload</li></ul>
                 <span class="p-cta">Download for Mac <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
                 <div class="p-meta"><span>macOS 14+</span><span class="dot"></span><span>Free + Pro $6.99 (was $9.99)</span><span class="dot"></span><span>Local-first</span></div>
+            </a>
+
+            <!-- LiveQR -->
+            <a href="https://liveqr.me/" class="product liveqr">
+                <div class="p-head">
+                    <div class="p-icon">
+                        <img src="liveqr/icon.svg" alt="LiveQR icon" style="width:100%;height:100%;object-fit:cover;border-radius:14px;padding:10px">
+                    </div>
+                    <div>
+                        <div class="p-name">LiveQR</div>
+                        <div class="p-tag">Donate &amp; streaming</div>
+                    </div>
+                </div>
+                <div class="p-pitch">Donate về thẳng tài khoản ngân hàng.</div>
+                <p class="p-desc">Nền tảng VietQR cho streamer Việt — tiền về thẳng TK, alert OBS realtime, TTS tiếng Việt, kiểm duyệt nội dung.</p>
+                <ul class="p-features">
+                    <li>VietQR tức thì</li>
+                    <li>Alert OBS</li>
+                    <li>TTS tiếng Việt</li>
+                    <li>Non-custodial</li>
+                </ul>
+                <span class="p-cta">
+                    Mở LiveQR
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </span>
+                <div class="p-meta">
+                    <span>Web · OBS</span>
+                    <span class="dot"></span>
+                    <span>Streamer Việt</span>
+                    <span class="dot"></span>
+                    <span>liveqr.me</span>
+                </div>
             </a>
 
             <!-- HoverBoard -->
