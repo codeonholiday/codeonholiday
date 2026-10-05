@@ -800,3 +800,656 @@ body.coh-trungthu-on .coh-promo *::selection {
   background: rgba(8, 18, 24, 0.2) !important;
   color: #081218 !important;
 }
+
+/* =============================================================================
+   Halloween 2026 — visual theme
+   Active 1 Oct – end of 1 Nov 2026 (Asia/Ho_Chi_Minh). Preview: ?halloween=1
+   Does NOT restyle .coh-promo.
+   ============================================================================= */
+
+body.coh-halloween-on {
+  --coh-hw-night: #07060d;
+  --coh-hw-night-2: #14101c;
+  --coh-hw-orange: #ff7a1a;
+  --coh-hw-orange-soft: #ffc48a;
+  --coh-hw-purple: #c4a6ff;
+  --coh-hw-border: rgba(255, 122, 26, 0.22);
+  --coh-hw-border-strong: rgba(255, 122, 26, 0.46);
+  --bg: var(--coh-hw-night) !important;
+  --bg-2: var(--coh-hw-night-2) !important;
+  --bg2: var(--coh-hw-night-2) !important;
+  --card: #1a121c !important;
+  --border: var(--coh-hw-border) !important;
+  --border-strong: var(--coh-hw-border-strong) !important;
+  --line: var(--coh-hw-border) !important;
+  --accent: var(--coh-hw-orange) !important;
+  --accent-2: var(--coh-hw-purple) !important;
+  --a: var(--coh-hw-orange) !important;
+  --text: #fff6ee !important;
+  --text-muted: #d2bfb0 !important;
+  --text-dim: #9a887c !important;
+  --muted: #d2bfb0 !important;
+  --teal: #ff7a1a !important;
+  --teal-2: #ffc48a !important;
+  --orange: #ff7a1a !important;
+  --pink: #e11d48 !important;
+  --purple: #c4a6ff !important;
+  --cyan: #ffc48a !important;
+  --grad: linear-gradient(135deg, #ffc48a 0%, #ff7a1a 42%, #a78bfa 100%) !important;
+  --grad-teal: linear-gradient(135deg, #ffc48a 0%, #ff7a1a 55%, #c2410c 100%) !important;
+  --grad-brand: linear-gradient(135deg, #ff7a1a 0%, #7c3aed 100%) !important;
+  --m-grad: linear-gradient(135deg, #ffc48a 0%, #ff7a1a 50%, #c4a6ff 100%) !important;
+  --h-grad: linear-gradient(135deg, #ff7a1a 0%, #e11d48 100%) !important;
+  --l-grad: linear-gradient(135deg, #c4a6ff 0%, #ff7a1a 100%) !important;
+  background: var(--coh-hw-night) !important;
+  color: #fff6ee !important;
+}
+
+body.coh-halloween-on::before {
+  content: '' !important;
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(38% 36% at 86% 8%, rgba(255, 176, 80, 0.28) 0%, transparent 60%),
+    radial-gradient(46% 42% at 8% 18%, rgba(124, 58, 237, 0.22) 0%, transparent 64%),
+    radial-gradient(70% 50% at 50% 120%, rgba(180, 40, 10, 0.2) 0%, transparent 55%),
+    linear-gradient(180deg, #05040a 0%, #100c16 42%, #1a0c12 100%) !important;
+}
+
+html.coh-halloween {
+  overflow-x: hidden;
+}
+
+.coh-halloween-decor {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  contain: paint;
+  clip-path: inset(0);
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+
+body.coh-halloween-ready .coh-halloween-decor {
+  opacity: 1;
+}
+
+.coh-hw-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 46%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.coh-hw-aurora {
+  position: absolute;
+  inset: -20%;
+  background: conic-gradient(
+    from 200deg at 82% 10%,
+    rgba(255, 120, 30, 0.1),
+    transparent 26%,
+    rgba(140, 70, 255, 0.1),
+    transparent 58%,
+    rgba(255, 80, 40, 0.07),
+    transparent 82%
+  );
+  filter: blur(42px);
+  opacity: 0.9;
+}
+
+.coh-hw-stars {
+  position: absolute;
+  inset: 0;
+}
+
+.coh-hw-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #fff4e4;
+  box-shadow: 0 0 6px 1px rgba(255, 170, 80, 0.65);
+}
+
+.coh-hw-star-lg {
+  width: 3px;
+  height: 3px;
+}
+
+.coh-hw-moon-wrap {
+  position: absolute;
+  top: max(36px, 2vh);
+  right: max(8px, 2vw);
+  width: min(210px, 28vw);
+  height: min(210px, 28vw);
+  z-index: 1;
+}
+
+.coh-hw-moon-glow {
+  position: absolute;
+  inset: -42%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 196, 120, 0.45) 0%, rgba(255, 100, 30, 0.12) 42%, transparent 68%);
+}
+
+.coh-hw-moon {
+  position: absolute;
+  inset: 18%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 28%, #fff8e8 0%, #f6d7a4 30%, #e8b56a 64%, #c4843a 100%);
+  box-shadow:
+    0 0 36px 10px rgba(255, 176, 80, 0.38),
+    0 0 110px 36px rgba(255, 90, 20, 0.16),
+    inset -16px -12px 24px rgba(90, 40, 10, 0.32);
+}
+
+.coh-hw-moon::before,
+.coh-hw-moon::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(140, 72, 24, 0.18);
+}
+
+.coh-hw-moon::before {
+  width: 16%;
+  height: 16%;
+  left: 24%;
+  top: 36%;
+}
+
+.coh-hw-moon::after {
+  width: 10%;
+  height: 10%;
+  left: 52%;
+  top: 28%;
+  box-shadow: -6px 18px 0 1px rgba(140, 72, 24, 0.14);
+}
+
+.coh-hw-web {
+  position: absolute;
+  width: min(200px, 28vw);
+  z-index: 2;
+  opacity: 0.72;
+}
+
+.coh-hw-web-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.coh-hw-web-a { top: 0; left: 0; }
+.coh-hw-web-b {
+  right: 0;
+  bottom: 0;
+  opacity: 0.4;
+  transform: rotate(180deg);
+}
+
+.coh-hw-spider {
+  position: absolute;
+  top: 0;
+  left: 24%;
+  width: 28px;
+  z-index: 3;
+  transform-origin: 50% 0;
+}
+
+.coh-hw-thread {
+  display: block;
+  width: 1px;
+  height: 64px;
+  margin: 0 auto;
+  background: rgba(236, 220, 255, 0.5);
+}
+
+.coh-hw-spider svg {
+  display: block;
+  width: 28px;
+  height: auto;
+  margin-top: -2px;
+}
+
+.coh-hw-pumpkin {
+  position: absolute;
+  width: min(62px, 9vw);
+  transform-origin: 50% 0;
+  filter: drop-shadow(0 12px 16px rgba(255, 90, 20, 0.32));
+  z-index: 3;
+}
+
+.coh-hw-pumpkin-svg,
+.coh-hw-bat-svg,
+.coh-hw-ghost-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.coh-hw-pumpkin-a { top: 7%; left: 1.2%; }
+.coh-hw-pumpkin-b { top: 36%; right: 1.2%; width: min(50px, 7vw); }
+.coh-hw-pumpkin-c { bottom: 12%; left: 3%; width: min(54px, 8vw); }
+.coh-hw-pumpkin-d { top: 62%; right: 4%; width: min(42px, 6vw); opacity: 0.92; }
+
+.coh-hw-bats,
+.coh-hw-ghosts {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  contain: paint;
+}
+
+.coh-hw-bat {
+  position: absolute;
+  top: var(--y, 20%);
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.35));
+}
+
+.coh-hw-bat-svg {
+  width: var(--s, 64px);
+}
+
+.coh-hw-ghost {
+  position: absolute;
+  left: var(--x, 20%);
+  bottom: 0;
+  width: var(--s, 48px);
+  height: 100%;
+  opacity: 0;
+  filter: drop-shadow(0 0 14px rgba(255, 246, 236, 0.28));
+}
+
+.coh-hw-ghost-svg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.coh-hw-fog {
+  position: absolute;
+  height: 110px;
+  border-radius: 999px;
+  filter: blur(14px);
+  background: linear-gradient(90deg, transparent, rgba(168, 130, 255, 0.12), rgba(255, 140, 60, 0.1), transparent);
+  z-index: 1;
+}
+
+.coh-hw-fog-a { bottom: 4%; left: -12%; width: 72%; }
+.coh-hw-fog-b { bottom: 16%; right: -10%; width: 56%; height: 78px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .coh-hw-aurora { animation: coh-hw-aurora 42s linear infinite; }
+  .coh-hw-moon-glow { animation: coh-hw-breathe 5s ease-in-out infinite; }
+  .coh-hw-moon-wrap { animation: coh-hw-float 9s ease-in-out infinite; }
+  .coh-hw-pumpkin-glow { animation: coh-hw-flicker 2.6s ease-in-out infinite; }
+  .coh-hw-pumpkin-a { animation: coh-hw-sway 4.8s ease-in-out infinite; }
+  .coh-hw-pumpkin-b { animation: coh-hw-sway-alt 5.6s ease-in-out infinite; }
+  .coh-hw-pumpkin-c { animation: coh-hw-sway 5.2s ease-in-out infinite; animation-delay: -1.6s; }
+  .coh-hw-pumpkin-d { animation: coh-hw-sway-alt 6s ease-in-out infinite; animation-delay: -2.4s; }
+  .coh-hw-spider { animation: coh-hw-dangle 5.5s ease-in-out infinite; }
+  .coh-hw-bat { animation: coh-hw-bat-fly var(--d, 18s) linear infinite; animation-delay: var(--delay, 0s); }
+  .coh-hw-bat-svg { animation: coh-hw-flap 0.55s ease-in-out infinite; transform-origin: 50% 60%; }
+  .coh-hw-ghost { animation: coh-hw-ghost-rise var(--d, 28s) linear infinite; animation-delay: var(--delay, 0s); }
+  .coh-hw-fog-a { animation: coh-hw-drift 36s linear infinite; }
+  .coh-hw-fog-b { animation: coh-hw-drift-rev 42s linear infinite; }
+  .coh-hw-star-lg { animation: coh-hw-twinkle 2.8s ease-in-out infinite; }
+
+  body.coh-halloween-on h1,
+  body.coh-halloween-on .hero h1 {
+    background-image: linear-gradient(110deg, #fff6ee 0%, #ffc48a 30%, #ff7a1a 52%, #c4a6ff 74%, #fff6ee 100%);
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    animation: coh-hw-shimmer 7s ease-in-out infinite;
+  }
+
+  body.coh-halloween-on h1 span,
+  body.coh-halloween-on .hero h1 span,
+  body.coh-halloween-on .grad {
+    background: linear-gradient(110deg, #ffd7a8, #ff7a1a 42%, #c4a6ff) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+    animation: none;
+  }
+
+  body.coh-halloween-on .btn.primary,
+  body.coh-halloween-on .btn-primary,
+  body.coh-halloween-on .btn-download,
+  body.coh-halloween-on a.primary {
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease, filter 0.28s ease;
+  }
+
+  body.coh-halloween-on .btn.primary:hover,
+  body.coh-halloween-on .btn-primary:hover,
+  body.coh-halloween-on .btn-download:hover,
+  body.coh-halloween-on a.primary:hover {
+    transform: translateY(-3px) scale(1.02);
+    filter: brightness(1.06);
+    box-shadow: 0 18px 44px rgba(255, 122, 26, 0.4) !important;
+  }
+}
+
+@keyframes coh-hw-aurora { to { transform: rotate(360deg); } }
+
+@keyframes coh-hw-breathe {
+  0%, 100% { opacity: 0.65; transform: scale(0.94); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+@keyframes coh-hw-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes coh-hw-flicker {
+  0%, 100% { opacity: 0.28; }
+  40% { opacity: 0.7; }
+  62% { opacity: 0.35; }
+  80% { opacity: 0.62; }
+}
+
+@keyframes coh-hw-sway {
+  0%, 100% { transform: rotate(-7deg); }
+  50% { transform: rotate(6deg); }
+}
+
+@keyframes coh-hw-sway-alt {
+  0%, 100% { transform: rotate(6deg); }
+  50% { transform: rotate(-7deg); }
+}
+
+@keyframes coh-hw-dangle {
+  0%, 100% { transform: rotate(-6deg); }
+  50% { transform: rotate(8deg); }
+}
+
+@keyframes coh-hw-bat-fly {
+  0% { transform: translate3d(102%, 8px, 0); opacity: 0; }
+  8% { opacity: 0.9; }
+  50% { transform: translate3d(38%, -18px, 0); opacity: 0.8; }
+  92% { opacity: 0.75; }
+  100% { transform: translate3d(-18%, 10px, 0); opacity: 0; }
+}
+
+@keyframes coh-hw-flap {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.78); }
+}
+
+@keyframes coh-hw-ghost-rise {
+  0% { transform: translate3d(0, 12%, 0) scale(0.92); opacity: 0; }
+  12% { opacity: 0.72; }
+  70% { opacity: 0.5; }
+  100% { transform: translate3d(28px, -108%, 0) scale(1.05); opacity: 0; }
+}
+
+@keyframes coh-hw-drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(22%); }
+}
+
+@keyframes coh-hw-drift-rev {
+  from { transform: translateX(0); }
+  to { transform: translateX(-22%); }
+}
+
+@keyframes coh-hw-twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.75); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+@keyframes coh-hw-shimmer {
+  0%, 100% { background-position: 100% 50%; }
+  50% { background-position: 0% 50%; }
+}
+
+@media (max-width: 700px) {
+  .coh-hw-moon-wrap {
+    width: min(120px, 32vw);
+    height: min(120px, 32vw);
+    top: 4px;
+    right: 0;
+  }
+  .coh-hw-pumpkin-b,
+  .coh-hw-pumpkin-d,
+  .coh-hw-web-b,
+  .coh-hw-spider,
+  .coh-hw-fog-b,
+  .coh-hw-bat:nth-child(n + 4),
+  .coh-hw-ghost:nth-child(n + 3) {
+    display: none;
+  }
+  .coh-hw-pumpkin-a { width: 46px; top: 10%; left: 0; }
+  .coh-hw-pumpkin-c { width: 40px; left: 1%; bottom: 8%; }
+  .coh-hw-web-a { width: 140px; opacity: 0.45; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coh-hw-bats,
+  .coh-hw-ghosts,
+  .coh-hw-spider {
+    display: none;
+  }
+  .coh-halloween-decor {
+    opacity: 1;
+    transition: none;
+  }
+}
+
+body.coh-halloween-on a {
+  color: var(--coh-hw-orange-soft);
+}
+
+body.coh-halloween-on .brand-mark {
+  background: linear-gradient(135deg, #ffc48a 0%, #ff7a1a 48%, #7c3aed 100%) !important;
+  box-shadow: 0 0 0 1px rgba(255, 122, 26, 0.32), 0 0 18px rgba(255, 122, 26, 0.28);
+}
+
+body.coh-halloween-on .logo img {
+  box-shadow: 0 0 0 1px rgba(255, 122, 26, 0.24), 0 0 16px rgba(255, 122, 26, 0.18);
+}
+
+body.coh-halloween-on .site-header,
+body.coh-halloween-on header#header,
+body.coh-halloween-on header:has(.site-nav) {
+  background: rgba(10, 6, 16, 0.74) !important;
+  border-bottom-color: var(--coh-hw-border) !important;
+  backdrop-filter: blur(20px) saturate(150%);
+}
+
+body.coh-halloween-on .wrap > header {
+  background: transparent !important;
+  border-bottom: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+body.coh-halloween-on .hero {
+  isolation: auto !important;
+  background: transparent !important;
+}
+
+body.coh-halloween-on .hero::before,
+body.coh-halloween-on .hero:before {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+
+body.coh-halloween-on .card,
+body.coh-halloween-on .product,
+body.coh-halloween-on .feature,
+body.coh-halloween-on .plan,
+body.coh-halloween-on .box,
+body.coh-halloween-on .note,
+body.coh-halloween-on .pricing-card,
+body.coh-halloween-on .bento-card,
+body.coh-halloween-on .testimonial,
+body.coh-halloween-on .video-card,
+body.coh-halloween-on .hero-art,
+body.coh-halloween-on .coming {
+  border-color: var(--coh-hw-border) !important;
+  background: linear-gradient(165deg, rgba(42, 22, 28, 0.94), rgba(14, 10, 20, 0.92)) !important;
+  box-shadow:
+    0 22px 60px -30px rgba(0, 0, 0, 0.65),
+    inset 0 1px 0 rgba(255, 196, 140, 0.08);
+}
+
+body.coh-halloween-on .card:hover,
+body.coh-halloween-on a.card:hover,
+body.coh-halloween-on .product:hover,
+body.coh-halloween-on a.product:hover {
+  border-color: var(--coh-hw-border-strong) !important;
+  box-shadow:
+    0 26px 64px -22px rgba(255, 122, 26, 0.32),
+    inset 0 1px 0 rgba(255, 196, 140, 0.12);
+}
+
+body.coh-halloween-on .btn.primary,
+body.coh-halloween-on .btn-primary,
+body.coh-halloween-on .btn-download,
+body.coh-halloween-on a.primary,
+body.coh-halloween-on .primary {
+  color: #1a0c06 !important;
+  background: linear-gradient(135deg, #ffe0b8 0%, #ff7a1a 52%, #c2410c 100%) !important;
+  border-color: transparent !important;
+  box-shadow: 0 14px 36px rgba(255, 122, 26, 0.34) !important;
+}
+
+body.coh-halloween-on .btn.ghost,
+body.coh-halloween-on .btn-secondary,
+body.coh-halloween-on .btn-ghost,
+body.coh-halloween-on a.ghost,
+body.coh-halloween-on .ghost {
+  border-color: var(--coh-hw-border-strong) !important;
+  color: #fff6ee !important;
+  background: rgba(255, 122, 26, 0.06) !important;
+}
+
+body.coh-halloween-on .pill,
+body.coh-halloween-on .eyebrow,
+body.coh-halloween-on .code {
+  color: var(--coh-hw-orange-soft) !important;
+  border-color: rgba(255, 122, 26, 0.4) !important;
+}
+
+body.coh-halloween-on .pill {
+  background: rgba(255, 122, 26, 0.12) !important;
+  box-shadow: 0 0 24px rgba(255, 122, 26, 0.14);
+}
+
+body.coh-halloween-on .plan.pro,
+body.coh-halloween-on .pricing-card.featured {
+  border-color: rgba(255, 122, 26, 0.5) !important;
+  background: linear-gradient(160deg, rgba(255, 122, 26, 0.16), rgba(14, 10, 20, 0.95) 55%) !important;
+}
+
+body.coh-halloween-on .plan-tag,
+body.coh-halloween-on .plan.pro .plan-tag {
+  background: linear-gradient(135deg, #ffe0b8, #ff7a1a, #7c3aed) !important;
+  color: #1a0c06 !important;
+}
+
+body.coh-halloween-on .gradient-text,
+body.coh-halloween-on .grad {
+  background: linear-gradient(110deg, #ffe0b8, #ff7a1a 46%, #c4a6ff) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+body.coh-halloween-on footer {
+  background: rgba(8, 6, 14, 0.96) !important;
+  border-top-color: var(--coh-hw-border) !important;
+  color: #d2bfb0 !important;
+}
+
+body.coh-halloween-on *::selection {
+  background: #ff7a1a !important;
+  color: #1a0c06 !important;
+}
+
+body.coh-halloween-on .toc a.active {
+  color: var(--coh-hw-orange) !important;
+  border-left-color: var(--coh-hw-orange) !important;
+}
+
+body.coh-halloween-on .tag,
+body.coh-halloween-on .tags .tag {
+  border-color: var(--coh-hw-border) !important;
+  color: #d2bfb0 !important;
+  background: rgba(255, 122, 26, 0.08) !important;
+}
+
+body.coh-halloween-on .prose a {
+  color: var(--coh-hw-orange-soft) !important;
+}
+
+body.coh-halloween-on .nav-mobile-links {
+  background: rgba(18, 10, 22, 0.98) !important;
+  border-color: var(--coh-hw-border-strong) !important;
+}
+
+body.coh-halloween-on .wrap,
+body.coh-halloween-on main,
+body.coh-halloween-on .pg-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+body.coh-halloween-on main .container,
+body.coh-halloween-on .wrap .container {
+  position: relative;
+  z-index: 1;
+}
+
+body.coh-halloween-on .site-header,
+body.coh-halloween-on header#header,
+body.coh-halloween-on header:has(.site-nav) {
+  z-index: 40 !important;
+}
+
+body.coh-halloween-on .coh-promo {
+  z-index: 10000;
+  color: #081218 !important;
+  background: linear-gradient(110deg, #4EE6D5 0%, #A16DFF 48%, #FF6B35 100%) !important;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.22) !important;
+}
+
+body.coh-halloween-on .coh-promo a {
+  color: #081218 !important;
+  font-weight: 800 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+}
+
+body.coh-halloween-on .coh-promo a:hover {
+  opacity: 0.85 !important;
+}
+
+body.coh-halloween-on .coh-promo .coh-promo-badge {
+  background: rgba(8, 18, 24, 0.18) !important;
+  color: inherit !important;
+}
+
+body.coh-halloween-on .coh-promo *::selection {
+  background: rgba(8, 18, 24, 0.2) !important;
+  color: #081218 !important;
+}
