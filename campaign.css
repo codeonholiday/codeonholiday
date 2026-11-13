@@ -1453,3 +1453,198 @@ body.coh-halloween-on .coh-promo *::selection {
   background: rgba(8, 18, 24, 0.2) !important;
   color: #081218 !important;
 }
+
+/* =============================================================================
+   Black Friday 2026 — obsidian, champagne, and 50% off every Pro app.
+   Active 2–30 Nov (Asia/Ho_Chi_Minh). Preview: ?blackfriday=1
+   ============================================================================= */
+body.coh-blackfriday-on {
+  --coh-bf-gold: #f2d48a;
+  --coh-bf-line: rgba(242, 212, 138, .2);
+  --bg: #090909;
+  --bg-2: #111110;
+  --bg2: #111110;
+  --card: #171613;
+  --text: #faf7ee;
+  --text-muted: #b7b2a6;
+  --text-dim: #8d887d;
+  --muted: #b7b2a6;
+  --border: var(--coh-bf-line);
+  --border-strong: rgba(242, 212, 138, .4);
+  --line: var(--coh-bf-line);
+  --a: var(--coh-bf-gold);
+  --teal: var(--coh-bf-gold);
+  --teal-2: #fff0c4;
+  --orange: var(--coh-bf-gold);
+  --orange-2: #fff0c4;
+  --purple: var(--coh-bf-gold);
+  --cyan: #fff0c4;
+  --m-teal: var(--coh-bf-gold);
+  --h-orange: var(--coh-bf-gold);
+  --l-cyan: var(--coh-bf-gold);
+  --grad: linear-gradient(120deg, #fff3cf, #e9bd61);
+  --grad-teal: var(--grad);
+  --grad-brand: var(--grad);
+  --grad-text: var(--grad);
+  --m-grad: var(--grad);
+  --h-grad: var(--grad);
+  --l-grad: var(--grad);
+  background: var(--bg);
+  color: var(--text);
+}
+
+body.coh-blackfriday-on::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% -15%, rgba(218, 174, 81, .15), transparent 58%),
+    radial-gradient(ellipse at 100% 70%, rgba(218, 174, 81, .04), transparent 50%);
+}
+
+body.coh-blackfriday-on :is(.wrap, main, footer) { position: relative; }
+body.coh-blackfriday-on :is(.site-header, header#header, header:has(.site-nav)) {
+  background: rgba(9, 9, 9, .9);
+  border-bottom-color: var(--coh-bf-line);
+}
+body.coh-blackfriday-on .hero,
+body.coh-blackfriday-on .hero::before { background: none; }
+body.coh-blackfriday-on :is(.product, .card, .plan, .price-card, .bento-card, .feature, .note, .coming, .cta-box) {
+  border-color: var(--coh-bf-line);
+  background: linear-gradient(145deg, #1c1a15, #111110);
+}
+body.coh-blackfriday-on :is(.product:hover, .card:hover, .plan.pro, .price-card.pro) {
+  border-color: rgba(242, 212, 138, .45);
+  box-shadow: 0 20px 60px -36px rgba(218, 174, 81, .35);
+}
+body.coh-blackfriday-on :is(.btn-primary, .btn.primary, .btn-download, .brand-mark) {
+  background: var(--grad);
+  color: #16120a;
+  box-shadow: 0 8px 28px -12px rgba(218, 174, 81, .5);
+}
+body.coh-blackfriday-on :is(.grad, .gradient-text, .hero h1 > span) {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+body.coh-blackfriday-on .product.localmelody .p-tag {
+  color: var(--coh-bf-gold);
+  background: rgba(242, 212, 138, .07);
+  border-color: var(--coh-bf-line);
+}
+body.coh-blackfriday-on :is(.pill, .plan-tag, .price-tag) {
+  color: var(--coh-bf-gold);
+  background: #242016;
+  border-color: var(--coh-bf-line);
+  box-shadow: none;
+}
+body.coh-blackfriday-on ::selection { color: #16120a; background: #f2d48a; }
+html.coh-blackfriday { overflow-x: clip; }
+body.coh-blackfriday-on :is(#pricing, #apps) { scroll-margin-top: calc(var(--coh-promo-h) + 90px); }
+
+.coh-promo.coh-bf-bar {
+  gap: 10px 20px;
+  padding: 10px 24px;
+  color: #f9efd5;
+  background: #19160f;
+  border-bottom: 1px solid rgba(242, 212, 138, .3);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, .25);
+}
+.coh-bf-bar .coh-promo-badge {
+  padding: 5px 9px;
+  border: 1px solid rgba(242, 212, 138, .32);
+  border-radius: 4px;
+  background: transparent;
+  color: #f2d48a;
+}
+.coh-bf-bar strong, .coh-bf-bar a { color: #f2d48a; }
+.coh-bf-bar a { text-decoration: none; white-space: nowrap; }
+.coh-bf-deadline { color: #b7b2a6; font-weight: 400; }
+.coh-bf-coupon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px dashed rgba(242, 212, 138, .5);
+  border-radius: 7px;
+  background: rgba(242, 212, 138, .06);
+  color: #f2d48a;
+  font: inherit;
+  line-height: 1.4;
+  cursor: pointer;
+}
+.coh-bf-coupon:hover { background: rgba(242, 212, 138, .12); border-color: #f2d48a; }
+.coh-bf-coupon:focus-visible { outline: 2px solid #fff0c4; outline-offset: 4px; }
+.coh-bf-code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; font-weight: 800; letter-spacing: .08em; user-select: all; }
+.coh-bf-copy-label { padding-left: 12px; border-left: 1px solid rgba(242, 212, 138, .25); font-size: 11px; font-weight: 500; white-space: nowrap; }
+.coh-bf-eyebrow { color: #f2d48a; font-size: 11px; font-weight: 700; line-height: 1.5; letter-spacing: .17em; text-transform: uppercase; }
+.hero > .coh-bf-eyebrow { margin-bottom: 22px; }
+.coh-bf-offer {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr auto;
+  align-items: center;
+  gap: 32px;
+  isolation: isolate;
+  overflow: hidden;
+  margin: 0 0 32px;
+  padding: 38px;
+  border: 1px solid rgba(242, 212, 138, .34);
+  border-radius: 22px;
+  background: radial-gradient(ellipse at 0 50%, rgba(242, 212, 138, .13), transparent 65%), #13120f;
+  color: #faf7ee;
+}
+.coh-bf-offer::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: repeating-linear-gradient(120deg, transparent 0 70px, rgba(242, 212, 138, .035) 70px 71px);
+  pointer-events: none;
+}
+.coh-bf-savings { padding-right: 30px; border-right: 1px solid rgba(242, 212, 138, .2); }
+.coh-bf-savings > span { display: block; color: #f2d48a; font-size: clamp(64px, 7.5vw, 104px); font-weight: 800; line-height: 1; letter-spacing: -.08em; white-space: nowrap; }
+.coh-bf-savings small { font-size: .48em; vertical-align: top; line-height: 1.5; letter-spacing: -.04em; }
+.coh-bf-savings strong { display: block; margin-top: 16px; color: #b7b2a6; font-size: 10px; font-weight: 600; letter-spacing: .16em; }
+.coh-bf-offer-copy h2 { margin: 12px 0; font-size: clamp(22px, 2.8vw, 32px); line-height: 1.18; font-weight: 700; letter-spacing: -.04em; }
+.coh-bf-offer-copy p { margin: 0; color: #b7b2a6; font-size: 12px; line-height: 1.8; }
+.coh-bf-offer-action { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+.coh-bf-offer-action > span { color: #b7b2a6; font-size: 10px; letter-spacing: .13em; }
+.coh-bf-offer-action > small { color: #b7b2a6; font-size: 10px; }
+.coh-bf-deal { display: inline-block; padding: 4px 9px; border: 1px solid rgba(242, 212, 138, .25); border-radius: 5px; color: #f2d48a; background: rgba(242, 212, 138, .06); font-size: 11px; font-weight: 600; }
+.p-meta > .coh-bf-deal { flex-basis: 100%; width: fit-content; }
+.coh-bf-price-label { margin: 0 0 16px; color: #f2d48a; font-size: 12px; font-weight: 600; line-height: 1.6; }
+.coh-bf-price-note { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin: 16px 0 24px; }
+.coh-bf-price-note > span { color: #b7b2a6; font-size: 11px; }
+.coh-bf-status { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+@media (max-width: 900px) {
+  .coh-bf-offer { grid-template-columns: auto 1fr; gap: 24px; padding: 30px; }
+  .coh-bf-offer-action { grid-column: 1 / -1; align-items: center; padding-top: 22px; border-top: 1px solid rgba(242, 212, 138, .16); }
+  .coh-bf-bar .coh-bf-deadline { display: none; }
+}
+@media (max-width: 600px) {
+  .coh-promo.coh-bf-bar { gap: 8px 12px; padding: 8px 12px; font-size: 11px; }
+  .coh-bf-bar .coh-bf-coupon { order: 1; }
+  .coh-bf-bar a { order: 2; }
+  .coh-bf-bar .coh-bf-code { font-size: 11px; }
+  .coh-bf-bar .coh-promo-badge { font-size: 9px; }
+  .coh-bf-offer { gap: 18px; padding: 24px 20px; border-radius: 16px; }
+  .coh-bf-savings { padding-right: 18px; }
+  .coh-bf-savings > span { font-size: 68px; }
+  .coh-bf-savings strong { max-width: 100px; font-size: 9px; line-height: 1.6; letter-spacing: .1em; }
+  .coh-bf-offer-copy .coh-bf-eyebrow { font-size: 9px; letter-spacing: .1em; }
+  .coh-bf-offer-copy h2 { font-size: 23px; }
+  .coh-bf-offer-copy p { font-size: 11px; }
+}
+@media (max-width: 380px) {
+  .coh-bf-offer { grid-template-columns: 1fr; text-align: center; }
+  .coh-bf-savings { padding: 0 0 20px; border-right: 0; border-bottom: 1px solid rgba(242, 212, 138, .2); }
+  .coh-bf-savings strong { max-width: none; }
+}

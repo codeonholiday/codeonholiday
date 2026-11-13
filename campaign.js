@@ -3,7 +3,8 @@
  * - Back to School promo bar: ends 30 Sep 2026
  * - Mid-Autumn (Trung Thu) visual theme: 11 Sep 2026 – end of 25 Sep 2026
  * - Halloween visual theme: 1 Oct 2026 – end of 1 Nov 2026
- * Preview anytime: ?trungthu=1 or ?halloween=1
+ * - Black Friday: 2 Nov 2026 – end of 30 Nov 2026, 50% off with BLACKFRIDAY
+ * Preview anytime: ?trungthu=1, ?halloween=1, or ?blackfriday=1
  */
 (function () {
   'use strict';
@@ -14,22 +15,168 @@
   var TT_END = new Date('2026-09-26T00:00:00+07:00');
   var HW_START = new Date('2026-10-01T00:00:00+07:00');
   var HW_END = new Date('2026-11-02T00:00:00+07:00');
+  var BF_START = new Date('2026-11-02T00:00:00+07:00');
+  var BF_END = new Date('2026-12-01T00:00:00+07:00');
+  var BF_CODE = 'BLACKFRIDAY';
 
   var params = new URLSearchParams(location.search || '');
   var previewTheme = params.get('trungthu') === '1' || params.get('trungthu') === 'true';
   var previewHalloween = params.get('halloween') === '1' || params.get('halloween') === 'true';
+  var previewBlackFriday = params.get('blackfriday') === '1' || params.get('blackfriday') === 'true';
   var schoolActive = now <= SCHOOL_END.getTime();
   var themeActive =
     previewTheme || (now >= TT_START.getTime() && now < TT_END.getTime());
   var halloweenActive =
     previewHalloween || (now >= HW_START.getTime() && now < HW_END.getTime());
+  var blackFridayActive =
+    previewBlackFriday || (now >= BF_START.getTime() && now < BF_END.getTime());
 
-  if (previewHalloween) themeActive = false;
-  else if (previewTheme) halloweenActive = false;
-  else if (halloweenActive) themeActive = false;
+  if (previewBlackFriday) {
+    themeActive = halloweenActive = false;
+  } else if (previewHalloween) {
+    themeActive = blackFridayActive = false;
+  } else if (previewTheme) {
+    halloweenActive = blackFridayActive = false;
+  } else if (blackFridayActive) {
+    themeActive = halloweenActive = false;
+  } else if (halloweenActive) themeActive = false;
+
+  /* ---------- Black Friday: shared theme, promotion, and checkout links ---------- */
+  if (blackFridayActive) {
+    document.documentElement.classList.add('coh-blackfriday');
+    document.body.classList.add('coh-blackfriday-on', 'coh-promo-on');
+
+    function couponButton() {
+      return '<button type="button" class="coh-bf-coupon" data-coh-copy-code ' +
+        'aria-label="Copy discount code ' + BF_CODE + '">' +
+        '<span class="coh-bf-code">' + BF_CODE + '</span>' +
+        '<span class="coh-bf-copy-label">Copy code</span></button>';
+    }
+
+    var bfPricing = document.getElementById('pricing');
+    var bfProductPath = location.pathname.match(/^\/(meetly|hoverboard|localmelody)(?:\/|$)/);
+    var bfHref = bfPricing ? '#pricing' : bfProductPath ? '/' + bfProductPath[1] + '/#pricing' : '/#apps';
+    var bfBar = document.createElement('div');
+    bfBar.className = 'coh-promo coh-bf-bar is-active';
+    bfBar.setAttribute('role', 'region');
+    bfBar.setAttribute('aria-label', 'Black Friday promotion');
+    bfBar.innerHTML = '<span class="coh-promo-badge">Black Friday</span>' +
+      '<span><strong>50% off</strong> every Pro app <span class="coh-bf-deadline">· Ends Nov 30</span></span>' +
+      couponButton() + '<a href="' + bfHref + '">Shop the sale <span aria-hidden="true">↗</span></a>';
+    document.body.insertBefore(bfBar, document.body.firstChild);
+
+    function syncBlackFridayBar() {
+      document.body.style.setProperty('--coh-promo-h', bfBar.offsetHeight + 'px');
+    }
+    syncBlackFridayBar();
+    window.addEventListener('resize', syncBlackFridayBar);
+    if (window.ResizeObserver) new ResizeObserver(syncBlackFridayBar).observe(bfBar);
+
+    // Applies to every product in this store, preserving existing URL parameters.
+    document.querySelectorAll('a[href]').forEach(function (link) {
+      var checkout = new URL(link.href, location.href);
+      var isCheckout = checkout.hostname === 'codeonholiday.lemonsqueezy.com' &&
+        /^\/checkout\/(buy|custom)\//.test(checkout.pathname);
+      if (isCheckout) {
+        checkout.searchParams.set('checkout[discount_code]', BF_CODE);
+        link.href = checkout.href;
+      }
+      if (!isCheckout && link.getAttribute('href') !== '#pricing') return;
+      // Keep any icons inside the button; replace only its regular-price label.
+      link.childNodes.forEach(function (node) {
+        if (node.nodeType === 3) {
+          node.textContent = node.textContent.replace(/\s*[—–]\s*\$[\d,.]+(?:\s+once)?/, ' — 50% off');
+        }
+      });
+    });
+
+    var bfProducts = document.querySelector('.products');
+    if (bfProducts) bfProducts.id = bfProducts.id || 'apps';
+    var bfHomeHero = document.querySelector('.wrap > .hero');
+    if (bfHomeHero) {
+      var bfEyebrow = document.createElement('div');
+      bfEyebrow.className = 'coh-bf-eyebrow';
+      bfEyebrow.textContent = 'The Black Friday collection / 2026';
+      bfHomeHero.insertBefore(bfEyebrow, bfHomeHero.firstChild);
+      bfHomeHero.querySelector('h1').innerHTML = 'Small apps.<br><span class="grad">Big Black Friday.</span>';
+      bfHomeHero.querySelector('p').textContent = 'Your everyday Mac tools, for half the price. Save 50% on every Pro app. Pay once, keep creating.';
+    }
+
+    var bfCollection = bfProducts || document.querySelector('main > .grid[aria-label="codeonholiday apps"]');
+    if (bfCollection) {
+      var bfOffer = document.createElement('section');
+      bfOffer.className = 'coh-bf-offer';
+      bfOffer.setAttribute('aria-label', 'Black Friday offer');
+      bfOffer.innerHTML = '<div class="coh-bf-savings"><span>50<small>%</small></span><strong>OFF ALL PRO APPS</strong></div>' +
+        '<div class="coh-bf-offer-copy"><span class="coh-bf-eyebrow">Better tools. Smaller price.</span>' +
+        '<h2>A little upgrade.<br>A lot more possibility.</h2>' +
+        '<p>Meetly · HoverBoard · LocalMelody<br>One-time purchases. All 50% off.</p></div>' +
+        '<div class="coh-bf-offer-action"><span>YOUR CODE TO SAVE</span>' + couponButton() +
+        '<small>Use at checkout · Ends Nov 30, 2026</small></div>';
+      bfCollection.parentNode.insertBefore(bfOffer, bfCollection);
+    }
+
+    document.querySelectorAll('.product.meetly .p-meta, .product.hoverboard .p-meta, .product.localmelody .p-meta, [data-coh-pro-tag]').forEach(function (target) {
+      var badge = document.createElement('span');
+      badge.className = 'coh-bf-deal';
+      badge.textContent = 'Black Friday · 50% off Pro';
+      if (target.hasAttribute('data-coh-pro-tag')) target.replaceWith(badge);
+      else target.insertBefore(badge, target.firstChild);
+    });
+
+    document.querySelectorAll('.price-card.pro .price-amt, .plan.pro .plan-price').forEach(function (price) {
+      var priceLabel = document.createElement('div');
+      priceLabel.className = 'coh-bf-price-label';
+      priceLabel.textContent = 'Black Friday · 50% off the regular price below';
+      price.parentNode.insertBefore(priceLabel, price);
+      var priceNote = document.createElement('div');
+      priceNote.className = 'coh-bf-price-note';
+      priceNote.innerHTML = couponButton() + '<span>Save 50% at checkout · Ends Nov 30</span>';
+      price.insertAdjacentElement('afterend', priceNote);
+    });
+
+    var bfAppsNote = document.querySelector('[data-coh-apps-note]');
+    if (bfAppsNote) bfAppsNote.innerHTML = '<strong>Black Friday:</strong> Get 50% off every Pro app with <strong>' + BF_CODE + '</strong> through Nov 30, 2026. The code is automatically filled in when you click Buy Pro. All apps require macOS 14 or later.';
+
+    var bfStatus = document.createElement('span');
+    bfStatus.className = 'coh-bf-status';
+    bfStatus.setAttribute('role', 'status');
+    document.body.appendChild(bfStatus);
+
+    function fallbackCopy() {
+      var field = document.createElement('textarea');
+      field.value = BF_CODE;
+      field.setAttribute('readonly', '');
+      field.style.cssText = 'position:fixed;top:0;left:-9999px';
+      document.body.appendChild(field);
+      field.select();
+      var copied = false;
+      try { copied = document.execCommand('copy'); } catch (error) { /* Manual copy remains available. */ }
+      field.remove();
+      return copied;
+    }
+
+    document.addEventListener('click', function (event) {
+      var button = event.target.closest('[data-coh-copy-code]');
+      if (!button) return;
+      function showCopyResult(copied) {
+        button.focus({ preventScroll: true });
+        button.querySelector('.coh-bf-copy-label').textContent = copied ? 'Copied!' : 'Copy manually';
+        bfStatus.textContent = copied ? BF_CODE + ' copied. Use it at checkout for 50% off.' : 'Your discount code is ' + BF_CODE + '. Select the code and copy it manually.';
+        window.setTimeout(function () {
+          button.querySelector('.coh-bf-copy-label').textContent = 'Copy code';
+        }, 2500);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(BF_CODE).then(function () {
+          showCopyResult(true);
+        }, function () { showCopyResult(fallbackCopy()); });
+      } else showCopyResult(fallbackCopy());
+    });
+  }
 
   /* ---------- Back to School promo bar (unchanged behavior) ---------- */
-  if (schoolActive) {
+  if (schoolActive && !blackFridayActive) {
     var path = location.pathname || '';
     var isProduct =
       path.indexOf('/meetly') === 0 ||
